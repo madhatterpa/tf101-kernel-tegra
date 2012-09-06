@@ -29,7 +29,6 @@
 #include <mach/iomap.h>
 
 #include "pm-irq.h"
-#include "wakeups.h"
 
 #define PMC_CTRL		0x0
 #define PMC_CTRL_LATCH_WAKEUPS	(1 << 5)
@@ -145,15 +144,12 @@ static inline void clear_pmc_sw_wake_status(void)
 
 int tegra_pm_irq_set_wake(int irq, int enable)
 {
-	struct wake_mask_types wake_msk;
-	int flow_type = -1;
-	int err;
+	int wake = tegra_irq_to_wake(irq);
 
-	err = tegra_irq_to_wake(irq, flow_type, &wake_msk);
-	if (err == -EALREADY) {
+	if (wake == -EALREADY) {
 		/* EALREADY means wakeup event already accounted for */
 		return 0;
-	} else if (err == -ENOTSUPP) {
+	} else if (wake == -ENOTSUPP) {
 		/* ENOTSUPP means LP0 not supported with this wake source */
 		WARN(enable && warn_prevent_lp0, "irq %d prevents lp0\n", irq);
 		if (enable)
@@ -161,43 +157,46 @@ int tegra_pm_irq_set_wake(int irq, int enable)
 		else if (!WARN_ON(tegra_prevent_lp0 == 0))
 			tegra_prevent_lp0--;
 		return 0;
-	} else if (err < 0) {
+	} else if (wake < 0) {
 		return -EINVAL;
 	}
 
-	if (enable)
-		tegra_lp0_wake_enb |= (wake_msk.wake_mask_hi |
-			wake_msk.wake_mask_lo | wake_msk.wake_mask_any);
-	else
-		tegra_lp0_wake_enb &= ~(wake_msk.wake_mask_hi |
-			wake_msk.wake_mask_lo | wake_msk.wake_mask_any);
+	if (enable) {
+		tegra_lp0_wake_enb |= 1ull << wake;
+		pr_info("Enabling wake%d\n", wake);
+	} else {
+		tegra_lp0_wake_enb &= ~(1ull << wake);
+		pr_info("Disabling wake%d\n", wake);
+	}
 
 	return 0;
 }
 
 int tegra_pm_irq_set_wake_type(int irq, int flow_type)
 {
-	struct wake_mask_types wake_msk;
-	int err;
+	int wake = tegra_irq_to_wake(irq);
 
-	err = tegra_irq_to_wake(irq, flow_type, &wake_msk);
-
-	if (err < 0)
+	if (wake < 0)
 		return 0;
 
-	/* configure LOW/FALLING polarity wake sources for an irq */
-	tegra_lp0_wake_level &= ~wake_msk.wake_mask_lo;
-	tegra_lp0_wake_level_any &= ~wake_msk.wake_mask_lo;
+	switch (flow_type) {
+	case IRQF_TRIGGER_FALLING:
+	case IRQF_TRIGGER_LOW:
+		tegra_lp0_wake_level &= ~(1ull << wake);
+		tegra_lp0_wake_level_any &= ~(1ull << wake);
+		break;
+	case IRQF_TRIGGER_HIGH:
+	case IRQF_TRIGGER_RISING:
+		tegra_lp0_wake_level |= (1ull << wake);
+		tegra_lp0_wake_level_any &= ~(1ull << wake);
+		break;
 
-	/* configure HIGH/RISING polarity wake sources for an irq */
-	tegra_lp0_wake_level |= wake_msk.wake_mask_hi;
-	tegra_lp0_wake_level_any &= ~wake_msk.wake_mask_hi;
-
-	/*
-	 * configure RISING and FALLING i.e. ANY polarity wake
-	 * sources for an irq
-	 */
-	tegra_lp0_wake_level_any |= wake_msk.wake_mask_any;
+	case IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING:
+		tegra_lp0_wake_level_any |= (1ull << wake);
+		break;
+	default:
+		return -EINVAL;
+	}
 
 	return 0;
 }

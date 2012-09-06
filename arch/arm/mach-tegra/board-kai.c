@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-kai.c
  *
- * Copyright (c) 2012, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (c) 2012, NVIDIA Corporation.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
@@ -56,58 +56,20 @@
 #include <asm/mach/arch.h>
 #include <mach/usb_phy.h>
 #include <mach/thermal.h>
-#include <mach/tegra_fiq_debugger.h>
 
 #include "board.h"
 #include "clock.h"
 #include "board-kai.h"
-#include "board-touch.h"
 #include "devices.h"
 #include "gpio-names.h"
 #include "fuse.h"
 #include "pm.h"
 #include "wdt-recovery.h"
 
-static struct balanced_throttle throttle_list[] = {
-	{
-		.id = BALANCED_THROTTLE_ID_TJ,
-		.throt_tab_size = 10,
-		.throt_tab = {
-			{      0, 1000 },
-			{ 640000, 1000 },
-			{ 640000, 1000 },
-			{ 640000, 1000 },
-			{ 640000, 1000 },
-			{ 640000, 1000 },
-			{ 760000, 1000 },
-			{ 760000, 1050 },
-			{1000000, 1050 },
-			{1000000, 1100 },
-		},
-	},
-#ifdef CONFIG_TEGRA_SKIN_THROTTLE
-	{
-		.id = BALANCED_THROTTLE_ID_SKIN,
-		.throt_tab_size = 6,
-		.throt_tab = {
-			{ 640000, 1200 },
-			{ 640000, 1200 },
-			{ 760000, 1200 },
-			{ 760000, 1200 },
-			{1000000, 1200 },
-			{1000000, 1200 },
-		},
-	},
-#endif
-};
-
 /* All units are in millicelsius */
 static struct tegra_thermal_data thermal_data = {
-	.shutdown_device_id = THERMAL_DEVICE_ID_NCT_EXT,
 	.temp_shutdown = 90000,
-#if defined(CONFIG_TEGRA_EDP_LIMITS) || defined(CONFIG_TEGRA_THERMAL_THROTTLE)
-	.throttle_edp_device_id = THERMAL_DEVICE_ID_NCT_EXT,
-#endif
+	.temp_offset = TDIODE_OFFSET, /* temps based on tdiode */
 #ifdef CONFIG_TEGRA_EDP_LIMITS
 	.edp_offset = TDIODE_OFFSET,  /* edp based on tdiode */
 	.hysteresis_edp = 3000,
@@ -117,10 +79,6 @@ static struct tegra_thermal_data thermal_data = {
 	.tc1 = 0,
 	.tc2 = 1,
 	.passive_delay = 2000,
-#endif
-#ifdef CONFIG_TEGRA_SKIN_THROTTLE
-	.skin_device_id = THERMAL_DEVICE_ID_SKIN,
-	.temp_throttle_skin = 43000,
 #endif
 };
 
@@ -150,16 +108,11 @@ static noinline void __init kai_bt_st(void)
 
 	platform_device_register(&wl128x_device);
 	platform_device_register(&btwilink_device);
+	tegra_gpio_enable(TEGRA_GPIO_PU0);
 }
 
 static struct resource kai_bluesleep_resources[] = {
 	[0] = {
-		.name = "gpio_host_wake",
-			.start  = TEGRA_GPIO_PU6,
-			.end    = TEGRA_GPIO_PU6,
-			.flags  = IORESOURCE_IO,
-	},
-	[1] = {
 		.name = "host_wake",
 			.start	= TEGRA_GPIO_TO_IRQ(TEGRA_GPIO_PU6),
 			.end	= TEGRA_GPIO_TO_IRQ(TEGRA_GPIO_PU6),
@@ -168,7 +121,7 @@ static struct resource kai_bluesleep_resources[] = {
 };
 
 static struct platform_device kai_bluesleep_device = {
-	.name		= "bluesleep",
+	.name		= "tibluesleep",
 	.id		= 0,
 	.num_resources	= ARRAY_SIZE(kai_bluesleep_resources),
 	.resource	= kai_bluesleep_resources,
@@ -177,6 +130,7 @@ static struct platform_device kai_bluesleep_device = {
 static noinline void __init kai_tegra_setup_tibluesleep(void)
 {
 	platform_device_register(&kai_bluesleep_device);
+	tegra_gpio_enable(TEGRA_GPIO_PU6);
 }
 
 static __initdata struct tegra_clk_init_table kai_clk_init_table[] = {
@@ -304,17 +258,11 @@ static struct regulator_consumer_supply smb349_vbus_supply[] = {
 	REGULATOR_SUPPLY("usb_bat_chg", NULL),
 };
 
-static struct regulator_consumer_supply smb349_otg_vbus_supply[] = {
-	REGULATOR_SUPPLY("usb_vbus_otg", NULL),
-};
-
 static struct smb349_charger_platform_data smb349_charger_pdata = {
 	.max_charge_current_mA = 1000,
 	.charging_term_current_mA = 100,
 	.consumer_supplies = smb349_vbus_supply,
 	.num_consumer_supplies = ARRAY_SIZE(smb349_vbus_supply),
-	.otg_consumer_supplies = smb349_otg_vbus_supply,
-	.num_otg_consumer_supplies = ARRAY_SIZE(smb349_otg_vbus_supply),
 };
 
 static struct i2c_board_info kai_i2c4_smb349_board_info[] = {
@@ -510,6 +458,7 @@ static struct platform_device tegra_camera = {
 };
 
 static struct platform_device *kai_spi_devices[] __initdata = {
+	&tegra_spi_device4,
 	&tegra_spi_device1,
 };
 
@@ -523,11 +472,11 @@ static struct spi_clk_parent spi_parent_clk[] = {
 #endif
 };
 
-static struct tegra_spi_platform_data kai_spi1_pdata = {
-		.is_dma_based           = true,
-		.max_dma_buffer         = (128),
-		.is_clkon_always        = false,
-		.max_rate               = 100000000,
+static struct tegra_spi_platform_data kai_spi_pdata = {
+	.is_dma_based		= true,
+	.max_dma_buffer		= (128),
+	.is_clkon_always	= false,
+	.max_rate		= 100000000,
 };
 
 static void __init kai_spi_init(void)
@@ -545,10 +494,9 @@ static void __init kai_spi_init(void)
 		spi_parent_clk[i].parent_clk = c;
 		spi_parent_clk[i].fixed_clk_rate = clk_get_rate(c);
 	}
-
-	kai_spi1_pdata.parent_clk_list = spi_parent_clk;
-	kai_spi1_pdata.parent_clk_count = ARRAY_SIZE(spi_parent_clk);
-	tegra_spi_device1.dev.platform_data = &kai_spi1_pdata;
+	kai_spi_pdata.parent_clk_list = spi_parent_clk;
+	kai_spi_pdata.parent_clk_count = ARRAY_SIZE(spi_parent_clk);
+	tegra_spi_device4.dev.platform_data = &kai_spi_pdata;
 	platform_add_devices(kai_spi_devices,
 				ARRAY_SIZE(kai_spi_devices));
 
@@ -621,9 +569,7 @@ static struct platform_device *kai_devices[] __initdata = {
 #if defined(CONFIG_TEGRA_IOVMM_SMMU) || defined(CONFIG_TEGRA_IOMMU_SMMU)
 	&tegra_smmu_device,
 #endif
-	&tegra_wdt0_device,
-	&tegra_wdt1_device,
-	&tegra_wdt2_device,
+	&tegra_wdt_device,
 #if defined(CONFIG_TEGRA_AVP)
 	&tegra_avp_device,
 #endif
@@ -666,6 +612,9 @@ static __initdata struct tegra_clk_init_table touch_clk_init_table[] = {
 static int __init kai_touch_init(void)
 {
 	int touch_id;
+
+	tegra_gpio_enable(KAI_TS_ID1);
+	tegra_gpio_enable(KAI_TS_ID2);
 
 	gpio_request(KAI_TS_ID1, "touch-id1");
 	gpio_direction_input(KAI_TS_ID1);
@@ -741,7 +690,7 @@ static struct tegra_usb_platform_data tegra_ehci1_utmi_pdata = {
 	.op_mode = TEGRA_USB_OPMODE_HOST,
 	.u_data.host = {
 		.vbus_gpio = -1,
-		.vbus_reg = "usb_vbus_otg",
+		.vbus_reg = NULL,
 		.hot_plug = true,
 		.remote_wakeup_supported = true,
 		.power_off_on_suspend = true,
@@ -808,6 +757,10 @@ static void kai_modem_init(void)
 {
 	int ret;
 
+	tegra_gpio_enable(TEGRA_GPIO_W_DISABLE);
+	tegra_gpio_enable(TEGRA_GPIO_MODEM_RSVD1);
+	tegra_gpio_enable(TEGRA_GPIO_MODEM_RSVD2);
+
 	ret = gpio_request(TEGRA_GPIO_W_DISABLE, "w_disable_gpio");
 	if (ret < 0)
 		pr_err("%s: gpio_request failed for gpio %d\n",
@@ -853,11 +806,16 @@ static void kai_audio_init(void)
 	}
 }
 
+static void kai_nfc_init(void)
+{
+	tegra_gpio_enable(TEGRA_GPIO_PX0);
+	tegra_gpio_enable(TEGRA_GPIO_PS7);
+	tegra_gpio_enable(TEGRA_GPIO_PR3);
+}
+
 static void __init tegra_kai_init(void)
 {
-	tegra_thermal_init(&thermal_data,
-				throttle_list,
-				ARRAY_SIZE(throttle_list));
+	tegra_thermal_init(&thermal_data);
 	tegra_clk_init_from_table(kai_clk_init_table);
 	kai_pinmux_init();
 	kai_i2c_init();
@@ -876,8 +834,9 @@ static void __init tegra_kai_init(void)
 	kai_touch_init();
 	kai_keys_init();
 	kai_panel_init();
-	kai_tegra_setup_tibluesleep();
 	kai_bt_st();
+	kai_tegra_setup_tibluesleep();
+	kai_nfc_init();
 	kai_sensors_init();
 	kai_pins_state_init();
 	kai_emc_init();
@@ -886,7 +845,6 @@ static void __init tegra_kai_init(void)
 #ifdef CONFIG_TEGRA_WDT_RECOVERY
 	tegra_wdt_recovery_init();
 #endif
-	tegra_serial_debug_init(TEGRA_UARTD_BASE, INT_WDT_CPU, NULL, -1, -1);
 }
 
 static void __init kai_ramconsole_reserve(unsigned long size)

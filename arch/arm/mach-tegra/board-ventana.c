@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-ventana.c
  *
- * Copyright (c) 2010-2011 NVIDIA Corporation.
+ * Copyright (c) 2010-2011, NVIDIA Corporation.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,7 +38,6 @@
 #include <linux/memblock.h>
 #include <linux/i2c/atmel_mxt_ts.h>
 #include <linux/tegra_uart.h>
-#include <linux/rfkill-gpio.h>
 
 #include <sound/wm8903.h>
 
@@ -65,27 +64,26 @@
 #include "pm.h"
 
 
-static struct rfkill_gpio_platform_data ventana_bt_rfkill_pdata[] = {
+static struct resource ventana_bcm4329_rfkill_resources[] = {
 	{
-		.name           = "bt_rfkill",
-		.shutdown_gpio  = TEGRA_GPIO_PU0,
-		.reset_gpio     = TEGRA_GPIO_INVALID,
-		.type           = RFKILL_TYPE_BLUETOOTH,
+		.name   = "bcm4329_nshutdown_gpio",
+		.start  = TEGRA_GPIO_PU0,
+		.end    = TEGRA_GPIO_PU0,
+		.flags  = IORESOURCE_IO,
 	},
 };
 
-static struct platform_device ventana_bt_rfkill_device = {
-	.name = "rfkill_gpio",
+static struct platform_device ventana_bcm4329_rfkill_device = {
+	.name = "bcm4329_rfkill",
 	.id             = -1,
-	.dev = {
-		.platform_data  = ventana_bt_rfkill_pdata,
-	},
+	.num_resources  = ARRAY_SIZE(ventana_bcm4329_rfkill_resources),
+	.resource       = ventana_bcm4329_rfkill_resources,
 };
 
 static void __init ventana_bt_rfkill(void)
 {
 	/*Add Clock Resource*/
-	clk_add_alias("bcm4329_32k_clk", ventana_bt_rfkill_device.name, \
+	clk_add_alias("bcm4329_32k_clk", ventana_bcm4329_rfkill_device.name, \
 				"blink", NULL);
 	return;
 }
@@ -121,6 +119,8 @@ static struct platform_device ventana_bluesleep_device = {
 static void __init ventana_setup_bluesleep(void)
 {
 	platform_device_register(&ventana_bluesleep_device);
+	tegra_gpio_enable(TEGRA_GPIO_PU6);
+	tegra_gpio_enable(TEGRA_GPIO_PU1);
 	return;
 }
 
@@ -326,8 +326,7 @@ static int ventana_wakeup_key(void)
 	unsigned long status =
 		readl(IO_ADDRESS(TEGRA_PMC_BASE) + PMC_WAKE_STATUS);
 
-	return (status & (1 << TEGRA_WAKE_GPIO_PV2)) ?
-		KEY_POWER : KEY_RESERVED;
+	return status & TEGRA_WAKE_GPIO_PV2 ? KEY_POWER : KEY_RESERVED;
 }
 
 static struct gpio_keys_platform_data ventana_keys_platform_data = {
@@ -343,6 +342,14 @@ static struct platform_device ventana_keys_device = {
 		.platform_data	= &ventana_keys_platform_data,
 	},
 };
+
+static void ventana_keys_init(void)
+{
+	int i;
+
+	for (i = 0; i < ARRAY_SIZE(ventana_keys); i++)
+		tegra_gpio_enable(ventana_keys[i].gpio);
+}
 #endif
 
 static struct platform_device tegra_camera = {
@@ -382,7 +389,7 @@ static struct platform_device *ventana_devices[] __initdata = {
 	&tegra_das_device,
 	&spdif_dit_device,
 	&bluetooth_dit_device,
-	&ventana_bt_rfkill_device,
+	&ventana_bcm4329_rfkill_device,
 	&tegra_pcm_device,
 	&ventana_audio_device,
 };
@@ -617,6 +624,10 @@ static void __init tegra_ventana_init(void)
 		pr_info("Initializing Panjit touch driver\n");
 		ventana_touch_init_panjit();
 	}
+
+#ifdef CONFIG_KEYBOARD_GPIO
+	ventana_keys_init();
+#endif
 
 	ventana_usb_init();
 	ventana_gps_init();

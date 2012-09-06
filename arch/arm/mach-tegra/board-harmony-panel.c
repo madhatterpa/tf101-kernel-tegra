@@ -33,7 +33,6 @@
 #include "devices.h"
 #include "gpio-names.h"
 #include "board.h"
-#include "tegra2_host1x_devices.h"
 
 #define harmony_bl_enb		TEGRA_GPIO_PB5
 #define harmony_lvds_shutdown	TEGRA_GPIO_PB2
@@ -356,10 +355,14 @@ int __init harmony_panel_init(void)
 	harmony_carveouts[1].size = tegra_carveout_size;
 #endif
 
-#ifdef CONFIG_TEGRA_GRHOST
-	err = tegra2_register_host1x_devices();
+/* #ifdef CONFIG_TEGRA_GRHOST
+	err = nvhost_device_register(&tegra_grhost_device);
 	if (err)
 		return err;
+#endif */
+
+#ifdef CONFIG_TEGRA_GRHOST
+	&tegra_grhost_device,
 #endif
 
 	err = platform_add_devices(harmony_gfx_devices,

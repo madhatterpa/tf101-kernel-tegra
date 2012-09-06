@@ -1,9 +1,0 @@
-
-;; Function elf_check_arch (elf_check_arch)[0:793]
-
-
-;; Function arm_elf_read_implies_exec (arm_elf_read_implies_exec)[0:795]
-
-
-;; Function elf_set_personality (elf_set_personality)[0:794]
-

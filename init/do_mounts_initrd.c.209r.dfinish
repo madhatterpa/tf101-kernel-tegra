@@ -1,9 +1,0 @@
-
-;; Function no_initrd (no_initrd)[0:1559] (unlikely executed)
-
-
-;; Function initrd_load (initrd_load)[0:1562] (unlikely executed)
-
-
-;; Function do_linuxrc (do_linuxrc)[0:1560] (unlikely executed)
-

@@ -621,6 +621,29 @@ static int __init ventana_touch_init_atmel(void)
 	return 0;
 }
 
+static struct panjit_i2c_ts_platform_data panjit_data = {
+	.gpio_reset = TEGRA_GPIO_PQ7,
+};
+
+static struct i2c_board_info __initdata ventana_i2c_bus1_touch_info[] = {
+	{
+		I2C_BOARD_INFO("panjit_touch", 0x3),
+		.irq = TEGRA_GPIO_TO_IRQ(TEGRA_GPIO_PV6),
+		.platform_data = &panjit_data,
+	},
+};
+
+static int __init ventana_touch_init_panjit(void)
+{
+	tegra_gpio_enable(TEGRA_GPIO_PV6);
+
+	tegra_gpio_enable(TEGRA_GPIO_PQ7);
+	i2c_register_board_info(0, ventana_i2c_bus1_touch_info, 1);
+
+	return 0;
+}
+
+
 static struct tegra_ehci_platform_data tegra_ehci_pdata[] = {
 	[0] = {
 			.phy_config = &utmi_phy_config[0],
@@ -641,6 +664,21 @@ static struct tegra_ehci_platform_data tegra_ehci_pdata[] = {
 			.power_down_on_bus_suspend = 1,
 			.hotplug = 1,
 			.default_enable = true,
+	},
+};
+
+static struct usb_phy_plat_data tegra_usb_phy_pdata[] = {
+	[0] = {
+			.instance = 0,
+			.vbus_gpio = -1,
+	},
+	[1] = {
+			.instance = 1,
+			.vbus_gpio = -1,
+	},
+	[2] = {
+			.instance = 2,
+			.vbus_gpio = -1,
 	},
 };
 
@@ -683,7 +721,7 @@ static int __init tf101_gps_init(void)
 static void tf101_usb_init(void)
 {
 	//tegra_usb_phy_init(tegra_usb_phy_pdata, ARRAY_SIZE(tegra_usb_phy_pdata));
-        //tegra_usb_phy_init(ARRAY_SIZE(tegra_usb_phy_pdata));
+        tegra_usb_phy_init(ARRAY_SIZE(tegra_usb_phy_pdata));
 
 	/* OTG should be the first to be registered */
 	tegra_otg_device.dev.platform_data = &tegra_otg_pdata;
@@ -805,6 +843,59 @@ unsigned int ASUSCheckTouchVendor(unsigned int vendor)
 }
 EXPORT_SYMBOL(ASUSCheckTouchVendor);
 
+static void ASUSGetProjectName()
+{
+	unsigned int ret = 0;
+	ret = HW_DRF_VAL(TEGRA_DEVKIT, MISC_HW, PROJECT, ventana_hw);
+
+	if(ret == 0) { //TF101
+		if(ASUS3GAvailable()) {
+			strcpy(ventana_projectname,"TF101G");
+		}
+		else {
+			if(ASUSWiMAXAvailable())
+				strcpy(ventana_projectname,"TF101-WiMAX");
+			else
+				strcpy(ventana_projectname,"TF101");
+		}
+	}
+	else if(ret == 1) { //SL101
+		strcpy(ventana_projectname,"SL101");
+	}
+	else {
+		pr_err("[MISC]: Illegal project identification.\n");
+		strcpy(ventana_projectname,"unknown project name");
+	}
+}
+
+static void ASUSGetPcbid()
+{
+	unsigned int pcbid;
+
+	unsigned int ret = 0;
+	ret = HW_DRF_VAL(TEGRA_DEVKIT, MISC_HW, PROJECT, ventana_hw);
+	if(ret == 0 || ret ==1) { //TF101 or SL101
+	       pcbid = ventana_hw >> 4;
+	       int i = VENTANA_PCBID_OUTPUT_LENGTH - 2;
+
+	       while (i+1) {
+	               ventana_pcbid[i--] = (1 & pcbid) ? '1' : '0';
+	               pcbid >>= 1;
+	       }
+	       ventana_pcbid[VENTANA_PCBID_OUTPUT_LENGTH-1] = 'b';
+	}
+	else
+	       strcpy(ventana_pcbid,"unknown");
+}
+
+	
+	
+	
+	
+	
+	
+	
+	
 static void __init tegra_tf101_init(void)
 {
 	console_suspend_enabled = 0;
