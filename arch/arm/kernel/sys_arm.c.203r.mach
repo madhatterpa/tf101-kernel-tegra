@@ -1,0 +1,942 @@
+
+;; Function sys_arm_fadvise64_64 (sys_arm_fadvise64_64)[0:1333]
+
+(note 1 0 38 NOTE_INSN_DELETED)
+
+(note 38 1 39 ( fd (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ fd ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 39 38 40 ( advice (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ advice ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 40 39 41 ( offset (expr_list:REG_DEP_TRUE (reg:DI 2 r2 [ offset ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 41 40 7 ( len (expr_list:REG_DEP_TRUE (mem/c/i:DI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 len+0 S8 A64])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 7 41 3 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 3 7 6 NOTE_INSN_DELETED)
+
+(note 6 3 32 NOTE_INSN_FUNCTION_BEG)
+
+(insn/f:TI 32 6 33 arch/arm/kernel/sys_arm.c:131 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 5 r5)
+            (expr_list:REG_DEAD (reg:SI 4 r4)
+                (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                            (set/f (reg/f:SI 13 sp)
+                                (plus:SI (reg/f:SI 13 sp)
+                                    (const_int -12 [0xfffffffffffffff4])))
+                            (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                (reg:SI 4 r4))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 4 [0x4])) [0 S4 A32])
+                                (reg:SI 5 r5))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 8 [0x8])) [0 S4 A32])
+                                (reg:SI 14 lr))
+                        ])
+                    (nil))))))
+
+(insn/f:TI 33 32 34 arch/arm/kernel/sys_arm.c:131 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -20 [0xffffffffffffffec]))) 4 {*arm_addsi3} (nil))
+
+(note 34 33 30 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 30 34 10 arch/arm/kernel/sys_arm.c:132 (set (reg/v:DI 4 r4 [orig:138 len ] [138])
+        (mem/c/i:DI (plus:SI (reg/f:SI 13 sp)
+                (const_int 32 [0x20])) [0 len+0 S8 A64])) 163 {*arm_movdi} (expr_list:REG_EQUIV (mem/c/i:DI (plus:SI (reg/f:SI 13 sp)
+                (const_int 32 [0x20])) [0 len+0 S8 A64])
+        (nil)))
+
+(insn:TI 10 30 9 arch/arm/kernel/sys_arm.c:132 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 S4 A32])
+        (reg:SI 1 r1 [ advice ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ advice ])
+        (nil)))
+
+(insn:TI 9 10 13 arch/arm/kernel/sys_arm.c:132 (set (mem:DI (reg/f:SI 13 sp) [0 S8 A64])
+        (reg/v:DI 4 r4 [orig:138 len ] [138])) 163 {*arm_movdi} (nil))
+
+(call_insn 13 9 44 arch/arm/kernel/sys_arm.c:132 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("sys_fadvise64_64") [flags 0x41] <function_decl 0x11433280 sys_fadvise64_64>) [0 S4 A32])
+                    (const_int 16 [0x10])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(note 44 13 43 ( offset (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 43 44 42 ( advice (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 42 43 25 ( fd (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 25 42 35 arch/arm/kernel/sys_arm.c:133 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 35 25 36 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 36 35 37 arch/arm/kernel/sys_arm.c:133 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 37 36 29)
+
+(note 29 37 31 NOTE_INSN_DELETED)
+
+(note 31 29 0 NOTE_INSN_DELETED)
+
+;; Function kernel_execve (kernel_execve)[0:1332]
+
+(note 1 0 80 NOTE_INSN_DELETED)
+
+(note 80 1 81 ( filename (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ filename ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 81 80 82 ( argv (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ argv ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 82 81 6 ( envp (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ envp ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 82 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 18 NOTE_INSN_FUNCTION_BEG)
+
+(note 18 5 71 NOTE_INSN_DELETED)
+
+(insn/f:TI 71 18 72 arch/arm/kernel/sys_arm.c:85 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 7 r7)
+            (expr_list:REG_DEAD (reg:SI 6 r6)
+                (expr_list:REG_DEAD (reg:SI 5 r5)
+                    (expr_list:REG_DEAD (reg:SI 4 r4)
+                        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                    (set/f (reg/f:SI 13 sp)
+                                        (plus:SI (reg/f:SI 13 sp)
+                                            (const_int -20 [0xffffffffffffffec])))
+                                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                        (reg:SI 4 r4))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 4 [0x4])) [0 S4 A32])
+                                        (reg:SI 5 r5))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 8 [0x8])) [0 S4 A32])
+                                        (reg:SI 6 r6))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 12 [0xc])) [0 S4 A32])
+                                        (reg:SI 7 r7))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 16 [0x10])) [0 S4 A32])
+                                        (reg:SI 14 lr))
+                                ])
+                            (nil))))))))
+
+(insn/f:TI 72 71 73 arch/arm/kernel/sys_arm.c:85 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(note 73 72 4 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 4 73 2 arch/arm/kernel/sys_arm.c:85 (set (reg/v/f:SI 7 r7 [orig:138 envp ] [138])
+        (reg:SI 2 r2 [ envp ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ envp ])
+        (nil)))
+
+(insn 2 4 3 arch/arm/kernel/sys_arm.c:85 (set (reg/v/f:SI 6 r6 [orig:136 filename ] [136])
+        (reg:SI 0 r0 [ filename ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ filename ])
+        (nil)))
+
+(insn:TI 3 2 9 arch/arm/kernel/sys_arm.c:85 (set (reg/v/f:SI 5 r5 [orig:137 argv ] [137])
+        (reg:SI 1 r1 [ argv ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ argv ])
+        (nil)))
+
+(insn 9 3 83 arch/arm/kernel/sys_arm.c:89 discrim 1 (set (reg:SI 0 r0)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 13 sp)
+            (const_int 0 [0x0]))
+        (nil)))
+
+(note 83 9 10 ( filename (expr_list:REG_DEP_TRUE (reg/v/f:SI 6 r6 [orig:136 filename ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 10 83 84 arch/arm/kernel/sys_arm.c:89 discrim 1 (set (reg:SI 1 r1)
+        (const_int 72 [0x48])) 167 {*arm_movsi_insn} (nil))
+
+(note 84 10 8 ( argv (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:137 argv ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 8 84 11 arch/arm/kernel/sys_arm.c:89 discrim 1 (set (reg/f:SI 4 r4 [139])
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (plus:SI (reg/f:SI 13 sp)
+            (const_int 0 [0x0]))
+        (nil)))
+
+(call_insn:TI 11 8 85 arch/arm/kernel/sys_arm.c:89 discrim 1 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__memzero") [flags 0x41] <function_decl 0x10bb1200 __memzero>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(note 85 11 15 ( envp (expr_list:REG_DEP_TRUE (reg/v/f:SI 7 r7 [orig:138 envp ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 15 85 13 arch/arm/kernel/sys_arm.c:90 (set (reg:SI 2 r2)
+        (reg/v/f:SI 7 r7 [orig:138 envp ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 7 r7 [orig:138 envp ] [138])
+        (nil)))
+
+(insn:TI 13 15 14 arch/arm/kernel/sys_arm.c:90 (set (reg:SI 0 r0)
+        (reg/v/f:SI 6 r6 [orig:136 filename ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn 14 13 16 arch/arm/kernel/sys_arm.c:90 (set (reg:SI 1 r1)
+        (reg/v/f:SI 5 r5 [orig:137 argv ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 16 14 17 arch/arm/kernel/sys_arm.c:90 (set (reg:SI 3 r3)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 13 sp)
+            (const_int 0 [0x0]))
+        (nil)))
+
+(call_insn:TI 17 16 19 arch/arm/kernel/sys_arm.c:90 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_execve") [flags 0x41] <function_decl 0x10fdc080 do_execve>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn:TI 19 17 86 arch/arm/kernel/sys_arm.c:93 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg/v:SI 7 r7 [orig:134 ret ] [134])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(note 86 19 87 ( envp (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 87 86 20 ( ret (expr_list:REG_DEP_TRUE (reg/v:SI 7 r7 [orig:134 ret ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 20 87 21 arch/arm/kernel/sys_arm.c:93 (set (pc)
+        (if_then_else (lt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 29)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 1912 [0x778])
+            (nil))))
+
+(note 21 20 24 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 24 21 69 NOTE_INSN_DELETED)
+
+(insn:TI 69 24 22 arch/arm/kernel/sys_arm.c:105 (set (reg:SI 3 r3)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 69 64 arch/arm/kernel/sys_arm.c:99 (set (mem/s/j:SI (reg/f:SI 13 sp) [0 regs.uregs+0 S4 A64])
+        (reg/v:SI 7 r7 [orig:134 ret ] [134])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 64 22 88 arch/arm/kernel/sys_arm.c:105 (set (reg:SI 6 r6 [141])
+        (and:SI (reg:SI 3 r3)
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (nil)))
+
+(note 88 64 26 ( filename (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 26 88 89 arch/arm/kernel/sys_arm.c:105 (set (reg:SI 5 r5 [143])
+        (const_int 8112 [0x1fb0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 8112 [0x1fb0])
+        (nil)))
+
+(note 89 26 65 ( argv (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 65 89 28 arch/arm/kernel/sys_arm.c:105 (set (reg:SI 6 r6 [141])
+        (and:SI (reg:SI 6 r6 [141])
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 28 65 90 arch/arm/kernel/sys_arm.c:105 (parallel [
+            (asm_operands/v ("add	r0, %0, %1
+	mov	r1, %2
+	mov	r2, %3
+	bl	memmove
+	mov	r8, #0
+	mov	r9, %0
+	mov	sp, r0
+	b	ret_to_user") ("") 0 [
+                    (reg:SI 6 r6 [141])
+                    (reg:SI 5 r5 [143])
+                    (reg/f:SI 4 r4 [139])
+                    (const_int 72 [0x48])
+                ]
+                 [
+                    (asm_input:SI ("r") 0)
+                    (asm_input:SI ("Ir") 0)
+                    (asm_input:SI ("r") 0)
+                    (asm_input:SI ("Ir") 0)
+                ] 8669379)
+            (clobber (mem:BLK (scratch) [0 A8]))
+            (clobber (reg:QI 14 lr))
+            (clobber (reg:QI 12 ip))
+            (clobber (reg:QI 3 r3))
+            (clobber (reg:QI 2 r2))
+            (clobber (reg:QI 1 r1))
+            (clobber (reg:QI 0 r0))
+        ]) -1 (expr_list:REG_UNUSED (reg:QI 14 lr)
+        (expr_list:REG_UNUSED (reg:QI 12 ip)
+            (expr_list:REG_UNUSED (reg:QI 3 r3)
+                (expr_list:REG_UNUSED (reg:QI 2 r2)
+                    (expr_list:REG_UNUSED (reg:QI 1 r1)
+                        (expr_list:REG_UNUSED (reg:QI 0 r0)
+                            (nil))))))))
+
+(note 90 28 91 ( filename (expr_list:REG_DEP_TRUE (reg/v/f:SI 6 r6 [orig:136 filename ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 91 90 29 ( argv (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:137 argv ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 29 91 30 4 ("out") [1 uses])
+
+(note 30 29 35 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 35 30 41 arch/arm/kernel/sys_arm.c:122 (set (reg/i:SI 0 r0)
+        (reg/v:SI 7 r7 [orig:134 ret ] [134])) 167 {*arm_movsi_insn} (nil))
+
+(insn 41 35 74 arch/arm/kernel/sys_arm.c:122 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 74 41 75 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 75 74 76 arch/arm/kernel/sys_arm.c:122 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 76 75 67)
+
+(note 67 76 68 NOTE_INSN_DELETED)
+
+(note 68 67 0 NOTE_INSN_DELETED)
+
+;; Function sys_execve (sys_execve)[0:1331]
+
+;; SImode fixup for i49; addr 52, range (-4084,4096): `names_cachep'
+;; Emitting minipool after insn 55; address 88; align 4 (bytes)
+;;  Offset 0, min -65536, max 4148 `names_cachep'
+(note 1 0 56 NOTE_INSN_DELETED)
+
+(note 56 1 57 ( filenamei (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ filenamei ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 57 56 58 ( argv (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ argv ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 58 57 59 ( envp (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ envp ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 59 58 7 ( regs (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 7 59 6 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 6 7 51 NOTE_INSN_FUNCTION_BEG)
+
+(insn/f:TI 51 6 52 arch/arm/kernel/sys_arm.c:68 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 8 r8))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 7 r7)
+            (expr_list:REG_DEAD (reg:SI 6 r6)
+                (expr_list:REG_DEAD (reg:SI 5 r5)
+                    (expr_list:REG_DEAD (reg:SI 4 r4)
+                        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                    (set/f (reg/f:SI 13 sp)
+                                        (plus:SI (reg/f:SI 13 sp)
+                                            (const_int -24 [0xffffffffffffffe8])))
+                                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                        (reg:SI 4 r4))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 4 [0x4])) [0 S4 A32])
+                                        (reg:SI 5 r5))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 8 [0x8])) [0 S4 A32])
+                                        (reg:SI 6 r6))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 12 [0xc])) [0 S4 A32])
+                                        (reg:SI 7 r7))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 16 [0x10])) [0 S4 A32])
+                                        (reg:SI 8 r8))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 20 [0x14])) [0 S4 A32])
+                                        (reg:SI 14 lr))
+                                ])
+                            (nil))))))))
+
+(note 52 51 5 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 5 52 3 arch/arm/kernel/sys_arm.c:68 (set (reg/v/f:SI 5 r5 [orig:139 regs ] [139])
+        (reg:SI 3 r3 [ regs ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [ regs ])
+        (nil)))
+
+(insn:TI 3 5 4 arch/arm/kernel/sys_arm.c:68 (set (reg/v/f:SI 7 r7 [orig:137 argv ] [137])
+        (reg:SI 1 r1 [ argv ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ argv ])
+        (nil)))
+
+(insn 4 3 10 arch/arm/kernel/sys_arm.c:68 (set (reg/v/f:SI 6 r6 [orig:138 envp ] [138])
+        (reg:SI 2 r2 [ envp ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ envp ])
+        (nil)))
+
+(call_insn:TI 10 4 63 arch/arm/kernel/sys_arm.c:72 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("getname") [flags 0x41] <function_decl 0x112c7180 getname>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(note 63 10 62 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:139 regs ] [139])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 62 63 61 ( envp (expr_list:REG_DEP_TRUE (reg/v/f:SI 6 r6 [orig:138 envp ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 61 62 60 ( argv (expr_list:REG_DEP_TRUE (reg/v/f:SI 7 r7 [orig:137 argv ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 60 61 12 ( filenamei (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 12 60 64 include/linux/err.h:34 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 0 r0 [orig:133 filename ] [133])
+            (const_int -4096 [0xfffffffffffff000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(note 64 12 11 ( filename (expr_list:REG_DEP_TRUE (reg/f:SI 0 r0 [orig:133 filename ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 11 64 66 arch/arm/kernel/sys_arm.c:72 (set (reg/v/f:SI 4 r4 [orig:133 filename ] [133])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(note 66 11 65 ( filename (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:133 filename ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 65 66 15 ( filename (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 15 65 67 include/linux/err.h:29 (cond_exec (gtu (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 5 r5 [orig:134 error ] [134])
+            (reg/f:SI 0 r0 [orig:133 filename ] [133]))) 2345 {neon_vornv2di+78} (nil))
+
+(note 67 15 68 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 68 67 13 ( error (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:134 error ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 13 68 69 include/linux/err.h:34 (set (pc)
+        (if_then_else (gtu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 30)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 4 [0x4])
+            (nil))))
+
+(note 69 13 19 ( filename (expr_list:REG_DEP_TRUE (reg/f:SI 0 r0 [orig:133 filename ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 19 69 23 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 23 19 70 arch/arm/kernel/sys_arm.c:76 (set (reg:SI 3 r3)
+        (reg/v/f:SI 5 r5 [orig:139 regs ] [139])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 5 r5 [orig:139 regs ] [139])
+        (nil)))
+
+(note 70 23 21 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:139 regs ] [139])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 21 70 22 arch/arm/kernel/sys_arm.c:76 (set (reg:SI 1 r1)
+        (reg/v/f:SI 7 r7 [orig:137 argv ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 22 21 24 arch/arm/kernel/sys_arm.c:76 (set (reg:SI 2 r2)
+        (reg/v/f:SI 6 r6 [orig:138 envp ] [138])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 24 22 71 arch/arm/kernel/sys_arm.c:76 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_execve") [flags 0x41] <function_decl 0x10fdc080 do_execve>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 71 24 49 ( filename (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:133 filename ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 49 71 28 arch/arm/kernel/sys_arm.c:77 (set (reg/f:SI 3 r3 [140])
+        (mem:SI (label_ref 76) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("names_cachep") [flags 0xc0] <var_decl 0x112c4240 names_cachep>)
+        (nil)))
+
+(insn:TI 28 49 25 arch/arm/kernel/sys_arm.c:77 (set (reg:SI 1 r1)
+        (reg/v/f:SI 4 r4 [orig:133 filename ] [133])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 25 28 72 arch/arm/kernel/sys_arm.c:76 (set (reg/v:SI 5 r5 [orig:134 error ] [134])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(note 72 25 27 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 27 72 29 arch/arm/kernel/sys_arm.c:77 (set (reg:SI 0 r0)
+        (mem/f/c/i:SI (reg/f:SI 3 r3 [140]) [0 names_cachep+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 3 r3 [140])
+        (expr_list:REG_EQUAL (mem/f/c/i:SI (symbol_ref:SI ("names_cachep") [flags 0xc0] <var_decl 0x112c4240 names_cachep>) [0 names_cachep+0 S4 A32])
+            (nil))))
+
+(call_insn:TI 29 27 73 arch/arm/kernel/sys_arm.c:77 (parallel [
+            (call (mem:SI (symbol_ref:SI ("kmem_cache_free") [flags 0x41] <function_decl 0x11486300 kmem_cache_free>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(note 73 29 30 ( filename (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:133 filename ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 30 73 31 9 ("out") [1 uses])
+
+(note 31 30 36 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 36 31 42 arch/arm/kernel/sys_arm.c:80 (set (reg/i:SI 0 r0)
+        (reg/v:SI 5 r5 [orig:134 error ] [134])) 167 {*arm_movsi_insn} (nil))
+
+(insn 42 36 53 arch/arm/kernel/sys_arm.c:80 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 53 42 54 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 54 53 55 arch/arm/kernel/sys_arm.c:80 (return) 260 {return} (nil))
+
+(barrier 55 54 74)
+
+(code_label 74 55 75 12 "" [0 uses])
+
+(insn 75 74 76 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) -1 (nil))
+
+(code_label 76 75 77 11 "" [0 uses])
+
+(insn 77 76 78 (unspec_volatile [
+            (symbol_ref:SI ("names_cachep") [flags 0xc0] <var_decl 0x112c4240 names_cachep>)
+        ] 6) -1 (nil))
+
+(insn 78 77 79 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) -1 (nil))
+
+(barrier 79 78 48)
+
+(note 48 79 50 NOTE_INSN_DELETED)
+
+(note 50 48 0 NOTE_INSN_DELETED)
+
+;; Function sys_vfork (sys_vfork)[0:1330]
+
+(note 1 0 41 NOTE_INSN_DELETED)
+
+(note 41 1 4 ( regs (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 4 41 3 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 3 4 6 NOTE_INSN_FUNCTION_BEG)
+
+(note 6 3 35 NOTE_INSN_DELETED)
+
+(insn/f:TI 35 6 42 arch/arm/kernel/sys_arm.c:58 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 0 r0)
+                    ] 2))
+            (use (reg:SI 1 r1))
+            (use (reg:SI 2 r2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                            (set/f (reg/f:SI 13 sp)
+                                (plus:SI (reg/f:SI 13 sp)
+                                    (const_int -16 [0xfffffffffffffff0])))
+                            (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                (reg:SI 0 r0))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 4 [0x4])) [0 S4 A32])
+                                (reg:SI 1 r1))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 8 [0x8])) [0 S4 A32])
+                                (reg:SI 2 r2))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 12 [0xc])) [0 S4 A32])
+                                (reg:SI 14 lr))
+                        ])
+                    (nil))))))
+
+(note 42 35 36 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 36 42 2 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 2 36 43 arch/arm/kernel/sys_arm.c:58 (set (reg/v/f:SI 1 r1 [orig:135 regs ] [135])
+        (reg:SI 0 r0 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(note 43 2 7 ( regs (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 7 43 13 arch/arm/kernel/sys_arm.c:59 (set (reg:SI 12 ip [137])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn 13 7 12 arch/arm/kernel/sys_arm.c:59 (set (reg:SI 2 r2)
+        (reg/f:SI 0 r0 [orig:135 regs ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 0 r0 [orig:135 regs ] [135])
+        (nil)))
+
+(insn:TI 12 13 14 arch/arm/kernel/sys_arm.c:59 (set (reg:SI 1 r1)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 1 r1 [orig:135 regs ] [135])
+                (const_int 52 [0x34])) [0 <variable>.uregs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 14 12 11 arch/arm/kernel/sys_arm.c:59 (set (reg:SI 3 r3)
+        (reg:SI 12 ip [137])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 11 14 44 arch/arm/kernel/sys_arm.c:59 (set (reg:SI 0 r0)
+        (const_int 16657 [0x4111])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 16657 [0x4111])
+        (nil)))
+
+(note 44 11 8 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 8 44 10 arch/arm/kernel/sys_arm.c:59 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 12 ip [137])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 10 8 15 arch/arm/kernel/sys_arm.c:59 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 12 ip [137])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [137])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn 15 10 27 arch/arm/kernel/sys_arm.c:59 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_fork") [flags 0x41] <function_decl 0x10fdc100 do_fork>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 27 15 37 arch/arm/kernel/sys_arm.c:60 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 37 27 38 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 38 37 39 arch/arm/kernel/sys_arm.c:60 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 39 38 32)
+
+(note 32 39 33 NOTE_INSN_DELETED)
+
+(note 33 32 0 NOTE_INSN_DELETED)
+
+;; Function sys_clone (sys_clone)[0:1329]
+
+(note 1 0 42 NOTE_INSN_DELETED)
+
+(note 42 1 43 ( regs (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 8 [0x8])) [0 regs+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 43 42 44 ( clone_flags (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ clone_flags ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 44 43 45 ( newsp (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ newsp ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 45 44 46 ( parent_tidptr (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ parent_tidptr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 46 45 47 ( tls_val (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ tls_val ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 47 46 9 ( child_tidptr (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 child_tidptr+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 9 47 3 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 3 9 8 NOTE_INSN_DELETED)
+
+(note 8 3 38 NOTE_INSN_FUNCTION_BEG)
+
+(insn/f:TI 38 8 39 arch/arm/kernel/sys_arm.c:50 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 4 r4)
+        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                    (set/f (reg/f:SI 13 sp)
+                        (plus:SI (reg/f:SI 13 sp)
+                            (const_int -8 [0xfffffffffffffff8])))
+                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                        (reg:SI 4 r4))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 4 [0x4])) [0 S4 A32])
+                        (reg:SI 14 lr))
+                ])
+            (nil))))
+
+(note 39 38 6 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 6 39 4 arch/arm/kernel/sys_arm.c:50 (set (reg/v/f:SI 12 ip [orig:139 child_tidptr ] [139])
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 child_tidptr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 4 6 7 arch/arm/kernel/sys_arm.c:50 (set (reg/v/f:SI 4 r4 [orig:137 parent_tidptr ] [137])
+        (reg:SI 2 r2 [ parent_tidptr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ parent_tidptr ])
+        (nil)))
+
+(insn 7 4 48 arch/arm/kernel/sys_arm.c:50 (set (reg/v/f:SI 2 r2 [orig:140 regs ] [140])
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 regs+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 48 7 11 ( parent_tidptr (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:137 parent_tidptr ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 11 48 22 arch/arm/kernel/sys_arm.c:51 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 1 r1 [ newsp ])
+                    (const_int 0 [0x0])))
+            (set (reg/v:SI 1 r1 [orig:136 newsp ] [136])
+                (reg:SI 1 r1 [ newsp ]))
+        ]) 174 {*movsi_compare0} (nil))
+
+(insn 22 11 49 arch/arm/kernel/sys_arm.c:54 (set (reg:SI 3 r3)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(note 49 22 14 ( tls_val (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 14 49 50 arch/arm/kernel/sys_arm.c:52 (cond_exec (eq (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 1 r1 [orig:136 newsp ] [136])
+            (mem/s/j:SI (plus:SI (reg/v/f:SI 2 r2 [orig:140 regs ] [140])
+                    (const_int 52 [0x34])) [0 <variable>.uregs+52 S4 A32]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (nil)))
+
+(note 50 14 17 ( newsp (expr_list:REG_DEP_TRUE (reg/v:SI 1 r1 [orig:136 newsp ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 17 50 18 arch/arm/kernel/sys_arm.c:54 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 S4 A32])
+        (reg/v/f:SI 4 r4 [orig:137 parent_tidptr ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 18 17 40 arch/arm/kernel/sys_arm.c:54 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 S4 A32])
+        (reg/v/f:SI 12 ip [orig:139 child_tidptr ] [139])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 12 ip [orig:139 child_tidptr ] [139])
+        (nil)))
+
+(note 40 18 41 NOTE_INSN_EPILOGUE_BEG)
+
+(insn 41 40 23 arch/arm/kernel/sys_arm.c:55 (parallel [
+            (unspec:SI [
+                    (reg:SI 14 lr)
+                ] 6)
+            (unspec_volatile [
+                    (return)
+                ] 1)
+        ]) 322 {sibcall_epilogue} (nil))
+
+(call_insn/j:TI 23 41 52 arch/arm/kernel/sys_arm.c:54 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_fork") [flags 0x41] <function_decl 0x10fdc100 do_fork>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 259 {*sibcall_value_insn} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 52 23 51 ( newsp (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 51 52 24 ( clone_flags (nil)) NOTE_INSN_VAR_LOCATION)
+
+(barrier 24 51 37)
+
+(note 37 24 0 NOTE_INSN_DELETED)
+
+;; Function sys_fork (sys_fork)[0:1328]
+
+(note 1 0 37 NOTE_INSN_DELETED)
+
+(note 37 1 4 ( regs (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 4 37 3 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 3 4 32 NOTE_INSN_FUNCTION_BEG)
+
+(insn/f:TI 32 3 38 arch/arm/kernel/sys_arm.c:35 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 0 r0)
+                    ] 2))
+            (use (reg:SI 1 r1))
+            (use (reg:SI 2 r2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                            (set/f (reg/f:SI 13 sp)
+                                (plus:SI (reg/f:SI 13 sp)
+                                    (const_int -16 [0xfffffffffffffff0])))
+                            (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                (reg:SI 0 r0))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 4 [0x4])) [0 S4 A32])
+                                (reg:SI 1 r1))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 8 [0x8])) [0 S4 A32])
+                                (reg:SI 2 r2))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 12 [0xc])) [0 S4 A32])
+                                (reg:SI 14 lr))
+                        ])
+                    (nil))))))
+
+(note 38 32 33 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 33 38 2 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 2 33 39 arch/arm/kernel/sys_arm.c:35 (set (reg/v/f:SI 1 r1 [orig:135 regs ] [135])
+        (reg:SI 0 r0 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(note 39 2 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 6 39 12 arch/arm/kernel/sys_arm.c:37 (set (reg:SI 12 ip [136])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn 12 6 11 arch/arm/kernel/sys_arm.c:37 (set (reg:SI 2 r2)
+        (reg/f:SI 0 r0 [orig:135 regs ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 0 r0 [orig:135 regs ] [135])
+        (nil)))
+
+(insn:TI 11 12 13 arch/arm/kernel/sys_arm.c:37 (set (reg:SI 1 r1)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 1 r1 [orig:135 regs ] [135])
+                (const_int 52 [0x34])) [0 <variable>.uregs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 11 10 arch/arm/kernel/sys_arm.c:37 (set (reg:SI 3 r3)
+        (reg:SI 12 ip [136])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 10 13 40 arch/arm/kernel/sys_arm.c:37 (set (reg:SI 0 r0)
+        (const_int 17 [0x11])) 167 {*arm_movsi_insn} (nil))
+
+(note 40 10 7 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 7 40 9 arch/arm/kernel/sys_arm.c:37 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 12 ip [136])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 9 7 14 arch/arm/kernel/sys_arm.c:37 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 12 ip [136])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [136])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn 14 9 26 arch/arm/kernel/sys_arm.c:37 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_fork") [flags 0x41] <function_decl 0x10fdc100 do_fork>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 26 14 34 arch/arm/kernel/sys_arm.c:42 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 34 26 35 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 35 34 36 arch/arm/kernel/sys_arm.c:42 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 36 35 30)
+
+(note 30 36 31 NOTE_INSN_DELETED)
+
+(note 31 30 0 NOTE_INSN_DELETED)

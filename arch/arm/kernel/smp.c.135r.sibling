@@ -1,0 +1,104 @@
+
+;; Function smp_prepare_boot_cpu (smp_prepare_boot_cpu)[0:1413] (unlikely executed)
+
+deleting block 5
+
+;; Function set_smp_cross_call (set_smp_cross_call)[0:1415] (unlikely executed)
+
+deleting block 5
+
+;; Function arch_send_call_function_ipi_mask (arch_send_call_function_ipi_mask)[0:1416]
+
+deleting block 5
+
+;; Function arch_send_call_function_single_ipi (arch_send_call_function_single_ipi)[0:1417]
+
+deleting block 5
+
+;; Function smp_irq_stat_cpu (smp_irq_stat_cpu)[0:1419]
+
+deleting block 4
+
+;; Function smp_timer_broadcast (smp_timer_broadcast)[0:1423]
+
+deleting block 5
+
+;; Function broadcast_timer_set_mode (broadcast_timer_set_mode)[0:1424]
+
+deleting block 5
+
+;; Function smp_send_reschedule (smp_send_reschedule)[0:1432]
+
+deleting block 5
+
+;; Function setup_profiling_timer (setup_profiling_timer)[0:1434]
+
+deleting block 4
+
+;; Function smp_send_stop (smp_send_stop)[0:1433]
+
+deleting block 13
+
+;; Function ipi_timer (ipi_timer)[0:1420]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function do_IPI (do_IPI)[0:1431]
+
+deleting block 19
+
+;; Function smp_send_all_cpu_backtrace (smp_send_all_cpu_backtrace)[0:1429]
+
+deleting block 10
+
+;; Function percpu_timer_setup (percpu_timer_setup)[0:1426] (unlikely executed)
+
+deleting block 7
+
+;; Function show_local_irqs (show_local_irqs)[0:1422]
+
+deleting block 7
+deleting block 8
+deleting block 9
+
+;; Function show_ipi_list (show_ipi_list)[0:1418]
+
+deleting block 10
+
+;; Function smp_cpus_done (smp_cpus_done)[0:1412] (unlikely executed)
+
+deleting block 7
+deleting block 8
+deleting block 9
+
+;; Function do_local_timer (do_local_timer)[0:1421]
+
+deleting block 7
+
+;; Function smp_prepare_cpus (smp_prepare_cpus)[0:1414] (unlikely executed)
+
+deleting block 7
+
+;; Function secondary_start_kernel (secondary_start_kernel)[0:1411] (unlikely executed)
+
+deleting block 11
+deleting block 12
+deleting block 13
+
+;; Function cpu_die (cpu_die)[0:1409]
+
+deleting block 7
+
+;; Function __cpu_die (__cpu_die)[0:1408]
+
+deleting block 9
+
+;; Function __cpu_disable (__cpu_disable)[0:1407]
+
+deleting block 14
+
+;; Function __cpu_up (__cpu_up)[0:1406] (unlikely executed)
+
+deleting block 22

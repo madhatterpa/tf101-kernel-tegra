@@ -1,0 +1,78 @@
+
+;; Function set_reset_devices (set_reset_devices)[0:2044] (unlikely executed)
+
+deleting block 4
+
+;; Function debug_kernel (debug_kernel)[0:2046] (unlikely executed)
+
+deleting block 4
+
+;; Function quiet_kernel (quiet_kernel)[0:2047] (unlikely executed)
+
+deleting block 4
+
+;; Function init_setup (init_setup)[0:2050] (unlikely executed)
+
+deleting block 6
+
+;; Function rdinit_setup (rdinit_setup)[0:2051] (unlikely executed)
+
+deleting block 6
+
+;; Function smp_setup_processor_id (smp_setup_processor_id)[0:2058] (unlikely executed)
+
+deleting block 5
+
+;; Function thread_info_cache_init (thread_info_cache_init)[0:2059] (unlikely executed)
+
+deleting block 5
+
+;; Function loglevel (loglevel)[0:2048] (unlikely executed)
+
+deleting block 7
+
+;; Function do_one_initcall (do_one_initcall)[0:2065]
+
+deleting block 16
+
+;; Function parse_early_options (parse_early_options)[0:2055] (unlikely executed)
+
+deleting block 5
+
+;; Function rest_init (rest_init)[0:2053]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function run_init_process (run_init_process)[0:2069]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function init_post (init_post)[0:2070]
+
+deleting block 8
+deleting block 9
+deleting block 10
+
+;; Function kernel_init (kernel_init)[0:2071] (unlikely executed)
+
+deleting block 16
+
+;; Function unknown_bootoption (unknown_bootoption)[0:2049] (unlikely executed)
+
+deleting block 38
+
+;; Function parse_early_param (parse_early_param)[0:2056] (unlikely executed)
+
+deleting block 7
+
+;; Function start_kernel (start_kernel)[0:2061] (unlikely executed)
+
+deleting block 17
+
+;; Function do_early_param (do_early_param)[0:2054] (unlikely executed)
+
+deleting block 13

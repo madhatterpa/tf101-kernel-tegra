@@ -1,0 +1,4328 @@
+
+;; Function do_bad (do_bad)[0:1296]
+
+(note 1 0 28 NOTE_INSN_DELETED)
+
+(note 28 1 29 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 29 28 30 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 30 29 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 30 24 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 24 6 5 NOTE_INSN_PROLOGUE_END)
+
+(note 5 24 8 NOTE_INSN_FUNCTION_BEG)
+
+(note 8 5 12 NOTE_INSN_DELETED)
+
+(insn:TI 12 8 31 arch/arm/mm/fault.c:489 (set (reg/i:SI 0 r0)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+
+(note 31 12 18 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 18 31 25 arch/arm/mm/fault.c:489 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 25 18 26 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 26 25 27 arch/arm/mm/fault.c:489 (return) 260 {return} (nil))
+
+(barrier 27 26 22)
+
+(note 22 27 23 NOTE_INSN_DELETED)
+
+(note 23 22 0 NOTE_INSN_DELETED)
+
+;; Function __do_user_fault (__do_user_fault)[0:1289]
+
+(note 1 0 42 NOTE_INSN_DELETED)
+
+(note 42 1 43 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 43 42 44 ( sig (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ sig ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 44 43 45 ( code (expr_list:REG_DEP_TRUE (mem/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 code+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 45 44 46 ( regs (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 8 [0x8])) [0 regs+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 46 45 47 ( tsk (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ tsk ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 47 46 9 ( addr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 9 47 4 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 4 9 8 NOTE_INSN_DELETED)
+
+(note 8 4 21 NOTE_INSN_FUNCTION_BEG)
+
+(note 21 8 2 NOTE_INSN_DELETED)
+
+(insn:TI 2 21 36 arch/arm/mm/fault.c:173 (set (reg/v/f:SI 12 ip [orig:134 tsk ] [134])
+        (reg:SI 0 r0 [ tsk ])) 167 {*arm_movsi_insn} (nil))
+
+(insn/f:TI 36 2 37 arch/arm/mm/fault.c:173 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 14 lr)
+                    ] 2))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                    (set/f (reg/f:SI 13 sp)
+                        (plus:SI (reg/f:SI 13 sp)
+                            (const_int -4 [0xfffffffffffffffc])))
+                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                        (reg:SI 14 lr))
+                ])
+            (nil))))
+
+(insn/f:TI 37 36 38 arch/arm/mm/fault.c:173 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -132 [0xffffffffffffff7c]))) 4 {*arm_addsi3} (nil))
+
+(note 38 37 12 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 12 38 3 arch/arm/mm/fault.c:186 (set (mem/s/j:SI (plus:SI (reg/f:SI 0 r0 [orig:134 tsk ] [134])
+                (const_int 792 [0x318])) [0 <variable>.thread.error_code+0 S4 A64])
+        (reg:SI 2 r2 [ fsr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ fsr ])
+        (expr_list:REG_DEAD (reg/f:SI 0 r0 [orig:134 tsk ] [134])
+            (nil))))
+
+(insn 3 12 11 arch/arm/mm/fault.c:173 (set (reg/v:SI 14 lr [orig:135 addr ] [135])
+        (reg:SI 1 r1 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 11 3 13 arch/arm/mm/fault.c:185 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 12 ip [orig:134 tsk ] [134])
+                (const_int 784 [0x310])) [0 <variable>.thread.address+0 S4 A64])
+        (reg:SI 1 r1 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [orig:135 addr ] [135])
+        (nil)))
+
+(insn 13 11 48 arch/arm/mm/fault.c:187 (set (reg:SI 1 r1 [140])
+        (const_int 14 [0xe])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 14 [0xe])
+        (nil)))
+
+(note 48 13 14 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 14 lr [orig:135 addr ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 14 48 24 arch/arm/mm/fault.c:187 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 12 ip [orig:134 tsk ] [134])
+                (const_int 788 [0x314])) [0 <variable>.thread.trap_no+0 S4 A32])
+        (reg:SI 1 r1 [140])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 12 ip [orig:134 tsk ] [134])
+        (expr_list:REG_DEAD (reg:SI 1 r1 [140])
+            (expr_list:REG_EQUAL (const_int 14 [0xe])
+                (nil)))))
+
+(insn 24 14 49 arch/arm/mm/fault.c:192 (set (reg:SI 2 r2)
+        (reg/v/f:SI 12 ip [orig:134 tsk ] [134])) 167 {*arm_movsi_insn} (nil))
+
+(note 49 24 34 ( fsr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 34 49 22 arch/arm/mm/fault.c:190 (set (reg/v:SI 12 ip [orig:138 code ] [138])
+        (mem/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 136 [0x88])) [0 code+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 136 [0x88])) [0 code+0 S4 A32])
+        (nil)))
+
+(insn 22 34 50 arch/arm/mm/fault.c:192 (set (reg:SI 0 r0)
+        (reg/v:SI 3 r3 [orig:137 sig ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(note 50 22 23 ( tsk (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 23 50 20 arch/arm/mm/fault.c:192 (set (reg:SI 1 r1)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (nil))
+
+(insn 20 23 16 arch/arm/mm/fault.c:191 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 si._sifields._sigfault._addr+0 S4 A32])
+        (reg/v:SI 14 lr [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 14 lr [orig:135 addr ] [135])
+        (nil)))
+
+(insn:TI 16 20 19 arch/arm/mm/fault.c:188 (set (mem/s/j/c:SI (reg/f:SI 13 sp) [0 si.si_signo+0 S4 A64])
+        (reg/v:SI 3 r3 [orig:137 sig ] [137])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 3 r3 [orig:137 sig ] [137])
+        (nil)))
+
+(insn:TI 19 16 17 arch/arm/mm/fault.c:190 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 si.si_code+0 S4 A64])
+        (reg/v:SI 12 ip [orig:138 code ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 12 ip [orig:138 code ] [138])
+        (nil)))
+
+(insn 17 19 18 arch/arm/mm/fault.c:189 (set (reg:SI 12 ip [141])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 18 17 25 arch/arm/mm/fault.c:189 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 si.si_errno+0 S4 A32])
+        (reg:SI 12 ip [141])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [141])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn 25 18 52 arch/arm/mm/fault.c:192 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("force_sig_info") [flags 0x41] <function_decl 0x11156f80 force_sig_info>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_UNUSED (reg:SI 0 r0)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(note 52 25 51 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 51 52 39 ( sig (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 39 51 40 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 40 39 41 arch/arm/mm/fault.c:193 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 41 40 33)
+
+(note 33 41 35 NOTE_INSN_DELETED)
+
+(note 35 33 0 NOTE_INSN_DELETED)
+
+;; Function show_pte (show_pte)[0:1287]
+
+(note 1 0 154 NOTE_INSN_DELETED)
+
+(note 154 1 155 ( addr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 155 154 5 ( mm (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ mm ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 5 155 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 5 4 NOTE_INSN_DELETED)
+
+(note 4 2 7 NOTE_INSN_FUNCTION_BEG)
+
+(note 7 4 22 NOTE_INSN_DELETED)
+
+(note 22 7 140 NOTE_INSN_DELETED)
+
+(insn/f:TI 140 22 141 arch/arm/mm/fault.c:71 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 6 r6)
+            (expr_list:REG_DEAD (reg:SI 5 r5)
+                (expr_list:REG_DEAD (reg:SI 4 r4)
+                    (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                (set/f (reg/f:SI 13 sp)
+                                    (plus:SI (reg/f:SI 13 sp)
+                                        (const_int -16 [0xfffffffffffffff0])))
+                                (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                    (reg:SI 4 r4))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 4 [0x4])) [0 S4 A32])
+                                    (reg:SI 5 r5))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 8 [0x8])) [0 S4 A32])
+                                    (reg:SI 6 r6))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 12 [0xc])) [0 S4 A32])
+                                    (reg:SI 14 lr))
+                            ])
+                        (nil)))))))
+
+(note 141 140 138 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 138 141 136 arch/arm/mm/fault.c:75 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0 [ mm ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn:TI 136 138 139 arch/arm/mm/fault.c:75 (set (reg/f:SI 5 r5 [178])
+        (mem:SI (label_ref 165) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("init_mm") [flags 0xc0] <var_decl 0x111538a0 init_mm>)
+        (nil)))
+
+(insn 139 136 17 arch/arm/mm/fault.c:75 (cond_exec (ne (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v/f:SI 5 r5 [orig:137 mm ] [137])
+            (reg:SI 0 r0 [ mm ]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_DEAD (reg:SI 0 r0 [ mm ])
+            (nil))))
+
+(insn:TI 17 139 3 arch/arm/mm/fault.c:78 (set (reg:SI 6 r6 [140])
+        (lshiftrt:SI (reg:SI 1 r1 [orig:138 addr ] [138])
+            (const_int 21 [0x15]))) 117 {*arm_shiftsi3} (expr_list:REG_DEAD (reg:SI 1 r1 [orig:138 addr ] [138])
+        (nil)))
+
+(insn 3 17 14 arch/arm/mm/fault.c:71 (set (reg/v:SI 4 r4 [orig:138 addr ] [138])
+        (reg:SI 1 r1 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 14 3 156 arch/arm/mm/fault.c:77 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x114bfdb0>)
+        (nil)))
+
+(note 156 14 15 ( mm (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:137 mm ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 15 156 157 arch/arm/mm/fault.c:77 (set (reg:SI 1 r1)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:137 mm ] [137])
+                (const_int 36 [0x24])) [0 <variable>.pgd+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 157 15 16 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:138 addr ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(call_insn:TI 16 157 19 arch/arm/mm/fault.c:77 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_UNUSED (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 19 16 158 arch/arm/mm/fault.c:78 (set (reg/f:SI 5 r5 [orig:142 <variable>.pgd ] [142])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:137 mm ] [137])
+                (const_int 36 [0x24])) [0 <variable>.pgd+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 158 19 24 ( mm (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 24 158 25 arch/arm/mm/fault.c:79 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC1") [flags 0x82] <string_cst 0x114b7420>)
+        (nil)))
+
+(insn 25 24 96 arch/arm/mm/fault.c:79 (set (reg:SI 1 r1)
+        (reg/v:SI 4 r4 [orig:138 addr ] [138])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 96 25 95 arch/arm/mm/fault.c:79 (set (reg:SI 3 r3 [+4 ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 95 96 27 arch/arm/mm/fault.c:79 (set (reg:SI 2 r2)
+        (mem/s/j:SI (plus:SI (mult:SI (reg:SI 6 r6 [140])
+                    (const_int 8 [0x8]))
+                (reg/f:SI 5 r5 [orig:142 <variable>.pgd ] [142])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 27 95 28 arch/arm/mm/fault.c:79 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_UNUSED (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 28 27 29 arch/arm/mm/fault.c:111 (set (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+        (mem:SI (plus:SI (mult:SI (reg:SI 6 r6 [140])
+                    (const_int 8 [0x8]))
+                (reg/f:SI 5 r5 [orig:142 <variable>.pgd ] [142])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 29 28 30 arch/arm/mm/fault.c:111 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn:TI 30 29 31 arch/arm/mm/fault.c:111 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 56)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 3900 [0xf3c])
+            (nil))))
+
+(note 31 30 32 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 32 31 33 NOTE_INSN_DELETED)
+
+(insn:TI 33 32 34 arch/arm/mm/fault.c:114 (parallel [
+            (set (reg:CC_NOOV 24 cc)
+                (compare:CC_NOOV (and:SI (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+                        (const_int 2 [0x2]))
+                    (const_int 0 [0x0])))
+            (set (reg:SI 5 r5 [146])
+                (and:SI (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+                    (const_int 2 [0x2])))
+        ]) 69 {*andsi3_compare0} (nil))
+
+(jump_insn:TI 34 33 35 arch/arm/mm/fault.c:114 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 41)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 35 34 37 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 37 35 38 arch/arm/mm/fault.c:115 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 12 [0xc]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC2") [flags 0x82] <string_cst 0x114e0740>)
+        (nil)))
+
+(call_insn:TI 38 37 150 arch/arm/mm/fault.c:115 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_UNUSED (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(jump_insn 150 38 151 arch/arm/mm/fault.c:116 (set (pc)
+        (label_ref 56)) 242 {*arm_jump} (nil))
+
+(barrier 151 150 41)
+
+(code_label 41 151 42 8 "" [1 uses])
+
+(note 42 41 49 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(note 49 42 135 NOTE_INSN_DELETED)
+
+(insn:TI 135 49 43 include/linux/mm.h:692 (set (reg/f:SI 3 r3 [150])
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 16 [0x10]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("mem_map") [flags 0xc0] <var_decl 0x10c2a9c0 mem_map>)
+        (nil)))
+
+(insn 43 135 134 include/linux/mm.h:692 (set (reg:SI 1 r1 [148])
+        (lshiftrt:SI (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+            (const_int 12 [0xc]))) 117 {*arm_shiftsi3} (nil))
+
+(insn:TI 134 43 45 include/linux/mm.h:692 (set (reg:SI 0 r0 [154])
+        (const_int 768 [0x300])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 768 [0x300])
+        (nil)))
+
+(insn:TI 45 134 46 include/linux/mm.h:692 (set (reg/f:SI 3 r3 [orig:149 mem_map ] [149])
+        (mem/f/c/i:SI (reg/f:SI 3 r3 [150]) [0 mem_map+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/f/c/i:SI (symbol_ref:SI ("mem_map") [flags 0xc0] <var_decl 0x10c2a9c0 mem_map>) [0 mem_map+0 S4 A32])
+        (nil)))
+
+(insn:TI 46 45 133 include/linux/mm.h:692 (set (reg:SI 3 r3 [orig:152 <variable>.flags ] [152])
+        (mem/s/j:SI (plus:SI (mult:SI (reg:SI 1 r1 [148])
+                    (const_int 32 [0x20]))
+                (reg/f:SI 3 r3 [orig:149 mem_map ] [149])) [0 <variable>.flags+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [148])
+        (nil)))
+
+(insn:TI 133 46 47 include/linux/mm.h:692 (set (reg/f:SI 1 r1 [155])
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 20 [0x14]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("contig_page_data") [flags 0xc0] <var_decl 0x10c5b780 contig_page_data>)
+        (nil)))
+
+(insn:TI 47 133 51 include/linux/mm.h:692 (set (reg:SI 3 r3 [151])
+        (lshiftrt:SI (reg:SI 3 r3 [orig:152 <variable>.flags ] [152])
+            (const_int 30 [0x1e]))) 117 {*arm_shiftsi3} (nil))
+
+(insn:TI 51 47 52 include/linux/mm.h:692 (set (reg/f:SI 3 r3 [orig:133 D.24788 ] [133])
+        (plus:SI (mult:SI (reg:SI 0 r0 [154])
+                (reg:SI 3 r3 [151]))
+            (reg/f:SI 1 r1 [155]))) 40 {*mulsi3addsi_v6} (expr_list:REG_DEAD (reg/f:SI 1 r1 [155])
+        (nil)))
+
+(insn:TI 52 51 53 include/linux/mmzone.h:741 (set (reg/f:SI 1 r1 [orig:157 <variable>.zone_pgdat ] [157])
+        (mem/s/f/j:SI (plus:SI (reg/f:SI 3 r3 [orig:133 D.24788 ] [133])
+                (const_int 748 [0x2ec])) [0 <variable>.zone_pgdat+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/f/j:SI (plus:SI (reg/f:SI 3 r3 [orig:133 D.24788 ] [133])
+                (const_int 748 [0x2ec])) [0 <variable>.zone_pgdat+0 S4 A32])
+        (nil)))
+
+(insn:TI 53 52 54 include/linux/mmzone.h:741 (set (reg:SI 3 r3 [156])
+        (minus:SI (reg/f:SI 3 r3 [orig:133 D.24788 ] [133])
+            (reg/f:SI 1 r1 [orig:157 <variable>.zone_pgdat ] [157]))) 28 {*arm_subsi3_insn} (expr_list:REG_DEAD (reg/f:SI 1 r1 [orig:157 <variable>.zone_pgdat ] [157])
+        (nil)))
+
+(insn:TI 54 53 55 include/linux/mmzone.h:741 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [156])
+            (reg:SI 0 r0))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [156])
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil))))
+
+(jump_insn:TI 55 54 159 include/linux/mmzone.h:741 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 62)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+            (nil))))
+
+(note 159 55 56 ( pte (expr_list:REG_DEP_TRUE (reg/v/f:SI 6 r6 [orig:134 pte ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 56 159 57 7 "" [3 uses])
+
+(note 57 56 59 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 59 57 142 arch/arm/mm/fault.c:130 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 24 [0x18]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC3") [flags 0x82] <string_cst 0x114e09e0>)
+        (nil)))
+
+(note 142 59 143 NOTE_INSN_EPILOGUE_BEG)
+
+(insn 143 142 60 arch/arm/mm/fault.c:131 (parallel [
+            (unspec:SI [
+                    (reg:SI 14 lr)
+                ] 6)
+            (unspec_volatile [
+                    (return)
+                ] 1)
+        ]) 322 {sibcall_epilogue} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (nil)))
+
+(call_insn/j:TI 60 143 61 arch/arm/mm/fault.c:130 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 259 {*sibcall_value_insn} (expr_list:REG_UNUSED (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(barrier 61 60 160)
+
+(note 160 61 62 ( pte (nil)) NOTE_INSN_VAR_LOCATION)
+
+(code_label 62 160 63 9 "" [1 uses])
+
+(note 63 62 64 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(note 64 63 67 NOTE_INSN_DELETED)
+
+(note 67 64 68 NOTE_INSN_DELETED)
+
+(note 68 67 70 NOTE_INSN_DELETED)
+
+(note 70 68 73 NOTE_INSN_DELETED)
+
+(note 73 70 79 NOTE_INSN_DELETED)
+
+(note 79 73 131 NOTE_INSN_DELETED)
+
+(insn:TI 131 79 69 arch/arm/mm/fault.c:123 (set (reg:SI 2 r2 [159])
+        (and:SI (reg:SI 2 r2 [orig:136 D.24402 ] [136])
+            (const_int -4081 [0xfffffffffffff00f]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 69 131 161 arch/arm/mm/fault.c:123 (set (reg:SI 4 r4 [163])
+        (zero_extract:SI (reg/v:SI 4 r4 [orig:138 addr ] [138])
+            (const_int 9 [0x9])
+            (const_int 12 [0xc]))) 124 {extzv_t2} (nil))
+
+(note 161 69 132 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 132 161 100 arch/arm/mm/fault.c:123 (set (reg:SI 2 r2 [159])
+        (and:SI (reg:SI 2 r2 [159])
+            (const_int -16 [0xfffffffffffffff0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 100 132 66 arch/arm/mm/fault.c:124 (set (reg:SI 3 r3 [+4 ])
+        (reg:SI 5 r5 [146])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 66 100 75 arch/arm/mm/fault.c:123 (set (reg:SI 2 r2 [161])
+        (plus:SI (reg:SI 2 r2 [159])
+            (const_int -1073741824 [0xffffffffc0000000]))) 4 {*arm_addsi3} (nil))
+
+(insn 75 66 71 arch/arm/mm/fault.c:124 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 28 [0x1c]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC4") [flags 0x82] <string_cst 0x114e1ab0>)
+        (nil)))
+
+(insn:TI 71 75 162 arch/arm/mm/fault.c:123 (set (reg/v/f:SI 6 r6 [orig:134 pte ] [134])
+        (plus:SI (mult:SI (reg:SI 4 r4 [163])
+                (const_int 4 [0x4]))
+            (reg:SI 2 r2 [161]))) 270 {*arith_shiftsi} (nil))
+
+(note 162 71 99 ( pte (expr_list:REG_DEP_TRUE (reg/v/f:SI 6 r6 [orig:134 pte ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 99 162 77 arch/arm/mm/fault.c:124 (set (reg:SI 2 r2)
+        (mem:SI (plus:SI (mult:SI (reg:SI 4 r4 [163])
+                    (const_int 4 [0x4]))
+                (reg:SI 2 r2 [161])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 77 99 103 arch/arm/mm/fault.c:124 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_UNUSED (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 103 77 104 arch/arm/mm/fault.c:125 (set (reg:SI 2 r2)
+        (mem:SI (plus:SI (reg/v/f:SI 6 r6 [orig:134 pte ] [134])
+                (const_int 2048 [0x800])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 104 103 81 arch/arm/mm/fault.c:125 (set (reg:SI 3 r3 [+4 ])
+        (reg:SI 5 r5 [146])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 81 104 83 arch/arm/mm/fault.c:125 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 165)
+                    (const_int 32 [0x20]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC5") [flags 0x82] <string_cst 0x114e1c60>)
+        (nil)))
+
+(call_insn:TI 83 81 152 arch/arm/mm/fault.c:125 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_UNUSED (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(jump_insn 152 83 153 (set (pc)
+        (label_ref 56)) 242 {*arm_jump} (nil))
+
+(barrier 153 152 163)
+
+(code_label 163 153 164 13 "" [0 uses])
+
+(insn 164 163 165 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 165 164 166 12 "" [0 uses])
+
+(insn 166 165 167 (unspec_volatile [
+            (symbol_ref:SI ("init_mm") [flags 0xc0] <var_decl 0x111538a0 init_mm>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 167 166 168 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x114bfdb0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 168 167 169 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC1") [flags 0x82] <string_cst 0x114b7420>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 169 168 170 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC2") [flags 0x82] <string_cst 0x114e0740>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 170 169 171 (unspec_volatile [
+            (symbol_ref:SI ("mem_map") [flags 0xc0] <var_decl 0x10c2a9c0 mem_map>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 171 170 172 (unspec_volatile [
+            (symbol_ref:SI ("contig_page_data") [flags 0xc0] <var_decl 0x10c5b780 contig_page_data>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 172 171 173 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC3") [flags 0x82] <string_cst 0x114e09e0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 173 172 174 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC4") [flags 0x82] <string_cst 0x114e1ab0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 174 173 175 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC5") [flags 0x82] <string_cst 0x114e1c60>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 175 174 176 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 176 175 137)
+
+(note 137 176 0 NOTE_INSN_DELETED)
+
+;; Function __do_kernel_fault (__do_kernel_fault)[0:1288]
+
+(note 1 0 70 NOTE_INSN_DELETED)
+
+(note 70 1 71 ( regs (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 71 70 72 ( mm (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ mm ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 72 71 73 ( addr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 73 72 7 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 7 73 6 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 6 7 11 NOTE_INSN_FUNCTION_BEG)
+
+(note 11 6 66 NOTE_INSN_DELETED)
+
+(insn/f:TI 66 11 67 arch/arm/mm/fault.c:143 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 8 r8))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 8 r8)
+            (expr_list:REG_DEAD (reg:SI 7 r7)
+                (expr_list:REG_DEAD (reg:SI 6 r6)
+                    (expr_list:REG_DEAD (reg:SI 5 r5)
+                        (expr_list:REG_DEAD (reg:SI 4 r4)
+                            (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                        (set/f (reg/f:SI 13 sp)
+                                            (plus:SI (reg/f:SI 13 sp)
+                                                (const_int -24 [0xffffffffffffffe8])))
+                                        (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                            (reg:SI 4 r4))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 4 [0x4])) [0 S4 A32])
+                                            (reg:SI 5 r5))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 8 [0x8])) [0 S4 A32])
+                                            (reg:SI 6 r6))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 12 [0xc])) [0 S4 A32])
+                                            (reg:SI 7 r7))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 16 [0x10])) [0 S4 A32])
+                                            (reg:SI 8 r8))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 20 [0x14])) [0 S4 A32])
+                                            (reg:SI 14 lr))
+                                    ])
+                                (nil)))))))))
+
+(note 67 66 2 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 2 67 9 arch/arm/mm/fault.c:143 (set (reg/v/f:SI 8 r8 [orig:135 mm ] [135])
+        (reg:SI 0 r0 [ mm ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ mm ])
+        (nil)))
+
+(insn:TI 9 2 74 arch/arm/mm/fault.c:147 (set (reg:SI 0 r0)
+        (reg/f:SI 3 r3 [orig:138 regs ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 3 r3 [orig:138 regs ] [138])
+        (nil)))
+
+(note 74 9 5 ( mm (expr_list:REG_DEP_TRUE (reg/v/f:SI 8 r8 [orig:135 mm ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 5 74 3 arch/arm/mm/fault.c:143 (set (reg/v/f:SI 5 r5 [orig:138 regs ] [138])
+        (reg:SI 3 r3 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 3 5 4 arch/arm/mm/fault.c:143 (set (reg/v:SI 4 r4 [orig:136 addr ] [136])
+        (reg:SI 1 r1 [ addr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ addr ])
+        (nil)))
+
+(insn 4 3 10 arch/arm/mm/fault.c:143 (set (reg/v:SI 7 r7 [orig:137 fsr ] [137])
+        (reg:SI 2 r2 [ fsr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ fsr ])
+        (nil)))
+
+(call_insn:TI 10 4 77 arch/arm/mm/fault.c:147 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("fixup_exception") [flags 0x41] <function_decl 0x11013a80 fixup_exception>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(note 77 10 76 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 7 r7 [orig:137 fsr ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 76 77 75 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:136 addr ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 75 76 12 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:138 regs ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 12 75 13 arch/arm/mm/fault.c:147 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg:SI 6 r6 [orig:134 D.24430 ] [134])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (nil))
+
+(jump_insn:TI 13 12 14 arch/arm/mm/fault.c:147 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (return)
+            (pc))) 261 {*cond_return} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 14 13 17 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 17 14 18 NOTE_INSN_DELETED)
+
+(note 18 17 59 NOTE_INSN_DELETED)
+
+(note 59 18 15 NOTE_INSN_DELETED)
+
+(insn:TI 15 59 16 arch/arm/mm/fault.c:153 (set (reg:SI 0 r0)
+        (plus:SI (reg:SI 0 r0)
+            (const_int 1 [0x1]))) 4 {*arm_addsi3} (nil))
+
+(call_insn:TI 16 15 61 arch/arm/mm/fault.c:153 (parallel [
+            (call (mem:SI (symbol_ref:SI ("bust_spinlocks") [flags 0x41] <function_decl 0x10a82a00 bust_spinlocks>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 61 16 64 arch/arm/mm/fault.c:154 discrim 3 (set (reg/f:SI 3 r3 [143])
+        (mem:SI (label_ref 80) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref/v/f:SI ("*.LC6") [flags 0x82] <string_cst 0x114ed540>)
+        (nil)))
+
+(insn:TI 64 61 32 arch/arm/mm/fault.c:154 discrim 3 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 4 r4 [orig:136 addr ] [136])
+            (const_int 4096 [0x1000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn 32 64 62 arch/arm/mm/fault.c:154 discrim 3 (set (reg:SI 2 r2)
+        (reg/v:SI 4 r4 [orig:136 addr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 62 32 65 arch/arm/mm/fault.c:154 discrim 3 (set (reg/f:SI 1 r1 [142])
+        (mem:SI (const (plus (label_ref 80)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref/v/f:SI ("*.LC7") [flags 0x82] <string_cst 0x114c3f80>)
+        (nil)))
+
+(insn 65 62 30 arch/arm/mm/fault.c:154 discrim 3 (cond_exec (geu (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg:SI 1 r1)
+            (reg/f:SI 3 r3 [143]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_DEAD (reg/f:SI 3 r3 [143])
+            (nil))))
+
+(insn:TI 30 65 33 arch/arm/mm/fault.c:154 discrim 3 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 80)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC8") [flags 0x82] <string_cst 0x10b2ecc0>)
+        (nil)))
+
+(call_insn:TI 33 30 34 arch/arm/mm/fault.c:154 discrim 3 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_UNUSED (reg:SI 0 r0)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 34 33 35 arch/arm/mm/fault.c:159 (set (reg:SI 0 r0)
+        (reg/v/f:SI 8 r8 [orig:135 mm ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 8 r8 [orig:135 mm ] [135])
+        (nil)))
+
+(insn:TI 35 34 36 arch/arm/mm/fault.c:159 (set (reg:SI 1 r1)
+        (reg/v:SI 4 r4 [orig:136 addr ] [136])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 4 r4 [orig:136 addr ] [136])
+        (nil)))
+
+(call_insn:TI 36 35 39 arch/arm/mm/fault.c:159 (parallel [
+            (call (mem:SI (symbol_ref:SI ("show_pte") [flags 0x3] <function_decl 0x512d9600 show_pte>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 39 36 40 arch/arm/mm/fault.c:160 (set (reg:SI 1 r1)
+        (reg/v/f:SI 5 r5 [orig:138 regs ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 5 r5 [orig:138 regs ] [138])
+        (nil)))
+
+(insn:TI 40 39 38 arch/arm/mm/fault.c:160 (set (reg:SI 2 r2)
+        (reg/v:SI 7 r7 [orig:137 fsr ] [137])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 7 r7 [orig:137 fsr ] [137])
+        (nil)))
+
+(insn 38 40 41 arch/arm/mm/fault.c:160 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 80)
+                    (const_int 12 [0xc]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC9") [flags 0x82] <string_cst 0x114ebb40>)
+        (nil)))
+
+(call_insn:TI 41 38 42 arch/arm/mm/fault.c:160 (parallel [
+            (call (mem:SI (symbol_ref:SI ("die") [flags 0x41] <function_decl 0x512d9300 die>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_DEAD (reg:SI 0 r0)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 42 41 43 arch/arm/mm/fault.c:161 (set (reg:SI 0 r0)
+        (reg:SI 6 r6 [orig:134 D.24430 ] [134])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 6 r6 [orig:134 D.24430 ] [134])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn:TI 43 42 44 arch/arm/mm/fault.c:161 (parallel [
+            (call (mem:SI (symbol_ref:SI ("bust_spinlocks") [flags 0x41] <function_decl 0x10a82a00 bust_spinlocks>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 44 43 45 arch/arm/mm/fault.c:162 (set (reg:SI 0 r0)
+        (const_int 9 [0x9])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 45 44 46 arch/arm/mm/fault.c:162 (parallel [
+            (call (mem:SI (symbol_ref:SI ("do_exit") [flags 0x41] <function_decl 0x10a67900 do_exit>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (expr_list:REG_NORETURN (const_int 0 [0x0])
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(barrier 46 45 78)
+
+(code_label 78 46 79 20 "" [0 uses])
+
+(insn 79 78 80 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 80 79 81 19 "" [0 uses])
+
+(insn 81 80 82 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC6") [flags 0x82] <string_cst 0x114ed540>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 82 81 83 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC7") [flags 0x82] <string_cst 0x114c3f80>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 83 82 84 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC8") [flags 0x82] <string_cst 0x10b2ecc0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 84 83 85 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC9") [flags 0x82] <string_cst 0x114ebb40>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 85 84 86 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 86 85 60)
+
+(note 60 86 63 NOTE_INSN_DELETED)
+
+(note 63 60 0 NOTE_INSN_DELETED)
+
+;; Function do_page_fault (do_page_fault)[0:1293]
+
+(note 1 0 391 NOTE_INSN_DELETED)
+
+(note 391 1 392 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 392 391 393 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 393 392 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 393 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 9 NOTE_INSN_FUNCTION_BEG)
+
+(note 9 5 14 NOTE_INSN_DELETED)
+
+(note 14 9 366 NOTE_INSN_DELETED)
+
+(insn/f:TI 366 14 367 arch/arm/mm/fault.c:277 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 8 r8))
+            (use (reg:SI 9 r9))
+            (use (reg:SI 10 sl))
+            (use (reg:SI 11 fp))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 10 sl)
+            (expr_list:REG_DEAD (reg:SI 8 r8)
+                (expr_list:REG_DEAD (reg:SI 7 r7)
+                    (expr_list:REG_DEAD (reg:SI 6 r6)
+                        (expr_list:REG_DEAD (reg:SI 4 r4)
+                            (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                        (set/f (reg/f:SI 13 sp)
+                                            (plus:SI (reg/f:SI 13 sp)
+                                                (const_int -36 [0xffffffffffffffdc])))
+                                        (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                            (reg:SI 4 r4))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 4 [0x4])) [0 S4 A32])
+                                            (reg:SI 5 r5))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 8 [0x8])) [0 S4 A32])
+                                            (reg:SI 6 r6))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 12 [0xc])) [0 S4 A32])
+                                            (reg:SI 7 r7))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 16 [0x10])) [0 S4 A32])
+                                            (reg:SI 8 r8))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 20 [0x14])) [0 S4 A32])
+                                            (reg:SI 9 r9))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 24 [0x18])) [0 S4 A32])
+                                            (reg:SI 10 sl))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 28 [0x1c])) [0 S4 A32])
+                                            (reg:SI 11 fp))
+                                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                    (const_int 32 [0x20])) [0 S4 A32])
+                                            (reg:SI 14 lr))
+                                    ])
+                                (nil)))))))))
+
+(insn/f:TI 367 366 368 arch/arm/mm/fault.c:277 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -92 [0xffffffffffffffa4]))) 4 {*arm_addsi3} (nil))
+
+(note 368 367 4 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 4 368 351 arch/arm/mm/fault.c:277 (set (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+        (reg:SI 2 r2 [ regs ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ regs ])
+        (nil)))
+
+(insn 351 4 394 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 2 r2)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (nil))
+
+(note 394 351 346 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 346 394 2 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 3 r3 [159])
+        (and:SI (reg:SI 2 r2)
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (nil)))
+
+(insn 2 346 347 arch/arm/mm/fault.c:277 (set (reg/v:SI 6 r6 [orig:156 addr ] [156])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ addr ])
+        (nil)))
+
+(insn:TI 347 2 13 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 3 r3 [159])
+        (and:SI (reg:SI 3 r3 [159])
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 13 347 3 arch/arm/mm/fault.c:289 (set (reg:SI 2 r2 [orig:162 <variable>.uregs+64 ] [162])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])
+        (nil)))
+
+(insn:TI 3 13 11 arch/arm/mm/fault.c:277 (set (reg/v:SI 10 sl [orig:157 fsr ] [157])
+        (reg:SI 1 r1 [ fsr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ fsr ])
+        (nil)))
+
+(insn:TI 11 3 395 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+        (mem/s/f/j:SI (plus:SI (reg:SI 3 r3 [159])
+                (const_int 12 [0xc])) [0 <variable>.task+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [159])
+        (nil)))
+
+(note 395 11 15 ( tsk (expr_list:REG_DEP_TRUE (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 15 395 12 arch/arm/mm/fault.c:289 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 2 r2 [orig:162 <variable>.uregs+64 ] [162])
+                (const_int 1 [0x1])
+                (const_int 7 [0x7]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 2 r2 [orig:162 <variable>.uregs+64 ] [162])
+        (nil)))
+
+(insn:TI 12 15 396 arch/arm/mm/fault.c:286 (set (reg/v/f:SI 8 r8 [orig:148 mm ] [148])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                (const_int 492 [0x1ec])) [0 <variable>.mm+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 396 12 16 ( mm (expr_list:REG_DEP_TRUE (reg/v/f:SI 8 r8 [orig:148 mm ] [148])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn 16 396 397 arch/arm/mm/fault.c:289 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 19)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 397 16 398 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:156 addr ] [156])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 398 397 17 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 10 sl [orig:157 fsr ] [157])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 17 398 18 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 18 17 19 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/irqflags.h:26 (parallel [
+            (asm_operands/v ("	cpsie i			@ arch_local_irq_enable") ("") 0 []
+                 [] 1104506)
+            (clobber (reg:QI 24 cc))
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (expr_list:REG_UNUSED (reg:QI 24 cc)
+        (nil)))
+
+(code_label 19 18 20 22 "" [1 uses])
+
+(note 20 19 22 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 22 20 25 NOTE_INSN_DELETED)
+
+(note 25 22 29 NOTE_INSN_DELETED)
+
+(note 29 25 30 NOTE_INSN_DELETED)
+
+(note 30 29 32 NOTE_INSN_DELETED)
+
+(note 32 30 33 NOTE_INSN_DELETED)
+
+(note 33 32 352 NOTE_INSN_DELETED)
+
+(insn:TI 352 33 344 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 2 r2)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 344 352 345 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 3 r3 [163])
+        (and:SI (reg:SI 2 r2)
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (nil)))
+
+(insn:TI 345 344 24 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 3 r3 [163])
+        (and:SI (reg:SI 3 r3 [163])
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 24 345 26 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 3 r3 [orig:166 <variable>.preempt_count ] [166])
+        (mem/s/j:SI (plus:SI (reg:SI 3 r3 [163])
+                (const_int 4 [0x4])) [0 <variable>.preempt_count+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 26 24 27 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (parallel [
+            (set (reg:CC_NOOV 24 cc)
+                (compare:CC_NOOV (and:SI (reg:SI 3 r3 [orig:166 <variable>.preempt_count ] [166])
+                        (const_int -1073741825 [0xffffffffbfffffff]))
+                    (const_int 0 [0x0])))
+            (clobber (reg:SI 2 r2))
+        ]) 70 {*andsi3_compare0_scratch} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:166 <variable>.preempt_count ] [166])
+        (expr_list:REG_UNUSED (reg:SI 2 r2)
+            (nil))))
+
+(insn:TI 27 26 34 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 3 r3 [168])
+        (ne:SI (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))) 233 {*mov_scc} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (nil)))
+
+(insn:TI 34 27 35 arch/arm/mm/fault.c:296 (parallel [
+            (set (reg:SI 3 r3 [173])
+                (ior:SI (eq:SI (reg/v/f:SI 8 r8 [orig:148 mm ] [148])
+                        (const_int 0 [0x0]))
+                    (reg:SI 3 r3 [168])))
+            (clobber (reg:CC 24 cc))
+        ]) 280 {*cond_arith} (expr_list:REG_UNUSED (reg:CC 24 cc)
+        (nil)))
+
+(insn:TI 35 34 36 arch/arm/mm/fault.c:296 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [173])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [173])
+        (nil)))
+
+(jump_insn:TI 36 35 37 arch/arm/mm/fault.c:296 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 275)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 37 36 41 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(note 41 37 38 NOTE_INSN_DELETED)
+
+(insn:TI 38 41 39 arch/arm/mm/fault.c:304 (set (reg/f:SI 9 r9 [orig:154 D.24547 ] [154])
+        (plus:SI (reg/v/f:SI 8 r8 [orig:148 mm ] [148])
+            (const_int 60 [0x3c]))) 4 {*arm_addsi3} (nil))
+
+(insn:TI 39 38 40 arch/arm/mm/fault.c:304 (set (reg:SI 0 r0)
+        (reg/f:SI 9 r9 [orig:154 D.24547 ] [154])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 40 39 306 arch/arm/mm/fault.c:304 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("down_read_trylock") [flags 0x41] <function_decl 0x10c30c80 down_read_trylock>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 306 40 42 (set (reg:SI 3 r3 [orig:206 <variable>.uregs+64 ] [206])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 42 306 43 arch/arm/mm/fault.c:304 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 43 42 44 arch/arm/mm/fault.c:304 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 61)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 44 43 46 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(note 46 44 47 NOTE_INSN_DELETED)
+
+(insn:TI 47 46 48 arch/arm/mm/fault.c:305 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 3 r3 [orig:206 <variable>.uregs+64 ] [206])
+                (const_int 4 [0x4])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:206 <variable>.uregs+64 ] [206])
+        (nil)))
+
+(jump_insn:TI 48 47 49 arch/arm/mm/fault.c:305 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 55)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 49 48 52 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(note 52 49 50 NOTE_INSN_DELETED)
+
+(insn:TI 50 52 51 arch/arm/mm/fault.c:305 discrim 1 (set (reg:SI 0 r0)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 51 50 53 arch/arm/mm/fault.c:305 discrim 1 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("search_exception_tables") [flags 0x41] <function_decl 0x10e04f80 search_exception_tables>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn:TI 53 51 54 arch/arm/mm/fault.c:305 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 54 53 55 arch/arm/mm/fault.c:305 discrim 1 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 275)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 1500 [0x5dc])
+            (nil))))
+
+(code_label 55 54 56 25 "" [1 uses])
+
+(note 56 55 57 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 57 56 58 arch/arm/mm/fault.c:307 (set (reg:SI 0 r0)
+        (reg/f:SI 9 r9 [orig:154 D.24547 ] [154])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 58 57 383 arch/arm/mm/fault.c:307 (parallel [
+            (call (mem:SI (symbol_ref:SI ("down_read") [flags 0x41] <function_decl 0x10c30c00 down_read>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(jump_insn 383 58 384 (set (pc)
+        (label_ref 73)) 242 {*arm_jump} (nil))
+
+(barrier 384 383 61)
+
+(code_label 61 384 62 24 "" [1 uses])
+
+(note 62 61 64 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(note 64 62 65 NOTE_INSN_DELETED)
+
+(insn:TI 65 64 66 arch/arm/mm/fault.c:316 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 3 r3 [orig:206 <variable>.uregs+64 ] [206])
+                (const_int 4 [0x4])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:206 <variable>.uregs+64 ] [206])
+        (nil)))
+
+(jump_insn:TI 66 65 67 arch/arm/mm/fault.c:316 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 73)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7100 [0x1bbc])
+            (nil))))
+
+(note 67 66 70 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(note 70 67 68 NOTE_INSN_DELETED)
+
+(insn:TI 68 70 69 arch/arm/mm/fault.c:317 (set (reg:SI 0 r0)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 69 68 71 arch/arm/mm/fault.c:317 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("search_exception_tables") [flags 0x41] <function_decl 0x10e04f80 search_exception_tables>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn:TI 71 69 72 arch/arm/mm/fault.c:316 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 72 71 73 arch/arm/mm/fault.c:316 discrim 1 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 275)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 1500 [0x5dc])
+            (nil))))
+
+(code_label 73 72 74 26 "" [2 uses])
+
+(note 74 73 78 [bb 11] NOTE_INSN_BASIC_BLOCK)
+
+(note 78 74 75 NOTE_INSN_DELETED)
+
+(insn:TI 75 78 76 arch/arm/mm/fault.c:238 (set (reg:SI 0 r0)
+        (reg/v/f:SI 8 r8 [orig:148 mm ] [148])) 167 {*arm_movsi_insn} (nil))
+
+(insn 76 75 77 arch/arm/mm/fault.c:238 (set (reg:SI 1 r1)
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 77 76 79 arch/arm/mm/fault.c:238 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("find_vma") [flags 0x41] <function_decl 0x10fe6c80 find_vma>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn:TI 79 77 399 arch/arm/mm/fault.c:240 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (nil))
+
+(note 399 79 80 ( vma (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 80 399 81 arch/arm/mm/fault.c:240 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 158)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 4 [0x4])
+            (nil))))
+
+(note 81 80 82 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 82 81 83 arch/arm/mm/fault.c:242 (set (reg:SI 3 r3 [orig:178 <variable>.vm_start ] [178])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 4 [0x4])) [0 <variable>.vm_start+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 4 [0x4])) [0 <variable>.vm_start+0 S4 A32])
+        (nil)))
+
+(insn:TI 83 82 84 arch/arm/mm/fault.c:242 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [orig:178 <variable>.vm_start ] [178])
+            (reg/v:SI 6 r6 [orig:156 addr ] [156]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:178 <variable>.vm_start ] [178])
+        (nil)))
+
+(jump_insn:TI 84 83 155 arch/arm/mm/fault.c:242 (set (pc)
+        (if_then_else (gtu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 144)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 4 [0x4])
+            (nil))))
+
+(code_label 155 84 85 35 "" [1 uses])
+
+(note 85 155 86 [bb 13] NOTE_INSN_BASIC_BLOCK)
+
+(note 86 85 98 NOTE_INSN_DELETED)
+
+(note 98 86 105 NOTE_INSN_DELETED)
+
+(note 105 98 87 NOTE_INSN_DELETED)
+
+(insn:TI 87 105 104 arch/arm/mm/fault.c:223 (parallel [
+            (set (reg:CC_NOOV 24 cc)
+                (compare:CC_NOOV (and:SI (reg/v:SI 10 sl [orig:157 fsr ] [157])
+                        (const_int 2048 [0x800]))
+                    (const_int 0 [0x0])))
+            (set (reg:SI 3 r3 [orig:138 D.24984 ] [138])
+                (and:SI (reg/v:SI 10 sl [orig:157 fsr ] [157])
+                    (const_int 2048 [0x800])))
+        ]) 69 {*andsi3_compare0} (nil))
+
+(insn 104 87 309 arch/arm/mm/fault.c:228 (set (reg:SI 1 r1 [orig:180 <variable>.vm_flags ] [180])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 24 [0x18])) [0 <variable>.vm_flags+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 24 [0x18])) [0 <variable>.vm_flags+0 S4 A32])
+        (nil)))
+
+(insn:TI 309 104 400 arch/arm/mm/fault.c:224 (set (reg/v:SI 2 r2 [orig:137 mask ] [137])
+        (if_then_else:SI (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (const_int 7 [0x7])
+            (const_int 2 [0x2]))) 240 {*movsicc_insn} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (nil)))
+
+(note 400 309 364 ( mask (expr_list:REG_DEP_TRUE (reg/v:SI 2 r2 [orig:137 mask ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 364 400 365 arch/arm/mm/fault.c:226 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 10 sl [orig:157 fsr ] [157])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn:TI 365 364 106 arch/arm/mm/fault.c:226 (cond_exec (lt (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 2 r2 [orig:137 mask ] [137])
+            (const_int 4 [0x4]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (nil)))
+
+(insn:TI 106 365 109 arch/arm/mm/fault.c:228 (parallel [
+            (set (reg:CC_NOOV 24 cc)
+                (compare:CC_NOOV (and:SI (reg/v:SI 2 r2 [orig:137 mask ] [137])
+                        (reg:SI 1 r1 [orig:180 <variable>.vm_flags ] [180]))
+                    (const_int 0 [0x0])))
+            (clobber (scratch:SI))
+        ]) 70 {*andsi3_compare0_scratch} (expr_list:REG_DEAD (reg/v:SI 2 r2 [orig:137 mask ] [137])
+        (expr_list:REG_DEAD (reg:SI 1 r1 [orig:180 <variable>.vm_flags ] [180])
+            (nil))))
+
+(insn:TI 109 106 401 arch/arm/mm/fault.c:251 (cond_exec (eq (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 5 r5 [orig:147 fault ] [147])
+            (const_int 131072 [0x20000]))) 2345 {neon_vornv2di+78} (nil))
+
+(note 401 109 402 ( vma (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 402 401 107 ( fault (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:147 fault ] [147])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 107 402 113 arch/arm/mm/fault.c:228 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 161)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7100 [0x1bbc])
+            (nil))))
+
+(note 113 107 114 [bb 14] NOTE_INSN_BASIC_BLOCK)
+
+(note 114 113 115 NOTE_INSN_DELETED)
+
+(note 115 114 116 NOTE_INSN_DELETED)
+
+(note 116 115 117 NOTE_INSN_DELETED)
+
+(note 117 116 124 NOTE_INSN_DELETED)
+
+(note 124 117 342 NOTE_INSN_DELETED)
+
+(insn:TI 342 124 403 arch/arm/mm/fault.c:259 (set (reg:SI 2 r2)
+        (and:SI (reg/v:SI 6 r6 [orig:156 addr ] [156])
+            (const_int -4081 [0xfffffffffffff00f]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 403 342 121 ( mask (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 121 403 119 arch/arm/mm/fault.c:259 (parallel [
+            (set (reg:SI 3 r3)
+                (ne:SI (reg:SI 3 r3 [orig:138 D.24984 ] [138])
+                    (const_int 0 [0x0])))
+            (clobber (reg:CC 24 cc))
+        ]) 278 {*compare_scc} (expr_list:REG_UNUSED (reg:CC 24 cc)
+        (nil)))
+
+(insn:TI 119 121 404 arch/arm/mm/fault.c:259 (set (reg:SI 1 r1)
+        (reg/v/f:SI 5 r5 [orig:136 vma ] [136])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+        (nil)))
+
+(note 404 119 343 ( vma (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 343 404 118 arch/arm/mm/fault.c:259 (set (reg:SI 2 r2)
+        (and:SI (reg:SI 2 r2)
+            (const_int -16 [0xfffffffffffffff0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 118 343 122 arch/arm/mm/fault.c:259 (set (reg:SI 0 r0)
+        (reg/v/f:SI 8 r8 [orig:148 mm ] [148])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 122 118 125 arch/arm/mm/fault.c:259 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("handle_mm_fault") [flags 0x41] <function_decl 0x10fbfc80 handle_mm_fault>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn:TI 125 122 123 arch/arm/mm/fault.c:260 (parallel [
+            (set (reg:CC_NOOV 24 cc)
+                (compare:CC_NOOV (and:SI (reg:SI 0 r0 [orig:147 fault ] [147])
+                        (const_int 51 [0x33]))
+                    (const_int 0 [0x0])))
+            (clobber (scratch:SI))
+        ]) 70 {*andsi3_compare0_scratch} (nil))
+
+(insn 123 125 405 arch/arm/mm/fault.c:259 (set (reg/v:SI 5 r5 [orig:147 fault ] [147])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(note 405 123 126 ( vma (nil)) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 126 405 127 arch/arm/mm/fault.c:260 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 161)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 4 [0x4])
+            (nil))))
+
+(note 127 126 128 [bb 15] NOTE_INSN_BASIC_BLOCK)
+
+(note 128 127 129 NOTE_INSN_DELETED)
+
+(insn:TI 129 128 132 arch/arm/mm/fault.c:262 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 0 r0 [orig:147 fault ] [147])
+                (const_int 1 [0x1])
+                (const_int 2 [0x2]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 0 r0 [orig:147 fault ] [147])
+        (nil)))
+
+(insn:TI 132 129 139 arch/arm/mm/fault.c:263 (cond_exec (ne (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg:SI 3 r3 [orig:187 <variable>.maj_flt ] [187])
+            (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                    (const_int 696 [0x2b8])) [0 <variable>.maj_flt+0 S4 A64]))) 2345 {neon_vornv2di+78} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                (const_int 696 [0x2b8])) [0 <variable>.maj_flt+0 S4 A64])
+        (nil)))
+
+(insn:TI 139 132 133 arch/arm/mm/fault.c:265 (cond_exec (eq (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg:SI 3 r3 [orig:189 <variable>.min_flt ] [189])
+            (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                    (const_int 692 [0x2b4])) [0 <variable>.min_flt+0 S4 A32]))) 2345 {neon_vornv2di+78} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                (const_int 692 [0x2b4])) [0 <variable>.min_flt+0 S4 A32])
+        (nil)))
+
+(insn:TI 133 139 140 arch/arm/mm/fault.c:263 (cond_exec (ne (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg:SI 3 r3 [188])
+            (plus:SI (reg:SI 3 r3 [orig:187 <variable>.maj_flt ] [187])
+                (const_int 1 [0x1])))) 2268 {neon_vornv2di+1} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                (const_int 696 [0x2b8])) [0 <variable>.maj_flt+0 S4 A64])
+        (nil)))
+
+(insn:TI 140 133 134 arch/arm/mm/fault.c:265 (cond_exec (eq (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg:SI 3 r3 [190])
+            (plus:SI (reg:SI 3 r3 [orig:189 <variable>.min_flt ] [189])
+                (const_int 1 [0x1])))) 2268 {neon_vornv2di+1} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                (const_int 692 [0x2b4])) [0 <variable>.min_flt+0 S4 A32])
+        (nil)))
+
+(insn 134 140 141 arch/arm/mm/fault.c:263 (cond_exec (ne (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                    (const_int 696 [0x2b8])) [0 <variable>.maj_flt+0 S4 A64])
+            (reg:SI 3 r3 [188]))) 2345 {neon_vornv2di+78} (nil))
+
+(insn:TI 141 134 385 arch/arm/mm/fault.c:265 (cond_exec (eq (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (mem/s/j:SI (plus:SI (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])
+                    (const_int 692 [0x2b4])) [0 <variable>.min_flt+0 S4 A32])
+            (reg:SI 3 r3 [190]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_DEAD (reg:SI 3 r3 [190])
+            (nil))))
+
+(jump_insn 385 141 386 (set (pc)
+        (label_ref 161)) 242 {*arm_jump} (nil))
+
+(barrier 386 385 406)
+
+(note 406 386 407 ( vma (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 407 406 144 ( fault (nil)) NOTE_INSN_VAR_LOCATION)
+
+(code_label 144 407 145 28 ("check_stack") [1 uses])
+
+(note 145 144 147 [bb 16] NOTE_INSN_BASIC_BLOCK)
+
+(note 147 145 146 NOTE_INSN_DELETED)
+
+(insn:TI 146 147 148 arch/arm/mm/fault.c:269 (set (reg:SI 3 r3 [orig:192 <variable>.vm_flags ] [192])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 24 [0x18])) [0 <variable>.vm_flags+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:136 vma ] [136])
+                (const_int 24 [0x18])) [0 <variable>.vm_flags+0 S4 A32])
+        (nil)))
+
+(insn:TI 148 146 149 arch/arm/mm/fault.c:269 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 3 r3 [orig:192 <variable>.vm_flags ] [192])
+                (const_int 1 [0x1])
+                (const_int 8 [0x8]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:192 <variable>.vm_flags ] [192])
+        (nil)))
+
+(jump_insn:TI 149 148 150 arch/arm/mm/fault.c:269 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 158)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7100 [0x1bbc])
+            (nil))))
+
+(note 150 149 154 [bb 17] NOTE_INSN_BASIC_BLOCK)
+
+(note 154 150 152 NOTE_INSN_DELETED)
+
+(insn:TI 152 154 153 arch/arm/mm/fault.c:269 discrim 1 (set (reg:SI 1 r1)
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 153 152 156 arch/arm/mm/fault.c:269 discrim 1 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("expand_stack") [flags 0x41] <function_decl 0x10fe6b80 expand_stack>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn:TI 156 153 157 arch/arm/mm/fault.c:269 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 157 156 158 arch/arm/mm/fault.c:269 discrim 1 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 155)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(code_label 158 157 159 27 "" [2 uses])
+
+(note 159 158 160 [bb 18] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 160 159 408 arch/arm/mm/fault.c:239 (set (reg/v:SI 5 r5 [orig:147 fault ] [147])
+        (const_int 65536 [0x10000])) 167 {*arm_movsi_insn} (nil))
+
+(note 408 160 409 ( vma (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 409 408 410 ( fault (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:147 fault ] [147])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 410 409 411 ( mask (expr_list:REG_DEP_TRUE (reg/v:SI 2 r2 [orig:137 mask ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 411 410 161 ( fault (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:147 fault ] [147])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 161 411 162 33 "" [3 uses])
+
+(note 162 161 163 [bb 19] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 163 162 300 arch/arm/mm/fault.c:323 (set (reg:SI 0 r0)
+        (reg/f:SI 9 r9 [orig:154 D.24547 ] [154])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 9 r9 [orig:154 D.24547 ] [154])
+        (nil)))
+
+(insn 300 163 164 arch/arm/mm/fault.c:325 (set (reg:SI 9 r9 [orig:205 D.24563+4 ] [205])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(call_insn:TI 164 300 412 arch/arm/mm/fault.c:323 (parallel [
+            (call (mem:SI (symbol_ref:SI ("up_read") [flags 0x41] <function_decl 0x10c30e00 up_read>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(note 412 164 166 ( mask (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 166 412 167 include/linux/jump_label.h:67 (set (reg/f:SI 3 r3 [orig:142 D.24830 ] [142])
+        (mem:SI (label_ref 436) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                (const_int 8 [0x8])))
+        (nil)))
+
+(insn:TI 167 166 168 include/linux/jump_label.h:67 (set (reg:SI 3 r3 [orig:141 D.24831 ] [141])
+        (mem/v:SI (reg/f:SI 3 r3 [orig:142 D.24830 ] [142]) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/v:SI (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                    (const_int 8 [0x8]))) [0 S4 A32])
+        (nil)))
+
+(insn:TI 168 167 169 include/linux/jump_label.h:67 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [orig:141 D.24831 ] [141])
+            (reg:SI 9 r9))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:141 D.24831 ] [141])
+        (nil)))
+
+(jump_insn:TI 169 168 170 include/linux/jump_label.h:67 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 191)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 170 169 171 [bb 20] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 171 170 174 include/linux/perf_event.h:1054 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+            (reg:SI 9 r9))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn:TI 174 171 172 include/linux/perf_event.h:1054 (cond_exec (ne (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+            (reg/v/f:SI 4 r4 [orig:158 regs ] [158]))) 2345 {neon_vornv2di+78} (nil))
+
+(jump_insn:TI 172 174 413 include/linux/perf_event.h:1054 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 184)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9328 [0x2470])
+            (nil))))
+
+(note 413 172 178 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 178 413 179 [bb 21] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 179 178 181 include/linux/perf_event.h:1043 discrim 1 (set (reg/f:SI 11 fp [193])
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int 16 [0x10]))) 4 {*arm_addsi3} (expr_list:REG_EQUIV (plus:SI (reg/f:SI 13 sp)
+            (const_int 16 [0x10]))
+        (nil)))
+
+(insn 181 179 414 include/linux/perf_event.h:1043 discrim 1 (set (reg:SI 1 r1)
+        (const_int 72 [0x48])) 167 {*arm_movsi_insn} (nil))
+
+(note 414 181 180 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 180 414 182 include/linux/perf_event.h:1043 discrim 1 (set (reg:SI 0 r0)
+        (reg/f:SI 11 fp [193])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -72 [0xffffffffffffffb8]))
+        (nil)))
+
+(call_insn:TI 182 180 183 include/linux/perf_event.h:1043 discrim 1 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__memzero") [flags 0x41] <function_decl 0x10bb1200 __memzero>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 183 182 415 include/linux/perf_event.h:1056 (set (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+        (reg/f:SI 11 fp [193])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -72 [0xffffffffffffffb8]))
+        (nil)))
+
+(note 415 183 416 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 416 415 184 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 184 416 185 38 "" [1 uses])
+
+(note 185 184 188 [bb 22] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 188 185 362 include/linux/perf_event.h:1058 (set (reg:SI 0 r0)
+        (const_int 2 [0x2])) 167 {*arm_movsi_insn} (nil))
+
+(insn 362 188 363 include/linux/perf_event.h:1058 (set (reg:SI 2 r2)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 363 362 186 include/linux/perf_event.h:1058 (set (reg:SI 3 r3 [+4 ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 186 363 301 include/linux/perf_event.h:1058 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 1 r1 [orig:134 regs.462 ] [134])
+        (nil)))
+
+(insn:TI 301 186 302 include/linux/perf_event.h:1058 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 S4 A64])
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 302 301 190 include/linux/perf_event.h:1058 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 S4 A32])
+        (reg:SI 9 r9 [orig:205 D.24563+4 ] [205])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(call_insn 190 302 417 include/linux/perf_event.h:1058 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__perf_sw_event") [flags 0x41] <function_decl 0x11436b00 __perf_sw_event>) [0 S4 A32])
+                (const_int 16 [0x10]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(note 417 190 191 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 191 417 192 36 "" [1 uses])
+
+(note 192 191 193 [bb 23] NOTE_INSN_BASIC_BLOCK)
+
+(note 193 192 194 NOTE_INSN_DELETED)
+
+(insn:TI 194 193 195 arch/arm/mm/fault.c:326 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg/v:SI 5 r5 [orig:147 fault ] [147])
+                (const_int 1 [0x1])
+                (const_int 2 [0x2]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (nil))
+
+(jump_insn:TI 195 194 196 arch/arm/mm/fault.c:326 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 222)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 196 195 197 [bb 24] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 197 196 198 include/linux/jump_label.h:67 (set (reg/f:SI 3 r3 [orig:140 D.24847 ] [140])
+        (mem:SI (const (plus (label_ref 436)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                (const_int 24 [0x18])))
+        (nil)))
+
+(insn:TI 198 197 199 include/linux/jump_label.h:67 (set (reg:SI 3 r3 [orig:139 D.24848 ] [139])
+        (mem/v:SI (reg/f:SI 3 r3 [orig:140 D.24847 ] [140]) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/v:SI (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                    (const_int 24 [0x18]))) [0 S4 A32])
+        (nil)))
+
+(insn:TI 199 198 200 include/linux/jump_label.h:67 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [orig:139 D.24848 ] [139])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:139 D.24848 ] [139])
+        (nil)))
+
+(jump_insn:TI 200 199 201 include/linux/jump_label.h:67 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 222)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 201 200 202 [bb 25] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 202 201 205 include/linux/perf_event.h:1054 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn:TI 205 202 203 include/linux/perf_event.h:1054 (cond_exec (ne (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+            (reg/v/f:SI 4 r4 [orig:158 regs ] [158]))) 2345 {neon_vornv2di+78} (nil))
+
+(jump_insn:TI 203 205 418 include/linux/perf_event.h:1054 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 215)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9328 [0x2470])
+            (nil))))
+
+(note 418 203 209 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 209 418 210 [bb 26] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 210 209 212 include/linux/perf_event.h:1043 discrim 1 (set (reg/f:SI 11 fp [196])
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int 16 [0x10]))) 4 {*arm_addsi3} (expr_list:REG_EQUIV (plus:SI (reg/f:SI 13 sp)
+            (const_int 16 [0x10]))
+        (nil)))
+
+(insn 212 210 419 include/linux/perf_event.h:1043 discrim 1 (set (reg:SI 1 r1)
+        (const_int 72 [0x48])) 167 {*arm_movsi_insn} (nil))
+
+(note 419 212 211 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 211 419 213 include/linux/perf_event.h:1043 discrim 1 (set (reg:SI 0 r0)
+        (reg/f:SI 11 fp [196])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -72 [0xffffffffffffffb8]))
+        (nil)))
+
+(call_insn:TI 213 211 214 include/linux/perf_event.h:1043 discrim 1 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__memzero") [flags 0x41] <function_decl 0x10bb1200 __memzero>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 214 213 420 include/linux/perf_event.h:1056 (set (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+        (reg/f:SI 11 fp [196])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -72 [0xffffffffffffffb8]))
+        (nil)))
+
+(note 420 214 421 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 421 420 215 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 215 421 216 41 "" [1 uses])
+
+(note 216 215 219 [bb 27] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 219 216 360 include/linux/perf_event.h:1058 (set (reg:SI 0 r0)
+        (const_int 6 [0x6])) 167 {*arm_movsi_insn} (nil))
+
+(insn 360 219 361 include/linux/perf_event.h:1058 (set (reg:SI 2 r2)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 361 360 217 include/linux/perf_event.h:1058 (set (reg:SI 3 r3 [+4 ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 217 361 304 include/linux/perf_event.h:1058 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 1 r1 [orig:133 regs.463 ] [133])
+        (nil)))
+
+(insn:TI 304 217 303 include/linux/perf_event.h:1058 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 S4 A32])
+        (reg:SI 9 r9 [orig:205 D.24563+4 ] [205])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 303 304 221 include/linux/perf_event.h:1058 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 S4 A64])
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 221 303 422 include/linux/perf_event.h:1058 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__perf_sw_event") [flags 0x41] <function_decl 0x11436b00 __perf_sw_event>) [0 S4 A32])
+                (const_int 16 [0x10]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:DI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(note 422 221 222 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 222 422 223 39 "" [2 uses])
+
+(note 223 222 339 [bb 28] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 339 223 340 arch/arm/mm/fault.c:334 (set (reg:SI 3 r3 [197])
+        (mem:SI (const (plus (label_ref 436)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 196659 [0x30033])
+        (nil)))
+
+(insn:TI 340 339 226 arch/arm/mm/fault.c:334 (set (reg:SI 3 r3 [197])
+        (and:SI (reg/v:SI 5 r5 [orig:147 fault ] [147])
+            (reg:SI 3 r3 [197]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 226 340 227 arch/arm/mm/fault.c:334 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [197])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [197])
+        (nil)))
+
+(jump_insn:TI 227 226 228 arch/arm/mm/fault.c:334 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 282)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 228 227 229 [bb 29] NOTE_INSN_BASIC_BLOCK)
+
+(note 229 228 230 NOTE_INSN_DELETED)
+
+(insn:TI 230 229 231 arch/arm/mm/fault.c:337 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg/v:SI 5 r5 [orig:147 fault ] [147])
+                (const_int 1 [0x1])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (nil))
+
+(jump_insn:TI 231 230 232 arch/arm/mm/fault.c:337 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 236)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7929 [0x1ef9])
+            (nil))))
+
+(note 232 231 233 [bb 30] NOTE_INSN_BASIC_BLOCK)
+
+(call_insn:TI 233 232 387 arch/arm/mm/fault.c:343 (parallel [
+            (call (mem:SI (symbol_ref:SI ("pagefault_out_of_memory") [flags 0x41] <function_decl 0x10fb4d80 pagefault_out_of_memory>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (nil))
+
+(jump_insn 387 233 388 arch/arm/mm/fault.c:344 (set (pc)
+        (label_ref 282)) 242 {*arm_jump} (nil))
+
+(barrier 388 387 236)
+
+(code_label 236 388 237 43 "" [1 uses])
+
+(note 237 236 239 [bb 31] NOTE_INSN_BASIC_BLOCK)
+
+(note 239 237 238 NOTE_INSN_DELETED)
+
+(insn:TI 238 239 240 arch/arm/mm/fault.c:351 (set (reg:SI 3 r3 [orig:201 <variable>.uregs+64 ] [201])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 4 r4 [orig:158 regs ] [158])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])
+        (nil)))
+
+(insn:TI 240 238 241 arch/arm/mm/fault.c:351 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 3 r3 [orig:201 <variable>.uregs+64 ] [201])
+                (const_int 4 [0x4])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (nil))
+
+(jump_insn:TI 241 240 242 arch/arm/mm/fault.c:351 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 275)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+            (nil))))
+
+(note 242 241 243 [bb 32] NOTE_INSN_BASIC_BLOCK)
+
+(note 243 242 244 NOTE_INSN_DELETED)
+
+(insn:TI 244 243 248 arch/arm/mm/fault.c:354 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg/v:SI 5 r5 [orig:147 fault ] [147])
+                (const_int 1 [0x1])
+                (const_int 1 [0x1]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (nil))
+
+(insn:TI 248 244 423 arch/arm/mm/fault.c:359 (cond_exec (ne (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 3 r3 [orig:146 sig ] [146])
+            (const_int 7 [0x7]))) 2345 {neon_vornv2di+78} (nil))
+
+(note 423 248 247 ( sig (expr_list:REG_DEP_TRUE (reg/v:SI 3 r3 [orig:146 sig ] [146])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 247 423 424 arch/arm/mm/fault.c:360 (cond_exec (ne (reg:CC_NOOV 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 5 r5 [orig:145 code ] [145])
+            (mem:SI (const (plus (label_ref 436)
+                        (const_int 12 [0xc]))) [0 S4 A32]))) 2345 {neon_vornv2di+78} (nil))
+
+(note 424 247 425 ( fault (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 425 424 245 ( code (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:145 code ] [145])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn 245 425 252 arch/arm/mm/fault.c:354 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 264)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 3900 [0xf3c])
+            (nil))))
+
+(note 252 245 253 [bb 33] NOTE_INSN_BASIC_BLOCK)
+
+(note 253 252 311 NOTE_INSN_DELETED)
+
+(insn:TI 311 253 355 arch/arm/mm/fault.c:367 discrim 2 (set (reg:SI 2 r2 [208])
+        (mem:SI (const (plus (label_ref 436)
+                    (const_int 16 [0x10]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 196609 [0x30001])
+        (nil)))
+
+(insn 355 311 426 arch/arm/mm/fault.c:367 discrim 2 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 5 r5 [orig:147 fault ] [147])
+            (const_int 131072 [0x20000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(note 426 355 349 ( fault (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:147 fault ] [147])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 349 426 315 arch/arm/mm/fault.c:367 discrim 2 (set (reg:SI 1 r1 [207])
+        (mem:SI (const (plus (label_ref 436)
+                    (const_int 12 [0xc]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 196610 [0x30002])
+        (nil)))
+
+(insn 315 349 357 arch/arm/mm/fault.c:367 discrim 2 (set (reg/v:SI 3 r3 [orig:146 sig ] [146])
+        (const_int 11 [0xb])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 11 [0xb])
+        (nil)))
+
+(insn:TI 357 315 427 arch/arm/mm/fault.c:367 discrim 2 (cond_exec (ne (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 5 r5 [orig:145 code ] [145])
+            (reg:SI 2 r2 [208]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_DEAD (reg:SI 2 r2 [208])
+            (nil))))
+
+(note 427 357 356 ( fault (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 356 427 264 arch/arm/mm/fault.c:367 discrim 2 (cond_exec (eq (reg:CC 24 cc)
+            (const_int 0 [0x0]))
+        (set (reg/v:SI 5 r5 [orig:145 code ] [145])
+            (reg:SI 1 r1 [207]))) 2345 {neon_vornv2di+78} (expr_list:REG_DEAD (reg:SI 1 r1 [207])
+        (nil)))
+
+(code_label 264 356 265 45 "" [1 uses])
+
+(note 265 264 268 [bb 34] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 268 265 269 arch/arm/mm/fault.c:371 (set (reg:SI 0 r0)
+        (reg/v/f:SI 7 r7 [orig:149 tsk ] [149])) 167 {*arm_movsi_insn} (nil))
+
+(insn 269 268 270 arch/arm/mm/fault.c:371 (set (reg:SI 1 r1)
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 270 269 266 arch/arm/mm/fault.c:371 (set (reg:SI 2 r2)
+        (reg/v:SI 10 sl [orig:157 fsr ] [157])) 167 {*arm_movsi_insn} (nil))
+
+(insn 266 270 267 arch/arm/mm/fault.c:371 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/v:SI 5 r5 [orig:145 code ] [145])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 267 266 272 arch/arm/mm/fault.c:371 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg/v/f:SI 4 r4 [orig:158 regs ] [158])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 272 267 428 arch/arm/mm/fault.c:371 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__do_user_fault") [flags 0x3] <function_decl 0x11459d80 __do_user_fault>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 428 272 389 ( sig (nil)) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn 389 428 390 arch/arm/mm/fault.c:372 (set (pc)
+        (label_ref 282)) 242 {*arm_jump} (nil))
+
+(barrier 390 389 429)
+
+(note 429 390 430 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:156 addr ] [156])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 430 429 431 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 10 sl [orig:157 fsr ] [157])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 431 430 432 ( fault (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:147 fault ] [147])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 432 431 275 ( code (nil)) NOTE_INSN_VAR_LOCATION)
+
+(code_label 275 432 276 23 ("no_context") [4 uses])
+
+(note 276 275 277 [bb 35] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 277 276 278 arch/arm/mm/fault.c:375 (set (reg:SI 0 r0)
+        (reg/v/f:SI 8 r8 [orig:148 mm ] [148])) 167 {*arm_movsi_insn} (nil))
+
+(insn 278 277 279 arch/arm/mm/fault.c:375 (set (reg:SI 1 r1)
+        (reg/v:SI 6 r6 [orig:156 addr ] [156])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 279 278 280 arch/arm/mm/fault.c:375 (set (reg:SI 2 r2)
+        (reg/v:SI 10 sl [orig:157 fsr ] [157])) 167 {*arm_movsi_insn} (nil))
+
+(insn 280 279 281 arch/arm/mm/fault.c:375 (set (reg:SI 3 r3)
+        (reg/v/f:SI 4 r4 [orig:158 regs ] [158])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 281 280 433 arch/arm/mm/fault.c:375 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__do_kernel_fault") [flags 0x3] <function_decl 0x11459c80 __do_kernel_fault>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 433 281 282 ( code (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:145 code ] [145])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 282 433 283 42 "" [3 uses])
+
+(note 283 282 288 [bb 36] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 288 283 294 arch/arm/mm/fault.c:377 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 294 288 369 arch/arm/mm/fault.c:377 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 369 294 370 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 370 369 371 arch/arm/mm/fault.c:377 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 371 370 434)
+
+(code_label 434 371 435 49 "" [0 uses])
+
+(insn 435 434 436 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 436 435 437 48 "" [0 uses])
+
+(insn 437 436 438 (unspec_volatile [
+            (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                    (const_int 8 [0x8])))
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 438 437 439 (unspec_volatile [
+            (const:SI (plus:SI (symbol_ref:SI ("perf_swevent_enabled") [flags 0xc0] <var_decl 0x1143b180 perf_swevent_enabled>)
+                    (const_int 24 [0x18])))
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 439 438 440 (unspec_volatile [
+            (const_int 196659 [0x30033])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 440 439 441 (unspec_volatile [
+            (const_int 196610 [0x30002])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 441 440 442 (unspec_volatile [
+            (const_int 196609 [0x30001])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 442 441 443 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 443 442 348)
+
+(note 348 443 350 NOTE_INSN_DELETED)
+
+(note 350 348 0 NOTE_INSN_DELETED)
+
+;; Function do_bad_area (do_bad_area)[0:1290]
+
+(note 1 0 60 NOTE_INSN_DELETED)
+
+(note 60 1 61 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 61 60 62 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 62 61 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 62 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 9 NOTE_INSN_FUNCTION_BEG)
+
+(note 9 5 14 NOTE_INSN_DELETED)
+
+(note 14 9 52 NOTE_INSN_DELETED)
+
+(insn/f:TI 52 14 65 arch/arm/mm/fault.c:196 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 0 r0)
+                    ] 2))
+            (use (reg:SI 1 r1))
+            (use (reg:SI 2 r2))
+            (use (reg:SI 4 r4))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 5 r5)
+        (expr_list:REG_DEAD (reg:SI 4 r4)
+            (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                        (set/f (reg/f:SI 13 sp)
+                            (plus:SI (reg/f:SI 13 sp)
+                                (const_int -24 [0xffffffffffffffe8])))
+                        (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                            (reg:SI 0 r0))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 4 [0x4])) [0 S4 A32])
+                            (reg:SI 1 r1))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 8 [0x8])) [0 S4 A32])
+                            (reg:SI 2 r2))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 12 [0xc])) [0 S4 A32])
+                            (reg:SI 4 r4))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 16 [0x10])) [0 S4 A32])
+                            (reg:SI 5 r5))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 20 [0x14])) [0 S4 A32])
+                            (reg:SI 14 lr))
+                    ])
+                (nil)))))
+
+(note 65 52 64 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 64 65 63 ( fsr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 63 64 53 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 53 63 4 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 4 53 66 arch/arm/mm/fault.c:196 (set (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+        (reg:SI 2 r2 [ regs ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ regs ])
+        (nil)))
+
+(note 66 4 50 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 50 66 67 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 2 r2)
+        (reg/f:SI 13 sp)) 167 {*arm_movsi_insn} (nil))
+
+(note 67 50 2 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 2 67 68 arch/arm/mm/fault.c:196 (set (reg/v:SI 4 r4 [orig:136 addr ] [136])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ addr ])
+        (nil)))
+
+(note 68 2 46 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 46 68 13 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 3 r3 [139])
+        (and:SI (reg:SI 2 r2)
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (nil)))
+
+(insn 13 46 47 arch/arm/mm/fault.c:204 (set (reg:SI 5 r5 [orig:142 <variable>.uregs+64 ] [142])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])
+        (nil)))
+
+(insn:TI 47 13 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 3 r3 [139])
+        (and:SI (reg:SI 3 r3 [139])
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 3 47 69 arch/arm/mm/fault.c:196 (set (reg/v:SI 2 r2 [orig:137 fsr ] [137])
+        (reg:SI 1 r1 [ fsr ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ fsr ])
+        (nil)))
+
+(note 69 3 15 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 15 69 11 arch/arm/mm/fault.c:204 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 5 r5 [orig:142 <variable>.uregs+64 ] [142])
+                (const_int 4 [0x4])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (nil))
+
+(insn:TI 11 15 70 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])
+        (mem/s/f/j:SI (plus:SI (reg:SI 3 r3 [139])
+                (const_int 12 [0xc])) [0 <variable>.task+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 70 11 12 ( tsk (expr_list:REG_DEP_TRUE (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 12 70 71 arch/arm/mm/fault.c:198 (set (reg/v/f:SI 0 r0 [orig:134 mm ] [134])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])
+                (const_int 496 [0x1f0])) [0 <variable>.active_mm+0 S4 A64])) 167 {*arm_movsi_insn} (nil))
+
+(note 71 12 72 ( mm (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 mm ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 72 71 16 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:136 addr ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn 16 72 73 arch/arm/mm/fault.c:204 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 28)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 6100 [0x17d4])
+            (nil))))
+
+(note 73 16 17 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 2 r2 [orig:137 fsr ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 17 73 20 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 20 17 21 arch/arm/mm/fault.c:205 (set (mem:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg/v/f:SI 12 ip [orig:138 regs ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+        (nil)))
+
+(insn 21 20 74 arch/arm/mm/fault.c:205 (set (reg:SI 0 r0)
+        (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])
+        (nil)))
+
+(note 74 21 48 ( mm (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 48 74 75 arch/arm/mm/fault.c:205 (set (reg:SI 12 ip [143])
+        (mem:SI (label_ref 88) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 196609 [0x30001])
+        (nil)))
+
+(note 75 48 22 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 22 75 24 arch/arm/mm/fault.c:205 (set (reg:SI 1 r1)
+        (reg/v:SI 4 r4 [orig:136 addr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 24 22 76 arch/arm/mm/fault.c:205 (set (reg:SI 3 r3)
+        (const_int 11 [0xb])) 167 {*arm_movsi_insn} (nil))
+
+(note 76 24 19 ( tsk (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 19 76 25 arch/arm/mm/fault.c:205 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 12 ip [143])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [143])
+        (expr_list:REG_EQUAL (const_int 196609 [0x30001])
+            (nil))))
+
+(call_insn 25 19 77 arch/arm/mm/fault.c:205 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__do_user_fault") [flags 0x3] <function_decl 0x11459d80 __do_user_fault>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 77 25 54 ( fsr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 54 77 55 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 55 54 56 arch/arm/mm/fault.c:208 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 56 55 78)
+
+(note 78 56 79 ( tsk (expr_list:REG_DEP_TRUE (reg/v/f:SI 3 r3 [orig:135 tsk ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 79 78 80 ( mm (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 mm ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 80 79 81 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 2 r2 [orig:137 fsr ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 81 80 28 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 28 81 29 51 "" [1 uses])
+
+(note 29 28 31 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 31 29 33 arch/arm/mm/fault.c:207 (set (reg:SI 1 r1)
+        (reg/v:SI 4 r4 [orig:136 addr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn 33 31 82 arch/arm/mm/fault.c:207 (set (reg:SI 3 r3)
+        (reg/v/f:SI 12 ip [orig:138 regs ] [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 12 ip [orig:138 regs ] [138])
+        (nil)))
+
+(note 82 33 57 ( tsk (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 57 82 58 NOTE_INSN_EPILOGUE_BEG)
+
+(insn:TI 58 57 34 arch/arm/mm/fault.c:208 (parallel [
+            (unspec:SI [
+                    (reg:SI 14 lr)
+                ] 6)
+            (unspec_volatile [
+                    (return)
+                ] 1)
+        ]) 322 {sibcall_epilogue} (nil))
+
+(call_insn/j:TI 34 58 35 arch/arm/mm/fault.c:207 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__do_kernel_fault") [flags 0x3] <function_decl 0x11459c80 __do_kernel_fault>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 258 {*sibcall_insn} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(barrier 35 34 85)
+
+(note 85 35 84 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 84 85 83 ( fsr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 83 84 86 ( mm (nil)) NOTE_INSN_VAR_LOCATION)
+
+(code_label 86 83 87 55 "" [0 uses])
+
+(insn 87 86 88 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 88 87 89 54 "" [0 uses])
+
+(insn 89 88 90 (unspec_volatile [
+            (const_int 196609 [0x30001])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 90 89 91 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 91 90 49)
+
+(note 49 91 0 NOTE_INSN_DELETED)
+
+;; Function do_translation_fault (do_translation_fault)[0:1294]
+
+(note 1 0 91 NOTE_INSN_DELETED)
+
+(note 91 1 92 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 92 91 93 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 93 92 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 93 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 8 NOTE_INSN_FUNCTION_BEG)
+
+(note 8 5 9 NOTE_INSN_DELETED)
+
+(insn:TI 9 8 2 arch/arm/mm/fault.c:413 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0 [orig:139 addr ] [139])
+            (const_int -1090519040 [0xffffffffbf000000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn 2 9 80 arch/arm/mm/fault.c:407 (set (reg/v:SI 3 r3 [orig:139 addr ] [139])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn/f:TI 80 2 81 arch/arm/mm/fault.c:407 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 8 r8))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 4 r4)
+        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                    (set/f (reg/f:SI 13 sp)
+                        (plus:SI (reg/f:SI 13 sp)
+                            (const_int -24 [0xffffffffffffffe8])))
+                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                        (reg:SI 4 r4))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 4 [0x4])) [0 S4 A32])
+                        (reg:SI 5 r5))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 8 [0x8])) [0 S4 A32])
+                        (reg:SI 6 r6))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 12 [0xc])) [0 S4 A32])
+                        (reg:SI 7 r7))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 16 [0x10])) [0 S4 A32])
+                        (reg:SI 8 r8))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 20 [0x14])) [0 S4 A32])
+                        (reg:SI 14 lr))
+                ])
+            (nil))))
+
+(note 81 80 4 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 4 81 3 arch/arm/mm/fault.c:407 (set (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+        (reg:SI 2 r2 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 3 4 10 arch/arm/mm/fault.c:407 (set (reg/v:SI 4 r4 [orig:140 fsr ] [140])
+        (reg:SI 1 r1 [ fsr ])) 167 {*arm_movsi_insn} (nil))
+
+(jump_insn 10 3 94 arch/arm/mm/fault.c:413 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 18)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7929 [0x1ef9])
+            (nil))))
+
+(note 94 10 95 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 3 r3 [orig:139 addr ] [139])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 95 94 96 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:140 fsr ] [140])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 96 95 11 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 11 96 85 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 85 11 86 NOTE_INSN_EPILOGUE_BEG)
+
+(insn:TI 86 85 15 arch/arm/mm/fault.c:461 (parallel [
+            (unspec:SI [
+                    (reg:SI 14 lr)
+                ] 6)
+            (unspec_volatile [
+                    (return)
+                ] 1)
+        ]) 322 {sibcall_epilogue} (nil))
+
+(call_insn/j:TI 15 86 16 arch/arm/mm/fault.c:414 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("do_page_fault") [flags 0x3] <function_decl 0x1147d180 do_page_fault>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 259 {*sibcall_value_insn} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(barrier 16 15 98)
+
+(note 98 16 97 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 97 98 99 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 99 97 100 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 3 r3 [orig:139 addr ] [139])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 100 99 101 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:140 fsr ] [140])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 101 100 18 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 18 101 19 57 "" [1 uses])
+
+(note 19 18 21 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 21 19 20 NOTE_INSN_DELETED)
+
+(insn:TI 20 21 22 arch/arm/mm/fault.c:416 (set (reg:SI 2 r2 [orig:144 <variable>.uregs+64 ] [144])
+        (mem/s/j:SI (plus:SI (reg/f:SI 2 r2 [orig:141 regs ] [141])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j:SI (plus:SI (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+                (const_int 64 [0x40])) [0 <variable>.uregs+64 S4 A32])
+        (nil)))
+
+(insn:TI 22 20 23 arch/arm/mm/fault.c:416 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 2 r2 [orig:144 <variable>.uregs+64 ] [144])
+                (const_int 4 [0x4])
+                (const_int 0 [0x0]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 2 r2 [orig:144 <variable>.uregs+64 ] [144])
+        (nil)))
+
+(jump_insn:TI 23 22 24 arch/arm/mm/fault.c:416 (set (pc)
+        (if_then_else (eq (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 50)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 2900 [0xb54])
+            (nil))))
+
+(note 24 23 31 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(note 31 24 26 NOTE_INSN_DELETED)
+
+(insn:TI 26 31 32 arch/arm/mm/fault.c:424 (set (reg:SI 2 r2 [145])
+        (lshiftrt:SI (reg:SI 0 r0 [orig:139 addr ] [139])
+            (const_int 21 [0x15]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 32 26 78 arch/arm/mm/fault.c:451 (set (reg:SI 7 r7 [149])
+        (zero_extract:SI (reg:SI 0 r0 [orig:139 addr ] [139])
+            (const_int 1 [0x1])
+            (const_int 20 [0x14]))) 124 {extzv_t2} (expr_list:REG_DEAD (reg:SI 0 r0 [orig:139 addr ] [139])
+        (nil)))
+
+(insn:TI 78 32 27 arch/arm/mm/fault.c:441 (set (reg/f:SI 0 r0 [146])
+        (mem:SI (label_ref 119) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("init_mm") [flags 0xc0] <var_decl 0x111538a0 init_mm>)
+        (nil)))
+
+(insn:TI 27 78 25 arch/arm/mm/fault.c:424 (set (reg:SI 1 r1 [orig:136 D.24612 ] [136])
+        (ashift:SI (reg:SI 2 r2 [145])
+            (const_int 3 [0x3]))) 117 {*arm_shiftsi3} (nil))
+
+(insn:TI 25 27 102 arch/arm/mm/fault.c:424 (parallel [
+            (set (reg/v:SI 6 r6 [orig:133 pg ] [133])
+                (asm_operands:SI ("mrc	p15, 0, %0, c2, c0, 0") ("=r") 0 []
+                     [] 8342805))
+            (clobber (reg:QI 24 cc))
+        ]) -1 (expr_list:REG_UNUSED (reg:QI 24 cc)
+        (nil)))
+
+(note 102 25 29 ( pg (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:133 pg ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 29 102 30 arch/arm/mm/fault.c:441 (set (reg/f:SI 5 r5 [orig:147 init_mm.pgd ] [147])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 0 r0 [146])
+                (const_int 36 [0x24])) [0 init_mm.pgd+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 0 r0 [146])
+        (expr_list:REG_EQUAL (mem/s/f/j/c:SI (const:SI (plus:SI (symbol_ref:SI ("init_mm") [flags 0xc0] <var_decl 0x111538a0 init_mm>)
+                        (const_int 36 [0x24]))) [0 init_mm.pgd+0 S4 A32])
+            (nil))))
+
+(insn:TI 30 29 103 arch/arm/mm/fault.c:441 (set (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])
+        (plus:SI (reg/f:SI 5 r5 [orig:147 init_mm.pgd ] [147])
+            (reg:SI 1 r1 [orig:136 D.24612 ] [136]))) 4 {*arm_addsi3} (nil))
+
+(note 103 30 33 ( pmd_k (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 33 103 34 arch/arm/mm/fault.c:451 (set (reg:SI 7 r7 [150])
+        (mem:SI (plus:SI (mult:SI (reg:SI 7 r7 [149])
+                    (const_int 4 [0x4]))
+                (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 34 33 35 arch/arm/mm/fault.c:451 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 7 r7 [150])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn:TI 35 34 36 arch/arm/mm/fault.c:451 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 50)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 6100 [0x17d4])
+            (nil))))
+
+(note 36 35 37 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(note 37 36 75 NOTE_INSN_DELETED)
+
+(insn:TI 75 37 104 arch/arm/mm/fault.c:440 (set (reg:SI 3 r3 [151])
+        (and:SI (reg/v:SI 6 r6 [orig:133 pg ] [133])
+            (const_int -16321 [0xffffffffffffc03f]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 104 75 41 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 41 104 105 arch/arm/mm/fault.c:455 (set (reg:SI 12 ip [154])
+        (mem:SI (plus:SI (mult:SI (reg:SI 2 r2 [145])
+                    (const_int 8 [0x8]))
+                (reg/f:SI 5 r5 [orig:147 init_mm.pgd ] [147])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(note 105 41 76 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 76 105 39 arch/arm/mm/fault.c:440 (set (reg:SI 3 r3 [151])
+        (and:SI (reg:SI 3 r3 [151])
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 39 76 40 arch/arm/mm/fault.c:440 (set (reg:SI 3 r3 [153])
+        (plus:SI (reg:SI 3 r3 [151])
+            (const_int -1073741824 [0xffffffffc0000000]))) 4 {*arm_addsi3} (nil))
+
+(insn:TI 40 39 106 arch/arm/mm/fault.c:440 (set (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+        (plus:SI (reg:SI 3 r3 [153])
+            (reg:SI 1 r1 [orig:136 D.24612 ] [136]))) 4 {*arm_addsi3} (nil))
+
+(note 106 40 42 ( pmd (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 42 106 43 arch/arm/mm/fault.c:455 (set (mem:SI (plus:SI (mult:SI (reg:SI 2 r2 [145])
+                    (const_int 8 [0x8]))
+                (reg:SI 3 r3 [153])) [0 S4 A32])
+        (reg:SI 12 ip [154])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [154])
+        (expr_list:REG_DEAD (reg:SI 3 r3 [153])
+            (expr_list:REG_DEAD (reg:SI 2 r2 [145])
+                (nil)))))
+
+(insn:TI 43 42 44 arch/arm/mm/fault.c:455 (set (reg:SI 3 r3 [155])
+        (mem:SI (plus:SI (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])
+                (const_int 4 [0x4])) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])
+        (expr_list:REG_EQUIV (mem:SI (plus:SI (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+                    (const_int 4 [0x4])) [0 S4 A32])
+            (nil))))
+
+(insn:TI 44 43 45 arch/arm/mm/fault.c:455 (set (mem:SI (plus:SI (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+                (const_int 4 [0x4])) [0 S4 A32])
+        (reg:SI 3 r3 [155])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [155])
+        (nil)))
+
+(insn:TI 45 44 46 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/tlbflush.h:479 (parallel [
+            (asm_operands/v ("mcr	p15, 0, %0, c7, c10, 1	@ flush_pmd") ("") 0 [
+                    (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+                ]
+                 [
+                    (asm_input:SI ("r") 0)
+                ] 8282573)
+            (clobber (reg:QI 24 cc))
+        ]) -1 (expr_list:REG_DEAD (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+        (expr_list:REG_UNUSED (reg:QI 24 cc)
+            (nil))))
+
+(insn:TI 46 45 89 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/tlbflush.h:487 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 8283597)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(jump_insn 89 46 90 arch/arm/mm/fault.c:456 (set (pc)
+        (label_ref 57)) 242 {*arm_jump} (nil))
+
+(barrier 90 89 107)
+
+(note 107 90 108 ( pmd (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 108 107 109 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 3 r3 [orig:139 addr ] [139])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 109 108 110 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:140 fsr ] [140])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 110 109 50 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 50 110 51 58 ("bad_area") [2 uses])
+
+(note 51 50 52 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 52 51 111 arch/arm/mm/fault.c:459 (set (reg:SI 0 r0)
+        (reg/v:SI 3 r3 [orig:139 addr ] [139])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 3 r3 [orig:139 addr ] [139])
+        (nil)))
+
+(note 111 52 53 ( pmd_k (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 53 111 54 arch/arm/mm/fault.c:459 (set (reg:SI 1 r1)
+        (reg/v:SI 4 r4 [orig:140 fsr ] [140])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 54 53 55 arch/arm/mm/fault.c:459 (set (reg:SI 2 r2)
+        (reg/v/f:SI 12 ip [orig:141 regs ] [141])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 12 ip [orig:141 regs ] [141])
+        (nil)))
+
+(call_insn:TI 55 54 113 arch/arm/mm/fault.c:459 (parallel [
+            (call (mem:SI (symbol_ref:SI ("do_bad_area") [flags 0x3] <function_decl 0x11459880 do_bad_area>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_DEAD (reg:SI 0 r0)
+                (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(note 113 55 112 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 112 113 114 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 114 112 115 ( pmd (expr_list:REG_DEP_TRUE (reg/v/f:SI 1 r1 [orig:135 pmd ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 115 114 57 ( pmd_k (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 pmd_k ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 57 115 58 59 "" [1 uses])
+
+(note 58 57 63 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 63 58 116 arch/arm/mm/fault.c:461 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(note 116 63 69 ( pmd_k (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 69 116 82 arch/arm/mm/fault.c:461 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 82 69 83 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 83 82 84 arch/arm/mm/fault.c:461 (return) 260 {return} (nil))
+
+(barrier 84 83 117)
+
+(code_label 117 84 118 62 "" [0 uses])
+
+(insn 118 117 119 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 119 118 120 61 "" [0 uses])
+
+(insn 120 119 121 (unspec_volatile [
+            (symbol_ref:SI ("init_mm") [flags 0xc0] <var_decl 0x111538a0 init_mm>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 121 120 122 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 122 121 77)
+
+(note 77 122 79 NOTE_INSN_DELETED)
+
+(note 79 77 0 NOTE_INSN_DELETED)
+
+;; Function do_sect_fault (do_sect_fault)[0:1295]
+
+(note 1 0 33 NOTE_INSN_DELETED)
+
+(note 33 1 34 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 34 33 35 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 35 34 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 35 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 12 NOTE_INSN_FUNCTION_BEG)
+
+(note 12 5 28 NOTE_INSN_DELETED)
+
+(insn/f:TI 28 12 29 arch/arm/mm/fault.c:477 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                    (set/f (reg/f:SI 13 sp)
+                        (plus:SI (reg/f:SI 13 sp)
+                            (const_int -8 [0xfffffffffffffff8])))
+                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                        (reg:SI 4 r4))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 4 [0x4])) [0 S4 A32])
+                        (reg:SI 14 lr))
+                ])
+            (nil))))
+
+(note 29 28 11 NOTE_INSN_PROLOGUE_END)
+
+(call_insn:TI 11 29 38 arch/arm/mm/fault.c:478 (parallel [
+            (call (mem:SI (symbol_ref:SI ("do_bad_area") [flags 0x3] <function_decl 0x11459880 do_bad_area>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_DEAD (reg:SI 0 r0)
+                (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(note 38 11 37 ( regs (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 37 38 36 ( fsr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 36 37 16 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 16 36 22 arch/arm/mm/fault.c:480 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 22 16 30 arch/arm/mm/fault.c:480 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 30 22 31 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 31 30 32 arch/arm/mm/fault.c:480 (return) 260 {return} (nil))
+
+(barrier 32 31 26)
+
+(note 26 32 27 NOTE_INSN_DELETED)
+
+(note 27 26 0 NOTE_INSN_DELETED)
+
+;; Function do_PrefetchAbort (do_PrefetchAbort)[0:1300]
+
+(note 1 0 64 NOTE_INSN_DELETED)
+
+(note 64 1 65 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 65 64 66 ( ifsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ ifsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 66 65 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 66 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 10 NOTE_INSN_FUNCTION_BEG)
+
+(note 10 5 13 NOTE_INSN_DELETED)
+
+(note 13 10 15 NOTE_INSN_DELETED)
+
+(note 15 13 16 NOTE_INSN_DELETED)
+
+(note 16 15 21 NOTE_INSN_DELETED)
+
+(note 21 16 58 NOTE_INSN_DELETED)
+
+(insn/f:TI 58 21 9 arch/arm/mm/fault.c:626 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 7 r7)
+            (expr_list:REG_DEAD (reg:SI 6 r6)
+                (expr_list:REG_DEAD (reg:SI 5 r5)
+                    (expr_list:REG_DEAD (reg:SI 4 r4)
+                        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                    (set/f (reg/f:SI 13 sp)
+                                        (plus:SI (reg/f:SI 13 sp)
+                                            (const_int -20 [0xffffffffffffffec])))
+                                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                        (reg:SI 4 r4))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 4 [0x4])) [0 S4 A32])
+                                        (reg:SI 5 r5))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 8 [0x8])) [0 S4 A32])
+                                        (reg:SI 6 r6))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 12 [0xc])) [0 S4 A32])
+                                        (reg:SI 7 r7))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 16 [0x10])) [0 S4 A32])
+                                        (reg:SI 14 lr))
+                                ])
+                            (nil))))))))
+
+(insn:TI 9 58 11 arch/arm/mm/fault.c:627 (set (reg:SI 14 lr [139])
+        (and:SI (reg:SI 1 r1 [orig:136 ifsr ] [136])
+            (const_int 1024 [0x400]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 11 9 8 arch/arm/mm/fault.c:627 (set (reg:SI 12 ip [141])
+        (and:SI (reg:SI 1 r1 [orig:136 ifsr ] [136])
+            (const_int 15 [0xf]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 8 11 12 arch/arm/mm/fault.c:627 (set (reg/f:SI 3 r3 [138])
+        (mem:SI (label_ref 73) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        (nil)))
+
+(insn:TI 12 8 59 arch/arm/mm/fault.c:627 (set (reg:SI 12 ip [142])
+        (ior:SI (lshiftrt:SI (reg:SI 14 lr [139])
+                (const_int 6 [0x6]))
+            (reg:SI 12 ip [141]))) 270 {*arith_shiftsi} (expr_list:REG_DEAD (reg:SI 14 lr [139])
+        (nil)))
+
+(insn/f 59 12 60 arch/arm/mm/fault.c:626 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -140 [0xffffffffffffff74]))) 4 {*arm_addsi3} (nil))
+
+(note 60 59 3 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 3 60 18 arch/arm/mm/fault.c:626 (set (reg/v:SI 4 r4 [orig:136 ifsr ] [136])
+        (reg:SI 1 r1 [ ifsr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 18 3 67 arch/arm/mm/fault.c:630 (set (reg:SI 1 r1)
+        (ior:SI (reg:SI 1 r1 [orig:136 ifsr ] [136])
+            (const_int -2147483648 [0xffffffff80000000]))) 89 {*arm_iorsi3} (nil))
+
+(note 67 18 2 ( ifsr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:136 ifsr ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 2 67 4 arch/arm/mm/fault.c:626 (set (reg/v:SI 6 r6 [orig:135 addr ] [135])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 4 2 14 arch/arm/mm/fault.c:626 (set (reg/v/f:SI 7 r7 [orig:137 regs ] [137])
+        (reg:SI 2 r2 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 14 4 68 arch/arm/mm/fault.c:627 (set (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+        (plus:SI (mult:SI (reg:SI 12 ip [142])
+                (const_int 16 [0x10]))
+            (reg/f:SI 3 r3 [138]))) 270 {*arith_shiftsi} (nil))
+
+(note 68 14 20 ( inf (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(call_insn 20 68 70 arch/arm/mm/fault.c:630 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (mem/s/f/j:SI (plus:SI (mult:SI (reg:SI 12 ip [142])
+                                    (const_int 16 [0x10]))
+                                (reg/f:SI 3 r3 [138])) [0 <variable>.fn+0 S4 A32]) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 251 {*call_value_mem} (expr_list:REG_DEAD (reg:SI 12 ip [142])
+        (expr_list:REG_DEAD (reg/f:SI 3 r3 [138])
+            (expr_list:REG_DEAD (reg:SI 2 r2)
+                (expr_list:REG_DEAD (reg:SI 1 r1)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(note 70 20 69 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 7 r7 [orig:137 regs ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 69 70 22 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:135 addr ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 22 69 23 arch/arm/mm/fault.c:630 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 23 22 24 arch/arm/mm/fault.c:630 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 52)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 24 23 39 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 39 24 27 NOTE_INSN_DELETED)
+
+(insn:TI 27 39 28 arch/arm/mm/fault.c:633 (set (reg:SI 1 r1)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 12 [0xc])) [0 <variable>.name+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 28 27 29 arch/arm/mm/fault.c:633 (set (reg:SI 2 r2)
+        (reg/v:SI 4 r4 [orig:136 ifsr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 29 28 26 arch/arm/mm/fault.c:633 (set (reg:SI 3 r3)
+        (reg/v:SI 6 r6 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(insn 26 29 30 arch/arm/mm/fault.c:633 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 73)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC10") [flags 0x82] <string_cst 0x114abbe0>)
+        (nil)))
+
+(call_insn:TI 30 26 31 arch/arm/mm/fault.c:633 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_UNUSED (reg:SI 0 r0)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 31 30 35 arch/arm/mm/fault.c:636 (set (reg:SI 12 ip [orig:147 <variable>.sig ] [147])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 4 [0x4])) [0 <variable>.sig+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -128 [0xffffffffffffff80])) [0 info.si_signo+0 S4 A64])
+        (nil)))
+
+(insn:TI 35 31 43 arch/arm/mm/fault.c:638 (set (reg:SI 14 lr [orig:149 <variable>.code ] [149])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 8 [0x8])) [0 <variable>.code+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -120 [0xffffffffffffff88])) [0 info.si_code+0 S4 A64])
+        (nil)))
+
+(insn 43 35 45 arch/arm/mm/fault.c:640 (set (reg:SI 1 r1)
+        (reg/v/f:SI 7 r7 [orig:137 regs ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 45 43 42 arch/arm/mm/fault.c:640 (set (reg:SI 3 r3)
+        (reg/v:SI 4 r4 [orig:136 ifsr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn 42 45 44 arch/arm/mm/fault.c:640 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 73)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC11") [flags 0x82] <string_cst 0x1152d7e0>)
+        (nil)))
+
+(insn:TI 44 42 32 arch/arm/mm/fault.c:640 (set (reg:SI 2 r2)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int 8 [0x8]))) 4 {*arm_addsi3} (nil))
+
+(insn 32 44 36 arch/arm/mm/fault.c:636 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 info.si_signo+0 S4 A64])
+        (reg:SI 12 ip [orig:147 <variable>.sig ] [147])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [orig:147 <variable>.sig ] [147])
+        (nil)))
+
+(insn:TI 36 32 33 arch/arm/mm/fault.c:638 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 16 [0x10])) [0 info.si_code+0 S4 A64])
+        (reg:SI 14 lr [orig:149 <variable>.code ] [149])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 14 lr [orig:149 <variable>.code ] [149])
+        (nil)))
+
+(insn 33 36 37 arch/arm/mm/fault.c:637 (set (reg:SI 12 ip [148])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 37 33 41 arch/arm/mm/fault.c:639 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 20 [0x14])) [0 info._sifields._sigfault._addr+0 S4 A32])
+        (reg/v:SI 6 r6 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 41 37 34 arch/arm/mm/fault.c:640 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 12 ip [148])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 34 41 46 arch/arm/mm/fault.c:637 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 info.si_errno+0 S4 A32])
+        (reg:SI 12 ip [148])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [148])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn 46 34 52 arch/arm/mm/fault.c:640 (parallel [
+            (call (mem:SI (symbol_ref:SI ("arm_notify_die") [flags 0x41] <function_decl 0x512d9380 arm_notify_die>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(code_label 52 46 55 67 "" [1 uses])
+
+(note 55 52 61 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 61 55 62 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 62 61 63 arch/arm/mm/fault.c:641 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 63 62 71)
+
+(code_label 71 63 72 69 "" [0 uses])
+
+(insn 72 71 73 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 73 72 74 68 "" [0 uses])
+
+(insn 74 73 75 (unspec_volatile [
+            (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 75 74 76 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC10") [flags 0x82] <string_cst 0x114abbe0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 76 75 77 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC11") [flags 0x82] <string_cst 0x1152d7e0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 77 76 78 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 78 77 56)
+
+(note 56 78 57 NOTE_INSN_DELETED)
+
+(note 57 56 0 NOTE_INSN_DELETED)
+
+;; Function do_DataAbort (do_DataAbort)[0:1298]
+
+(note 1 0 65 NOTE_INSN_DELETED)
+
+(note 65 1 66 ( addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 66 65 67 ( fsr (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fsr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 67 66 6 ( regs (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ regs ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 67 5 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 5 6 11 NOTE_INSN_FUNCTION_BEG)
+
+(note 11 5 14 NOTE_INSN_DELETED)
+
+(note 14 11 16 NOTE_INSN_DELETED)
+
+(note 16 14 17 NOTE_INSN_DELETED)
+
+(note 17 16 22 NOTE_INSN_DELETED)
+
+(note 22 17 59 NOTE_INSN_DELETED)
+
+(insn/f:TI 59 22 10 arch/arm/mm/fault.c:558 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 7 r7)
+            (expr_list:REG_DEAD (reg:SI 6 r6)
+                (expr_list:REG_DEAD (reg:SI 5 r5)
+                    (expr_list:REG_DEAD (reg:SI 4 r4)
+                        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                    (set/f (reg/f:SI 13 sp)
+                                        (plus:SI (reg/f:SI 13 sp)
+                                            (const_int -20 [0xffffffffffffffec])))
+                                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                        (reg:SI 4 r4))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 4 [0x4])) [0 S4 A32])
+                                        (reg:SI 5 r5))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 8 [0x8])) [0 S4 A32])
+                                        (reg:SI 6 r6))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 12 [0xc])) [0 S4 A32])
+                                        (reg:SI 7 r7))
+                                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                                (const_int 16 [0x10])) [0 S4 A32])
+                                        (reg:SI 14 lr))
+                                ])
+                            (nil))))))))
+
+(insn:TI 10 59 12 arch/arm/mm/fault.c:559 (set (reg:SI 14 lr [140])
+        (and:SI (reg:SI 1 r1 [orig:136 fsr ] [136])
+            (const_int 1024 [0x400]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 12 10 9 arch/arm/mm/fault.c:559 (set (reg:SI 12 ip [142])
+        (and:SI (reg:SI 1 r1 [orig:136 fsr ] [136])
+            (const_int 15 [0xf]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 9 12 13 arch/arm/mm/fault.c:559 (set (reg/f:SI 3 r3 [139])
+        (mem:SI (label_ref 74) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const:SI (plus:SI (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+                (const_int 512 [0x200])))
+        (nil)))
+
+(insn:TI 13 9 60 arch/arm/mm/fault.c:559 (set (reg:SI 12 ip [143])
+        (ior:SI (lshiftrt:SI (reg:SI 14 lr [140])
+                (const_int 6 [0x6]))
+            (reg:SI 12 ip [142]))) 270 {*arith_shiftsi} (expr_list:REG_DEAD (reg:SI 14 lr [140])
+        (nil)))
+
+(insn/f 60 13 61 arch/arm/mm/fault.c:558 (set (reg/f:SI 13 sp)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int -140 [0xffffffffffffff74]))) 4 {*arm_addsi3} (nil))
+
+(note 61 60 3 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 3 61 19 arch/arm/mm/fault.c:558 (set (reg/v:SI 4 r4 [orig:136 fsr ] [136])
+        (reg:SI 1 r1 [ fsr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 19 3 68 arch/arm/mm/fault.c:562 (set (reg:SI 1 r1)
+        (and:SI (reg:SI 1 r1 [orig:136 fsr ] [136])
+            (const_int 2147483647 [0x7fffffff]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 68 19 2 ( fsr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:136 fsr ] [136])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 2 68 4 arch/arm/mm/fault.c:558 (set (reg/v:SI 6 r6 [orig:135 addr ] [135])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 4 2 15 arch/arm/mm/fault.c:558 (set (reg/v/f:SI 7 r7 [orig:137 regs ] [137])
+        (reg:SI 2 r2 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 15 4 69 arch/arm/mm/fault.c:559 (set (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+        (plus:SI (mult:SI (reg:SI 12 ip [143])
+                (const_int 16 [0x10]))
+            (reg/f:SI 3 r3 [139]))) 270 {*arith_shiftsi} (nil))
+
+(note 69 15 21 ( inf (expr_list:REG_DEP_TRUE (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(call_insn 21 69 71 arch/arm/mm/fault.c:562 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (mem/s/f/j:SI (plus:SI (mult:SI (reg:SI 12 ip [143])
+                                    (const_int 16 [0x10]))
+                                (reg/f:SI 3 r3 [139])) [0 <variable>.fn+0 S4 A32]) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 251 {*call_value_mem} (expr_list:REG_DEAD (reg:SI 12 ip [143])
+        (expr_list:REG_DEAD (reg/f:SI 3 r3 [139])
+            (expr_list:REG_DEAD (reg:SI 2 r2)
+                (expr_list:REG_DEAD (reg:SI 1 r1)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(note 71 21 70 ( regs (expr_list:REG_DEP_TRUE (reg/v/f:SI 7 r7 [orig:137 regs ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 70 71 23 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:135 addr ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 23 70 24 arch/arm/mm/fault.c:562 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 24 23 25 arch/arm/mm/fault.c:562 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 53)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 25 24 40 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(note 40 25 28 NOTE_INSN_DELETED)
+
+(insn:TI 28 40 29 arch/arm/mm/fault.c:565 (set (reg:SI 1 r1)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 12 [0xc])) [0 <variable>.name+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 29 28 30 arch/arm/mm/fault.c:565 (set (reg:SI 2 r2)
+        (reg/v:SI 4 r4 [orig:136 fsr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 30 29 27 arch/arm/mm/fault.c:565 (set (reg:SI 3 r3)
+        (reg/v:SI 6 r6 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(insn 27 30 31 arch/arm/mm/fault.c:565 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 74)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC12") [flags 0x82] <string_cst 0x114abc30>)
+        (nil)))
+
+(call_insn:TI 31 27 32 arch/arm/mm/fault.c:565 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_UNUSED (reg:SI 0 r0)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 32 31 36 arch/arm/mm/fault.c:568 (set (reg:SI 12 ip [orig:148 <variable>.sig ] [148])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 4 [0x4])) [0 <variable>.sig+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -128 [0xffffffffffffff80])) [0 info.si_signo+0 S4 A64])
+        (nil)))
+
+(insn:TI 36 32 44 arch/arm/mm/fault.c:570 (set (reg:SI 14 lr [orig:150 <variable>.code ] [150])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 5 r5 [orig:133 inf ] [133])
+                (const_int 8 [0x8])) [0 <variable>.code+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -120 [0xffffffffffffff88])) [0 info.si_code+0 S4 A64])
+        (nil)))
+
+(insn 44 36 46 arch/arm/mm/fault.c:572 (set (reg:SI 1 r1)
+        (reg/v/f:SI 7 r7 [orig:137 regs ] [137])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 46 44 43 arch/arm/mm/fault.c:572 (set (reg:SI 3 r3)
+        (reg/v:SI 4 r4 [orig:136 fsr ] [136])) 167 {*arm_movsi_insn} (nil))
+
+(insn 43 46 45 arch/arm/mm/fault.c:572 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 74)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC11") [flags 0x82] <string_cst 0x1152d7e0>)
+        (nil)))
+
+(insn:TI 45 43 33 arch/arm/mm/fault.c:572 (set (reg:SI 2 r2)
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int 8 [0x8]))) 4 {*arm_addsi3} (nil))
+
+(insn 33 45 37 arch/arm/mm/fault.c:568 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 info.si_signo+0 S4 A64])
+        (reg:SI 12 ip [orig:148 <variable>.sig ] [148])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [orig:148 <variable>.sig ] [148])
+        (nil)))
+
+(insn:TI 37 33 34 arch/arm/mm/fault.c:570 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 16 [0x10])) [0 info.si_code+0 S4 A64])
+        (reg:SI 14 lr [orig:150 <variable>.code ] [150])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 14 lr [orig:150 <variable>.code ] [150])
+        (nil)))
+
+(insn 34 37 38 arch/arm/mm/fault.c:569 (set (reg:SI 12 ip [149])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 38 34 42 arch/arm/mm/fault.c:571 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 20 [0x14])) [0 info._sifields._sigfault._addr+0 S4 A32])
+        (reg/v:SI 6 r6 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 42 38 35 arch/arm/mm/fault.c:572 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 12 ip [149])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn:TI 35 42 47 arch/arm/mm/fault.c:569 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 12 [0xc])) [0 info.si_errno+0 S4 A32])
+        (reg:SI 12 ip [149])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [149])
+        (expr_list:REG_EQUAL (const_int 0 [0x0])
+            (nil))))
+
+(call_insn 47 35 53 arch/arm/mm/fault.c:572 (parallel [
+            (call (mem:SI (symbol_ref:SI ("arm_notify_die") [flags 0x41] <function_decl 0x512d9380 arm_notify_die>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(code_label 53 47 56 72 "" [1 uses])
+
+(note 56 53 62 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 62 56 63 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 63 62 64 arch/arm/mm/fault.c:573 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 64 63 72)
+
+(code_label 72 64 73 74 "" [0 uses])
+
+(insn 73 72 74 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 74 73 75 73 "" [0 uses])
+
+(insn 75 74 76 (unspec_volatile [
+            (const:SI (plus:SI (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+                    (const_int 512 [0x200])))
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 76 75 77 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC12") [flags 0x82] <string_cst 0x114abc30>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 77 76 78 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC11") [flags 0x82] <string_cst 0x1152d7e0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 78 77 79 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 79 78 57)
+
+(note 57 79 58 NOTE_INSN_DELETED)
+
+(note 58 57 0 NOTE_INSN_DELETED)
+
+;; Function hook_ifault_code (hook_ifault_code)[0:1299] (unlikely executed)
+
+(note 1 0 55 NOTE_INSN_DELETED)
+
+(note 55 1 56 ( fn (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 56 55 57 ( sig (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ sig ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 57 56 58 ( code (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ code ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 58 57 59 ( name (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 name+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 59 58 8 ( nr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ nr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 8 59 7 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 7 8 10 NOTE_INSN_FUNCTION_BEG)
+
+(insn:TI 10 7 50 arch/arm/mm/fault.c:615 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 0 r0 [orig:133 nr ] [133])
+            (const_int 31 [0x1f]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn/f:TI 50 10 51 arch/arm/mm/fault.c:614 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 6 r6)
+        (expr_list:REG_DEAD (reg:SI 5 r5)
+            (expr_list:REG_DEAD (reg:SI 4 r4)
+                (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                            (set/f (reg/f:SI 13 sp)
+                                (plus:SI (reg/f:SI 13 sp)
+                                    (const_int -16 [0xfffffffffffffff0])))
+                            (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                (reg:SI 4 r4))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 4 [0x4])) [0 S4 A32])
+                                (reg:SI 5 r5))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 8 [0x8])) [0 S4 A32])
+                                (reg:SI 6 r6))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 12 [0xc])) [0 S4 A32])
+                                (reg:SI 14 lr))
+                        ])
+                    (nil))))))
+
+(note 51 50 11 NOTE_INSN_PROLOGUE_END)
+
+(jump_insn:TI 11 51 12 arch/arm/mm/fault.c:615 (set (pc)
+        (if_then_else (leu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 18)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 12 11 14 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 14 12 60 arch/arm/mm/fault.c:616 (set (reg:SI 0 r0)
+        (mem:SI (label_ref 71) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC13") [flags 0x82] <string_cst 0x11536b70>)
+        (nil)))
+
+(note 60 14 15 ( nr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 15 60 61 arch/arm/mm/fault.c:616 (set (reg:SI 1 r1)
+        (const_int 616 [0x268])) 167 {*arm_movsi_insn} (nil))
+
+(note 61 15 16 ( fn (nil)) NOTE_INSN_VAR_LOCATION)
+
+(call_insn:TI 16 61 17 arch/arm/mm/fault.c:616 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__bug") [flags 0x41] <function_decl 0x10a67100 __bug>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (expr_list:REG_NORETURN (const_int 0 [0x0])
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(barrier 17 16 63)
+
+(note 63 17 62 ( code (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 62 63 64 ( sig (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 64 62 65 ( fn (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 65 64 66 ( sig (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ sig ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 66 65 67 ( code (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ code ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 67 66 18 ( nr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ nr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 18 67 19 76 "" [1 uses])
+
+(note 19 18 24 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 24 19 36 NOTE_INSN_DELETED)
+
+(note 36 24 20 NOTE_INSN_DELETED)
+
+(insn:TI 20 36 29 arch/arm/mm/fault.c:618 (set (reg/f:SI 12 ip [139])
+        (mem:SI (const (plus (label_ref 71)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        (nil)))
+
+(insn 29 20 30 arch/arm/mm/fault.c:620 (set (reg:SI 4 r4 [146])
+        (ashift:SI (reg/v:SI 0 r0 [orig:133 nr ] [133])
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn:TI 30 29 25 arch/arm/mm/fault.c:620 (set (reg:SI 4 r4 [147])
+        (plus:SI (reg:SI 4 r4 [146])
+            (const_int 1 [0x1]))) 4 {*arm_addsi3} (nil))
+
+(insn:TI 25 30 21 arch/arm/mm/fault.c:619 (set (reg:SI 6 r6 [143])
+        (plus:SI (mult:SI (reg/v:SI 0 r0 [orig:133 nr ] [133])
+                (const_int 16 [0x10]))
+            (reg/f:SI 12 ip [139]))) 270 {*arith_shiftsi} (nil))
+
+(insn:TI 21 25 37 arch/arm/mm/fault.c:618 (set (mem/s/f/j:SI (plus:SI (mult:SI (reg/v:SI 0 r0 [orig:133 nr ] [133])
+                    (const_int 16 [0x10]))
+                (reg/f:SI 12 ip [139])) [0 <variable>.fn+0 S4 A32])
+        (reg/v/f:SI 1 r1 [orig:134 fn ] [134])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 1 r1 [orig:134 fn ] [134])
+        (expr_list:REG_DEAD (reg/v:SI 0 r0 [orig:133 nr ] [133])
+            (nil))))
+
+(insn 37 21 27 arch/arm/mm/fault.c:621 (set (reg:SI 5 r5 [153])
+        (plus:SI (mult:SI (reg:SI 4 r4 [147])
+                (const_int 8 [0x8]))
+            (reg/f:SI 12 ip [139]))) 270 {*arith_shiftsi} (nil))
+
+(insn:TI 27 37 31 arch/arm/mm/fault.c:619 (set (mem/s/j:SI (plus:SI (reg:SI 6 r6 [143])
+                (const_int 4 [0x4])) [0 <variable>.sig+0 S4 A32])
+        (reg/v:SI 2 r2 [orig:135 sig ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 2 r2 [orig:135 sig ] [135])
+        (nil)))
+
+(insn:TI 31 27 48 arch/arm/mm/fault.c:620 (set (mem/s/j:SI (plus:SI (mult:SI (reg:SI 4 r4 [147])
+                    (const_int 8 [0x8]))
+                (reg/f:SI 12 ip [139])) [0 <variable>.code+0 S4 A32])
+        (reg/v:SI 3 r3 [orig:136 code ] [136])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 12 ip [139])
+        (expr_list:REG_DEAD (reg/v:SI 3 r3 [orig:136 code ] [136])
+            (nil))))
+
+(insn:TI 48 31 68 arch/arm/mm/fault.c:621 (set (reg/v/f:SI 3 r3 [orig:137 name ] [137])
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 16 [0x10])) [0 name+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 16 [0x10])) [0 name+0 S4 A32])
+        (nil)))
+
+(note 68 48 39 ( code (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 39 68 52 arch/arm/mm/fault.c:621 (set (mem/s/f/j:SI (plus:SI (reg:SI 5 r5 [153])
+                (const_int 4 [0x4])) [0 <variable>.name+0 S4 A32])
+        (reg/v/f:SI 3 r3 [orig:137 name ] [137])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 3 r3 [orig:137 name ] [137])
+        (nil)))
+
+(note 52 39 53 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 53 52 54 arch/arm/mm/fault.c:622 (return) 260 {return} (nil))
+
+(barrier 54 53 69)
+
+(code_label 69 54 70 79 "" [0 uses])
+
+(insn 70 69 71 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 71 70 72 78 "" [0 uses])
+
+(insn 72 71 73 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC13") [flags 0x82] <string_cst 0x11536b70>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 73 72 74 (unspec_volatile [
+            (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 74 73 75 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 75 74 47)
+
+(note 47 75 49 NOTE_INSN_DELETED)
+
+(note 49 47 0 NOTE_INSN_DELETED)
+
+;; Function hook_fault_code (hook_fault_code)[0:1297] (unlikely executed)
+
+(note 1 0 69 NOTE_INSN_DELETED)
+
+(note 69 1 70 ( nr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ nr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 70 69 71 ( fn (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 71 70 72 ( sig (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ sig ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 72 71 73 ( code (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ code ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 73 72 8 ( name (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 name+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 8 73 7 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 7 8 10 NOTE_INSN_FUNCTION_BEG)
+
+(insn:TI 10 7 63 arch/arm/mm/fault.c:544 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 0 r0 [orig:133 nr ] [133])
+            (const_int 31 [0x1f]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn/f:TI 63 10 64 arch/arm/mm/fault.c:543 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 4 r4)
+        (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                    (set/f (reg/f:SI 13 sp)
+                        (plus:SI (reg/f:SI 13 sp)
+                            (const_int -8 [0xfffffffffffffff8])))
+                    (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                        (reg:SI 4 r4))
+                    (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                (const_int 4 [0x4])) [0 S4 A32])
+                        (reg:SI 14 lr))
+                ])
+            (nil))))
+
+(note 64 63 11 NOTE_INSN_PROLOGUE_END)
+
+(jump_insn:TI 11 64 12 arch/arm/mm/fault.c:544 (set (pc)
+        (if_then_else (leu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 19)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 12 11 15 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 15 12 74 arch/arm/mm/fault.c:545 (set (reg:SI 0 r0)
+        (mem:SI (label_ref 86) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC13") [flags 0x82] <string_cst 0x11536b70>)
+        (nil)))
+
+(note 74 15 16 ( nr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 16 74 75 arch/arm/mm/fault.c:545 (set (reg:SI 1 r1)
+        (const_int 545 [0x221])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 545 [0x221])
+        (nil)))
+
+(note 75 16 17 ( fn (nil)) NOTE_INSN_VAR_LOCATION)
+
+(call_insn:TI 17 75 18 arch/arm/mm/fault.c:545 (parallel [
+            (call (mem:SI (symbol_ref:SI ("__bug") [flags 0x41] <function_decl 0x10a67100 __bug>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (expr_list:REG_NORETURN (const_int 0 [0x0])
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(barrier 18 17 77)
+
+(note 77 18 76 ( code (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 76 77 78 ( sig (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 78 76 79 ( nr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ nr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 79 78 80 ( fn (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ fn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 80 79 81 ( sig (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ sig ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 81 80 19 ( code (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ code ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 19 81 20 81 "" [1 uses])
+
+(note 20 19 23 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 23 20 34 NOTE_INSN_DELETED)
+
+(note 34 23 35 NOTE_INSN_DELETED)
+
+(note 35 34 21 NOTE_INSN_DELETED)
+
+(insn:TI 21 35 37 arch/arm/mm/fault.c:547 (set (reg/f:SI 4 r4 [140])
+        (mem:SI (const (plus (label_ref 86)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        (nil)))
+
+(insn:TI 37 21 24 arch/arm/mm/fault.c:549 (set (reg:SI 12 ip [154])
+        (plus:SI (mult:SI (reg/v:SI 0 r0 [orig:133 nr ] [133])
+                (const_int 16 [0x10]))
+            (reg/f:SI 4 r4 [140]))) 270 {*arith_shiftsi} (expr_list:REG_DEAD (reg/v:SI 0 r0 [orig:133 nr ] [133])
+        (nil)))
+
+(insn:TI 24 37 82 arch/arm/mm/fault.c:547 (set (reg:SI 0 r0 [143])
+        (reg:SI 12 ip [154])) 167 {*arm_movsi_insn} (nil))
+
+(note 82 24 38 ( nr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 38 82 32 arch/arm/mm/fault.c:549 (set (reg:SI 12 ip [155])
+        (plus:SI (reg:SI 12 ip [154])
+            (const_int 8 [0x8]))) 4 {*arm_addsi3} (nil))
+
+(insn:TI 32 38 26 arch/arm/mm/fault.c:548 (set (mem/s/j:SI (plus:SI (reg:SI 0 r0 [143])
+                (const_int 516 [0x204])) [0 <variable>.sig+0 S4 A32])
+        (reg/v:SI 2 r2 [orig:135 sig ] [135])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v:SI 2 r2 [orig:135 sig ] [135])
+        (nil)))
+
+(insn:TI 26 32 60 arch/arm/mm/fault.c:547 (set (mem/s/f/j:SI (plus:SI (reg:SI 0 r0 [143])
+                (const_int 512 [0x200])) [0 <variable>.fn+0 S4 A32])
+        (reg/v/f:SI 1 r1 [orig:134 fn ] [134])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 1 r1 [orig:134 fn ] [134])
+        (expr_list:REG_DEAD (reg:SI 0 r0 [143])
+            (nil))))
+
+(insn:TI 60 26 83 arch/arm/mm/fault.c:550 (set (reg/v/f:SI 2 r2 [orig:137 name ] [137])
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 name+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 8 [0x8])) [0 name+0 S4 A32])
+        (nil)))
+
+(note 83 60 40 ( sig (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 40 83 48 arch/arm/mm/fault.c:549 (set (mem/s/j:SI (plus:SI (reg:SI 12 ip [155])
+                (const_int 512 [0x200])) [0 <variable>.code+0 S4 A32])
+        (reg/v:SI 3 r3 [orig:136 code ] [136])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 12 ip [155])
+        (expr_list:REG_DEAD (reg/v:SI 3 r3 [orig:136 code ] [136])
+            (nil))))
+
+(insn:TI 48 40 65 arch/arm/mm/fault.c:550 (set (mem/s/f/j:SI (plus:SI (reg:SI 12 ip [155])
+                (const_int 516 [0x204])) [0 <variable>.name+0 S4 A32])
+        (reg/v/f:SI 2 r2 [orig:137 name ] [137])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 2 r2 [orig:137 name ] [137])
+        (nil)))
+
+(note 65 48 66 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 66 65 67 arch/arm/mm/fault.c:551 (return) 260 {return} (nil))
+
+(barrier 67 66 84)
+
+(code_label 84 67 85 84 "" [0 uses])
+
+(insn 85 84 86 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 86 85 87 83 "" [0 uses])
+
+(insn 87 86 88 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC13") [flags 0x82] <string_cst 0x11536b70>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 88 87 89 (unspec_volatile [
+            (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 89 88 90 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 90 89 59)
+
+(note 59 90 61 NOTE_INSN_DELETED)
+
+(note 61 59 0 NOTE_INSN_DELETED)
+
+;; Function exceptions_init (exceptions_init)[0:1301] (unlikely executed)
+
+(note 1 0 3 NOTE_INSN_DELETED)
+
+(note 3 1 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 6 NOTE_INSN_FUNCTION_BEG)
+
+(note 6 2 69 NOTE_INSN_DELETED)
+
+(insn/f:TI 69 6 70 arch/arm/mm/fault.c:644 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 0 r0)
+                    ] 2))
+            (use (reg:SI 1 r1))
+            (use (reg:SI 4 r4))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (expr_list:REG_DEAD (reg:SI 0 r0)
+                (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                            (set/f (reg/f:SI 13 sp)
+                                (plus:SI (reg/f:SI 13 sp)
+                                    (const_int -16 [0xfffffffffffffff0])))
+                            (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                (reg:SI 0 r0))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 4 [0x4])) [0 S4 A32])
+                                (reg:SI 1 r1))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 8 [0x8])) [0 S4 A32])
+                                (reg:SI 4 r4))
+                            (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                        (const_int 12 [0xc])) [0 S4 A32])
+                                (reg:SI 14 lr))
+                        ])
+                    (nil))))))
+
+(note 70 69 5 NOTE_INSN_PROLOGUE_END)
+
+(call_insn:TI 5 70 7 arch/arm/mm/fault.c:645 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_architecture") [flags 0x41] <function_decl 0x512d9700 cpu_architecture>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (nil))
+
+(insn:TI 7 5 8 arch/arm/mm/fault.c:645 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 7 [0x7]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 8 7 9 arch/arm/mm/fault.c:645 (set (pc)
+        (if_then_else (le (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 19)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 9 8 64 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 64 9 14 arch/arm/mm/fault.c:646 (set (reg/f:SI 12 ip [138])
+        (mem:SI (label_ref 79) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref/v/f:SI ("*.LC14") [flags 0x82] <string_cst 0x1154a280>)
+        (nil)))
+
+(insn 14 64 15 arch/arm/mm/fault.c:646 (set (reg:SI 0 r0)
+        (const_int 4 [0x4])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 15 14 16 arch/arm/mm/fault.c:646 (set (reg:SI 1 r1)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref:SI ("do_translation_fault") [flags 0x3] <function_decl 0x1147d280 do_translation_fault>)
+        (nil)))
+
+(insn 16 15 17 arch/arm/mm/fault.c:646 (set (reg:SI 2 r2)
+        (const_int 11 [0xb])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 17 16 13 arch/arm/mm/fault.c:646 (set (reg:SI 3 r3)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 196609 [0x30001])
+        (nil)))
+
+(insn:TI 13 17 18 arch/arm/mm/fault.c:646 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/f:SI 12 ip [138])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/f:SI 12 ip [138])
+        (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC14") [flags 0x82] <string_cst 0x1154a280>)
+            (nil))))
+
+(call_insn 18 13 19 arch/arm/mm/fault.c:646 (parallel [
+            (call (mem:SI (symbol_ref:SI ("hook_fault_code") [flags 0x3] <function_decl 0x512d9400 hook_fault_code>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(code_label 19 18 20 86 "" [1 uses])
+
+(note 20 19 22 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 22 20 21 NOTE_INSN_DELETED)
+
+(call_insn:TI 21 22 23 arch/arm/mm/fault.c:650 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_architecture") [flags 0x41] <function_decl 0x512d9700 cpu_architecture>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (nil))
+
+(insn:TI 23 21 24 arch/arm/mm/fault.c:650 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 8 [0x8]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 24 23 25 arch/arm/mm/fault.c:650 (set (pc)
+        (if_then_else (le (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 44)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 25 24 28 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 28 25 30 arch/arm/mm/fault.c:655 (set (reg/f:SI 4 r4 [141])
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 12 [0xc]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref/v/f:SI ("*.LC15") [flags 0x82] <string_cst 0x1154a2c0>)
+        (nil)))
+
+(insn 30 28 31 arch/arm/mm/fault.c:655 (set (reg:SI 0 r0)
+        (const_int 3 [0x3])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 31 30 32 arch/arm/mm/fault.c:655 (set (reg:SI 1 r1)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 16 [0x10]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref:SI ("do_bad") [flags 0x3] <function_decl 0x1147d480 do_bad>)
+        (nil)))
+
+(insn 32 31 33 arch/arm/mm/fault.c:655 (set (reg:SI 2 r2)
+        (const_int 11 [0xb])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 33 32 29 arch/arm/mm/fault.c:655 (set (reg:SI 3 r3)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 196609 [0x30001])
+        (nil)))
+
+(insn:TI 29 33 34 arch/arm/mm/fault.c:655 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/f:SI 4 r4 [141])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC15") [flags 0x82] <string_cst 0x1154a2c0>)
+        (nil)))
+
+(call_insn 34 29 39 arch/arm/mm/fault.c:655 (parallel [
+            (call (mem:SI (symbol_ref:SI ("hook_fault_code") [flags 0x3] <function_decl 0x512d9400 hook_fault_code>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn:TI 39 34 40 arch/arm/mm/fault.c:657 (set (reg:SI 0 r0)
+        (const_int 6 [0x6])) 167 {*arm_movsi_insn} (nil))
+
+(insn 40 39 41 arch/arm/mm/fault.c:657 (set (reg:SI 1 r1)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 16 [0x10]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref:SI ("do_bad") [flags 0x3] <function_decl 0x1147d480 do_bad>)
+        (nil)))
+
+(insn:TI 41 40 42 arch/arm/mm/fault.c:657 (set (reg:SI 2 r2)
+        (const_int 11 [0xb])) 167 {*arm_movsi_insn} (nil))
+
+(insn 42 41 38 arch/arm/mm/fault.c:657 (set (reg:SI 3 r3)
+        (mem:SI (const (plus (label_ref 79)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 196609 [0x30001])
+        (nil)))
+
+(insn:TI 38 42 43 arch/arm/mm/fault.c:657 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg/f:SI 4 r4 [141])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC15") [flags 0x82] <string_cst 0x1154a2c0>)
+        (nil)))
+
+(call_insn 43 38 44 arch/arm/mm/fault.c:657 (parallel [
+            (call (mem:SI (symbol_ref:SI ("hook_fault_code") [flags 0x3] <function_decl 0x512d9400 hook_fault_code>) [0 S4 A32])
+                (const_int 8 [0x8]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_DEAD (reg:SI 0 r0)
+                    (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                        (nil))))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(code_label 44 43 45 87 "" [1 uses])
+
+(note 45 44 50 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 50 45 56 arch/arm/mm/fault.c:662 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 56 50 71 arch/arm/mm/fault.c:662 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 71 56 72 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 72 71 73 arch/arm/mm/fault.c:662 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 73 72 77)
+
+(code_label 77 73 78 90 "" [0 uses])
+
+(insn 78 77 79 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) 330 {align_4} (nil))
+
+(code_label 79 78 80 89 "" [0 uses])
+
+(insn 80 79 81 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC14") [flags 0x82] <string_cst 0x1154a280>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 81 80 82 (unspec_volatile [
+            (symbol_ref:SI ("do_translation_fault") [flags 0x3] <function_decl 0x1147d280 do_translation_fault>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 82 81 83 (unspec_volatile [
+            (const_int 196609 [0x30001])
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 83 82 84 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC15") [flags 0x82] <string_cst 0x1154a2c0>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 84 83 85 (unspec_volatile [
+            (symbol_ref:SI ("do_bad") [flags 0x3] <function_decl 0x1147d480 do_bad>)
+        ] 6) 335 {consttable_4} (nil))
+
+(insn 85 84 86 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) 332 {consttable_end} (nil))
+
+(barrier 86 85 63)
+
+(note 63 86 65 NOTE_INSN_DELETED)
+
+(note 65 63 0 NOTE_INSN_DELETED)

@@ -37,6 +37,7 @@
 #include "devices.h"
 #include "gpio-names.h"
 #include "board.h"
+#include "board-tf101.h"
 
 #define tf101_pnl_pwr_enb	TEGRA_GPIO_PC6
 #define tf101_bl_enb		TEGRA_GPIO_PD4
@@ -47,6 +48,60 @@
 /*panel power on sequence timing*/
 #define tf101_pnl_to_lvds_ms	0
 #define tf101_lvds_to_bl_ms	200
+
+/* First declaration for GRHOST panel driver right here */
+
+static struct resource tegra_grhost_resources[] = {
+        {
+                .start = TEGRA_HOST1X_BASE,
+                .end = TEGRA_HOST1X_BASE + TEGRA_HOST1X_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = TEGRA_DISPLAY_BASE,
+                .end = TEGRA_DISPLAY_BASE + TEGRA_DISPLAY_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = TEGRA_DISPLAY2_BASE,
+                .end = TEGRA_DISPLAY2_BASE + TEGRA_DISPLAY2_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = TEGRA_VI_BASE,
+                .end = TEGRA_VI_BASE + TEGRA_VI_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = TEGRA_ISP_BASE,
+                .end = TEGRA_ISP_BASE + TEGRA_ISP_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = TEGRA_MPE_BASE,
+                .end = TEGRA_MPE_BASE + TEGRA_MPE_SIZE - 1,
+                .flags = IORESOURCE_MEM,
+        },
+        {
+                .start = INT_SYNCPT_THRESH_BASE,
+                .end = INT_SYNCPT_THRESH_BASE + INT_SYNCPT_THRESH_NR - 1,
+                .flags = IORESOURCE_IRQ,
+        },
+        {
+                .start = INT_HOST1X_MPCORE_GENERAL,
+                .end = INT_HOST1X_MPCORE_GENERAL,
+                .flags = IORESOURCE_IRQ,
+        },
+};
+
+struct nvhost_device tegra_grhost_device = {
+        .name = "tegra_grhost",
+        .id = -1,
+        .resource = tegra_grhost_resources,
+        .num_resources = ARRAY_SIZE(tegra_grhost_resources),
+};
+
+/* END of GRHOST */
 
 static struct regulator *tf101_hdmi_reg = NULL;
 static struct regulator *tf101_hdmi_pll = NULL;

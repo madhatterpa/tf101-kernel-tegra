@@ -1,0 +1,22 @@
+
+;; Function __iounmap (__iounmap)[0:1243]
+
+verify found no changes in insn with uid = 9.
+
+;; Function __arm_ioremap_pfn_caller (__arm_ioremap_pfn_caller)[0:1239]
+
+verify found no changes in insn with uid = 21.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 49.
+verify found no changes in insn with uid = 62.
+verify found no changes in insn with uid = 68.
+verify found no changes in insn with uid = 82.
+
+;; Function __arm_ioremap_pfn (__arm_ioremap_pfn)[0:1241]
+
+verify found no changes in insn with uid = 15.
+
+;; Function __arm_ioremap_caller (__arm_ioremap_caller)[0:1240]
+
+verify found no changes in insn with uid = 36.

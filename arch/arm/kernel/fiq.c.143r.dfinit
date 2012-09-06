@@ -1,0 +1,35 @@
+
+;; Function claim_fiq (claim_fiq)[0:921]
+
+verify found no changes in insn with uid = 22.
+
+;; Function init_FIQ (init_FIQ)[0:925] (unlikely executed)
+
+
+;; Function disable_fiq (disable_fiq)[0:924]
+
+verify found no changes in insn with uid = 7.
+
+;; Function enable_fiq (enable_fiq)[0:923]
+
+verify found no changes in insn with uid = 7.
+
+;; Function release_fiq (release_fiq)[0:922]
+
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 28.
+
+;; Function set_fiq_handler (set_fiq_handler)[0:920]
+
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 37.
+
+;; Function fiq_def_op (fiq_def_op)[0:918]
+
+verify found no changes in insn with uid = 13.
+
+;; Function show_fiq_list (show_fiq_list)[0:919]
+
+verify found no changes in insn with uid = 22.

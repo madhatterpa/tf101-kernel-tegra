@@ -23,6 +23,20 @@
 
 #include <linux/platform_device.h>
 #include <linux/nvhost.h>
+#include <linux/resource.h>
+#include <linux/dma-mapping.h>
+#include <linux/fsl_devices.h>
+#include <linux/serial_8250.h>
+#include <linux/i2c-tegra.h>
+#include <linux/platform_data/tegra_usb.h>
+#include <linux/tegra_avp.h>
+#include <linux/clk.h>
+#include <asm/pmu.h>
+#include <mach/irqs.h>
+#include <mach/iomap.h>
+#include <mach/dma.h>
+#include <mach/usb_phy.h>
+#include <mach/tegra_smmu.h>
 
 extern struct platform_device tegra_sdhci_device1;
 extern struct platform_device tegra_sdhci_device2;
@@ -69,6 +83,7 @@ extern struct platform_device spdif_dit_device;
 extern struct platform_device bluetooth_dit_device;
 extern struct platform_device baseband_dit_device;
 extern struct platform_device tegra_pcm_device;
+extern struct platform_device tegra_tdm_pcm_device;
 extern struct platform_device tegra_w1_device;
 extern struct platform_device tegra_udc_device;
 extern struct platform_device tegra_ehci1_device;
@@ -96,7 +111,13 @@ extern struct platform_device tegra_gart_device;
 #else
 extern struct platform_device tegra_smmu_device;
 #endif
+#if defined(CONFIG_ARCH_TEGRA_2x_SOC)
 extern struct platform_device tegra_wdt_device;
+#else
+extern struct platform_device tegra_wdt0_device;
+extern struct platform_device tegra_wdt1_device;
+extern struct platform_device tegra_wdt2_device;
+#endif
 extern struct platform_device tegra_pwfm0_device;
 extern struct platform_device tegra_pwfm1_device;
 extern struct platform_device tegra_pwfm2_device;
@@ -108,7 +129,6 @@ extern struct platform_device tegra_uartc_device;
 extern struct platform_device tegra_uartd_device;
 extern struct platform_device tegra_uarte_device;
 extern struct platform_device tegra_avp_device;
-extern struct nvhost_device tegra_grhost_device;
 extern struct nvhost_device nvavp_device;
 extern struct platform_device tegra_aes_device;
 #if !defined(CONFIG_ARCH_TEGRA_2x_SOC)
@@ -126,6 +146,9 @@ extern struct platform_device debug_uarte_device;
 
 extern struct nvhost_device tegra_disp1_device;
 extern struct platform_device tegra_nvmap_device;
+#ifndef CONFIG_ARCH_TEGRA_2x_SOC
+extern struct platform_device tegra_cec_device;
+#endif
 
 void __init tegra_init_debug_uart_rate(void);
 

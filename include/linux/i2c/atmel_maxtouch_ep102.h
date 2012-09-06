@@ -261,22 +261,6 @@
    will be overwritten. */
 #define MXT_MESSAGE_BUFFER_SIZE  128
 
-/* Routines for memory access within a 16 bit address space */
-
-static int mxt_read_block_ep102(struct i2c_client *client, u16 addr, u16 length,
-			  u8 *value);
-static int mxt_write_byte_ep102(struct i2c_client *client, u16 addr, u8 value);
-static int mxt_write_block_ep102(struct i2c_client *client, u16 addr, u16 length,
-			   u8 *value);
-
-/* TODO: */
-/* Bootloader specific function prototypes. */
-static int mxt_read_byte_bl_ep102(struct i2c_client *client, u8 * value);
-static int mxt_read_block_bl_ep102(struct i2c_client *client, u16 length, u8 * value);
-static int mxt_write_byte_bl_ep102(struct i2c_client *client, u16 addr, u16 length, u8 *value);
-static int mxt_write_block_bl_ep102(struct i2c_client *client, u16 length,
-			      u8 *value);
-
 /**
  * struct mxt_platform_data - includes platform specific informatio
  * related to Atmel maXTouch touchscreen controller.

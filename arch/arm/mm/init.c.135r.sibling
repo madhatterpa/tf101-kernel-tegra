@@ -1,0 +1,54 @@
+
+;; Function parse_tag_initrd2 (parse_tag_initrd2)[0:1345] (unlikely executed)
+
+deleting block 4
+
+;; Function meminfo_cmp (meminfo_cmp)[0:1352] (unlikely executed)
+
+deleting block 7
+
+;; Function keepinitrd_setup (keepinitrd_setup)[0:1363] (unlikely executed)
+
+deleting block 4
+
+;; Function early_initrd (early_initrd)[0:1343] (unlikely executed)
+
+deleting block 6
+
+;; Function parse_tag_initrd (parse_tag_initrd)[0:1344] (unlikely executed)
+
+deleting block 4
+
+;; Function free_initrd_mem (free_initrd_mem)[0:1362]
+
+deleting block 15
+
+;; Function free_initmem (free_initmem)[0:1361]
+
+deleting block 13
+
+;; Function mem_init (mem_init)[0:1360] (unlikely executed)
+
+deleting block 46
+
+;; Function bootmem_init (bootmem_init)[0:1354] (unlikely executed)
+
+deleting block 25
+
+;; Function arm_memblock_init (arm_memblock_init)[0:1353] (unlikely executed)
+
+deleting block 17
+deleting block 18
+deleting block 19
+
+;; Function pfn_valid (pfn_valid)[0:1350]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function show_mem (show_mem)[0:1346]
+
+deleting block 22
+deleting block 23
+deleting block 24

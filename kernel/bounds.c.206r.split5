@@ -1,0 +1,44 @@
+
+;; Function foo (foo)[0:1]
+
+(note 1 0 3 NOTE_INSN_DELETED)
+
+(note 3 1 17 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 17 3 2 NOTE_INSN_PROLOGUE_END)
+
+(note 2 17 5 NOTE_INSN_FUNCTION_BEG)
+
+(insn:TI 5 2 6 kernel/bounds.c:17 (asm_operands/v ("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS") ("") 0 [
+            (const_int 22 [0x16])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158736) -1 (nil))
+
+(insn:TI 6 5 7 kernel/bounds.c:18 (asm_operands/v ("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES") ("") 0 [
+            (const_int 3 [0x3])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158864) -1 (nil))
+
+(insn:TI 7 6 18 kernel/bounds.c:19 (asm_operands/v ("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS") ("") 0 [
+            (const_int 7 [0x7])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158992) -1 (nil))
+
+(note 18 7 19 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 19 18 20 kernel/bounds.c:21 (return) 260 {return} (nil))
+
+(barrier 20 19 15)
+
+(note 15 20 16 NOTE_INSN_DELETED)
+
+(note 16 15 0 NOTE_INSN_DELETED)

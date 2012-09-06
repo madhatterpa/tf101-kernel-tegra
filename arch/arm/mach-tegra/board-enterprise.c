@@ -37,6 +37,7 @@
 #include <linux/fsl_devices.h>
 #include <linux/i2c/atmel_mxt_ts.h>
 #include <linux/memblock.h>
+#include <linux/rfkill-gpio.h>
 
 #include <linux/nfc/pn544.h>
 #include <sound/max98088.h>
@@ -54,6 +55,7 @@
 #include <mach/tegra_asoc_pdata.h>
 #include <mach/thermal.h>
 #include <mach/tegra-bb-power.h>
+#include <mach/tegra_fiq_debugger.h>
 #include "board.h"
 #include "clock.h"
 #include "board-enterprise.h"
@@ -63,10 +65,46 @@
 #include "fuse.h"
 #include "pm.h"
 
+static struct balanced_throttle throttle_list[] = {
+	{
+		.id = BALANCED_THROTTLE_ID_TJ,
+		.throt_tab_size = 10,
+		.throt_tab = {
+			{      0, 1000 },
+			{ 640000, 1000 },
+			{ 640000, 1000 },
+			{ 640000, 1000 },
+			{ 640000, 1000 },
+			{ 640000, 1000 },
+			{ 760000, 1000 },
+			{ 760000, 1050 },
+			{1000000, 1050 },
+			{1000000, 1100 },
+		},
+	},
+#ifdef CONFIG_TEGRA_SKIN_THROTTLE
+	{
+		.id = BALANCED_THROTTLE_ID_SKIN,
+		.throt_tab_size = 6,
+		.throt_tab = {
+			{ 640000, 1200 },
+			{ 640000, 1200 },
+			{ 760000, 1200 },
+			{ 760000, 1200 },
+			{1000000, 1200 },
+			{1000000, 1200 },
+		},
+	},
+#endif
+};
+
 /* All units are in millicelsius */
 static struct tegra_thermal_data thermal_data = {
+	.shutdown_device_id = THERMAL_DEVICE_ID_NCT_EXT,
 	.temp_shutdown = 90000,
-	.temp_offset = TDIODE_OFFSET, /* temps based on tdiode */
+#if defined(CONFIG_TEGRA_EDP_LIMITS) || defined(CONFIG_TEGRA_THERMAL_THROTTLE)
+	.throttle_edp_device_id = THERMAL_DEVICE_ID_NCT_EXT,
+#endif
 #ifdef CONFIG_TEGRA_EDP_LIMITS
 	.edp_offset = TDIODE_OFFSET,  /* edp based on tdiode */
 	.hysteresis_edp = 3000,
@@ -77,22 +115,27 @@ static struct tegra_thermal_data thermal_data = {
 	.tc2 = 1,
 	.passive_delay = 2000,
 #endif
+#ifdef CONFIG_TEGRA_SKIN_THROTTLE
+	.skin_device_id = THERMAL_DEVICE_ID_SKIN,
+	.temp_throttle_skin = 43000,
+#endif
 };
 
-static struct resource enterprise_bcm4329_rfkill_resources[] = {
+static struct rfkill_gpio_platform_data enterprise_bt_rfkill_pdata[] = {
 	{
-		.name   = "bcm4329_nshutdown_gpio",
-		.start  = TEGRA_GPIO_PE6,
-		.end    = TEGRA_GPIO_PE6,
-		.flags  = IORESOURCE_IO,
+		.name           = "bt_rfkill",
+		.shutdown_gpio  = TEGRA_GPIO_PE6,
+		.reset_gpio     = TEGRA_GPIO_INVALID,
+		.type           = RFKILL_TYPE_BLUETOOTH,
 	},
 };
 
-static struct platform_device enterprise_bcm4329_rfkill_device = {
-	.name = "bcm4329_rfkill",
+static struct platform_device enterprise_bt_rfkill_device = {
+	.name = "rfkill_gpio",
 	.id		= -1,
-	.num_resources  = ARRAY_SIZE(enterprise_bcm4329_rfkill_resources),
-	.resource       = enterprise_bcm4329_rfkill_resources,
+	.dev = {
+		.platform_data = &enterprise_bt_rfkill_pdata,
+	},
 };
 
 static struct resource enterprise_bluesleep_resources[] = {
@@ -126,8 +169,6 @@ static struct platform_device enterprise_bluesleep_device = {
 static void __init enterprise_setup_bluesleep(void)
 {
 	platform_device_register(&enterprise_bluesleep_device);
-	tegra_gpio_enable(TEGRA_GPIO_PS2);
-	tegra_gpio_enable(TEGRA_GPIO_PE7);
 	return;
 }
 
@@ -136,7 +177,7 @@ static __initdata struct tegra_clk_init_table enterprise_clk_init_table[] = {
 	{ "pll_m",	NULL,		0,		false},
 	{ "hda",	"pll_p",	108000000,	false},
 	{ "hda2codec_2x","pll_p",	48000000,	false},
-	{ "pwm",	"clk_32k",	32768,		false},
+	{ "pwm",	"pll_p",	3187500,	false},
 	{ "blink",	"clk_32k",	32768,		true},
 	{ "i2s0",	"pll_a_out0",	0,		false},
 	{ "i2s1",	"pll_a_out0",	0,		false},
@@ -196,7 +237,7 @@ static struct tegra_i2c_platform_data enterprise_i2c4_platform_data = {
 static struct tegra_i2c_platform_data enterprise_i2c5_platform_data = {
 	.adapter_nr	= 4,
 	.bus_count	= 1,
-	.bus_clk_rate	= { 100000, 0 },
+	.bus_clk_rate	= { 400000, 0 },
 	.scl_gpio		= {TEGRA_GPIO_PZ6, 0},
 	.sda_gpio		= {TEGRA_GPIO_PZ7, 0},
 	.arb_recovery = arb_lost_recovery,
@@ -513,12 +554,14 @@ static struct platform_device *enterprise_devices[] __initdata = {
 #if defined(CONFIG_TEGRA_IOVMM_SMMU) || defined(CONFIG_TEGRA_IOMMU_SMMU)
 	&tegra_smmu_device,
 #endif
-	&tegra_wdt_device,
+	&tegra_wdt0_device,
+	&tegra_wdt1_device,
+	&tegra_wdt2_device,
 #if defined(CONFIG_TEGRA_AVP)
 	&tegra_avp_device,
 #endif
 	&tegra_camera,
-	&enterprise_bcm4329_rfkill_device,
+	&enterprise_bt_rfkill_device,
 	&tegra_spi_device4,
 	&tegra_hda_device,
 #if defined(CONFIG_CRYPTO_DEV_TEGRA_SE)
@@ -599,9 +642,6 @@ static struct i2c_board_info __initdata atmel_i2c_info[] = {
 
 static int __init enterprise_touch_init(void)
 {
-	tegra_gpio_enable(TEGRA_GPIO_PH6);
-	tegra_gpio_enable(TEGRA_GPIO_PF5);
-
 	gpio_request(TEGRA_GPIO_PH6, "atmel-irq");
 	gpio_direction_input(TEGRA_GPIO_PH6);
 
@@ -644,7 +684,7 @@ static void enterprise_usb_hsic_post_phy_off(void)
 {
 	pr_debug("%s\n", __func__);
 #ifdef CONFIG_TEGRA_BB_XMM_POWER
-	baseband_xmm_set_power_status(BBXMM_PS_L3);
+	baseband_xmm_set_power_status(BBXMM_PS_L2);
 #endif
 }
 
@@ -706,6 +746,7 @@ static struct tegra_usb_platform_data tegra_udc_pdata = {
 static struct tegra_usb_platform_data tegra_ehci1_utmi_pdata = {
 	.port_otg = true,
 	.has_hostpc = true,
+	.builtin_host_disabled = true,
 	.phy_intf = TEGRA_USB_PHY_INTF_UTMI,
 	.op_mode = TEGRA_USB_OPMODE_HOST,
 	.u_data.host = {
@@ -812,11 +853,6 @@ static void enterprise_audio_init(void)
 			ARRAY_SIZE(enterprise_audio_devices));
 }
 
-static void enterprise_gps_init(void)
-{
-	tegra_gpio_enable(TEGRA_GPIO_PE4);
-	tegra_gpio_enable(TEGRA_GPIO_PE5);
-}
 
 static struct baseband_power_platform_data tegra_baseband_power_data = {
 	.baseband_type = BASEBAND_XMM,
@@ -891,23 +927,11 @@ static void enterprise_baseband_init(void)
 		/* baseband-power.ko will register ehci2 device */
 		tegra_ehci2_device.dev.platform_data =
 					&tegra_ehci2_hsic_xmm_pdata;
-		/* enable XMM6260 baseband gpio(s) */
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.mdm_reset);
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.mdm_on);
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.ap2mdm_ack);
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.mdm2ap_ack);
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.ap2mdm_ack2);
-		tegra_gpio_enable(tegra_baseband_power_data.modem.generic
-			.mdm2ap_ack2);
 		tegra_baseband_power_data.hsic_register =
 						&tegra_usb_hsic_host_register;
 		tegra_baseband_power_data.hsic_unregister =
 						&tegra_usb_hsic_host_unregister;
+
 		platform_device_register(&tegra_baseband_power_device);
 		platform_device_register(&tegra_baseband_power2_device);
 		break;
@@ -921,25 +945,22 @@ static void enterprise_baseband_init(void)
 #endif
 	}
 }
-
 static void enterprise_nfc_init(void)
 {
 	struct board_info bi;
-
-	tegra_gpio_enable(TEGRA_GPIO_PS4);
-	tegra_gpio_enable(TEGRA_GPIO_PM6);
 
 	/* Enable firmware GPIO PX7 for board E1205 */
 	tegra_get_board_info(&bi);
 	if (bi.board_id == BOARD_E1205 && bi.fab >= BOARD_FAB_A03) {
 		nfc_pdata.firm_gpio = TEGRA_GPIO_PX7;
-		tegra_gpio_enable(TEGRA_GPIO_PX7);
 	}
 }
 
 static void __init tegra_enterprise_init(void)
 {
-	tegra_thermal_init(&thermal_data);
+	tegra_thermal_init(&thermal_data,
+				throttle_list,
+				ARRAY_SIZE(throttle_list));
 	tegra_clk_init_from_table(enterprise_clk_init_table);
 	enterprise_pinmux_init();
 	enterprise_i2c_init();
@@ -953,9 +974,9 @@ static void __init tegra_enterprise_init(void)
 	enterprise_edp_init();
 #endif
 	enterprise_kbc_init();
+	enterprise_nfc_init();
 	enterprise_touch_init();
 	enterprise_audio_init();
-	enterprise_gps_init();
 	enterprise_baseband_init();
 	enterprise_panel_init();
 	enterprise_setup_bluesleep();
@@ -964,7 +985,7 @@ static void __init tegra_enterprise_init(void)
 	enterprise_suspend_init();
 	enterprise_bpc_mgmt_init();
 	tegra_release_bootloader_fb();
-	enterprise_nfc_init();
+	tegra_serial_debug_init(TEGRA_UARTD_BASE, INT_WDT_CPU, NULL, -1, -1);
 }
 
 static void __init tegra_enterprise_reserve(void)

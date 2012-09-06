@@ -1,0 +1,18 @@
+
+;; Function save_trace (save_trace)[0:792]
+
+deleting block 10
+
+;; Function walk_stackframe (walk_stackframe)[0:791]
+
+deleting block 8
+
+;; Function save_stack_trace_tsk (save_stack_trace_tsk)[0:793]
+
+deleting block 10
+
+;; Function save_stack_trace (save_stack_trace)[0:794]
+
+deleting block 4
+deleting block 5
+deleting block 6

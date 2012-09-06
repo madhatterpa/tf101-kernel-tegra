@@ -1,0 +1,86 @@
+
+;; Function register_isa_ports (register_isa_ports)[0:586] (unlikely executed)
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, probably never executed.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, probably never executed.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, probably never executed.
+Predecessors:  2 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 6 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 6 3 2 arch/arm/kernel/isa.c:65 (set (reg/v:SI 134 [ membase ])
+        (reg:SI 0 r0 [ membase ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/isa.c:65 (set (reg/v:SI 135 [ portbase ])
+        (reg:SI 1 r1 [ portbase ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 4 3 5 2 arch/arm/kernel/isa.c:65 (set (reg/v:SI 136 [ portshift ])
+        (reg:SI 2 r2 [ portshift ])) 167 {*arm_movsi_insn} (nil))
+
+(note 5 4 8 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 8 5 9 2 arch/arm/kernel/isa.c:66 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 9 8 10 2 arch/arm/kernel/isa.c:66 (set (mem/c/i:SI (reg/f:SI 137) [0 isa_membase+0 S4 A32])
+        (reg/v:SI 134 [ membase ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 10 9 11 2 arch/arm/kernel/isa.c:67 (set (reg/f:SI 138)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 11 10 12 2 arch/arm/kernel/isa.c:67 (set (mem/c/i:SI (plus:SI (reg/f:SI 138)
+                (const_int 4 [0x4])) [0 isa_portbase+0 S4 A32])
+        (reg/v:SI 135 [ portbase ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 12 11 13 2 arch/arm/kernel/isa.c:68 (set (reg/f:SI 139)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 12 14 2 arch/arm/kernel/isa.c:68 (set (mem/c/i:SI (plus:SI (reg/f:SI 139)
+                (const_int 8 [0x8])) [0 isa_portshift+0 S4 A32])
+        (reg/v:SI 136 [ portshift ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 14 13 15 2 arch/arm/kernel/isa.c:69 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 15 14 16 2 arch/arm/kernel/isa.c:69 (set (reg:SI 0 r0)
+        (reg/f:SI 140)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 16 15 17 2 arch/arm/kernel/isa.c:69 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("register_sysctl_table") [flags 0x41] <function_decl 0x10e3dc80 register_sysctl_table>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 17 16 18 2 arch/arm/kernel/isa.c:69 (set (reg/f:SI 133 [ isa_sysctl_header.187 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 18 17 19 2 arch/arm/kernel/isa.c:69 (set (reg/f:SI 141)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 19 18 0 2 arch/arm/kernel/isa.c:69 (set (mem/f/c/i:SI (plus:SI (reg/f:SI 141)
+                (const_int 12 [0xc])) [0 isa_sysctl_header+0 S4 A32])
+        (reg/f:SI 133 [ isa_sysctl_header.187 ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 2 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

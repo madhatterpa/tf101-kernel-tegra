@@ -1,0 +1,177 @@
+
+;; Function armpmu_get_pmu_id (armpmu_get_pmu_id)[0:1305]
+
+
+;; Function armpmu_get_max_events (armpmu_get_max_events)[0:1306]
+
+
+;; Function perf_num_counters (perf_num_counters)[0:1307]
+
+
+;; Function armpmu_event_update (armpmu_event_update)[0:1312]
+
+verify found no changes in insn with uid = 18.
+
+;; Function armpmu_read (armpmu_read)[0:1313]
+
+verify found no changes in insn with uid = 15.
+
+;; Function armpmu_stop (armpmu_stop)[0:1314]
+
+verify found no changes in insn with uid = 21.
+verify found no changes in insn with uid = 27.
+
+;; Function validate_event (validate_event)[0:1318]
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 30.
+
+;; Function armpmu_platform_irq (armpmu_platform_irq)[0:1320]
+
+verify found no changes in insn with uid = 16.
+
+;; Function armpmu_enable (armpmu_enable)[0:1326]
+
+verify found no changes in insn with uid = 63.
+verify found no changes in insn with uid = 81.
+
+;; Function armpmu_disable (armpmu_disable)[0:1327]
+
+verify found no changes in insn with uid = 12.
+
+;; Function callchain_trace (callchain_trace)[0:1361]
+
+
+;; Function armpmu_reset (armpmu_reset)[0:1357] (unlikely executed)
+
+verify found no changes in insn with uid = 17.
+
+;; Function armv7pmu_write_counter (armv7pmu_write_counter)[0:1338]
+
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 60.
+
+;; Function armv7pmu_read_counter (armv7pmu_read_counter)[0:1337]
+
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 61.
+
+;; Function init_hw_perf_events (init_hw_perf_events)[0:1358] (unlikely executed)
+
+verify found no changes in insn with uid = 211.
+verify found no changes in insn with uid = 218.
+verify found no changes in insn with uid = 226.
+
+;; Function armpmu_event_set_period (armpmu_event_set_period)[0:1311]
+
+verify found no changes in insn with uid = 80.
+verify found no changes in insn with uid = 82.
+
+;; Function armpmu_start (armpmu_start)[0:1315]
+
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 47.
+verify found no changes in insn with uid = 53.
+
+;; Function armpmu_del (armpmu_del)[0:1316]
+
+verify found no changes in insn with uid = 23.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 32.
+verify found no changes in insn with uid = 38.
+verify found no changes in insn with uid = 40.
+
+;; Function armpmu_add (armpmu_add)[0:1317]
+
+verify found no changes in insn with uid = 18.
+verify found no changes in insn with uid = 24.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 45.
+verify found no changes in insn with uid = 54.
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 63.
+
+;; Function validate_group (validate_group)[0:1319]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 43.
+
+;; Function hw_perf_event_destroy (hw_perf_event_destroy)[0:1323]
+
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 47.
+verify found no changes in insn with uid = 49.
+verify found no changes in insn with uid = 56.
+
+;; Function armpmu_event_init (armpmu_event_init)[0:1325]
+
+verify found no changes in insn with uid = 69.
+verify found no changes in insn with uid = 75.
+verify found no changes in insn with uid = 84.
+verify found no changes in insn with uid = 95.
+verify found no changes in insn with uid = 128.
+verify found no changes in insn with uid = 135.
+verify found no changes in insn with uid = 148.
+verify found no changes in insn with uid = 156.
+verify found no changes in insn with uid = 184.
+verify found no changes in insn with uid = 191.
+verify found no changes in insn with uid = 202.
+verify found no changes in insn with uid = 221.
+verify found no changes in insn with uid = 360.
+verify found no changes in insn with uid = 369.
+
+;; Function armv7pmu_stop (armv7pmu_stop)[0:1349]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 18.
+
+;; Function armv7pmu_start (armv7pmu_start)[0:1348]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 19.
+
+;; Function armv7pmu_disable_event (armv7pmu_disable_event)[0:1346]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 76.
+verify found no changes in insn with uid = 93.
+
+;; Function armv7pmu_reset (armv7pmu_reset)[0:1351]
+
+verify found no changes in insn with uid = 15.
+
+;; Function armv7pmu_enable_event (armv7pmu_enable_event)[0:1345]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 74.
+verify found no changes in insn with uid = 122.
+verify found no changes in insn with uid = 159.
+verify found no changes in insn with uid = 176.
+
+;; Function armv7pmu_get_event_idx (armv7pmu_get_event_idx)[0:1350]
+
+verify found no changes in insn with uid = 20.
+verify found no changes in insn with uid = 31.
+
+;; Function armv7pmu_handle_irq (armv7pmu_handle_irq)[0:1347]
+
+verify found no changes in insn with uid = 87.
+verify found no changes in insn with uid = 100.
+verify found no changes in insn with uid = 107.
+verify found no changes in insn with uid = 116.
+verify found no changes in insn with uid = 126.
+verify found no changes in insn with uid = 139.
+
+;; Function perf_callchain_kernel (perf_callchain_kernel)[0:1362]
+
+verify found no changes in insn with uid = 20.
+
+;; Function perf_callchain_user (perf_callchain_user)[0:1360]
+
+verify found no changes in insn with uid = 31.

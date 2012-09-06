@@ -66,7 +66,7 @@ module_param(idle_bottom_freq, uint, 0644);
 static int mp_overhead = 10;
 module_param(mp_overhead, int, 0644);
 
-static int balance_level = 75;
+static int balance_level = 60;
 module_param(balance_level, int, 0644);
 
 static struct clk *cpu_clk;
@@ -259,6 +259,7 @@ static void tegra_auto_hotplug_work_func(struct work_struct *work)
 		if (cpu < nr_cpu_ids) {
 			up = false;
 		} else if (!is_lp_cluster() && !no_lp &&
+			   !pm_qos_request(PM_QOS_MIN_ONLINE_CPUS) &&
 			   ((now - last_change_time) >= down_delay)) {
 			if(!clk_set_parent(cpu_clk, cpu_lp_clk)) {
 				hp_stats_update(CONFIG_NR_CPUS, true);
@@ -329,10 +330,10 @@ static int min_cpus_notify(struct notifier_block *nb, unsigned long n, void *p)
 {
 	mutex_lock(tegra3_cpu_lock);
 
-	if ((n >= 2) && is_lp_cluster()) {
+	if ((n >= 1) && is_lp_cluster()) {
 		/* make sure cpu rate is within g-mode range before switching */
-		unsigned int speed = max(
-			tegra_getspeed(0), clk_get_min_rate(cpu_g_clk) / 1000);
+		unsigned int speed = max((unsigned long)tegra_getspeed(0),
+			clk_get_min_rate(cpu_g_clk) / 1000);
 		tegra_update_cpu_speed(speed);
 
 		if (!clk_set_parent(cpu_clk, cpu_g_clk)) {

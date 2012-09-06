@@ -1,0 +1,165 @@
+
+;; Function vfp_propagate_nan (vfp_propagate_nan)[0:154]
+
+
+;; Function vfp_single_multiply (vfp_single_multiply)[0:174]
+
+verify found no changes in insn with uid = 48.
+
+;; Function vfp_single_cpdo (vfp_single_cpdo)[0:185]
+
+verify found no changes in insn with uid = 106.
+verify found no changes in insn with uid = 113.
+
+;; Function vfp_compare (vfp_compare)[0:160]
+
+verify found no changes in insn with uid = 10.
+
+;; Function vfp_single_fcmpez (vfp_single_fcmpez)[0:164]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_fcmpz (vfp_single_fcmpz)[0:163]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_fcmpe (vfp_single_fcmpe)[0:162]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_fcmp (vfp_single_fcmp)[0:161]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_normalise_denormal (vfp_single_normalise_denormal)[0:152]
+
+
+;; Function vfp_single_ftosi (vfp_single_ftosi)[0:170]
+
+verify found no changes in insn with uid = 262.
+
+;; Function vfp_single_ftosiz (vfp_single_ftosiz)[0:171]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_ftoui (vfp_single_ftoui)[0:168]
+
+verify found no changes in insn with uid = 247.
+
+;; Function vfp_single_ftouiz (vfp_single_ftouiz)[0:169]
+
+verify found no changes in insn with uid = 13.
+
+;; Function vfp_single_fneg (vfp_single_fneg)[0:157]
+
+verify found no changes in insn with uid = 12.
+
+;; Function vfp_single_fabs (vfp_single_fabs)[0:155]
+
+verify found no changes in insn with uid = 12.
+
+;; Function vfp_single_fcpy (vfp_single_fcpy)[0:156]
+
+verify found no changes in insn with uid = 11.
+
+;; Function __vfp_single_normaliseround (__vfp_single_normaliseround)[0:153]
+
+verify found no changes in insn with uid = 228.
+
+;; Function vfp_single_fnmul (vfp_single_fnmul)[0:181]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 87.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 109.
+
+;; Function vfp_single_fmul (vfp_single_fmul)[0:180]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 87.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 104.
+
+;; Function vfp_single_fsito (vfp_single_fsito)[0:167]
+
+verify found no changes in insn with uid = 29.
+
+;; Function vfp_single_fuito (vfp_single_fuito)[0:166]
+
+verify found no changes in insn with uid = 21.
+
+;; Function vfp_single_fdiv (vfp_single_fdiv)[0:184]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 202.
+verify found no changes in insn with uid = 211.
+verify found no changes in insn with uid = 272.
+verify found no changes in insn with uid = 285.
+verify found no changes in insn with uid = 299.
+verify found no changes in insn with uid = 311.
+verify found no changes in insn with uid = 352.
+
+;; Function vfp_single_add (vfp_single_add)[0:173]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 134.
+
+;; Function vfp_single_multiply_accumulate (vfp_single_multiply_accumulate)[0:175]
+
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 50.
+verify found no changes in insn with uid = 89.
+verify found no changes in insn with uid = 99.
+verify found no changes in insn with uid = 113.
+verify found no changes in insn with uid = 160.
+verify found no changes in insn with uid = 168.
+
+;; Function vfp_single_fnmsc (vfp_single_fnmsc)[0:179]
+
+verify found no changes in insn with uid = 17.
+
+;; Function vfp_single_fnmac (vfp_single_fnmac)[0:177]
+
+verify found no changes in insn with uid = 17.
+
+;; Function vfp_single_fmsc (vfp_single_fmsc)[0:178]
+
+verify found no changes in insn with uid = 17.
+
+;; Function vfp_single_fmac (vfp_single_fmac)[0:176]
+
+verify found no changes in insn with uid = 17.
+
+;; Function vfp_single_fadd (vfp_single_fadd)[0:182]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 87.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 104.
+
+;; Function vfp_single_fsub (vfp_single_fsub)[0:183]
+
+verify found no changes in insn with uid = 14.
+
+;; Function vfp_estimate_sqrt_significand (vfp_estimate_sqrt_significand)[0:158]
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 55.
+
+;; Function vfp_single_fsqrt (vfp_single_fsqrt)[0:159]
+
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 129.
+verify found no changes in insn with uid = 146.
+verify found no changes in insn with uid = 166.
+verify found no changes in insn with uid = 248.
+
+;; Function vfp_single_fcvtd (vfp_single_fcvtd)[0:165]
+
+verify found no changes in insn with uid = 92.
+verify found no changes in insn with uid = 143.
+verify found no changes in insn with uid = 167.

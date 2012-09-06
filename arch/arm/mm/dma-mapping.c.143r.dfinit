@@ -1,0 +1,136 @@
+
+;; Function dma_supported (dma_supported)[0:1293]
+
+
+;; Function dma_set_mask (dma_set_mask)[0:1294]
+
+
+;; Function dma_debug_do_init (dma_debug_do_init)[0:1295] (unlikely executed)
+
+
+;; Function consistent_init (consistent_init)[0:1274] (unlikely executed)
+
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 67.
+verify found no changes in insn with uid = 76.
+verify found no changes in insn with uid = 99.
+
+;; Function ___dma_single_dev_to_cpu (___dma_single_dev_to_cpu)[0:1285]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 48.
+
+;; Function ___dma_single_cpu_to_dev (___dma_single_cpu_to_dev)[0:1284]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 51.
+verify found no changes in insn with uid = 73.
+
+;; Function dma_cache_maint_page (dma_cache_maint_page)[0:1286]
+
+verify found no changes in insn with uid = 47.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 70.
+verify found no changes in insn with uid = 76.
+verify found no changes in insn with uid = 78.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 103.
+
+;; Function ___dma_page_dev_to_cpu (___dma_page_dev_to_cpu)[0:1288]
+
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 55.
+
+;; Function dma_sync_sg_for_cpu (dma_sync_sg_for_cpu)[0:1291]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 46.
+
+;; Function dma_unmap_sg (dma_unmap_sg)[0:1290]
+
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 29.
+
+;; Function ___dma_page_cpu_to_dev (___dma_page_cpu_to_dev)[0:1287]
+
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 47.
+
+;; Function dma_sync_sg_for_device (dma_sync_sg_for_device)[0:1292]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 46.
+
+;; Function dma_map_sg (dma_map_sg)[0:1289]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 33.
+verify found no changes in insn with uid = 45.
+verify found no changes in insn with uid = 55.
+verify found no changes in insn with uid = 74.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 100.
+
+;; Function dma_free_coherent (dma_free_coherent)[0:1283]
+
+verify found no changes in insn with uid = 19.
+verify found no changes in insn with uid = 35.
+verify found no changes in insn with uid = 47.
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 59.
+verify found no changes in insn with uid = 82.
+verify found no changes in insn with uid = 83.
+verify found no changes in insn with uid = 104.
+verify found no changes in insn with uid = 133.
+verify found no changes in insn with uid = 143.
+verify found no changes in insn with uid = 147.
+verify found no changes in insn with uid = 163.
+
+;; Function dma_mmap (dma_mmap)[0:1280]
+
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 47.
+
+;; Function dma_mmap_writecombine (dma_mmap_writecombine)[0:1282]
+
+verify found no changes in insn with uid = 19.
+
+;; Function dma_mmap_coherent (dma_mmap_coherent)[0:1281]
+
+verify found no changes in insn with uid = 19.
+
+;; Function __dma_alloc (__dma_alloc)[0:1277]
+
+verify found no changes in insn with uid = 41.
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 90.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 110.
+verify found no changes in insn with uid = 119.
+verify found no changes in insn with uid = 126.
+verify found no changes in insn with uid = 134.
+verify found no changes in insn with uid = 146.
+verify found no changes in insn with uid = 155.
+verify found no changes in insn with uid = 156.
+verify found no changes in insn with uid = 171.
+verify found no changes in insn with uid = 196.
+verify found no changes in insn with uid = 209.
+verify found no changes in insn with uid = 247.
+
+;; Function dma_alloc_writecombine (dma_alloc_writecombine)[0:1279]
+
+verify found no changes in insn with uid = 18.
+
+;; Function dma_alloc_coherent (dma_alloc_coherent)[0:1278]
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 33.

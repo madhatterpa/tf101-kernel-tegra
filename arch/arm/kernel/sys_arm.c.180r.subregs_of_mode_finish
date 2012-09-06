@@ -1,0 +1,18 @@
+
+;; Function sys_arm_fadvise64_64 (sys_arm_fadvise64_64)[0:1333]
+
+
+;; Function kernel_execve (kernel_execve)[0:1332]
+
+
+;; Function sys_execve (sys_execve)[0:1331]
+
+
+;; Function sys_vfork (sys_vfork)[0:1330]
+
+
+;; Function sys_clone (sys_clone)[0:1329]
+
+
+;; Function sys_fork (sys_fork)[0:1328]
+

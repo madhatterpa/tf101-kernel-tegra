@@ -24,6 +24,7 @@ config ARCH_TEGRA_2x_SOC
 	select ARM_ERRATA_716044
 	select ARM_ERRATA_764369 if SMP
 	select ARCH_HAS_SUSPEND_PAGETABLE
+	select NVMAP_CACHE_MAINT_BY_SET_WAYS
 	help
 	  Support for NVIDIA Tegra AP20 and T20 processors, based on the
 	  ARM CortexA9MP CPU and the ARM PL310 L2 cache controller
@@ -51,6 +52,7 @@ config ARCH_TEGRA_3x_SOC
 	select TEGRA_LP2_ARM_TWD if HAVE_ARM_TWD && !TEGRA_RAIL_OFF_MULTIPLE_CPUS
 	select CPA
 	select ARCH_HAS_SUSPEND_PAGETABLE
+	select NVMAP_CACHE_MAINT_BY_SET_WAYS
 	help
 	  Support for NVIDIA Tegra 3 family of SoCs, based upon the
 	  ARM CortexA9MP CPU and the ARM PL310 L2 cache controller
@@ -83,19 +85,19 @@ config MACH_HARMONY
        help
          Support for NVIDIA Harmony development platform
 
-config MACH_VENTANA
-       bool "Ventana board"
-       depends on ARCH_TEGRA_2x_SOC
-       select MACH_HAS_SND_SOC_TEGRA_WM8903 if SND_SOC
-       help
-         Support for NVIDIA Ventana development platform
-
 config MACH_TF101
        bool "Asus TF101 board"
        depends on ARCH_TEGRA_2x_SOC
        select MACH_HAS_SND_SOC_TEGRA_WM8903 if SND_SOC
        help
          Support for NVIDIA TEGRA 2 in TF101 SoC
+
+config MACH_VENTANA
+       bool "Ventana board"
+       depends on ARCH_TEGRA_2x_SOC
+       select MACH_HAS_SND_SOC_TEGRA_WM8903 if SND_SOC
+       help
+         Support for NVIDIA Ventana development platform
 
 config MACH_KAEN
        bool "Kaen board"
@@ -261,6 +263,14 @@ config TEGRA_FIQ_DEBUGGER
 	help
 	  Enables the FIQ serial debugger on Tegra
 
+config TEGRA_P1852_TDM
+	bool "Enable TDM mode for P1852 SKUs"
+	default n
+	depends on MACH_P1852
+	help
+		Enables TDM mode driver for P1852 SKUs. If this
+		is not defined then I2S mode is selected by default.
+
 config TEGRA_CARDHU_DSI
 	bool "Support DSI panel on Cardhu"
 	depends on MACH_CARDHU
@@ -293,7 +303,7 @@ config TEGRA_CORE_DVFS
 
 config TEGRA_IOVMM_GART
 	bool "Enable I/O virtual memory manager for GART"
-	depends on ARCH_TEGRA_2x_SOC
+	depends on ARCH_TEGRA_2x_SOC && !TEGRA_IOMMU_GART
 	default y
 	select TEGRA_IOVMM
 	help
@@ -304,7 +314,7 @@ config TEGRA_IOVMM_GART
 
 config TEGRA_IOVMM_SMMU
 	bool "Enable I/O virtual memory manager for SMMU"
-	depends on ARCH_TEGRA_3x_SOC
+	depends on ARCH_TEGRA_3x_SOC && !TEGRA_IOMMU_SMMU
 	default y
 	select TEGRA_IOVMM
 	help
@@ -321,6 +331,7 @@ config TEGRA_IOVMM_SMMU_SYSFS
 	  Enables SMMU register access through /sys/devices/smmu/* files.
 
 config TEGRA_IOVMM
+	depends on TEGRA_IOVMM_GART || TEGRA_IOVMM_SMMU
 	bool
 
 config TEGRA_AVP_KERNEL_ON_MMU
@@ -332,7 +343,7 @@ config TEGRA_AVP_KERNEL_ON_MMU
 
 config TEGRA_AVP_KERNEL_ON_SMMU
 	bool "Use SMMU to relocate AVP kernel"
-	depends on TEGRA_IOVMM_SMMU
+	depends on TEGRA_IOVMM_SMMU || TEGRA_IOMMU_SMMU
 	default y
 	help
 	  Use SMMU to relocate AVP kernel (nvrm_avp.bin).
@@ -424,6 +435,17 @@ config USB_HOTPLUG
 	bool "Enabling the USB hotplug"
 	default n
 
+config TEGRA_GADGET_BOOST_CPU_FREQ
+	int "Boost cpu frequency for tegra usb gadget (0-1300 mhz)"
+	range 0 1300
+	default 0
+	help
+	  Devices need to boost frequency of CPU when they are connected
+	  to host pc through usb cable for better performance. This value
+	  is the amount of the frequency (in mhz) to be boosted. If it is
+	  zero boosting frequency will not be enabled. This value will be
+	  used only by usb gadget driver.
+
 config TEGRA_DYNAMIC_PWRDET
 	bool "Enable dynamic activation of IO level auto-detection"
 	depends on TEGRA_SILICON_PLATFORM
@@ -507,4 +529,13 @@ config TEGRA_PREPOWER_WIFI
 	default n
 	help
 	  Pre-power up the on board WiFi chip
+
+config TEGRA_SKIN_THROTTLE
+	bool "Skin Temperature throttling"
+	depends on TEGRA_THERMAL_THROTTLE
+	depends on THERM_EST
+	default n
+	help
+	  Enable throttling to control the temperature of the skin/case
+	  of the device.
 endif

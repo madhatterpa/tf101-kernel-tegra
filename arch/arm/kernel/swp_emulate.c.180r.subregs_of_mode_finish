@@ -1,0 +1,12 @@
+
+;; Function swp_emulation_init (swp_emulation_init)[0:1327] (unlikely executed)
+
+
+;; Function set_segfault (set_segfault)[0:1324]
+
+
+;; Function swp_handler (swp_handler)[0:1326]
+
+
+;; Function proc_read_status (proc_read_status)[0:1323]
+

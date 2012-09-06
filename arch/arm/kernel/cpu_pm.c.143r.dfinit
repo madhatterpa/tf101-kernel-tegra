@@ -1,0 +1,42 @@
+
+;; Function cpu_pm_notify (cpu_pm_notify)[0:584]
+
+verify found no changes in insn with uid = 14.
+
+;; Function cpu_complex_pm_exit (cpu_complex_pm_exit)[0:588]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 17.
+
+;; Function cpu_complex_pm_enter (cpu_complex_pm_enter)[0:587]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 23.
+verify found no changes in insn with uid = 29.
+
+;; Function cpu_pm_exit (cpu_pm_exit)[0:586]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 17.
+
+;; Function cpu_pm_enter (cpu_pm_enter)[0:585]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 23.
+verify found no changes in insn with uid = 29.
+
+;; Function cpu_pm_unregister_notifier (cpu_pm_unregister_notifier)[0:583]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 20.
+
+;; Function cpu_pm_register_notifier (cpu_pm_register_notifier)[0:582]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 20.

@@ -1,0 +1,227 @@
+
+;; Function fixup_exception (fixup_exception)[0:592]
+
+
+
+try_optimize_cfg iteration 1
+
+
+5 basic blocks, 5 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+;; bb 0 artificial_defs: { d3(0){ }d5(1){ }d7(2){ }d9(3){ }d10(11){ }d12(12){ }d13(13){ }d15(14){ }d28(25){ }d29(26){ }}
+;; bb 0 artificial_uses: { }
+;; lr  in  	
+;; lr  use 	
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 11 [fp] 12 [ip] 13 [sp] 14 [lr] 25 [sfp] 26 [afp]
+;; live  in  	
+;; live  gen 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 11 [fp] 12 [ip] 13 [sp] 14 [lr] 25 [sfp] 26 [afp]
+;; live  kill	
+
+Successors:  2 [100.0%]  (fallthru)
+;; lr  out 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; live  out 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+
+
+Basic block 2 , prev 0, next 3, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u0(11){ }u1(13){ }u2(25){ }u3(26){ }}
+;; lr  in  	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; lr  use 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc] 133 135
+;; live  in  	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; live  gen 	 0 [r0] 24 [cc] 133 135
+;; live  kill	 14 [lr]
+
+Successors:  3 [89.9%]  (fallthru) 4 [10.1%] 
+;; lr  out 	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133 135
+;; live  out 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+
+
+Basic block 3 , prev 2, next 4, loop_depth 0, count 0, freq 8986, maybe hot.
+Predecessors:  2 [89.9%]  (fallthru)
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u11(11){ }u12(13){ }u13(25){ }u14(26){ }}
+;; lr  in  	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133 135
+;; lr  use 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+;; lr  def 	 136
+;; live  in  	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+;; live  gen 	 136
+;; live  kill	
+
+Successors:  4 [100.0%]  (fallthru)
+;; lr  out 	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133
+;; live  out 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+
+
+Basic block 4 , prev 3, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [10.1%]  3 [100.0%]  (fallthru)
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u18(11){ }u19(13){ }u20(25){ }u21(26){ }}
+;; lr  in  	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133
+;; lr  use 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+;; lr  def 	 0 [r0] 24 [cc] 138
+;; live  in  	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+;; live  gen 	 0 [r0] 24 [cc] 138
+;; live  kill	
+
+Successors:  EXIT [100.0%]  (fallthru)
+;; lr  out 	 0 [r0] 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp]
+;; live  out 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+
+
+Basic block 1 , prev 4, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  4 [100.0%]  (fallthru)
+;; bb 1 artificial_defs: { }
+;; bb 1 artificial_uses: { u27(0){ }u28(11){ }u29(13){ }u30(14){ }u31(25){ }}
+;; lr  in  	 0 [r0] 11 [fp] 13 [sp] 14 [lr] 25 [sfp]
+;; lr  use 	 0 [r0] 11 [fp] 13 [sp] 14 [lr] 25 [sfp]
+;; lr  def 	
+;; live  in  	 0 [r0] 11 [fp] 13 [sp] 25 [sfp]
+;; live  gen 	
+;; live  kill	
+
+Successors: 
+;; lr  out 	
+;; live  out 	
+
+
+
+
+fixup_exception
+
+Dataflow summary:
+;;  invalidated by call 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;;  hardware regs used 	 13 [sp] 25 [sfp] 26 [afp]
+;;  regular block artificial uses 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;;  eh block artificial uses 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;;  entry block defs 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 11 [fp] 12 [ip] 13 [sp] 14 [lr] 25 [sfp] 26 [afp]
+;;  exit block uses 	 0 [r0] 11 [fp] 13 [sp] 14 [lr] 25 [sfp]
+;;  regs ever live 	 0[r0] 13[sp] 14[lr] 24[cc]
+;;  ref usage 	r0={4d,5u} r1={2d} r2={2d} r3={2d} r11={1d,4u} r12={2d} r13={1d,5u} r14={2d,1u} r15={1d} r16={1d} r17={1d} r18={1d} r19={1d} r20={1d} r21={1d} r22={1d} r23={1d} r24={3d,2u} r25={1d,4u} r26={1d,3u} r27={1d} r28={1d} r29={1d} r30={1d} r31={1d} r32={1d} r33={1d} r34={1d} r35={1d} r36={1d} r37={1d} r38={1d} r39={1d} r40={1d} r41={1d} r42={1d} r43={1d} r44={1d} r45={1d} r46={1d} r47={1d} r48={1d} r49={1d} r50={1d} r51={1d} r52={1d} r53={1d} r54={1d} r55={1d} r56={1d} r57={1d} r58={1d} r59={1d} r60={1d} r61={1d} r62={1d} r63={1d} r64={1d} r65={1d} r66={1d} r67={1d} r68={1d} r69={1d} r70={1d} r71={1d} r72={1d} r73={1d} r74={1d} r75={1d} r76={1d} r77={1d} r78={1d} r79={1d} r80={1d} r81={1d} r82={1d} r83={1d} r84={1d} r85={1d} r86={1d} r87={1d} r88={1d} r89={1d} r90={1d} r91={1d} r92={1d} r93={1d} r94={1d} r95={1d} r96={1d} r97={1d} r98={1d} r99={1d} r100={1d} r101={1d} r102={1d} r103={1d} r104={1d} r105={1d} r106={1d} r107={1d} r108={1d} r109={1d} r110={1d} r111={1d} r112={1d} r113={1d} r114={1d} r115={1d} r116={1d} r117={1d} r118={1d} r119={1d} r120={1d} r121={1d} r122={1d} r123={1d} r124={1d} r125={1d} r126={1d} r127={1d} r133={1d,3u} r135={1d,2u} r136={1d,1u} r138={1d,1u} 
+;;    total ref usage 166{135d,31u,0e} in 12{11 regular + 1 call} insns.
+;; Start of basic block ( 0) -> 2
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u0(11){ }u1(13){ }u2(25){ }u3(26){ }}
+;; lr  in  	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; lr  use 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc] 133 135
+;; live  in  	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+;; live  gen 	 0 [r0] 24 [cc] 133 135
+;; live  kill	 14 [lr]
+
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/mm/extable.c:8 (set (reg/v/f:SI 135 [ regs ])
+        (reg:SI 0 r0 [ regs ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ regs ])
+        (nil)))
+
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 6 3 7 2 arch/arm/mm/extable.c:11 (set (reg:SI 0 r0)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 135 [ regs ])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 7 6 8 2 arch/arm/mm/extable.c:11 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("search_exception_tables") [flags 0x41] <function_decl 0x10e04f80 search_exception_tables>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 8 7 9 2 arch/arm/mm/extable.c:11 (set (reg/v/f:SI 133 [ fixup ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(insn 9 8 10 2 arch/arm/mm/extable.c:12 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 133 [ fixup ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 10 9 11 2 arch/arm/mm/extable.c:12 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 14)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 1014 [0x3f6])
+            (nil))))
+;; End of basic block 2 -> ( 3 4)
+;; lr  out 	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133 135
+;; live  out 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+
+
+;; Succ edge  3 [89.9%]  (fallthru)
+;; Succ edge  4 [10.1%] 
+
+;; Start of basic block ( 2) -> 3
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u11(11){ }u12(13){ }u13(25){ }u14(26){ }}
+;; lr  in  	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133 135
+;; lr  use 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+;; lr  def 	 136
+;; live  in  	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133 135
+;; live  gen 	 136
+;; live  kill	
+
+;; Pred edge  2 [89.9%]  (fallthru)
+(note 11 10 12 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 12 11 13 3 arch/arm/mm/extable.c:13 (set (reg:SI 136 [ <variable>.fixup ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 133 [ fixup ])
+                (const_int 4 [0x4])) [0 <variable>.fixup+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 12 14 3 arch/arm/mm/extable.c:13 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 135 [ regs ])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])
+        (reg:SI 136 [ <variable>.fixup ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 136 [ <variable>.fixup ])
+        (expr_list:REG_DEAD (reg/v/f:SI 135 [ regs ])
+            (nil))))
+;; End of basic block 3 -> ( 4)
+;; lr  out 	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133
+;; live  out 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+
+
+;; Succ edge  4 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2 3) -> 4
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u18(11){ }u19(13){ }u20(25){ }u21(26){ }}
+;; lr  in  	 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp] 133
+;; lr  use 	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+;; lr  def 	 0 [r0] 24 [cc] 138
+;; live  in  	 11 [fp] 13 [sp] 25 [sfp] 26 [afp] 133
+;; live  gen 	 0 [r0] 24 [cc] 138
+;; live  kill	
+
+;; Pred edge  2 [10.1%] 
+;; Pred edge  3 [100.0%]  (fallthru)
+(code_label 14 13 15 4 2 "" [1 uses])
+
+(note 15 14 16 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 16 15 17 4 arch/arm/mm/extable.c:16 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 133 [ fixup ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 133 [ fixup ])
+        (nil)))
+
+(insn 17 16 22 4 arch/arm/mm/extable.c:16 (set (reg:SI 138)
+        (ne:SI (reg:CC 24 cc)
+            (const_int 0 [0x0]))) 233 {*mov_scc} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (nil)))
+
+(insn 22 17 28 4 arch/arm/mm/extable.c:16 (set (reg/i:SI 0 r0)
+        (reg:SI 138)) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 138)
+        (nil)))
+
+(insn 28 22 0 4 arch/arm/mm/extable.c:16 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 4 -> ( 1)
+;; lr  out 	 0 [r0] 11 [fp] 13 [sp] 14 [lr] 25 [sfp] 26 [afp]
+;; live  out 	 0 [r0] 11 [fp] 13 [sp] 25 [sfp] 26 [afp]
+
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

@@ -1,0 +1,54 @@
+
+;; Function ipi_flush_tlb_all (ipi_flush_tlb_all)[0:746]
+
+
+;; Function ipi_flush_tlb_page (ipi_flush_tlb_page)[0:748]
+
+
+;; Function ipi_flush_tlb_kernel_page (ipi_flush_tlb_kernel_page)[0:749]
+
+
+;; Function ipi_flush_tlb_range (ipi_flush_tlb_range)[0:750]
+
+verify found no changes in insn with uid = 12.
+
+;; Function ipi_flush_tlb_kernel_range (ipi_flush_tlb_kernel_range)[0:751]
+
+verify found no changes in insn with uid = 11.
+
+;; Function flush_tlb_kernel_range (flush_tlb_kernel_range)[0:757]
+
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 34.
+
+;; Function flush_tlb_kernel_page (flush_tlb_kernel_page)[0:755]
+
+verify found no changes in insn with uid = 23.
+
+;; Function flush_tlb_all (flush_tlb_all)[0:752]
+
+verify found no changes in insn with uid = 20.
+
+;; Function ipi_flush_tlb_mm (ipi_flush_tlb_mm)[0:747]
+
+verify found no changes in insn with uid = 47.
+
+;; Function on_each_cpu_mask.clone.0 (on_each_cpu_mask.clone.0)[0:758]
+
+verify found no changes in insn with uid = 19.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 58.
+
+;; Function flush_tlb_mm (flush_tlb_mm)[0:753]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 66.
+
+;; Function flush_tlb_page (flush_tlb_page)[0:754]
+
+verify found no changes in insn with uid = 27.
+
+;; Function flush_tlb_range (flush_tlb_range)[0:756]
+
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 39.

@@ -1,0 +1,39 @@
+
+;; Function init_IRQ (init_IRQ)[0:1142] (unlikely executed)
+
+verify found no changes in insn with uid = 8.
+
+;; Function migrate_irqs (migrate_irqs)[0:1144]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 77.
+verify found no changes in insn with uid = 86.
+verify found no changes in insn with uid = 92.
+verify found no changes in insn with uid = 101.
+verify found no changes in insn with uid = 106.
+
+;; Function set_irq_flags (set_irq_flags)[0:1141]
+
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 50.
+
+;; Function handle_IRQ (handle_IRQ)[0:1139]
+
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 42.
+verify found no changes in insn with uid = 55.
+verify found no changes in insn with uid = 58.
+
+;; Function asm_do_IRQ (asm_do_IRQ)[0:1140]
+
+verify found no changes in insn with uid = 9.
+
+;; Function arch_show_interrupts (arch_show_interrupts)[0:1138]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 25.

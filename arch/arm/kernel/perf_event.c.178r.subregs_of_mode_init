@@ -1,0 +1,93 @@
+
+;; Function armpmu_get_pmu_id (armpmu_get_pmu_id)[0:1305]
+
+
+;; Function armpmu_get_max_events (armpmu_get_max_events)[0:1306]
+
+
+;; Function perf_num_counters (perf_num_counters)[0:1307]
+
+
+;; Function armpmu_event_update (armpmu_event_update)[0:1312]
+
+
+;; Function armpmu_read (armpmu_read)[0:1313]
+
+
+;; Function armpmu_stop (armpmu_stop)[0:1314]
+
+
+;; Function validate_event (validate_event)[0:1318]
+
+
+;; Function armpmu_platform_irq (armpmu_platform_irq)[0:1320]
+
+
+;; Function armpmu_enable (armpmu_enable)[0:1326]
+
+
+;; Function armpmu_disable (armpmu_disable)[0:1327]
+
+
+;; Function callchain_trace (callchain_trace)[0:1361]
+
+
+;; Function armpmu_reset (armpmu_reset)[0:1357] (unlikely executed)
+
+
+;; Function armv7pmu_write_counter (armv7pmu_write_counter)[0:1338]
+
+
+;; Function armv7pmu_read_counter (armv7pmu_read_counter)[0:1337]
+
+
+;; Function init_hw_perf_events (init_hw_perf_events)[0:1358] (unlikely executed)
+
+
+;; Function armpmu_event_set_period (armpmu_event_set_period)[0:1311]
+
+
+;; Function armpmu_start (armpmu_start)[0:1315]
+
+
+;; Function armpmu_del (armpmu_del)[0:1316]
+
+
+;; Function armpmu_add (armpmu_add)[0:1317]
+
+
+;; Function validate_group (validate_group)[0:1319]
+
+
+;; Function hw_perf_event_destroy (hw_perf_event_destroy)[0:1323]
+
+
+;; Function armpmu_event_init (armpmu_event_init)[0:1325]
+
+
+;; Function armv7pmu_stop (armv7pmu_stop)[0:1349]
+
+
+;; Function armv7pmu_start (armv7pmu_start)[0:1348]
+
+
+;; Function armv7pmu_disable_event (armv7pmu_disable_event)[0:1346]
+
+
+;; Function armv7pmu_reset (armv7pmu_reset)[0:1351]
+
+
+;; Function armv7pmu_enable_event (armv7pmu_enable_event)[0:1345]
+
+
+;; Function armv7pmu_get_event_idx (armv7pmu_get_event_idx)[0:1350]
+
+
+;; Function armv7pmu_handle_irq (armv7pmu_handle_irq)[0:1347]
+
+
+;; Function perf_callchain_kernel (perf_callchain_kernel)[0:1362]
+
+
+;; Function perf_callchain_user (perf_callchain_user)[0:1360]
+

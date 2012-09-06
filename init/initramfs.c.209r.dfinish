@@ -1,0 +1,48 @@
+
+;; Function error (error)[0:1311] (unlikely executed)
+
+
+;; Function do_start (do_start)[0:1321] (unlikely executed)
+
+
+;; Function do_skip (do_skip)[0:1324] (unlikely executed)
+
+
+;; Function do_reset (do_reset)[0:1325] (unlikely executed)
+
+
+;; Function flush_buffer (flush_buffer)[0:1332] (unlikely executed)
+
+
+;; Function retain_initrd_param (retain_initrd_param)[0:1334] (unlikely executed)
+
+
+;; Function clean_path (clean_path)[0:1327] (unlikely executed)
+
+
+;; Function do_utime (do_utime)[0:1315] (unlikely executed)
+
+
+;; Function do_symlink (do_symlink)[0:1330] (unlikely executed)
+
+
+;; Function unpack_to_rootfs (unpack_to_rootfs)[0:1333] (unlikely executed)
+
+
+;; Function do_copy (do_copy)[0:1329] (unlikely executed)
+
+
+;; Function maybe_link (maybe_link)[0:1326] (unlikely executed)
+
+
+;; Function do_name (do_name)[0:1328] (unlikely executed)
+
+
+;; Function do_collect (do_collect)[0:1322] (unlikely executed)
+
+
+;; Function do_header (do_header)[0:1323] (unlikely executed)
+
+
+;; Function populate_rootfs (populate_rootfs)[0:1338] (unlikely executed)
+

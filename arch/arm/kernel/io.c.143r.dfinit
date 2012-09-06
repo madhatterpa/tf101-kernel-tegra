@@ -1,0 +1,11 @@
+
+;; Function _memcpy_fromio (_memcpy_fromio)[0:584]
+
+
+;; Function _memcpy_toio (_memcpy_toio)[0:585]
+
+verify found no changes in insn with uid = 19.
+
+;; Function _memset_io (_memset_io)[0:586]
+
+verify found no changes in insn with uid = 18.

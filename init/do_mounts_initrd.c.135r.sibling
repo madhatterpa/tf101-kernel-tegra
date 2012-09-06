@@ -1,0 +1,14 @@
+
+;; Function no_initrd (no_initrd)[0:1559] (unlikely executed)
+
+deleting block 4
+
+;; Function initrd_load (initrd_load)[0:1562] (unlikely executed)
+
+deleting block 6
+
+;; Function do_linuxrc (do_linuxrc)[0:1560] (unlikely executed)
+
+deleting block 4
+deleting block 5
+deleting block 6

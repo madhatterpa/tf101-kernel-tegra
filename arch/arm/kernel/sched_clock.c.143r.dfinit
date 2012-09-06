@@ -1,0 +1,23 @@
+
+;; Function sched_clock_poll (sched_clock_poll)[0:751]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 18.
+
+;; Function sched_clock_postinit (sched_clock_postinit)[0:753] (unlikely executed)
+
+verify found no changes in insn with uid = 7.
+
+;; Function init_sched_clock (init_sched_clock)[0:752] (unlikely executed)
+
+verify found no changes in insn with uid = 20.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 37.
+verify found no changes in insn with uid = 51.
+verify found no changes in insn with uid = 64.
+verify found no changes in insn with uid = 80.
+verify found no changes in insn with uid = 88.
+verify found no changes in insn with uid = 91.
+verify found no changes in insn with uid = 95.
+verify found no changes in insn with uid = 99.

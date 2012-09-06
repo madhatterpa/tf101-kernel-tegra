@@ -1,0 +1,146 @@
+
+;; Function trap_init (trap_init)[0:1083] (unlikely executed)
+
+
+;; Function early_trap_init (early_trap_init)[0:1085] (unlikely executed)
+
+verify found no changes in insn with uid = 18.
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 45.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 66.
+verify found no changes in insn with uid = 77.
+verify found no changes in insn with uid = 83.
+
+;; Function __pgd_error (__pgd_error)[0:1080]
+
+verify found no changes in insn with uid = 15.
+
+;; Function __pmd_error (__pmd_error)[0:1079]
+
+verify found no changes in insn with uid = 14.
+
+;; Function __pte_error (__pte_error)[0:1078]
+
+verify found no changes in insn with uid = 14.
+
+;; Function __bug (__bug)[0:1076]
+
+verify found no changes in insn with uid = 11.
+
+;; Function abort (abort)[0:1082]
+
+verify found no changes in insn with uid = 10.
+
+;; Function __readwrite_bug (__readwrite_bug)[0:1077]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 15.
+
+;; Function do_unexp_fiq (do_unexp_fiq)[0:1069]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 11.
+
+;; Function __bad_xchg (__bad_xchg)[0:1074]
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 19.
+
+;; Function unregister_undef_hook (unregister_undef_hook)[0:1066]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 23.
+
+;; Function register_undef_hook (register_undef_hook)[0:1065]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 24.
+
+;; Function dump_mem (dump_mem)[0:1057]
+
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 61.
+verify found no changes in insn with uid = 69.
+verify found no changes in insn with uid = 98.
+
+;; Function dump_backtrace_entry (dump_backtrace_entry)[0:1056]
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 36.
+
+;; Function show_stack (show_stack)[0:1061]
+
+verify found no changes in insn with uid = 9.
+
+;; Function dump_stack (dump_stack)[0:1060] (unlikely executed)
+
+verify found no changes in insn with uid = 7.
+
+;; Function __div0 (__div0)[0:1081]
+
+verify found no changes in insn with uid = 7.
+verify found no changes in insn with uid = 8.
+
+;; Function die (die)[0:1063]
+
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 49.
+verify found no changes in insn with uid = 55.
+verify found no changes in insn with uid = 57.
+verify found no changes in insn with uid = 66.
+verify found no changes in insn with uid = 90.
+verify found no changes in insn with uid = 93.
+verify found no changes in insn with uid = 162.
+verify found no changes in insn with uid = 176.
+verify found no changes in insn with uid = 203.
+verify found no changes in insn with uid = 211.
+verify found no changes in insn with uid = 213.
+verify found no changes in insn with uid = 217.
+verify found no changes in insn with uid = 218.
+verify found no changes in insn with uid = 230.
+verify found no changes in insn with uid = 241.
+verify found no changes in insn with uid = 250.
+
+;; Function bad_mode (bad_mode)[0:1070]
+
+verify found no changes in insn with uid = 21.
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 30.
+
+;; Function arm_notify_die (arm_notify_die)[0:1064]
+
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 38.
+
+;; Function baddataabort (baddataabort)[0:1075]
+
+verify found no changes in insn with uid = 24.
+
+;; Function bad_syscall (bad_syscall)[0:1071]
+
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 62.
+
+;; Function arm_syscall (arm_syscall)[0:1073]
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 44.
+verify found no changes in insn with uid = 71.
+verify found no changes in insn with uid = 104.
+verify found no changes in insn with uid = 107.
+verify found no changes in insn with uid = 119.
+verify found no changes in insn with uid = 131.
+verify found no changes in insn with uid = 138.
+verify found no changes in insn with uid = 222.
+
+;; Function do_undefinstr (do_undefinstr)[0:1068]
+
+verify found no changes in insn with uid = 64.
+verify found no changes in insn with uid = 101.
+verify found no changes in insn with uid = 107.
+verify found no changes in insn with uid = 128.

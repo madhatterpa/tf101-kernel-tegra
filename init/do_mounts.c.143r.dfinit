@@ -1,0 +1,110 @@
+
+;; Function readonly (readonly)[0:2703] (unlikely executed)
+
+
+;; Function readwrite (readwrite)[0:2704] (unlikely executed)
+
+
+;; Function rootwait_setup (rootwait_setup)[0:2709] (unlikely executed)
+
+
+;; Function root_data_setup (root_data_setup)[0:2710] (unlikely executed)
+
+
+;; Function fs_names_setup (fs_names_setup)[0:2711] (unlikely executed)
+
+
+;; Function load_ramdisk (load_ramdisk)[0:2702] (unlikely executed)
+
+verify found no changes in insn with uid = 9.
+
+;; Function root_dev_setup (root_dev_setup)[0:2708] (unlikely executed)
+
+verify found no changes in insn with uid = 11.
+
+;; Function root_delay_setup (root_delay_setup)[0:2712] (unlikely executed)
+
+verify found no changes in insn with uid = 9.
+
+;; Function do_mount_root (do_mount_root)[0:2714] (unlikely executed)
+
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 71.
+
+;; Function mount_block_root (mount_block_root)[0:2715] (unlikely executed)
+
+verify found no changes in insn with uid = 38.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 72.
+verify found no changes in insn with uid = 85.
+verify found no changes in insn with uid = 139.
+verify found no changes in insn with uid = 157.
+verify found no changes in insn with uid = 170.
+verify found no changes in insn with uid = 177.
+verify found no changes in insn with uid = 180.
+verify found no changes in insn with uid = 181.
+verify found no changes in insn with uid = 186.
+verify found no changes in insn with uid = 197.
+verify found no changes in insn with uid = 198.
+verify found no changes in insn with uid = 201.
+verify found no changes in insn with uid = 209.
+verify found no changes in insn with uid = 211.
+verify found no changes in insn with uid = 225.
+verify found no changes in insn with uid = 230.
+verify found no changes in insn with uid = 235.
+verify found no changes in insn with uid = 242.
+
+;; Function mount_root (mount_root)[0:2717] (unlikely executed)
+
+verify found no changes in insn with uid = 15.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 51.
+verify found no changes in insn with uid = 61.
+verify found no changes in insn with uid = 76.
+verify found no changes in insn with uid = 81.
+
+;; Function name_to_dev_t (name_to_dev_t)[0:2707]
+
+verify found no changes in insn with uid = 11.
+verify found no changes in insn with uid = 19.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 33.
+verify found no changes in insn with uid = 69.
+verify found no changes in insn with uid = 76.
+verify found no changes in insn with uid = 85.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 124.
+verify found no changes in insn with uid = 139.
+verify found no changes in insn with uid = 153.
+verify found no changes in insn with uid = 165.
+verify found no changes in insn with uid = 174.
+verify found no changes in insn with uid = 202.
+verify found no changes in insn with uid = 242.
+verify found no changes in insn with uid = 252.
+verify found no changes in insn with uid = 281.
+
+;; Function prepare_namespace (prepare_namespace)[0:2718] (unlikely executed)
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 19.
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 38.
+verify found no changes in insn with uid = 50.
+verify found no changes in insn with uid = 62.
+verify found no changes in insn with uid = 70.
+verify found no changes in insn with uid = 80.
+verify found no changes in insn with uid = 91.
+verify found no changes in insn with uid = 111.
+verify found no changes in insn with uid = 116.
+verify found no changes in insn with uid = 119.
+verify found no changes in insn with uid = 128.
+verify found no changes in insn with uid = 135.
+verify found no changes in insn with uid = 138.
+verify found no changes in insn with uid = 149.
+verify found no changes in insn with uid = 152.
+
+;; Function match_dev_by_uuid (match_dev_by_uuid)[0:2705]
+
+verify found no changes in insn with uid = 19.

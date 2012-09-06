@@ -1,0 +1,52 @@
+
+;; Function ipi_flush_tlb_all (ipi_flush_tlb_all)[0:746]
+
+deleting block 9
+
+;; Function ipi_flush_tlb_page (ipi_flush_tlb_page)[0:748]
+
+deleting block 9
+
+;; Function ipi_flush_tlb_kernel_page (ipi_flush_tlb_kernel_page)[0:749]
+
+deleting block 9
+
+;; Function ipi_flush_tlb_range (ipi_flush_tlb_range)[0:750]
+
+deleting block 5
+
+;; Function ipi_flush_tlb_kernel_range (ipi_flush_tlb_kernel_range)[0:751]
+
+deleting block 5
+
+;; Function flush_tlb_kernel_range (flush_tlb_kernel_range)[0:757]
+
+deleting block 9
+
+;; Function flush_tlb_kernel_page (flush_tlb_kernel_page)[0:755]
+
+deleting block 13
+
+;; Function flush_tlb_all (flush_tlb_all)[0:752]
+
+deleting block 13
+
+;; Function ipi_flush_tlb_mm (ipi_flush_tlb_mm)[0:747]
+
+deleting block 11
+
+;; Function on_each_cpu_mask.clone.0 (on_each_cpu_mask.clone.0)[0:758]
+
+deleting block 9
+
+;; Function flush_tlb_mm (flush_tlb_mm)[0:753]
+
+deleting block 15
+
+;; Function flush_tlb_page (flush_tlb_page)[0:754]
+
+deleting block 13
+
+;; Function flush_tlb_range (flush_tlb_range)[0:756]
+
+deleting block 9

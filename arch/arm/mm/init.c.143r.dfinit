@@ -1,0 +1,85 @@
+
+;; Function parse_tag_initrd2 (parse_tag_initrd2)[0:1345] (unlikely executed)
+
+
+;; Function meminfo_cmp (meminfo_cmp)[0:1352] (unlikely executed)
+
+
+;; Function keepinitrd_setup (keepinitrd_setup)[0:1363] (unlikely executed)
+
+
+;; Function early_initrd (early_initrd)[0:1343] (unlikely executed)
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 19.
+
+;; Function parse_tag_initrd (parse_tag_initrd)[0:1344] (unlikely executed)
+
+verify found no changes in insn with uid = 8.
+
+;; Function free_initrd_mem (free_initrd_mem)[0:1362]
+
+verify found no changes in insn with uid = 80.
+verify found no changes in insn with uid = 85.
+verify found no changes in insn with uid = 102.
+
+;; Function free_initmem (free_initmem)[0:1361]
+
+verify found no changes in insn with uid = 41.
+verify found no changes in insn with uid = 46.
+verify found no changes in insn with uid = 63.
+
+;; Function mem_init (mem_init)[0:1360] (unlikely executed)
+
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 81.
+verify found no changes in insn with uid = 137.
+verify found no changes in insn with uid = 142.
+verify found no changes in insn with uid = 192.
+verify found no changes in insn with uid = 197.
+verify found no changes in insn with uid = 303.
+verify found no changes in insn with uid = 329.
+verify found no changes in insn with uid = 350.
+verify found no changes in insn with uid = 366.
+verify found no changes in insn with uid = 469.
+
+;; Function bootmem_init (bootmem_init)[0:1354] (unlikely executed)
+
+verify found no changes in insn with uid = 41.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 78.
+verify found no changes in insn with uid = 115.
+verify found no changes in insn with uid = 133.
+verify found no changes in insn with uid = 192.
+
+;; Function arm_memblock_init (arm_memblock_init)[0:1353] (unlikely executed)
+
+verify found no changes in insn with uid = 18.
+verify found no changes in insn with uid = 19.
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 44.
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 64.
+verify found no changes in insn with uid = 81.
+verify found no changes in insn with uid = 92.
+verify found no changes in insn with uid = 109.
+verify found no changes in insn with uid = 122.
+verify found no changes in insn with uid = 127.
+verify found no changes in insn with uid = 130.
+verify found no changes in insn with uid = 131.
+
+;; Function pfn_valid (pfn_valid)[0:1350]
+
+verify found no changes in insn with uid = 8.
+
+;; Function show_mem (show_mem)[0:1346]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 118.
+verify found no changes in insn with uid = 122.
+verify found no changes in insn with uid = 126.
+verify found no changes in insn with uid = 130.
+verify found no changes in insn with uid = 134.
+verify found no changes in insn with uid = 138.

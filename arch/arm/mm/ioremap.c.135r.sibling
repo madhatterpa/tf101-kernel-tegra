@@ -1,0 +1,18 @@
+
+;; Function __iounmap (__iounmap)[0:1243]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function __arm_ioremap_pfn_caller (__arm_ioremap_pfn_caller)[0:1239]
+
+deleting block 17
+
+;; Function __arm_ioremap_pfn (__arm_ioremap_pfn)[0:1241]
+
+deleting block 4
+
+;; Function __arm_ioremap_caller (__arm_ioremap_caller)[0:1240]
+
+deleting block 7

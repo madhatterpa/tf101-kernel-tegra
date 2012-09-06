@@ -1,0 +1,83 @@
+
+;; Function vfp_cpu_pm_notifier (vfp_cpu_pm_notifier)[0:830]
+
+verify found no changes in insn with uid = 32.
+
+;; Function vfp_pm_suspend (vfp_pm_suspend)[0:837]
+
+verify found no changes in insn with uid = 33.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 51.
+verify found no changes in insn with uid = 58.
+
+;; Function vfp_flush_hwstate (vfp_flush_hwstate)[0:841]
+
+verify found no changes in insn with uid = 49.
+
+;; Function vfp_sync_hwstate (vfp_sync_hwstate)[0:840]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 48.
+
+;; Function vfp_notifier (vfp_notifier)[0:829]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 52.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 140.
+verify found no changes in insn with uid = 149.
+verify found no changes in insn with uid = 156.
+
+;; Function vfp_init (vfp_init)[0:843] (unlikely executed)
+
+verify found no changes in insn with uid = 5.
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 47.
+verify found no changes in insn with uid = 54.
+verify found no changes in insn with uid = 72.
+verify found no changes in insn with uid = 81.
+verify found no changes in insn with uid = 85.
+verify found no changes in insn with uid = 89.
+
+;; Function vfp_enable (vfp_enable)[0:836]
+
+verify found no changes in insn with uid = 22.
+
+;; Function vfp_hotplug (vfp_hotplug)[0:842]
+
+verify found no changes in insn with uid = 40.
+
+;; Function vfp_pm_resume (vfp_pm_resume)[0:838]
+
+verify found no changes in insn with uid = 6.
+
+;; Function vfp_emulate_instruction (vfp_emulate_instruction)[0:834]
+
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 30.
+
+;; Function vfp_raise_sigfpe (vfp_raise_sigfpe)[0:831]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 36.
+
+;; Function vfp_raise_exceptions (vfp_raise_exceptions)[0:833]
+
+verify found no changes in insn with uid = 21.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 37.
+verify found no changes in insn with uid = 45.
+verify found no changes in insn with uid = 54.
+verify found no changes in insn with uid = 135.
+
+;; Function VFP_bounce (VFP_bounce)[0:835]
+
+verify found no changes in insn with uid = 42.
+verify found no changes in insn with uid = 66.
+verify found no changes in insn with uid = 75.
+verify found no changes in insn with uid = 89.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 117.

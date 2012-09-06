@@ -1,0 +1,99 @@
+
+;; Function vfp_propagate_nan (vfp_propagate_nan)[0:154]
+
+
+;; Function vfp_single_multiply (vfp_single_multiply)[0:174]
+
+
+;; Function vfp_single_cpdo (vfp_single_cpdo)[0:185]
+
+
+;; Function vfp_compare (vfp_compare)[0:160]
+
+
+;; Function vfp_single_fcmpez (vfp_single_fcmpez)[0:164]
+
+
+;; Function vfp_single_fcmpz (vfp_single_fcmpz)[0:163]
+
+
+;; Function vfp_single_fcmpe (vfp_single_fcmpe)[0:162]
+
+
+;; Function vfp_single_fcmp (vfp_single_fcmp)[0:161]
+
+
+;; Function vfp_single_normalise_denormal (vfp_single_normalise_denormal)[0:152]
+
+
+;; Function vfp_single_ftosi (vfp_single_ftosi)[0:170]
+
+
+;; Function vfp_single_ftosiz (vfp_single_ftosiz)[0:171]
+
+
+;; Function vfp_single_ftoui (vfp_single_ftoui)[0:168]
+
+
+;; Function vfp_single_ftouiz (vfp_single_ftouiz)[0:169]
+
+
+;; Function vfp_single_fneg (vfp_single_fneg)[0:157]
+
+
+;; Function vfp_single_fabs (vfp_single_fabs)[0:155]
+
+
+;; Function vfp_single_fcpy (vfp_single_fcpy)[0:156]
+
+
+;; Function __vfp_single_normaliseround (__vfp_single_normaliseround)[0:153]
+
+
+;; Function vfp_single_fnmul (vfp_single_fnmul)[0:181]
+
+
+;; Function vfp_single_fmul (vfp_single_fmul)[0:180]
+
+
+;; Function vfp_single_fsito (vfp_single_fsito)[0:167]
+
+
+;; Function vfp_single_fuito (vfp_single_fuito)[0:166]
+
+
+;; Function vfp_single_fdiv (vfp_single_fdiv)[0:184]
+
+
+;; Function vfp_single_add (vfp_single_add)[0:173]
+
+
+;; Function vfp_single_multiply_accumulate (vfp_single_multiply_accumulate)[0:175]
+
+
+;; Function vfp_single_fnmsc (vfp_single_fnmsc)[0:179]
+
+
+;; Function vfp_single_fnmac (vfp_single_fnmac)[0:177]
+
+
+;; Function vfp_single_fmsc (vfp_single_fmsc)[0:178]
+
+
+;; Function vfp_single_fmac (vfp_single_fmac)[0:176]
+
+
+;; Function vfp_single_fadd (vfp_single_fadd)[0:182]
+
+
+;; Function vfp_single_fsub (vfp_single_fsub)[0:183]
+
+
+;; Function vfp_estimate_sqrt_significand (vfp_estimate_sqrt_significand)[0:158]
+
+
+;; Function vfp_single_fsqrt (vfp_single_fsqrt)[0:159]
+
+
+;; Function vfp_single_fcvtd (vfp_single_fcvtd)[0:165]
+

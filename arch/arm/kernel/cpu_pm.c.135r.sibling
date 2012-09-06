@@ -1,0 +1,28 @@
+
+;; Function cpu_pm_notify (cpu_pm_notify)[0:584]
+
+deleting block 7
+
+;; Function cpu_complex_pm_exit (cpu_complex_pm_exit)[0:588]
+
+deleting block 4
+
+;; Function cpu_complex_pm_enter (cpu_complex_pm_enter)[0:587]
+
+deleting block 6
+
+;; Function cpu_pm_exit (cpu_pm_exit)[0:586]
+
+deleting block 4
+
+;; Function cpu_pm_enter (cpu_pm_enter)[0:585]
+
+deleting block 6
+
+;; Function cpu_pm_unregister_notifier (cpu_pm_unregister_notifier)[0:583]
+
+deleting block 4
+
+;; Function cpu_pm_register_notifier (cpu_pm_register_notifier)[0:582]
+
+deleting block 4

@@ -1,0 +1,17 @@
+
+;; Function module_arch_cleanup (module_arch_cleanup)[0:994]
+
+deleting block 9
+
+;; Function module_finalize (module_finalize)[0:993]
+
+deleting block 41
+
+;; Function apply_relocate (apply_relocate)[0:991]
+
+deleting block 22
+deleting block 40
+
+;; Function module_alloc (module_alloc)[0:990]
+
+deleting block 4

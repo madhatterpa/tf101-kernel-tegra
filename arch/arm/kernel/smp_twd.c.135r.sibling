@@ -1,0 +1,32 @@
+
+;; Function twd_set_mode (twd_set_mode)[0:688]
+
+deleting block 11
+
+;; Function twd_set_next_event (twd_set_next_event)[0:689]
+
+deleting block 4
+
+;; Function twd_timer_ack (twd_timer_ack)[0:690]
+
+deleting block 7
+
+;; Function twd_cpufreq_transition (twd_cpufreq_transition)[0:692]
+
+deleting block 6
+
+;; Function twd_update_frequency (twd_update_frequency)[0:691]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function twd_cpufreq_init (twd_cpufreq_init)[0:693]
+
+deleting block 8
+
+;; Function twd_timer_setup (twd_timer_setup)[0:696] (unlikely executed)
+
+deleting block 31
+deleting block 32
+deleting block 33

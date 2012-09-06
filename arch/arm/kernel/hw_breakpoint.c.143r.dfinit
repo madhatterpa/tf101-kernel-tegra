@@ -1,0 +1,145 @@
+
+;; Function arch_get_debug_arch (arch_get_debug_arch)[0:1244]
+
+
+;; Function arch_get_max_wp_len (arch_get_max_wp_len)[0:1254]
+
+
+;; Function arch_check_bp_in_kernelspace (arch_check_bp_in_kernelspace)[0:1258]
+
+
+;; Function arch_bp_generic_fields (arch_bp_generic_fields)[0:1259]
+
+
+;; Function hw_breakpoint_pmu_read (hw_breakpoint_pmu_read)[0:1271]
+
+
+;; Function hw_breakpoint_exceptions_notify (hw_breakpoint_exceptions_notify)[0:1272]
+
+
+;; Function write_wb_reg (write_wb_reg)[0:1242]
+
+verify found no changes in insn with uid = 337.
+
+;; Function read_wb_reg (read_wb_reg)[0:1241]
+
+verify found no changes in insn with uid = 336.
+
+;; Function dbg_reset_notify (dbg_reset_notify)[0:1269] (unlikely executed)
+
+verify found no changes in insn with uid = 16.
+
+;; Function get_debug_arch (get_debug_arch)[0:1243]
+
+verify found no changes in insn with uid = 30.
+
+;; Function core_has_mismatch_brps (core_has_mismatch_brps)[0:1247]
+
+verify found no changes in insn with uid = 5.
+
+;; Function get_num_wrps (get_num_wrps)[0:1248]
+
+verify found no changes in insn with uid = 5.
+
+;; Function get_num_reserved_brps (get_num_reserved_brps)[0:1249]
+
+verify found no changes in insn with uid = 5.
+verify found no changes in insn with uid = 15.
+
+;; Function get_num_brps (get_num_brps)[0:1250]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 14.
+
+;; Function hw_breakpoint_slots (hw_breakpoint_slots)[0:1252]
+
+verify found no changes in insn with uid = 6.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 32.
+verify found no changes in insn with uid = 40.
+
+;; Function enable_monitor_mode (enable_monitor_mode)[0:1251]
+
+verify found no changes in insn with uid = 24.
+verify found no changes in insn with uid = 38.
+
+;; Function reset_ctrl_regs (reset_ctrl_regs)[0:1268]
+
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 50.
+verify found no changes in insn with uid = 63.
+verify found no changes in insn with uid = 67.
+verify found no changes in insn with uid = 88.
+verify found no changes in insn with uid = 92.
+
+;; Function arch_validate_hwbkpt_settings (arch_validate_hwbkpt_settings)[0:1261]
+
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 135.
+verify found no changes in insn with uid = 215.
+verify found no changes in insn with uid = 220.
+verify found no changes in insn with uid = 245.
+
+;; Function arch_uninstall_hw_breakpoint (arch_uninstall_hw_breakpoint)[0:1256]
+
+verify found no changes in insn with uid = 132.
+verify found no changes in insn with uid = 144.
+
+;; Function arch_install_hw_breakpoint (arch_install_hw_breakpoint)[0:1255]
+
+verify found no changes in insn with uid = 6.
+verify found no changes in insn with uid = 219.
+verify found no changes in insn with uid = 232.
+verify found no changes in insn with uid = 236.
+
+;; Function enable_single_step (enable_single_step)[0:1262]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 40.
+
+;; Function disable_single_step (disable_single_step)[0:1263]
+
+verify found no changes in insn with uid = 7.
+verify found no changes in insn with uid = 13.
+
+;; Function arch_hw_breakpoint_init (arch_hw_breakpoint_init)[0:1270] (unlikely executed)
+
+verify found no changes in insn with uid = 7.
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 26.
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 35.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 52.
+verify found no changes in insn with uid = 61.
+verify found no changes in insn with uid = 69.
+verify found no changes in insn with uid = 100.
+verify found no changes in insn with uid = 113.
+verify found no changes in insn with uid = 140.
+verify found no changes in insn with uid = 143.
+verify found no changes in insn with uid = 145.
+verify found no changes in insn with uid = 165.
+verify found no changes in insn with uid = 176.
+verify found no changes in insn with uid = 185.
+verify found no changes in insn with uid = 188.
+
+;; Function hw_breakpoint_pending (hw_breakpoint_pending)[0:1267]
+
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 67.
+verify found no changes in insn with uid = 75.
+verify found no changes in insn with uid = 88.
+verify found no changes in insn with uid = 95.
+verify found no changes in insn with uid = 109.
+verify found no changes in insn with uid = 112.
+verify found no changes in insn with uid = 136.
+verify found no changes in insn with uid = 155.
+verify found no changes in insn with uid = 158.
+verify found no changes in insn with uid = 178.
+verify found no changes in insn with uid = 205.
+verify found no changes in insn with uid = 208.
+verify found no changes in insn with uid = 214.
+verify found no changes in insn with uid = 223.
+verify found no changes in insn with uid = 230.
+verify found no changes in insn with uid = 233.
+verify found no changes in insn with uid = 265.

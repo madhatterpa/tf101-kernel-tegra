@@ -1,0 +1,125 @@
+
+;; Function register_isa_ports (register_isa_ports)[0:586] (unlikely executed)
+
+(note 1 0 34 NOTE_INSN_DELETED)
+
+(note 34 1 35 ( membase (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ membase ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 35 34 36 ( portbase (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ portbase ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 36 35 6 ( portshift (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ portshift ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 6 36 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 6 3 NOTE_INSN_DELETED)
+
+(note 3 2 4 NOTE_INSN_DELETED)
+
+(note 4 3 5 NOTE_INSN_DELETED)
+
+(note 5 4 14 NOTE_INSN_FUNCTION_BEG)
+
+(note 14 5 17 NOTE_INSN_DELETED)
+
+(note 17 14 29 NOTE_INSN_DELETED)
+
+(insn/f:TI 29 17 30 arch/arm/kernel/isa.c:65 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (expr_list:REG_DEAD (reg:SI 4 r4)
+            (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                        (set/f (reg/f:SI 13 sp)
+                            (plus:SI (reg/f:SI 13 sp)
+                                (const_int -8 [0xfffffffffffffff8])))
+                        (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                            (reg:SI 4 r4))
+                        (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                    (const_int 4 [0x4])) [0 S4 A32])
+                            (reg:SI 14 lr))
+                    ])
+                (nil)))))
+
+(note 30 29 8 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 8 30 9 arch/arm/kernel/isa.c:66 (set (reg/f:SI 4 r4 [137])
+        (mem:SI (label_ref 42) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        (nil)))
+
+(insn:TI 9 8 15 arch/arm/kernel/isa.c:66 (set (mem/c/i:SI (reg/f:SI 4 r4 [137]) [0 isa_membase+0 S4 A32])
+        (reg:SI 0 r0 [ membase ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0 [ membase ])
+        (nil)))
+
+(insn:TI 15 9 37 arch/arm/kernel/isa.c:69 (set (reg:SI 0 r0)
+        (mem:SI (const (plus (label_ref 42)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])
+        (nil)))
+
+(note 37 15 11 ( membase (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 11 37 13 arch/arm/kernel/isa.c:67 (set (mem/c/i:SI (plus:SI (reg/f:SI 4 r4 [137])
+                (const_int 4 [0x4])) [0 isa_portbase+0 S4 A32])
+        (reg:SI 1 r1 [ portbase ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ portbase ])
+        (nil)))
+
+(insn:TI 13 11 16 arch/arm/kernel/isa.c:68 (set (mem/c/i:SI (plus:SI (reg/f:SI 4 r4 [137])
+                (const_int 8 [0x8])) [0 isa_portshift+0 S4 A32])
+        (reg:SI 2 r2 [ portshift ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ portshift ])
+        (nil)))
+
+(call_insn 16 13 39 arch/arm/kernel/isa.c:69 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("register_sysctl_table") [flags 0x41] <function_decl 0x10e3dc80 register_sysctl_table>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(note 39 16 38 ( portshift (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 38 39 19 ( portbase (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 19 38 31 arch/arm/kernel/isa.c:69 (set (mem/f/c/i:SI (plus:SI (reg/f:SI 4 r4 [137])
+                (const_int 12 [0xc])) [0 isa_sysctl_header+0 S4 A32])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(note 31 19 32 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 32 31 33 arch/arm/kernel/isa.c:70 (return) 260 {return} (nil))
+
+(barrier 33 32 40)
+
+(code_label 40 33 41 4 "" [0 uses])
+
+(insn 41 40 42 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) -1 (nil))
+
+(code_label 42 41 43 3 "" [0 uses])
+
+(insn 43 42 44 (unspec_volatile [
+            (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        ] 6) -1 (nil))
+
+(insn 44 43 45 (unspec_volatile [
+            (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])
+        ] 6) -1 (nil))
+
+(insn 45 44 46 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) -1 (nil))
+
+(barrier 46 45 27)
+
+(note 27 46 28 NOTE_INSN_DELETED)
+
+(note 28 27 0 NOTE_INSN_DELETED)

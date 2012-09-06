@@ -1,0 +1,39 @@
+
+;; Function vfp_cpu_pm_notifier (vfp_cpu_pm_notifier)[0:830]
+
+
+;; Function vfp_pm_suspend (vfp_pm_suspend)[0:837]
+
+
+;; Function vfp_flush_hwstate (vfp_flush_hwstate)[0:841]
+
+
+;; Function vfp_sync_hwstate (vfp_sync_hwstate)[0:840]
+
+
+;; Function vfp_notifier (vfp_notifier)[0:829]
+
+
+;; Function vfp_init (vfp_init)[0:843] (unlikely executed)
+
+
+;; Function vfp_enable (vfp_enable)[0:836]
+
+
+;; Function vfp_hotplug (vfp_hotplug)[0:842]
+
+
+;; Function vfp_pm_resume (vfp_pm_resume)[0:838]
+
+
+;; Function vfp_emulate_instruction (vfp_emulate_instruction)[0:834]
+
+
+;; Function vfp_raise_sigfpe (vfp_raise_sigfpe)[0:831]
+
+
+;; Function vfp_raise_exceptions (vfp_raise_exceptions)[0:833]
+
+
+;; Function VFP_bounce (VFP_bounce)[0:835]
+

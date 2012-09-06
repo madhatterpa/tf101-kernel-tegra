@@ -1,0 +1,18 @@
+
+;; Function register_pmu_driver (register_pmu_driver)[0:698] (unlikely executed)
+
+
+;; Function init_pmu (init_pmu)[0:703]
+
+
+;; Function release_pmu (release_pmu)[0:700]
+
+
+;; Function reserve_pmu (reserve_pmu)[0:699]
+
+
+;; Function armpmu_device_type (armpmu_device_type)[0:696]
+
+
+;; Function armpmu_device_probe (armpmu_device_probe)[0:697] (unlikely executed)
+

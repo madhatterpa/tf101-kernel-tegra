@@ -1,0 +1,21 @@
+
+;; Function cpu_pm_notify (cpu_pm_notify)[0:584]
+
+
+;; Function cpu_complex_pm_exit (cpu_complex_pm_exit)[0:588]
+
+
+;; Function cpu_complex_pm_enter (cpu_complex_pm_enter)[0:587]
+
+
+;; Function cpu_pm_exit (cpu_pm_exit)[0:586]
+
+
+;; Function cpu_pm_enter (cpu_pm_enter)[0:585]
+
+
+;; Function cpu_pm_unregister_notifier (cpu_pm_unregister_notifier)[0:583]
+
+
+;; Function cpu_pm_register_notifier (cpu_pm_register_notifier)[0:582]
+

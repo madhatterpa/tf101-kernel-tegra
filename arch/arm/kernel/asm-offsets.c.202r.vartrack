@@ -1,0 +1,555 @@
+
+;; Function main (main)[0:1124]
+
+
+Basic block 2:
+IN:
+Stack adjustment: 0
+
+OUT:
+Stack adjustment: 0
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+;; bb 0 artificial_defs: { d-1(0){ }d-1(1){ }d-1(2){ }d-1(3){ }d-1(13){ }d-1(14){ }}
+;; bb 0 artificial_uses: { }
+;; lr  in  	
+;; lr  use 	
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 13 [sp] 14 [lr]
+;; live  in  	
+;; live  gen 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 13 [sp] 14 [lr]
+;; live  kill	
+
+Successors:  2 [100.0%]  (fallthru)
+;; lr  out 	 13 [sp] 14 [lr]
+;; live  out 	 13 [sp] 14 [lr]
+
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp] 14 [lr]
+;; lr  use 	 13 [sp]
+;; lr  def 	 0 [r0]
+;; live  in  	 13 [sp] 14 [lr]
+;; live  gen 	 0 [r0]
+;; live  kill	
+
+Successors:  EXIT [100.0%] 
+;; lr  out 	 0 [r0] 13 [sp] 14 [lr]
+;; live  out 	 0 [r0] 13 [sp] 14 [lr]
+
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [100.0%] 
+;; bb 1 artificial_defs: { }
+;; bb 1 artificial_uses: { u-1(0){ }u-1(13){ }u-1(14){ }}
+;; lr  in  	 0 [r0] 13 [sp] 14 [lr]
+;; lr  use 	 0 [r0] 13 [sp] 14 [lr]
+;; lr  def 	
+;; live  in  	 0 [r0] 13 [sp] 14 [lr]
+;; live  gen 	
+;; live  kill	
+
+Successors: 
+;; lr  out 	
+;; live  out 	
+
+
+
+
+main
+
+Dataflow summary:
+;;  invalidated by call 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;;  hardware regs used 	 13 [sp]
+;;  regular block artificial uses 	 13 [sp]
+;;  eh block artificial uses 	 13 [sp] 26 [afp]
+;;  entry block defs 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 13 [sp] 14 [lr]
+;;  exit block uses 	 0 [r0] 13 [sp] 14 [lr]
+;;  regs ever live 	 0[r0]
+;;  ref usage 	r0={2d,2u} r1={1d} r2={1d} r3={1d} r13={1d,2u} r14={1d,1u} 
+;;    total ref usage 12{7d,5u,0e} in 63{63 regular + 0 call} insns.
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp] 14 [lr]
+;; lr  use 	 13 [sp]
+;; lr  def 	 0 [r0]
+;; live  in  	 13 [sp] 14 [lr]
+;; live  gen 	 0 [r0]
+;; live  kill	
+
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 81 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 81 3 2 2 NOTE_INSN_PROLOGUE_END)
+
+(note 2 81 65 2 NOTE_INSN_FUNCTION_BEG)
+
+(note 65 2 5 2 NOTE_INSN_DELETED)
+
+(insn:TI 5 65 6 2 arch/arm/kernel/asm-offsets.c:45 (asm_operands/v ("
+->TSK_ACTIVE_MM %0 offsetof(struct task_struct, active_mm)") ("") 0 [
+            (const_int 496 [0x1f0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7102912) -1 (nil))
+
+(insn:TI 6 5 7 2 arch/arm/kernel/asm-offsets.c:49 (asm_operands/v ("
+->") ("") 0 []
+         [] 7103424) -1 (nil))
+
+(insn:TI 7 6 8 2 arch/arm/kernel/asm-offsets.c:50 (asm_operands/v ("
+->TI_FLAGS %0 offsetof(struct thread_info, flags)") ("") 0 [
+            (const_int 0 [0x0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7103552) -1 (nil))
+
+(insn:TI 8 7 9 2 arch/arm/kernel/asm-offsets.c:51 (asm_operands/v ("
+->TI_PREEMPT %0 offsetof(struct thread_info, preempt_count)") ("") 0 [
+            (const_int 4 [0x4])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7103680) -1 (nil))
+
+(insn:TI 9 8 10 2 arch/arm/kernel/asm-offsets.c:52 (asm_operands/v ("
+->TI_ADDR_LIMIT %0 offsetof(struct thread_info, addr_limit)") ("") 0 [
+            (const_int 8 [0x8])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7103808) -1 (nil))
+
+(insn:TI 10 9 11 2 arch/arm/kernel/asm-offsets.c:53 (asm_operands/v ("
+->TI_TASK %0 offsetof(struct thread_info, task)") ("") 0 [
+            (const_int 12 [0xc])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7103936) -1 (nil))
+
+(insn:TI 11 10 12 2 arch/arm/kernel/asm-offsets.c:54 (asm_operands/v ("
+->TI_EXEC_DOMAIN %0 offsetof(struct thread_info, exec_domain)") ("") 0 [
+            (const_int 16 [0x10])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104064) -1 (nil))
+
+(insn:TI 12 11 13 2 arch/arm/kernel/asm-offsets.c:55 (asm_operands/v ("
+->TI_CPU %0 offsetof(struct thread_info, cpu)") ("") 0 [
+            (const_int 20 [0x14])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104192) -1 (nil))
+
+(insn:TI 13 12 14 2 arch/arm/kernel/asm-offsets.c:56 (asm_operands/v ("
+->TI_CPU_DOMAIN %0 offsetof(struct thread_info, cpu_domain)") ("") 0 [
+            (const_int 24 [0x18])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104320) -1 (nil))
+
+(insn:TI 14 13 15 2 arch/arm/kernel/asm-offsets.c:57 (asm_operands/v ("
+->TI_CPU_SAVE %0 offsetof(struct thread_info, cpu_context)") ("") 0 [
+            (const_int 28 [0x1c])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104448) -1 (nil))
+
+(insn:TI 15 14 16 2 arch/arm/kernel/asm-offsets.c:58 (asm_operands/v ("
+->TI_USED_CP %0 offsetof(struct thread_info, used_cp)") ("") 0 [
+            (const_int 80 [0x50])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104576) -1 (nil))
+
+(insn:TI 16 15 17 2 arch/arm/kernel/asm-offsets.c:59 (asm_operands/v ("
+->TI_TP_VALUE %0 offsetof(struct thread_info, tp_value)") ("") 0 [
+            (const_int 96 [0x60])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104704) -1 (nil))
+
+(insn:TI 17 16 18 2 arch/arm/kernel/asm-offsets.c:60 (asm_operands/v ("
+->TI_FPSTATE %0 offsetof(struct thread_info, fpstate)") ("") 0 [
+            (const_int 288 [0x120])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104832) -1 (nil))
+
+(insn:TI 18 17 19 2 arch/arm/kernel/asm-offsets.c:61 (asm_operands/v ("
+->TI_VFPSTATE %0 offsetof(struct thread_info, vfpstate)") ("") 0 [
+            (const_int 432 [0x1b0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7104960) -1 (nil))
+
+(insn:TI 19 18 20 2 arch/arm/kernel/asm-offsets.c:71 (asm_operands/v ("
+->") ("") 0 []
+         [] 7106240) -1 (nil))
+
+(insn:TI 20 19 21 2 arch/arm/kernel/asm-offsets.c:72 (asm_operands/v ("
+->S_R0 %0 offsetof(struct pt_regs, ARM_r0)") ("") 0 [
+            (const_int 0 [0x0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7106368) -1 (nil))
+
+(insn:TI 21 20 22 2 arch/arm/kernel/asm-offsets.c:73 (asm_operands/v ("
+->S_R1 %0 offsetof(struct pt_regs, ARM_r1)") ("") 0 [
+            (const_int 4 [0x4])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7106496) -1 (nil))
+
+(insn:TI 22 21 23 2 arch/arm/kernel/asm-offsets.c:74 (asm_operands/v ("
+->S_R2 %0 offsetof(struct pt_regs, ARM_r2)") ("") 0 [
+            (const_int 8 [0x8])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7106624) -1 (nil))
+
+(insn:TI 23 22 24 2 arch/arm/kernel/asm-offsets.c:75 (asm_operands/v ("
+->S_R3 %0 offsetof(struct pt_regs, ARM_r3)") ("") 0 [
+            (const_int 12 [0xc])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7106752) -1 (nil))
+
+(insn:TI 24 23 25 2 arch/arm/kernel/asm-offsets.c:76 (asm_operands/v ("
+->S_R4 %0 offsetof(struct pt_regs, ARM_r4)") ("") 0 [
+            (const_int 16 [0x10])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7106880) -1 (nil))
+
+(insn:TI 25 24 26 2 arch/arm/kernel/asm-offsets.c:77 (asm_operands/v ("
+->S_R5 %0 offsetof(struct pt_regs, ARM_r5)") ("") 0 [
+            (const_int 20 [0x14])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107008) -1 (nil))
+
+(insn:TI 26 25 27 2 arch/arm/kernel/asm-offsets.c:78 (asm_operands/v ("
+->S_R6 %0 offsetof(struct pt_regs, ARM_r6)") ("") 0 [
+            (const_int 24 [0x18])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107136) -1 (nil))
+
+(insn:TI 27 26 28 2 arch/arm/kernel/asm-offsets.c:79 (asm_operands/v ("
+->S_R7 %0 offsetof(struct pt_regs, ARM_r7)") ("") 0 [
+            (const_int 28 [0x1c])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107264) -1 (nil))
+
+(insn:TI 28 27 29 2 arch/arm/kernel/asm-offsets.c:80 (asm_operands/v ("
+->S_R8 %0 offsetof(struct pt_regs, ARM_r8)") ("") 0 [
+            (const_int 32 [0x20])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107392) -1 (nil))
+
+(insn:TI 29 28 30 2 arch/arm/kernel/asm-offsets.c:81 (asm_operands/v ("
+->S_R9 %0 offsetof(struct pt_regs, ARM_r9)") ("") 0 [
+            (const_int 36 [0x24])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107520) -1 (nil))
+
+(insn:TI 30 29 31 2 arch/arm/kernel/asm-offsets.c:82 (asm_operands/v ("
+->S_R10 %0 offsetof(struct pt_regs, ARM_r10)") ("") 0 [
+            (const_int 40 [0x28])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107648) -1 (nil))
+
+(insn:TI 31 30 32 2 arch/arm/kernel/asm-offsets.c:83 (asm_operands/v ("
+->S_FP %0 offsetof(struct pt_regs, ARM_fp)") ("") 0 [
+            (const_int 44 [0x2c])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107776) -1 (nil))
+
+(insn:TI 32 31 33 2 arch/arm/kernel/asm-offsets.c:84 (asm_operands/v ("
+->S_IP %0 offsetof(struct pt_regs, ARM_ip)") ("") 0 [
+            (const_int 48 [0x30])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7107904) -1 (nil))
+
+(insn:TI 33 32 34 2 arch/arm/kernel/asm-offsets.c:85 (asm_operands/v ("
+->S_SP %0 offsetof(struct pt_regs, ARM_sp)") ("") 0 [
+            (const_int 52 [0x34])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108032) -1 (nil))
+
+(insn:TI 34 33 35 2 arch/arm/kernel/asm-offsets.c:86 (asm_operands/v ("
+->S_LR %0 offsetof(struct pt_regs, ARM_lr)") ("") 0 [
+            (const_int 56 [0x38])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108160) -1 (nil))
+
+(insn:TI 35 34 36 2 arch/arm/kernel/asm-offsets.c:87 (asm_operands/v ("
+->S_PC %0 offsetof(struct pt_regs, ARM_pc)") ("") 0 [
+            (const_int 60 [0x3c])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108288) -1 (nil))
+
+(insn:TI 36 35 37 2 arch/arm/kernel/asm-offsets.c:88 (asm_operands/v ("
+->S_PSR %0 offsetof(struct pt_regs, ARM_cpsr)") ("") 0 [
+            (const_int 64 [0x40])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108416) -1 (nil))
+
+(insn:TI 37 36 38 2 arch/arm/kernel/asm-offsets.c:89 (asm_operands/v ("
+->S_OLD_R0 %0 offsetof(struct pt_regs, ARM_ORIG_r0)") ("") 0 [
+            (const_int 68 [0x44])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108544) -1 (nil))
+
+(insn:TI 38 37 39 2 arch/arm/kernel/asm-offsets.c:90 (asm_operands/v ("
+->S_FRAME_SIZE %0 sizeof(struct pt_regs)") ("") 0 [
+            (const_int 72 [0x48])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7108672) -1 (nil))
+
+(insn:TI 39 38 40 2 arch/arm/kernel/asm-offsets.c:91 (asm_operands/v ("
+->") ("") 0 []
+         [] 7108800) -1 (nil))
+
+(insn:TI 40 39 41 2 arch/arm/kernel/asm-offsets.c:93 (asm_operands/v ("
+->MM_CONTEXT_ID %0 offsetof(struct mm_struct, context.id)") ("") 0 [
+            (const_int 352 [0x160])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7109056) -1 (nil))
+
+(insn:TI 41 40 42 2 arch/arm/kernel/asm-offsets.c:94 (asm_operands/v ("
+->") ("") 0 []
+         [] 7109184) -1 (nil))
+
+(insn:TI 42 41 43 2 arch/arm/kernel/asm-offsets.c:96 (asm_operands/v ("
+->VMA_VM_MM %0 offsetof(struct vm_area_struct, vm_mm)") ("") 0 [
+            (const_int 0 [0x0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7109440) -1 (nil))
+
+(insn:TI 43 42 44 2 arch/arm/kernel/asm-offsets.c:97 (asm_operands/v ("
+->VMA_VM_FLAGS %0 offsetof(struct vm_area_struct, vm_flags)") ("") 0 [
+            (const_int 24 [0x18])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7109568) -1 (nil))
+
+(insn:TI 44 43 45 2 arch/arm/kernel/asm-offsets.c:98 (asm_operands/v ("
+->") ("") 0 []
+         [] 7109696) -1 (nil))
+
+(insn:TI 45 44 46 2 arch/arm/kernel/asm-offsets.c:99 (asm_operands/v ("
+->VM_EXEC %0 VM_EXEC") ("") 0 [
+            (const_int 4 [0x4])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7109824) -1 (nil))
+
+(insn:TI 46 45 47 2 arch/arm/kernel/asm-offsets.c:100 (asm_operands/v ("
+->") ("") 0 []
+         [] 7109952) -1 (nil))
+
+(insn:TI 47 46 48 2 arch/arm/kernel/asm-offsets.c:101 (asm_operands/v ("
+->PAGE_SZ %0 PAGE_SIZE") ("") 0 [
+            (const_int 4096 [0x1000])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7110080) -1 (nil))
+
+(insn:TI 48 47 49 2 arch/arm/kernel/asm-offsets.c:102 (asm_operands/v ("
+->") ("") 0 []
+         [] 7110208) -1 (nil))
+
+(insn:TI 49 48 50 2 arch/arm/kernel/asm-offsets.c:103 (asm_operands/v ("
+->SYS_ERROR0 %0 0x9f0000") ("") 0 [
+            (const_int 10420224 [0x9f0000])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7110336) -1 (nil))
+
+(insn:TI 50 49 51 2 arch/arm/kernel/asm-offsets.c:104 (asm_operands/v ("
+->") ("") 0 []
+         [] 7110464) -1 (nil))
+
+(insn:TI 51 50 52 2 arch/arm/kernel/asm-offsets.c:105 (asm_operands/v ("
+->SIZEOF_MACHINE_DESC %0 sizeof(struct machine_desc)") ("") 0 [
+            (const_int 60 [0x3c])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7110592) -1 (nil))
+
+(insn:TI 52 51 53 2 arch/arm/kernel/asm-offsets.c:106 (asm_operands/v ("
+->MACHINFO_TYPE %0 offsetof(struct machine_desc, nr)") ("") 0 [
+            (const_int 0 [0x0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7110720) -1 (nil))
+
+(insn:TI 53 52 54 2 arch/arm/kernel/asm-offsets.c:107 (asm_operands/v ("
+->MACHINFO_NAME %0 offsetof(struct machine_desc, name)") ("") 0 [
+            (const_int 4 [0x4])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7110848) -1 (nil))
+
+(insn:TI 54 53 55 2 arch/arm/kernel/asm-offsets.c:108 (asm_operands/v ("
+->") ("") 0 []
+         [] 7110976) -1 (nil))
+
+(insn:TI 55 54 56 2 arch/arm/kernel/asm-offsets.c:109 (asm_operands/v ("
+->PROC_INFO_SZ %0 sizeof(struct proc_info_list)") ("") 0 [
+            (const_int 52 [0x34])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7111104) -1 (nil))
+
+(insn:TI 56 55 57 2 arch/arm/kernel/asm-offsets.c:110 (asm_operands/v ("
+->PROCINFO_INITFUNC %0 offsetof(struct proc_info_list, __cpu_flush)") ("") 0 [
+            (const_int 16 [0x10])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7111232) -1 (nil))
+
+(insn:TI 57 56 58 2 arch/arm/kernel/asm-offsets.c:111 (asm_operands/v ("
+->PROCINFO_MM_MMUFLAGS %0 offsetof(struct proc_info_list, __cpu_mm_mmu_flags)") ("") 0 [
+            (const_int 8 [0x8])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7111360) -1 (nil))
+
+(insn:TI 58 57 59 2 arch/arm/kernel/asm-offsets.c:112 (asm_operands/v ("
+->PROCINFO_IO_MMUFLAGS %0 offsetof(struct proc_info_list, __cpu_io_mmu_flags)") ("") 0 [
+            (const_int 12 [0xc])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7111488) -1 (nil))
+
+(insn:TI 59 58 60 2 arch/arm/kernel/asm-offsets.c:113 (asm_operands/v ("
+->") ("") 0 []
+         [] 7111616) -1 (nil))
+
+(insn:TI 60 59 61 2 arch/arm/kernel/asm-offsets.c:126 (asm_operands/v ("
+->CACHE_FLUSH_KERN_ALL %0 offsetof(struct cpu_cache_fns, flush_kern_all)") ("") 0 [
+            (const_int 4 [0x4])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7113280) -1 (nil))
+
+(insn:TI 61 60 62 2 arch/arm/kernel/asm-offsets.c:128 (asm_operands/v ("
+->") ("") 0 []
+         [] 7113536) -1 (nil))
+
+(insn:TI 62 61 63 2 arch/arm/kernel/asm-offsets.c:129 (asm_operands/v ("
+->DMA_BIDIRECTIONAL %0 DMA_BIDIRECTIONAL") ("") 0 [
+            (const_int 0 [0x0])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7113664) -1 (nil))
+
+(insn:TI 63 62 64 2 arch/arm/kernel/asm-offsets.c:130 (asm_operands/v ("
+->DMA_TO_DEVICE %0 DMA_TO_DEVICE") ("") 0 [
+            (const_int 1 [0x1])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7113792) -1 (nil))
+
+(insn:TI 64 63 69 2 arch/arm/kernel/asm-offsets.c:131 (asm_operands/v ("
+->DMA_FROM_DEVICE %0 DMA_FROM_DEVICE") ("") 0 [
+            (const_int 2 [0x2])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 7113920) -1 (nil))
+
+(insn:TI 69 64 75 2 arch/arm/kernel/asm-offsets.c:133 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 75 69 82 2 arch/arm/kernel/asm-offsets.c:133 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 82 75 83 2 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 83 82 84 2 arch/arm/kernel/asm-offsets.c:133 (return) 260 {return} (nil))
+;; End of basic block 2 -> ( 1)
+;; lr  out 	 0 [r0] 13 [sp] 14 [lr]
+;; live  out 	 0 [r0] 13 [sp] 14 [lr]
+
+
+;; Succ edge  EXIT [100.0%] 
+
+(barrier 84 83 79)
+
+(note 79 84 80 NOTE_INSN_DELETED)
+
+(note 80 79 0 NOTE_INSN_DELETED)
+

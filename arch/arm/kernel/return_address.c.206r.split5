@@ -1,0 +1,33 @@
+
+;; Function return_address (return_address)[0:950]
+
+(note 1 0 26 NOTE_INSN_DELETED)
+
+(note 26 1 4 ( level (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ level ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 4 26 22 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 22 4 3 NOTE_INSN_PROLOGUE_END)
+
+(note 3 22 6 NOTE_INSN_FUNCTION_BEG)
+
+(note 6 3 10 NOTE_INSN_DELETED)
+
+(insn:TI 10 6 27 arch/arm/kernel/return_address.c:68 (set (reg/i:SI 0 r0)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(note 27 10 16 ( level (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 16 27 23 arch/arm/kernel/return_address.c:68 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 23 16 24 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn 24 23 25 arch/arm/kernel/return_address.c:68 (return) 260 {return} (nil))
+
+(barrier 25 24 20)
+
+(note 20 25 21 NOTE_INSN_DELETED)
+
+(note 21 20 0 NOTE_INSN_DELETED)

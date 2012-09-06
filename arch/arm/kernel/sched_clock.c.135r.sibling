@@ -1,0 +1,14 @@
+
+;; Function sched_clock_poll (sched_clock_poll)[0:751]
+
+deleting block 5
+
+;; Function sched_clock_postinit (sched_clock_postinit)[0:753] (unlikely executed)
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function init_sched_clock (init_sched_clock)[0:752] (unlikely executed)
+
+deleting block 8

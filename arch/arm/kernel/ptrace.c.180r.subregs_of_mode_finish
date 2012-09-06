@@ -1,0 +1,66 @@
+
+;; Function regs_query_register_name (regs_query_register_name)[0:1537]
+
+
+;; Function regs_within_kernel_stack (regs_within_kernel_stack)[0:1538]
+
+
+;; Function regs_get_kernel_stack_nth (regs_get_kernel_stack_nth)[0:1539]
+
+
+;; Function ptrace_disable (ptrace_disable)[0:1542]
+
+
+;; Function ptrace_write_user (ptrace_write_user)[0:1547]
+
+
+;; Function task_user_regset_view (task_user_regset_view)[0:1563]
+
+
+;; Function ptrace_break_init (ptrace_break_init)[0:1545] (unlikely executed)
+
+
+;; Function syscall_trace (syscall_trace)[0:1565]
+
+
+;; Function vfp_set (vfp_set)[0:1562]
+
+
+;; Function fpa_set (fpa_set)[0:1560]
+
+
+;; Function gpr_set (gpr_set)[0:1558]
+
+
+;; Function clear_ptrace_hw_breakpoint (clear_ptrace_hw_breakpoint)[0:1551]
+
+
+;; Function vfp_get (vfp_get)[0:1561]
+
+
+;; Function fpa_get (fpa_get)[0:1559]
+
+
+;; Function gpr_get (gpr_get)[0:1557]
+
+
+;; Function ptrace_hbp_create (ptrace_hbp_create)[0:1554]
+
+
+;; Function arch_ptrace (arch_ptrace)[0:1564]
+
+
+;; Function ptrace_hbptriggered (ptrace_hbptriggered)[0:1550]
+
+
+;; Function ptrace_break (ptrace_break)[0:1543]
+
+
+;; Function break_trap (break_trap)[0:1544]
+
+
+;; Function flush_ptrace_hw_breakpoint (flush_ptrace_hw_breakpoint)[0:1552]
+
+
+;; Function regs_query_register_offset (regs_query_register_offset)[0:1536]
+

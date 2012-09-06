@@ -1,0 +1,12 @@
+
+;; Function scu_get_core_count (scu_get_core_count)[0:721] (unlikely executed)
+
+deleting block 4
+
+;; Function scu_enable (scu_enable)[0:722] (unlikely executed)
+
+deleting block 10
+
+;; Function scu_power_mode (scu_power_mode)[0:723]
+
+deleting block 8

@@ -1,0 +1,1487 @@
+
+;; Function check_writebuffer_bugs (check_writebuffer_bugs)[0:1221] (unlikely executed)
+
+starting the processing of deferred insns
+ending the processing of deferred insns
+df_analyze called
+scanning new insn with uid = 170.
+verify found no changes in insn with uid = 170.
+deleting insn with uid = 125.
+scanning new insn with uid = 171.
+verify found no changes in insn with uid = 171.
+deleting insn with uid = 24.
+Building IRA IR
+starting the processing of deferred insns
+ending the processing of deferred insns
+df_analyze called
+df_worklist_dataflow_doublequeue:n_basic_blocks 19 n_edges 25 count 32 (  1.7)
+df_worklist_dataflow_doublequeue:n_basic_blocks 19 n_edges 25 count 36 (  1.9)
+
+Pass 0 for finding allocno costs
+
+    a1 (r169,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a0 (r168,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a8 (r165,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a10 (r164,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a11 (r163,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a13 (r162,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a14 (r161,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a16 (r160,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a18 (r151,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a20 (r150,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a19 (r149,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a21 (r148,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a2 (r143,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a3 (r142,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a5 (r141,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a4 (r140,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a17 (r139,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a22 (r138,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a7 (r137,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a9 (r136,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a12 (r135,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a15 (r134,l0) best GENERAL_REGS, cover GENERAL_REGS
+    a6 (r133,l0) best GENERAL_REGS, cover GENERAL_REGS
+
+  a0(r168,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a1(r169,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a2(r143,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:40000
+  a3(r142,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a4(r140,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:40000
+  a5(r141,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:50000
+  a6(r133,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a7(r137,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a8(r165,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a9(r136,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a10(r164,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a11(r163,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a12(r135,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a13(r162,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a14(r161,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a15(r134,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a16(r160,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a17(r139,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a18(r151,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a19(r149,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a20(r150,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a21(r148,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a22(r138,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+
+
+Pass 1 for finding allocno costs
+
+    r169: preferred GENERAL_REGS, alternative NO_REGS
+    r168: preferred GENERAL_REGS, alternative NO_REGS
+    r165: preferred GENERAL_REGS, alternative NO_REGS
+    r164: preferred GENERAL_REGS, alternative NO_REGS
+    r163: preferred GENERAL_REGS, alternative NO_REGS
+    r162: preferred GENERAL_REGS, alternative NO_REGS
+    r161: preferred GENERAL_REGS, alternative NO_REGS
+    r160: preferred GENERAL_REGS, alternative NO_REGS
+    r151: preferred GENERAL_REGS, alternative NO_REGS
+    r150: preferred GENERAL_REGS, alternative NO_REGS
+    r149: preferred GENERAL_REGS, alternative NO_REGS
+    r148: preferred GENERAL_REGS, alternative NO_REGS
+    r143: preferred GENERAL_REGS, alternative NO_REGS
+    r142: preferred GENERAL_REGS, alternative NO_REGS
+    r141: preferred GENERAL_REGS, alternative NO_REGS
+    r140: preferred GENERAL_REGS, alternative NO_REGS
+    r139: preferred GENERAL_REGS, alternative NO_REGS
+    r138: preferred GENERAL_REGS, alternative NO_REGS
+    r137: preferred GENERAL_REGS, alternative NO_REGS
+    r136: preferred GENERAL_REGS, alternative NO_REGS
+    r135: preferred GENERAL_REGS, alternative NO_REGS
+    r134: preferred GENERAL_REGS, alternative NO_REGS
+    r133: preferred GENERAL_REGS, alternative NO_REGS
+
+  a0(r168,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a1(r169,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a2(r143,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:40000
+  a3(r142,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a4(r140,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:40000
+  a5(r141,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:50000
+  a6(r133,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a7(r137,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a8(r165,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a9(r136,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a10(r164,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a11(r163,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a12(r135,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a13(r162,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a14(r161,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a15(r134,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a16(r160,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a17(r139,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a18(r151,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+  a19(r149,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a20(r150,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a21(r148,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:20000
+  a22(r138,l0) costs: LO_REGS:0,0 BASE_REGS:0,0 HI_REGS:0,0 GENERAL_REGS:0,0 MEM:30000
+
+   Insn 134(l0): point = 1
+   Insn 133(l0): point = 3
+   Insn 167(l0): point = 6
+   Insn 127(l0): point = 8
+   Insn 170(l0): point = 10
+   Insn 126(l0): point = 12
+   Insn 124(l0): point = 14
+   Insn 122(l0): point = 16
+   Insn 123(l0): point = 18
+   Insn 118(l0): point = 21
+   Insn 117(l0): point = 23
+   Insn 116(l0): point = 25
+   Insn 115(l0): point = 27
+   Insn 114(l0): point = 29
+   Insn 113(l0): point = 31
+   Insn 112(l0): point = 33
+   Insn 111(l0): point = 35
+   Insn 106(l0): point = 38
+   Insn 108(l0): point = 40
+   Insn 104(l0): point = 42
+   Insn 101(l0): point = 45
+   Insn 99(l0): point = 48
+   Insn 98(l0): point = 50
+   Insn 97(l0): point = 52
+   Insn 96(l0): point = 54
+   Insn 95(l0): point = 56
+   Insn 94(l0): point = 58
+   Insn 91(l0): point = 61
+   Insn 89(l0): point = 64
+   Insn 88(l0): point = 66
+   Insn 87(l0): point = 68
+   Insn 86(l0): point = 70
+   Insn 85(l0): point = 72
+   Insn 84(l0): point = 74
+   Insn 83(l0): point = 76
+   Insn 80(l0): point = 79
+   Insn 78(l0): point = 82
+   Insn 77(l0): point = 84
+   Insn 76(l0): point = 86
+   Insn 75(l0): point = 88
+   Insn 74(l0): point = 90
+   Insn 73(l0): point = 92
+   Insn 72(l0): point = 94
+   Insn 69(l0): point = 97
+   Insn 67(l0): point = 100
+   Insn 66(l0): point = 102
+   Insn 65(l0): point = 104
+   Insn 64(l0): point = 106
+   Insn 63(l0): point = 108
+   Insn 62(l0): point = 110
+   Insn 165(l0): point = 113
+   Insn 57(l0): point = 115
+   Insn 56(l0): point = 117
+   Insn 54(l0): point = 120
+   Insn 53(l0): point = 122
+   Insn 44(l0): point = 124
+   Insn 41(l0): point = 126
+   Insn 39(l0): point = 128
+   Insn 40(l0): point = 130
+   Insn 38(l0): point = 132
+   Insn 37(l0): point = 134
+   Insn 34(l0): point = 136
+   Insn 33(l0): point = 138
+   Insn 32(l0): point = 140
+   Insn 27(l0): point = 142
+   Insn 26(l0): point = 144
+   Insn 25(l0): point = 146
+   Insn 171(l0): point = 148
+   Insn 29(l0): point = 150
+   Insn 31(l0): point = 152
+   Insn 28(l0): point = 154
+   Insn 30(l0): point = 156
+   Insn 163(l0): point = 159
+   Insn 19(l0): point = 161
+   Insn 17(l0): point = 164
+   Insn 15(l0): point = 166
+   Insn 16(l0): point = 168
+   Insn 14(l0): point = 170
+   Insn 13(l0): point = 172
+   Insn 12(l0): point = 174
+   Insn 11(l0): point = 176
+   Insn 9(l0): point = 178
+   Insn 10(l0): point = 180
+   Insn 7(l0): point = 182
+   Insn 6(l0): point = 184
+ a0(r168): [9..10]
+ a1(r169): [9..12]
+ a2(r143): [159..161] [113..115] [19..40]
+ a3(r142): [113..117] [24..38]
+ a4(r140): [32..124]
+ a5(r141): [36..136]
+ a6(r133): [39..58]
+ a7(r137): [46..52]
+ a8(r165): [53..54]
+ a9(r136): [62..68]
+ a10(r164): [69..70]
+ a11(r163): [75..76]
+ a12(r135): [80..86]
+ a13(r162): [87..88]
+ a14(r161): [93..94]
+ a15(r134): [98..104]
+ a16(r160): [105..106]
+ a17(r139): [131..142]
+ a18(r151): [135..154]
+ a19(r149): [143..144]
+ a20(r150): [145..146]
+ a21(r148): [147..148]
+ a22(r138): [167..170]
+Compressing live ranges: from 187 to 50 - 26%
+Ranges after the compression:
+ a0(r168): [0..1]
+ a1(r169): [0..2]
+ a2(r143): [46..47] [31..32] [3..9]
+ a3(r142): [31..33] [4..7]
+ a4(r140): [5..34]
+ a5(r141): [6..37]
+ a6(r133): [8..14]
+ a7(r137): [10..11]
+ a8(r165): [12..13]
+ a9(r136): [15..16]
+ a10(r164): [17..18]
+ a11(r163): [19..20]
+ a12(r135): [21..22]
+ a13(r162): [23..24]
+ a14(r161): [25..26]
+ a15(r134): [27..28]
+ a16(r160): [29..30]
+ a17(r139): [35..38]
+ a18(r151): [36..45]
+ a19(r149): [39..40]
+ a20(r150): [41..42]
+ a21(r148): [43..44]
+ a22(r138): [48..49]
++++Allocating 176 bytes for conflict table (uncompressed size 184)
+;; a0(r168,l0) conflicts: a1(r169,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a1(r169,l0) conflicts: a0(r168,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a2(r143,l0) conflicts: a3(r142,l0) a4(r140,l0) a5(r141,l0) a6(r133,l0)
+;;     total conflict hard regs: 0 14
+;;     conflict hard regs: 0 14
+;; a3(r142,l0) conflicts: a2(r143,l0) a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs: 0 14
+;;     conflict hard regs: 0 14
+;; a4(r140,l0) conflicts: a2(r143,l0) a3(r142,l0) a5(r141,l0) a6(r133,l0) a7(r137,l0) a8(r165,l0) a9(r136,l0) a10(r164,l0) a11(r163,l0) a12(r135,l0) a13(r162,l0) a14(r161,l0) a15(r134,l0) a16(r160,l0)
+;;     total conflict hard regs: 0 14
+;;     conflict hard regs: 0 14
+;; a5(r141,l0) conflicts: a2(r143,l0) a3(r142,l0) a4(r140,l0) a6(r133,l0) a7(r137,l0) a8(r165,l0) a9(r136,l0) a10(r164,l0) a11(r163,l0) a12(r135,l0) a13(r162,l0) a14(r161,l0) a15(r134,l0) a16(r160,l0) a17(r139,l0) a18(r151,l0)
+;;     total conflict hard regs: 0-3 14
+;;     conflict hard regs: 0-3 14
+;; a6(r133,l0) conflicts: a2(r143,l0) a4(r140,l0) a5(r141,l0) a7(r137,l0) a8(r165,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a7(r137,l0) conflicts: a4(r140,l0) a5(r141,l0) a6(r133,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a8(r165,l0) conflicts: a4(r140,l0) a5(r141,l0) a6(r133,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a9(r136,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a10(r164,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a11(r163,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a12(r135,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a13(r162,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a14(r161,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a15(r134,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs: 14
+;;     conflict hard regs: 14
+;; a16(r160,l0) conflicts: a4(r140,l0) a5(r141,l0)
+;;     total conflict hard regs:
+;;     conflict hard regs:
+;; a17(r139,l0) conflicts: a5(r141,l0) a18(r151,l0)
+;;     total conflict hard regs: 0-3 14
+;;     conflict hard regs: 0-3 14
+;; a18(r151,l0) conflicts: a5(r141,l0) a17(r139,l0) a19(r149,l0) a20(r150,l0) a21(r148,l0)
+;;     total conflict hard regs: 0-3 14
+;;     conflict hard regs: 0-3 14
+;; a19(r149,l0) conflicts: a18(r151,l0)
+;;     total conflict hard regs: 0-2
+;;     conflict hard regs: 0-2
+;; a20(r150,l0) conflicts: a18(r151,l0)
+;;     total conflict hard regs: 0-2
+;;     conflict hard regs: 0-2
+;; a21(r148,l0) conflicts: a18(r151,l0)
+;;     total conflict hard regs: 0-2
+;;     conflict hard regs: 0-2
+;; a22(r138,l0) conflicts:
+;;     total conflict hard regs:
+;;     conflict hard regs:
+
+  cp0:a3(r142)<->a6(r133)@125:shuffle
+  cp1:a19(r149)<->a20(r150)@125:shuffle
+  cp2:a17(r139)<->a19(r149)@125:shuffle
+  regions=1, blocks=19, points=50
+    allocnos=23, copies=3, conflicts=5, ranges=26
+
+**** Allocnos coloring:
+
+
+  Loop 0 (parent -1, header bb0, depth 0)
+    bbs: 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2
+    all: 0r168 1r169 2r143 3r142 4r140 5r141 6r133 7r137 8r165 9r136 10r164 11r163 12r135 13r162 14r161 15r134 16r160 17r139 18r151 19r149 20r150 21r148 22r138
+    modified regnos: 133 134 135 136 137 138 139 140 141 142 143 148 149 150 151 160 161 162 163 164 165 168 169
+    border:
+    Pressure: GENERAL_REGS=7
+    Reg 168 of GENERAL_REGS has 1 regs less
+    Reg 169 of GENERAL_REGS has 1 regs less
+    Reg 143 of GENERAL_REGS has 2 regs less
+    Reg 142 of GENERAL_REGS has 2 regs less
+    Reg 140 of GENERAL_REGS has 2 regs less
+    Reg 141 of GENERAL_REGS has 5 regs less
+    Reg 133 of GENERAL_REGS has 1 regs less
+    Reg 137 of GENERAL_REGS has 1 regs less
+    Reg 136 of GENERAL_REGS has 1 regs less
+    Reg 135 of GENERAL_REGS has 1 regs less
+    Reg 134 of GENERAL_REGS has 1 regs less
+    Reg 139 of GENERAL_REGS has 5 regs less
+    Reg 151 of GENERAL_REGS has 5 regs less
+    Reg 149 of GENERAL_REGS has 3 regs less
+    Reg 150 of GENERAL_REGS has 3 regs less
+    Reg 148 of GENERAL_REGS has 3 regs less
+      Pushing a16(r160,l0)
+      Pushing a14(r161,l0)
+      Pushing a13(r162,l0)
+      Pushing a11(r163,l0)
+      Pushing a10(r164,l0)
+      Pushing a8(r165,l0)
+      Pushing a22(r138,l0)
+      Pushing a6(r133,l0)
+      Pushing a1(r169,l0)
+      Pushing a0(r168,l0)
+      Pushing a15(r134,l0)
+      Pushing a12(r135,l0)
+      Pushing a9(r136,l0)
+      Pushing a7(r137,l0)
+      Pushing a3(r142,l0)
+      Pushing a4(r140,l0)
+      Pushing a2(r143,l0)
+      Pushing a21(r148,l0)
+      Pushing a20(r150,l0)
+      Pushing a19(r149,l0)
+      Pushing a18(r151,l0)
+      Pushing a17(r139,l0)
+      Pushing a5(r141,l0)
+      Popping a5(r141,l0)  -- assign reg 4
+      Popping a17(r139,l0)  -- assign reg 5
+      Popping a18(r151,l0)  -- assign reg 6
+      Popping a19(r149,l0)  -- assign reg 5
+      Popping a20(r150,l0)  -- assign reg 5
+      Popping a21(r148,l0)  -- assign reg 3
+      Popping a2(r143,l0)  -- assign reg 5
+      Popping a4(r140,l0)  -- assign reg 6
+      Popping a3(r142,l0)  -- assign reg 7
+      Popping a7(r137,l0)  -- assign reg 3
+      Popping a9(r136,l0)  -- assign reg 3
+      Popping a12(r135,l0)  -- assign reg 3
+      Popping a15(r134,l0)  -- assign reg 3
+      Popping a0(r168,l0)  -- assign reg 3
+      Popping a1(r169,l0)  -- assign reg 2
+      Popping a6(r133,l0)  -- assign reg 7
+      Popping a22(r138,l0)  -- assign reg 0
+      Popping a8(r165,l0)  -- assign reg 3
+      Popping a10(r164,l0)  -- assign reg 3
+      Popping a11(r163,l0)  -- assign reg 3
+      Popping a13(r162,l0)  -- assign reg 3
+      Popping a14(r161,l0)  -- assign reg 3
+      Popping a16(r160,l0)  -- assign reg 3
+Disposition:
+    6:r133 l0     7   15:r134 l0     3   12:r135 l0     3    9:r136 l0     3
+    7:r137 l0     3   22:r138 l0     0   17:r139 l0     5    4:r140 l0     6
+    5:r141 l0     4    3:r142 l0     7    2:r143 l0     5   21:r148 l0     3
+   19:r149 l0     5   20:r150 l0     5   18:r151 l0     6   16:r160 l0     3
+   14:r161 l0     3   13:r162 l0     3   11:r163 l0     3   10:r164 l0     3
+    8:r165 l0     3    0:r168 l0     3    1:r169 l0     2
+New iteration of spill/restore move
++++Costs: overall -4000, reg -4000, mem 0, ld 0, st 0, move 0
++++       move loops 0, new jumps 0
+insn=6, live_throughout: 13, dead_or_set: 0
+insn=7, live_throughout: 13, dead_or_set: 0, 14
+insn=10, live_throughout: 13, dead_or_set: 1
+insn=9, live_throughout: 1, 13, dead_or_set: 0
+insn=11, live_throughout: 0, 1, 13, dead_or_set: 2
+insn=12, live_throughout: 0, 1, 2, 13, dead_or_set: 3
+insn=13, live_throughout: 13, dead_or_set: 0, 1, 2, 3, 14
+insn=14, live_throughout: 13, dead_or_set: 0, 138
+insn=16, live_throughout: 13, 138, dead_or_set: 
+insn=15, live_throughout: 13, 24, dead_or_set: 138
+insn=17, live_throughout: 13, dead_or_set: 
+insn=19, live_throughout: 13, dead_or_set: 143
+insn=163, live_throughout: 13, 143, dead_or_set: 
+insn=22, live_throughout: 13, dead_or_set: 
+insn=30, live_throughout: 13, dead_or_set: 1
+insn=28, live_throughout: 1, 13, dead_or_set: 151
+insn=31, live_throughout: 1, 13, 151, dead_or_set: 2
+insn=29, live_throughout: 1, 2, 13, 151, dead_or_set: 0
+insn=171, live_throughout: 0, 1, 2, 13, 151, dead_or_set: 148
+insn=25, live_throughout: 0, 1, 2, 13, 151, dead_or_set: 148, 150
+insn=26, live_throughout: 0, 1, 2, 13, 151, dead_or_set: 149, 150
+insn=27, live_throughout: 0, 1, 2, 13, 151, dead_or_set: 139, 149
+insn=32, live_throughout: 0, 1, 2, 13, 139, 151, dead_or_set: 3
+insn=33, live_throughout: 13, 139, 151, dead_or_set: 0, 1, 2, 3, 14
+insn=34, live_throughout: 13, 139, 151, dead_or_set: 0, 141
+insn=37, live_throughout: 13, 139, 141, dead_or_set: 0, 151
+insn=38, live_throughout: 0, 13, 139, 141, dead_or_set: 1
+insn=40, live_throughout: 0, 1, 13, 141, dead_or_set: 3, 139
+insn=39, live_throughout: 0, 1, 3, 13, 141, dead_or_set: 2
+insn=41, live_throughout: 13, 141, dead_or_set: 0, 1, 2, 3, 14
+insn=44, live_throughout: 13, 141, dead_or_set: 0, 140
+insn=53, live_throughout: 13, 140, 141, dead_or_set: 
+insn=54, live_throughout: 13, 140, 141, dead_or_set: 
+insn=56, live_throughout: 13, 140, 141, dead_or_set: 142
+insn=57, live_throughout: 13, 140, 141, 142, dead_or_set: 143
+insn=165, live_throughout: 13, 140, 141, 142, 143, dead_or_set: 
+insn=60, live_throughout: 13, 140, 141, dead_or_set: 
+insn=62, live_throughout: 13, 140, 141, dead_or_set: 
+insn=63, live_throughout: 13, 140, 141, dead_or_set: 
+insn=64, live_throughout: 13, 140, 141, dead_or_set: 160
+insn=65, live_throughout: 13, 140, 141, dead_or_set: 134, 160
+insn=66, live_throughout: 13, 134, 140, 141, dead_or_set: 
+insn=67, live_throughout: 13, 134, 140, 141, dead_or_set: 
+insn=69, live_throughout: 13, 140, 141, dead_or_set: 14, 134
+insn=70, live_throughout: 13, 140, 141, dead_or_set: 
+insn=72, live_throughout: 13, 140, 141, dead_or_set: 161
+insn=73, live_throughout: 13, 140, 141, dead_or_set: 161
+insn=74, live_throughout: 13, 140, 141, dead_or_set: 
+insn=75, live_throughout: 13, 140, 141, dead_or_set: 162
+insn=76, live_throughout: 13, 140, 141, dead_or_set: 135, 162
+insn=77, live_throughout: 13, 135, 140, 141, dead_or_set: 
+insn=78, live_throughout: 13, 135, 140, 141, dead_or_set: 
+insn=80, live_throughout: 13, 140, 141, dead_or_set: 14, 135
+insn=81, live_throughout: 13, 140, 141, dead_or_set: 
+insn=83, live_throughout: 13, 140, 141, dead_or_set: 163
+insn=84, live_throughout: 13, 140, 141, dead_or_set: 163
+insn=85, live_throughout: 13, 140, 141, dead_or_set: 
+insn=86, live_throughout: 13, 140, 141, dead_or_set: 164
+insn=87, live_throughout: 13, 140, 141, dead_or_set: 136, 164
+insn=88, live_throughout: 13, 136, 140, 141, dead_or_set: 
+insn=89, live_throughout: 13, 136, 140, 141, dead_or_set: 
+insn=91, live_throughout: 13, 140, 141, dead_or_set: 14, 136
+insn=92, live_throughout: 13, 140, 141, dead_or_set: 
+insn=94, live_throughout: 13, 140, 141, dead_or_set: 133
+insn=95, live_throughout: 13, 133, 140, 141, dead_or_set: 
+insn=96, live_throughout: 13, 133, 140, 141, dead_or_set: 165
+insn=97, live_throughout: 13, 133, 140, 141, dead_or_set: 137, 165
+insn=98, live_throughout: 13, 133, 137, 140, 141, dead_or_set: 
+insn=99, live_throughout: 13, 133, 137, 140, 141, dead_or_set: 
+insn=101, live_throughout: 13, 133, 140, 141, dead_or_set: 14, 137
+insn=102, live_throughout: 13, 133, 140, 141, dead_or_set: 
+insn=104, live_throughout: 13, 133, 140, 141, dead_or_set: 
+insn=108, live_throughout: 13, 133, 140, 141, dead_or_set: 143
+insn=106, live_throughout: 13, 140, 141, 143, dead_or_set: 133, 142
+insn=109, live_throughout: 13, 140, 141, 142, 143, dead_or_set: 
+insn=111, live_throughout: 13, 140, 142, 143, dead_or_set: 0, 141
+insn=112, live_throughout: 13, 140, 142, 143, dead_or_set: 0, 14
+insn=113, live_throughout: 13, 142, 143, dead_or_set: 0, 140
+insn=114, live_throughout: 13, 142, 143, dead_or_set: 0, 14
+insn=115, live_throughout: 13, 142, 143, dead_or_set: 0
+insn=116, live_throughout: 13, 142, 143, dead_or_set: 0, 14
+insn=117, live_throughout: 13, 143, dead_or_set: 142
+insn=118, live_throughout: 13, 143, dead_or_set: 
+insn=119, live_throughout: 13, 143, dead_or_set: 
+insn=123, live_throughout: 13, dead_or_set: 1, 143
+insn=122, live_throughout: 1, 13, dead_or_set: 0
+insn=124, live_throughout: 13, dead_or_set: 0, 1, 14
+insn=126, live_throughout: 13, 14, dead_or_set: 169
+insn=170, live_throughout: 13, 14, 169, dead_or_set: 168
+insn=127, live_throughout: 13, 14, dead_or_set: 168, 169
+insn=167, live_throughout: 13, 14, dead_or_set: 
+insn=130, live_throughout: 13, dead_or_set: 
+insn=133, live_throughout: 13, dead_or_set: 0
+insn=134, live_throughout: 13, dead_or_set: 0, 14
+insn=140, live_throughout: 13, 14, dead_or_set: 
+init_insns for 138: (insn_list:REG_DEP_TRUE 15 (nil))
+init_insns for 148: (insn_list:REG_DEP_TRUE 171 (nil))
+init_insns for 151: (insn_list:REG_DEP_TRUE 28 (nil))
+init_insns for 160: (insn_list:REG_DEP_TRUE 64 (nil))
+init_insns for 161: (insn_list:REG_DEP_TRUE 72 (nil))
+init_insns for 162: (insn_list:REG_DEP_TRUE 75 (nil))
+init_insns for 163: (insn_list:REG_DEP_TRUE 83 (nil))
+init_insns for 164: (insn_list:REG_DEP_TRUE 86 (nil))
+init_insns for 165: (insn_list:REG_DEP_TRUE 96 (nil))
+init_insns for 168: (insn_list:REG_DEP_TRUE 170 (nil))
+init_insns for 169: (insn_list:REG_DEP_TRUE 126 (nil))
+changing reg in insn 94
+changing reg in insn 106
+changing reg in insn 65
+changing reg in insn 69
+changing reg in insn 66
+changing reg in insn 76
+changing reg in insn 80
+changing reg in insn 77
+changing reg in insn 87
+changing reg in insn 91
+changing reg in insn 88
+changing reg in insn 97
+changing reg in insn 101
+changing reg in insn 98
+changing reg in insn 14
+changing reg in insn 16
+changing reg in insn 15
+changing reg in insn 27
+changing reg in insn 40
+changing reg in insn 32
+changing reg in insn 44
+changing reg in insn 53
+changing reg in insn 113
+changing reg in insn 84
+changing reg in insn 34
+changing reg in insn 53
+changing reg in insn 111
+changing reg in insn 94
+changing reg in insn 73
+changing reg in insn 106
+changing reg in insn 56
+changing reg in insn 117
+changing reg in insn 108
+changing reg in insn 57
+changing reg in insn 19
+changing reg in insn 123
+changing reg in insn 171
+changing reg in insn 25
+changing reg in insn 26
+changing reg in insn 27
+changing reg in insn 25
+changing reg in insn 26
+changing reg in insn 28
+changing reg in insn 37
+changing reg in insn 29
+changing reg in insn 64
+changing reg in insn 65
+changing reg in insn 72
+changing reg in insn 73
+changing reg in insn 75
+changing reg in insn 76
+changing reg in insn 83
+changing reg in insn 84
+changing reg in insn 86
+changing reg in insn 87
+changing reg in insn 96
+changing reg in insn 97
+changing reg in insn 170
+changing reg in insn 127
+changing reg in insn 126
+changing reg in insn 127
+Spilling for insn 15.
+Spilling for insn 73.
+Spilling for insn 84.
+Spilling for insn 127.
+
+Reloads for insn # 15
+Reload 0: reload_out (SI) = (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                                                        (const_int 4 [0x4])) [0 page+0 S4 A32])
+	NO_REGS, RELOAD_FOR_OUTPUT (opnum = 0), optional
+	reload_out_reg: (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                                                        (const_int 4 [0x4])) [0 page+0 S4 A32])
+
+Reloads for insn # 73
+Reload 0: reload_out (SI) = (mem:SI (reg/v/f:SI 4 r4 [orig:141 p1 ] [141]) [0 S4 A32])
+	NO_REGS, RELOAD_FOR_OUTPUT (opnum = 0), optional
+	reload_out_reg: (mem:SI (reg/v/f:SI 4 r4 [orig:141 p1 ] [141]) [0 S4 A32])
+
+Reloads for insn # 84
+Reload 0: reload_out (SI) = (mem:SI (reg/v/f:SI 6 r6 [orig:140 p2 ] [140]) [0 S4 A32])
+	NO_REGS, RELOAD_FOR_OUTPUT (opnum = 0), optional
+	reload_out_reg: (mem:SI (reg/v/f:SI 6 r6 [orig:140 p2 ] [140]) [0 S4 A32])
+
+Reloads for insn # 127
+Reload 0: reload_out (SI) = (mem/c/i:SI (reg/f:SI 3 r3 [168]) [0 shared_pte_mask+0 S4 A32])
+	NO_REGS, RELOAD_FOR_OUTPUT (opnum = 0), optional
+	reload_out_reg: (mem/c/i:SI (reg/f:SI 3 r3 [168]) [0 shared_pte_mask+0 S4 A32])
+deleting insn with uid = 14.
+
+
+try_optimize_cfg iteration 1
+
+starting the processing of deferred insns
+ending the processing of deferred insns
+verify found no changes in insn with uid = 7.
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 33.
+verify found no changes in insn with uid = 41.
+rescanning insn with uid = 69.
+deleting insn with uid = 69.
+rescanning insn with uid = 80.
+deleting insn with uid = 80.
+rescanning insn with uid = 91.
+deleting insn with uid = 91.
+rescanning insn with uid = 101.
+deleting insn with uid = 101.
+verify found no changes in insn with uid = 112.
+verify found no changes in insn with uid = 114.
+verify found no changes in insn with uid = 116.
+verify found no changes in insn with uid = 124.
+verify found no changes in insn with uid = 134.
+starting the processing of deferred insns
+ending the processing of deferred insns
+df_analyze called
+df_worklist_dataflow_doublequeue:n_basic_blocks 19 n_edges 25 count 32 (  1.7)
+df_worklist_dataflow_doublequeue:n_basic_blocks 19 n_edges 25 count 36 (  1.9)
+
+
+check_writebuffer_bugs
+
+Dataflow summary:
+;;  invalidated by call 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;;  hardware regs used 	 13 [sp]
+;;  regular block artificial uses 	 13 [sp]
+;;  eh block artificial uses 	 13 [sp] 26 [afp]
+;;  entry block defs 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 13 [sp] 14 [lr]
+;;  exit block uses 	 13 [sp] 14 [lr]
+;;  regs ever live 	 0[r0] 1[r1] 2[r2] 3[r3] 4[r4] 5[r5] 6[r6] 7[r7] 13[sp] 14[lr] 24[cc]
+;;  ref usage 	r0={23d,13u} r1={18d,7u} r2={18d,4u} r3={29d,19u} r4={1d,4u} r5={6d,5u} r6={2d,5u} r7={3d,2u} r12={14d} r13={1d,34u,1d} r14={14d,1u} r15={13d} r16={13d} r17={13d} r18={13d} r19={13d} r20={13d} r21={13d} r22={13d} r23={13d} r24={23d,7u} r25={2d} r27={13d} r28={13d} r29={13d} r30={13d} r31={13d} r32={13d} r33={13d} r34={13d} r35={13d} r36={13d} r37={13d} r38={13d} r39={13d} r40={13d} r41={13d} r42={13d} r43={13d} r44={13d} r45={13d} r46={13d} r47={13d} r48={13d} r49={13d} r50={13d} r51={13d} r52={13d} r53={13d} r54={13d} r55={13d} r56={13d} r57={13d} r58={13d} r59={13d} r60={13d} r61={13d} r62={13d} r63={13d} r64={13d} r65={13d} r66={13d} r67={13d} r68={13d} r69={13d} r70={13d} r71={13d} r72={13d} r73={13d} r74={13d} r75={13d} r76={13d} r77={13d} r78={13d} r79={13d} r80={13d} r81={13d} r82={13d} r83={13d} r84={13d} r85={13d} r86={13d} r87={13d} r88={13d} r89={13d} r90={13d} r91={13d} r92={13d} r93={13d} r94={13d} r95={13d} r96={13d} r97={13d} r98={13d} r99={13d} r100={13d} r101={13d} r102={13d} r103={13d} r104={13d} r105={13d} r106={13d} r107={13d} r108={13d} r109={13d} r110={13d} r111={13d} r112={13d} r113={13d} r114={13d} r115={13d} r116={13d} r117={13d} r118={13d} r119={13d} r120={13d} r121={13d} r122={13d} r123={13d} r124={13d} r125={13d} r126={13d} r127={13d} 
+;;    total ref usage 1686{1582d,101u,3e} in 84{71 regular + 13 call} insns.
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; bb 2 artificial_defs: { }
+;; bb 2 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 13 [sp]
+;; live  gen 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 24 [cc]
+;; live  kill	 14 [lr]
+
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 6 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 6 2 7 2 arch/arm/mm/fault-armv.c:240 (set (reg:SI 0 r0)
+        (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x113c1dc0>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x113c1dc0>)
+        (nil)))
+
+(call_insn 7 6 10 2 arch/arm/mm/fault-armv.c:240 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 10 7 9 2 include/linux/gfp.h:300 (set (reg:SI 1 r1)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 9 10 11 2 include/linux/gfp.h:300 (set (reg:SI 0 r0)
+        (const_int 208 [0xd0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 11 9 12 2 include/linux/gfp.h:300 (set (reg:SI 2 r2)
+        (const:SI (plus:SI (symbol_ref:SI ("contig_page_data") [flags 0xc0] <var_decl 0x10c5b780 contig_page_data>)
+                (const_int 2304 [0x900])))) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const:SI (plus:SI (symbol_ref:SI ("contig_page_data") [flags 0xc0] <var_decl 0x10c5b780 contig_page_data>)
+                (const_int 2304 [0x900])))
+        (nil)))
+
+(insn 12 11 13 2 include/linux/gfp.h:300 (set (reg:SI 3 r3)
+        (reg:SI 1 r1)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(call_insn 13 12 16 2 include/linux/gfp.h:300 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("__alloc_pages_nodemask") [flags 0x41] <function_decl 0x10cd6180 __alloc_pages_nodemask>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 16 13 15 2 arch/arm/mm/fault-armv.c:243 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 0 r0 [orig:138 D.23065 ] [138])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn 15 16 17 2 arch/arm/mm/fault-armv.c:242 (set (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 page+0 S4 A32])
+        (reg/f:SI 0 r0 [orig:138 D.23065 ] [138])) 167 {*arm_movsi_insn} (nil))
+
+(jump_insn 17 15 18 2 arch/arm/mm/fault-armv.c:243 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 22)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 6983 [0x1b47])
+        (nil)))
+;; End of basic block 2 -> ( 4 3)
+;; lr  out 	 13 [sp]
+;; live  out 	 13 [sp]
+
+
+;; Succ edge  4 [69.8%] 
+;; Succ edge  3 [30.2%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; bb 3 artificial_defs: { }
+;; bb 3 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 5 [r5]
+;; live  in  	 13 [sp]
+;; live  gen 	 5 [r5]
+;; live  kill	
+
+;; Pred edge  2 [30.2%]  (fallthru)
+(note 18 17 19 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 19 18 163 3 arch/arm/mm/fault-armv.c:262 (set (reg/v/f:SI 5 r5 [orig:143 reason ] [143])
+        (symbol_ref/v/f:SI ("*.LC1") [flags 0x82] <string_cst 0x113d3630>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC1") [flags 0x82] <string_cst 0x113d3630>)
+        (nil)))
+
+(jump_insn 163 19 164 3 (set (pc)
+        (label_ref 119)) 242 {*arm_jump} (nil))
+;; End of basic block 3 -> ( 16)
+;; lr  out 	 5 [r5] 13 [sp]
+;; live  out 	 5 [r5] 13 [sp]
+
+
+;; Succ edge  16 [100.0%] 
+
+(barrier 164 163 22)
+
+;; Start of basic block ( 2) -> 4
+;; bb 4 artificial_defs: { }
+;; bb 4 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 4 [r4] 5 [r5] 6 [r6] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 13 [sp]
+;; live  gen 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 4 [r4] 5 [r5] 6 [r6] 24 [cc]
+;; live  kill	 14 [lr]
+
+;; Pred edge  2 [69.8%] 
+(code_label 22 164 23 4 2 "" [1 uses])
+
+(note 23 22 42 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 42 23 45 4 NOTE_INSN_DELETED)
+
+(note 45 42 47 4 NOTE_INSN_DELETED)
+
+(note 47 45 48 4 NOTE_INSN_DELETED)
+
+(note 48 47 50 4 NOTE_INSN_DELETED)
+
+(note 50 48 51 4 NOTE_INSN_DELETED)
+
+(note 51 50 52 4 NOTE_INSN_DELETED)
+
+(note 52 51 30 4 NOTE_INSN_DELETED)
+
+(insn 30 52 28 4 arch/arm/mm/fault-armv.c:248 (set (reg:SI 1 r1)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn 28 30 31 4 arch/arm/mm/fault-armv.c:248 (set (reg/f:SI 6 r6 [151])
+        (plus:SI (reg/f:SI 13 sp)
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (expr_list:REG_EQUIV (plus:SI (reg/f:SI 13 sp)
+            (const_int 4 [0x4]))
+        (nil)))
+
+(insn 31 28 29 4 arch/arm/mm/fault-armv.c:248 (set (reg:SI 2 r2)
+        (reg:SI 1 r1)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+
+(insn 29 31 171 4 arch/arm/mm/fault-armv.c:248 (set (reg:SI 0 r0)
+        (reg/f:SI 6 r6 [151])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -4 [0xfffffffffffffffc]))
+        (nil)))
+
+(insn 171 29 25 4 arch/arm/mm/fault-armv.c:245 (set (reg/f:SI 3 r3 [148])
+        (symbol_ref:SI ("pgprot_kernel") [flags 0xc0] <var_decl 0x11014300 pgprot_kernel>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("pgprot_kernel") [flags 0xc0] <var_decl 0x11014300 pgprot_kernel>)
+        (nil)))
+
+(insn 25 171 26 4 arch/arm/mm/fault-armv.c:245 (set (reg:SI 5 r5 [orig:150 pgprot_kernel ] [150])
+        (mem/c/i:SI (reg/f:SI 3 r3 [148]) [0 pgprot_kernel+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/c/i:SI (symbol_ref:SI ("pgprot_kernel") [flags 0xc0] <var_decl 0x11014300 pgprot_kernel>) [0 pgprot_kernel+0 S4 A32])
+        (nil)))
+
+(insn 26 25 27 4 arch/arm/mm/fault-armv.c:245 (set (reg:SI 5 r5 [149])
+        (and:SI (reg:SI 5 r5 [orig:150 pgprot_kernel ] [150])
+            (const_int -573 [0xfffffffffffffdc3]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 27 26 32 4 arch/arm/mm/fault-armv.c:245 (set (reg/v:SI 5 r5 [orig:139 prot ] [139])
+        (ior:SI (reg:SI 5 r5 [149])
+            (const_int 516 [0x204]))) 89 {*arm_iorsi3} (nil))
+
+(insn 32 27 33 4 arch/arm/mm/fault-armv.c:248 (set (reg:SI 3 r3)
+        (reg/v:SI 5 r5 [orig:139 prot ] [139])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 33 32 34 4 arch/arm/mm/fault-armv.c:248 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("vmap") [flags 0x41] <function_decl 0x11153c80 vmap>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 34 33 37 4 arch/arm/mm/fault-armv.c:248 (set (reg/v/f:SI 4 r4 [orig:141 p1 ] [141])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 37 34 38 4 arch/arm/mm/fault-armv.c:249 (set (reg:SI 0 r0)
+        (reg/f:SI 6 r6 [151])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (plus:SI (reg/f:SI 25 sfp)
+            (const_int -4 [0xfffffffffffffffc]))
+        (nil)))
+
+(insn 38 37 40 4 arch/arm/mm/fault-armv.c:249 (set (reg:SI 1 r1)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn 40 38 39 4 arch/arm/mm/fault-armv.c:249 (set (reg:SI 3 r3)
+        (reg/v:SI 5 r5 [orig:139 prot ] [139])) 167 {*arm_movsi_insn} (nil))
+
+(insn 39 40 41 4 arch/arm/mm/fault-armv.c:249 (set (reg:SI 2 r2)
+        (reg:SI 1 r1)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+
+(call_insn 41 39 44 4 arch/arm/mm/fault-armv.c:249 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("vmap") [flags 0x41] <function_decl 0x11153c80 vmap>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 44 41 53 4 arch/arm/mm/fault-armv.c:251 (set (reg/v/f:SI 6 r6 [orig:140 p2 ] [140])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 53 44 54 4 arch/arm/mm/fault-armv.c:251 (set (reg:CC_DNE 24 cc)
+        (compare:CC_DNE (and:SI (ne:SI (reg/v/f:SI 6 r6 [orig:140 p2 ] [140])
+                    (const_int 0 [0x0]))
+                (ne:SI (reg/v/f:SI 4 r4 [orig:141 p1 ] [141])
+                    (const_int 0 [0x0])))
+            (const_int 0 [0x0]))) 284 {*cmp_and} (nil))
+
+(jump_insn 54 53 55 4 arch/arm/mm/fault-armv.c:251 (set (pc)
+        (if_then_else (ne (reg:CC_DNE 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 60)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 4 [0x4])
+        (nil)))
+;; End of basic block 4 -> ( 6 5)
+;; lr  out 	 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  6 [0.0%] 
+;; Succ edge  5 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 5
+;; bb 5 artificial_defs: { }
+;; bb 5 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 5 [r5] 7 [r7]
+;; live  in  	 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	 5 [r5] 7 [r7]
+;; live  kill	
+
+;; Pred edge  4 [100.0%]  (fallthru)
+(note 55 54 56 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 56 55 57 5 arch/arm/mm/fault-armv.c:238 (set (reg/v:SI 7 r7 [orig:142 v ] [142])
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+
+(insn 57 56 165 5 arch/arm/mm/fault-armv.c:255 (set (reg/v/f:SI 5 r5 [orig:143 reason ] [143])
+        (symbol_ref/v/f:SI ("*.LC2") [flags 0x82] <string_cst 0x113cc030>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC2") [flags 0x82] <string_cst 0x113cc030>)
+        (nil)))
+
+(jump_insn 165 57 166 5 (set (pc)
+        (label_ref 109)) 242 {*arm_jump} (nil))
+;; End of basic block 5 -> ( 15)
+;; lr  out 	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+;; live  out 	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+
+
+;; Succ edge  15 [100.0%] 
+
+(barrier 166 165 60)
+
+;; Start of basic block ( 4) -> 6
+;; bb 6 artificial_defs: { }
+;; bb 6 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 3 [r3] 24 [cc]
+;; live  in  	 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	 3 [r3] 24 [cc]
+;; live  kill	 24 [cc]
+
+;; Pred edge  4 [0.0%] 
+(code_label 60 166 61 6 4 "" [1 uses])
+
+(note 61 60 62 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 62 61 63 6 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/irqflags.h:35 (parallel [
+            (asm_operands/v ("	cpsid i			@ arch_local_irq_disable") ("") 0 []
+                 [] 1105663)
+            (clobber (reg:QI 24 cc))
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 63 62 64 6 arch/arm/mm/fault-armv.c:223 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 7748361)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 64 63 65 6 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [160])
+        (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+        (nil)))
+
+(insn 65 64 66 6 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [orig:134 D.23076 ] [134])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 3 r3 [160])
+                (const_int 24 [0x18])) [0 outer_cache.sync+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/s/f/j/c:SI (const:SI (plus:SI (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+                    (const_int 24 [0x18]))) [0 outer_cache.sync+0 S4 A32])
+        (nil)))
+
+(insn 66 65 67 6 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 3 r3 [orig:134 D.23076 ] [134])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 67 66 68 6 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 70)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3017 [0xbc9])
+        (nil)))
+;; End of basic block 6 -> ( 7 8)
+;; lr  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  7 [69.8%]  (fallthru)
+;; Succ edge  8 [30.2%] 
+
+;; Start of basic block ( 6) -> 7
+;; bb 7 artificial_defs: { }
+;; bb 7 artificial_uses: { u-1(13){ }}
+;; lr  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 3 [r3] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	
+;; live  kill	 14 [lr]
+
+;; Pred edge  6 [69.8%]  (fallthru)
+(note 68 67 69 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(call_insn 69 68 70 7 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:95 (parallel [
+            (call (mem:SI (reg/f:SI 3 r3 [orig:134 D.23076 ] [134]) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 244 {*call_reg_armv5} (nil)
+    (nil))
+;; End of basic block 7 -> ( 8)
+;; lr  out 	 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 8
+;; bb 8 artificial_defs: { }
+;; bb 8 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 4 [r4] 13 [sp]
+;; lr  def 	 3 [r3] 24 [cc]
+;; live  in  	 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	 3 [r3] 24 [cc]
+;; live  kill	
+
+;; Pred edge  6 [30.2%] 
+;; Pred edge  7 [100.0%]  (fallthru)
+(code_label 70 69 71 8 6 "" [1 uses])
+
+(note 71 70 72 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 72 71 73 8 arch/arm/mm/fault-armv.c:224 (set (reg:SI 3 r3 [161])
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 1 [0x1])
+        (nil)))
+
+(insn 73 72 74 8 arch/arm/mm/fault-armv.c:224 (set (mem:SI (reg/v/f:SI 4 r4 [orig:141 p1 ] [141]) [0 S4 A32])
+        (reg:SI 3 r3 [161])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 1 [0x1])
+        (nil)))
+
+(insn 74 73 75 8 arch/arm/mm/fault-armv.c:225 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 7748617)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 75 74 76 8 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [162])
+        (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+        (nil)))
+
+(insn 76 75 77 8 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [orig:135 D.23075 ] [135])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 3 r3 [162])
+                (const_int 24 [0x18])) [0 outer_cache.sync+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/s/f/j/c:SI (const:SI (plus:SI (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+                    (const_int 24 [0x18]))) [0 outer_cache.sync+0 S4 A32])
+        (nil)))
+
+(insn 77 76 78 8 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 3 r3 [orig:135 D.23075 ] [135])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 78 77 79 8 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 81)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3017 [0xbc9])
+        (nil)))
+;; End of basic block 8 -> ( 9 10)
+;; lr  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  9 [69.8%]  (fallthru)
+;; Succ edge  10 [30.2%] 
+
+;; Start of basic block ( 8) -> 9
+;; bb 9 artificial_defs: { }
+;; bb 9 artificial_uses: { u-1(13){ }}
+;; lr  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 3 [r3] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	
+;; live  kill	 14 [lr]
+
+;; Pred edge  8 [69.8%]  (fallthru)
+(note 79 78 80 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(call_insn 80 79 81 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:95 (parallel [
+            (call (mem:SI (reg/f:SI 3 r3 [orig:135 D.23075 ] [135]) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 244 {*call_reg_armv5} (nil)
+    (nil))
+;; End of basic block 9 -> ( 10)
+;; lr  out 	 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  10 [100.0%]  (fallthru)
+
+;; Start of basic block ( 8 9) -> 10
+;; bb 10 artificial_defs: { }
+;; bb 10 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 6 [r6] 13 [sp]
+;; lr  def 	 3 [r3] 24 [cc]
+;; live  in  	 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	 3 [r3] 24 [cc]
+;; live  kill	
+
+;; Pred edge  8 [30.2%] 
+;; Pred edge  9 [100.0%]  (fallthru)
+(code_label 81 80 82 10 7 "" [1 uses])
+
+(note 82 81 83 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 83 82 84 10 arch/arm/mm/fault-armv.c:226 (set (reg:SI 3 r3 [163])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn 84 83 85 10 arch/arm/mm/fault-armv.c:226 (set (mem:SI (reg/v/f:SI 6 r6 [orig:140 p2 ] [140]) [0 S4 A32])
+        (reg:SI 3 r3 [163])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(insn 85 84 86 10 arch/arm/mm/fault-armv.c:227 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 7748873)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 86 85 87 10 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [164])
+        (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+        (nil)))
+
+(insn 87 86 88 10 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [orig:136 D.23074 ] [136])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 3 r3 [164])
+                (const_int 24 [0x18])) [0 outer_cache.sync+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/s/f/j/c:SI (const:SI (plus:SI (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+                    (const_int 24 [0x18]))) [0 outer_cache.sync+0 S4 A32])
+        (nil)))
+
+(insn 88 87 89 10 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 3 r3 [orig:136 D.23074 ] [136])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 89 88 90 10 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 92)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3017 [0xbc9])
+        (nil)))
+;; End of basic block 10 -> ( 11 12)
+;; lr  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  11 [69.8%]  (fallthru)
+;; Succ edge  12 [30.2%] 
+
+;; Start of basic block ( 10) -> 11
+;; bb 11 artificial_defs: { }
+;; bb 11 artificial_uses: { u-1(13){ }}
+;; lr  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 3 [r3] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 3 [r3] 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	
+;; live  kill	 14 [lr]
+
+;; Pred edge  10 [69.8%]  (fallthru)
+(note 90 89 91 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+
+(call_insn 91 90 92 11 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:95 (parallel [
+            (call (mem:SI (reg/f:SI 3 r3 [orig:136 D.23074 ] [136]) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 244 {*call_reg_armv5} (nil)
+    (nil))
+;; End of basic block 11 -> ( 12)
+;; lr  out 	 4 [r4] 6 [r6] 13 [sp]
+;; live  out 	 4 [r4] 6 [r6] 13 [sp]
+
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 10 11) -> 12
+;; bb 12 artificial_defs: { }
+;; bb 12 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 13 [sp]
+;; lr  use 	 4 [r4] 13 [sp]
+;; lr  def 	 3 [r3] 7 [r7] 24 [cc]
+;; live  in  	 4 [r4] 6 [r6] 13 [sp]
+;; live  gen 	 3 [r3] 7 [r7] 24 [cc]
+;; live  kill	
+
+;; Pred edge  10 [30.2%] 
+;; Pred edge  11 [100.0%]  (fallthru)
+(code_label 92 91 93 12 8 "" [1 uses])
+
+(note 93 92 94 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+(insn 94 93 95 12 arch/arm/mm/fault-armv.c:228 (set (reg/v:SI 7 r7 [orig:133 val ] [133])
+        (mem:SI (reg/v/f:SI 4 r4 [orig:141 p1 ] [141]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 95 94 96 12 arch/arm/mm/fault-armv.c:229 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 7749129)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 96 95 97 12 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [165])
+        (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+        (nil)))
+
+(insn 97 96 98 12 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg/f:SI 3 r3 [orig:137 D.23073 ] [137])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 3 r3 [165])
+                (const_int 24 [0x18])) [0 outer_cache.sync+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/s/f/j/c:SI (const:SI (plus:SI (symbol_ref:SI ("outer_cache") [flags 0xc0] <var_decl 0x512cf6c0 outer_cache>)
+                    (const_int 24 [0x18]))) [0 outer_cache.sync+0 S4 A32])
+        (nil)))
+
+(insn 98 97 99 12 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 3 r3 [orig:137 D.23073 ] [137])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 99 98 100 12 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:94 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 102)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3017 [0xbc9])
+        (nil)))
+;; End of basic block 12 -> ( 13 14)
+;; lr  out 	 3 [r3] 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; live  out 	 3 [r3] 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+
+
+;; Succ edge  13 [69.8%]  (fallthru)
+;; Succ edge  14 [30.2%] 
+
+;; Start of basic block ( 12) -> 13
+;; bb 13 artificial_defs: { }
+;; bb 13 artificial_uses: { u-1(13){ }}
+;; lr  in  	 3 [r3] 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; lr  use 	 3 [r3] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 3 [r3] 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; live  gen 	
+;; live  kill	 14 [lr]
+
+;; Pred edge  12 [69.8%]  (fallthru)
+(note 100 99 101 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+
+(call_insn 101 100 102 13 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/outercache.h:95 (parallel [
+            (call (mem:SI (reg/f:SI 3 r3 [orig:137 D.23073 ] [137]) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 244 {*call_reg_armv5} (nil)
+    (nil))
+;; End of basic block 13 -> ( 14)
+;; lr  out 	 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; live  out 	 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+
+
+;; Succ edge  14 [100.0%]  (fallthru)
+
+;; Start of basic block ( 12 13) -> 14
+;; bb 14 artificial_defs: { }
+;; bb 14 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; lr  use 	 7 [r7] 13 [sp]
+;; lr  def 	 5 [r5] 7 [r7] 24 [cc]
+;; live  in  	 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; live  gen 	 5 [r5] 7 [r7]
+;; live  kill	 24 [cc]
+
+;; Pred edge  12 [30.2%] 
+;; Pred edge  13 [100.0%]  (fallthru)
+(code_label 102 101 103 14 9 "" [1 uses])
+
+(note 103 102 105 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+
+(note 105 103 104 14 NOTE_INSN_DELETED)
+
+(insn 104 105 108 14 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/irqflags.h:26 (parallel [
+            (asm_operands/v ("	cpsie i			@ arch_local_irq_enable") ("") 0 []
+                 [] 1104511)
+            (clobber (reg:QI 24 cc))
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(insn 108 104 106 14 arch/arm/mm/fault-armv.c:253 (set (reg/v/f:SI 5 r5 [orig:143 reason ] [143])
+        (symbol_ref/v/f:SI ("*.LC3") [flags 0x82] <string_cst 0x113e28a0>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC3") [flags 0x82] <string_cst 0x113e28a0>)
+        (nil)))
+
+(insn 106 108 109 14 arch/arm/mm/fault-armv.c:252 (parallel [
+            (set (reg/v:SI 7 r7 [orig:142 v ] [142])
+                (ne:SI (reg/v:SI 7 r7 [orig:133 val ] [133])
+                    (const_int 0 [0x0])))
+            (clobber (reg:CC 24 cc))
+        ]) 278 {*compare_scc} (nil))
+;; End of basic block 14 -> ( 15)
+;; lr  out 	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+;; live  out 	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+
+
+;; Succ edge  15 [100.0%]  (fallthru)
+
+;; Start of basic block ( 14 5) -> 15
+;; bb 15 artificial_defs: { }
+;; bb 15 artificial_uses: { u-1(13){ }}
+;; lr  in  	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+;; lr  use 	 4 [r4] 6 [r6] 7 [r7] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 4 [r4] 5 [r5] 6 [r6] 7 [r7] 13 [sp]
+;; live  gen 	 0 [r0] 24 [cc]
+;; live  kill	 14 [lr]
+
+;; Pred edge  14 [100.0%]  (fallthru)
+;; Pred edge  5 [100.0%] 
+(code_label 109 106 110 15 5 "" [1 uses])
+
+(note 110 109 111 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+
+(insn 111 110 112 15 arch/arm/mm/fault-armv.c:258 (set (reg:SI 0 r0)
+        (reg/v/f:SI 4 r4 [orig:141 p1 ] [141])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 112 111 113 15 arch/arm/mm/fault-armv.c:258 (parallel [
+            (call (mem:SI (symbol_ref:SI ("vunmap") [flags 0x41] <function_decl 0x11153d00 vunmap>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 113 112 114 15 arch/arm/mm/fault-armv.c:259 (set (reg:SI 0 r0)
+        (reg/v/f:SI 6 r6 [orig:140 p2 ] [140])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 114 113 115 15 arch/arm/mm/fault-armv.c:259 (parallel [
+            (call (mem:SI (symbol_ref:SI ("vunmap") [flags 0x41] <function_decl 0x11153d00 vunmap>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 115 114 116 15 arch/arm/mm/fault-armv.c:260 (set (reg:SI 0 r0)
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 4 [0x4])) [0 page+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 116 115 117 15 arch/arm/mm/fault-armv.c:260 (parallel [
+            (call (mem:SI (symbol_ref:SI ("put_page") [flags 0x41] <function_decl 0x110b9500 put_page>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 117 116 118 15 arch/arm/mm/fault-armv.c:265 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 7 r7 [orig:142 v ] [142])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 118 117 119 15 arch/arm/mm/fault-armv.c:265 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 130)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 8592 [0x2190])
+        (nil)))
+;; End of basic block 15 -> ( 16 17)
+;; lr  out 	 5 [r5] 13 [sp]
+;; live  out 	 5 [r5] 13 [sp]
+
+
+;; Succ edge  16 [14.1%]  (fallthru)
+;; Succ edge  17 [85.9%] 
+
+;; Start of basic block ( 15 3) -> 16
+;; bb 16 artificial_defs: { }
+;; bb 16 artificial_uses: { u-1(13){ }}
+;; lr  in  	 5 [r5] 13 [sp]
+;; lr  use 	 5 [r5] 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 5 [r5] 13 [sp]
+;; live  gen 	 0 [r0] 1 [r1] 2 [r2] 3 [r3]
+;; live  kill	 14 [lr]
+
+;; Pred edge  15 [14.1%]  (fallthru)
+;; Pred edge  3 [100.0%] 
+(code_label 119 118 120 16 3 "" [1 uses])
+
+(note 120 119 123 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+
+(insn 123 120 122 16 arch/arm/mm/fault-armv.c:266 (set (reg:SI 1 r1)
+        (reg/v/f:SI 5 r5 [orig:143 reason ] [143])) 167 {*arm_movsi_insn} (nil))
+
+(insn 122 123 124 16 arch/arm/mm/fault-armv.c:266 (set (reg:SI 0 r0)
+        (symbol_ref/v/f:SI ("*.LC4") [flags 0x82] <string_cst 0x113e2ba0>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC4") [flags 0x82] <string_cst 0x113e2ba0>)
+        (nil)))
+
+(call_insn 124 122 126 16 arch/arm/mm/fault-armv.c:266 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 126 124 170 16 arch/arm/mm/fault-armv.c:267 (set (reg:SI 2 r2 [169])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (const_int 0 [0x0])
+        (nil)))
+
+(insn 170 126 127 16 arch/arm/mm/fault-armv.c:267 (set (reg/f:SI 3 r3 [168])
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])
+        (nil)))
+
+(insn 127 170 167 16 arch/arm/mm/fault-armv.c:267 (set (mem/c/i:SI (reg/f:SI 3 r3 [168]) [0 shared_pte_mask+0 S4 A32])
+        (reg:SI 2 r2 [169])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(jump_insn 167 127 168 16 (set (pc)
+        (label_ref 140)) 242 {*arm_jump} (nil))
+;; End of basic block 16 -> ( 18)
+;; lr  out 	 13 [sp] 14 [lr]
+;; live  out 	 13 [sp]
+
+
+;; Succ edge  18 [100.0%] 
+
+(barrier 168 167 130)
+
+;; Start of basic block ( 15) -> 17
+;; bb 17 artificial_defs: { }
+;; bb 17 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp]
+;; lr  use 	 13 [sp]
+;; lr  def 	 0 [r0] 1 [r1] 2 [r2] 3 [r3] 12 [ip] 14 [lr] 15 [pc] 16 [f0] 17 [f1] 18 [f2] 19 [f3] 20 [f4] 21 [f5] 22 [f6] 23 [f7] 24 [cc] 27 [mv0] 28 [mv1] 29 [mv2] 30 [mv3] 31 [mv4] 32 [mv5] 33 [mv6] 34 [mv7] 35 [mv8] 36 [mv9] 37 [mv10] 38 [mv11] 39 [mv12] 40 [mv13] 41 [mv14] 42 [mv15] 43 [wcgr0] 44 [wcgr1] 45 [wcgr2] 46 [wcgr3] 47 [wr0] 48 [wr1] 49 [wr2] 50 [wr3] 51 [wr4] 52 [wr5] 53 [wr6] 54 [wr7] 55 [wr8] 56 [wr9] 57 [wr10] 58 [wr11] 59 [wr12] 60 [wr13] 61 [wr14] 62 [wr15] 63 [s0] 64 [s1] 65 [s2] 66 [s3] 67 [s4] 68 [s5] 69 [s6] 70 [s7] 71 [s8] 72 [s9] 73 [s10] 74 [s11] 75 [s12] 76 [s13] 77 [s14] 78 [s15] 79 [s16] 80 [s17] 81 [s18] 82 [s19] 83 [s20] 84 [s21] 85 [s22] 86 [s23] 87 [s24] 88 [s25] 89 [s26] 90 [s27] 91 [s28] 92 [s29] 93 [s30] 94 [s31] 95 [d16] 96 [?16] 97 [d17] 98 [?17] 99 [d18] 100 [?18] 101 [d19] 102 [?19] 103 [d20] 104 [?20] 105 [d21] 106 [?21] 107 [d22] 108 [?22] 109 [d23] 110 [?23] 111 [d24] 112 [?24] 113 [d25] 114 [?25] 115 [d26] 116 [?26] 117 [d27] 118 [?27] 119 [d28] 120 [?28] 121 [d29] 122 [?29] 123 [d30] 124 [?30] 125 [d31] 126 [?31] 127 [vfpcc]
+;; live  in  	 13 [sp]
+;; live  gen 	 0 [r0]
+;; live  kill	 14 [lr]
+
+;; Pred edge  15 [85.9%] 
+(code_label 130 168 131 17 10 "" [1 uses])
+
+(note 131 130 133 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+
+(insn 133 131 134 17 arch/arm/mm/fault-armv.c:269 (set (reg:SI 0 r0)
+        (symbol_ref/v/f:SI ("*.LC5") [flags 0x82] <string_cst 0x113e07a0>)) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC5") [flags 0x82] <string_cst 0x113e07a0>)
+        (nil)))
+
+(call_insn 134 133 140 17 arch/arm/mm/fault-armv.c:269 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a57b00 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+;; End of basic block 17 -> ( 18)
+;; lr  out 	 13 [sp] 14 [lr]
+;; live  out 	 13 [sp]
+
+
+;; Succ edge  18 [100.0%]  (fallthru)
+
+;; Start of basic block ( 17 16) -> 18
+;; bb 18 artificial_defs: { }
+;; bb 18 artificial_uses: { u-1(13){ }}
+;; lr  in  	 13 [sp] 14 [lr]
+;; lr  use 	 13 [sp]
+;; lr  def 	
+;; live  in  	 13 [sp]
+;; live  gen 	
+;; live  kill	
+
+;; Pred edge  17 [100.0%]  (fallthru)
+;; Pred edge  16 [100.0%] 
+(code_label 140 134 143 18 12 "" [1 uses])
+
+(note 143 140 169 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 18 -> ( 1)
+;; lr  out 	 13 [sp] 14 [lr]
+;; live  out 	 13 [sp]
+
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+(note 169 143 172 NOTE_INSN_DELETED)
+
+(note 172 169 0 NOTE_INSN_DELETED)
+

@@ -1,0 +1,88 @@
+
+;; Function return_address (return_address)[0:950]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; return 0B;
+
+(insn 6 5 7 arch/arm/kernel/return_address.c:68 (set (reg:SI 133 [ <result> ])
+        (const_int 0 [0x0])) -1 (nil))
+
+(jump_insn 7 6 8 arch/arm/kernel/return_address.c:68 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 8 7 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/return_address.c:66 (set (reg/v:SI 134 [ level ])
+        (reg:SI 0 r0 [ level ])) -1 (nil))
+
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 5 3 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 6 5 7 3 arch/arm/kernel/return_address.c:68 (set (reg:SI 133 [ <result> ])
+        (const_int 0 [0x0])) -1 (nil))
+
+(jump_insn 7 6 8 3 arch/arm/kernel/return_address.c:68 (set (pc)
+        (label_ref 9)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 8 7 17)
+
+;; Start of basic block () -> 4
+(note 17 8 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 11 17 12 4 arch/arm/kernel/return_address.c:68 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 12 11 13 4 arch/arm/kernel/return_address.c:68 (clobber (reg:SI 133 [ <result> ])) -1 (nil))
+
+(jump_insn 13 12 14 4 arch/arm/kernel/return_address.c:68 (set (pc)
+        (label_ref 15)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 14 13 9)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 9 14 18 5 1 "" [1 uses])
+
+(note 18 9 10 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 10 18 15 5 arch/arm/kernel/return_address.c:68 (set (reg/i:SI 0 r0)
+        (reg:SI 133 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 15 10 19 6 2 "" [1 uses])
+
+(note 19 15 16 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 16 19 0 6 arch/arm/kernel/return_address.c:68 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

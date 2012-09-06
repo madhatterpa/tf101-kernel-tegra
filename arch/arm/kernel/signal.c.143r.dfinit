@@ -1,0 +1,67 @@
+
+;; Function setup_return (setup_return)[0:1448]
+
+verify found no changes in insn with uid = 99.
+
+;; Function setup_sigframe (setup_sigframe)[0:1446]
+
+verify found no changes in insn with uid = 88.
+verify found no changes in insn with uid = 100.
+verify found no changes in insn with uid = 112.
+
+;; Function do_signal (do_signal)[0:1452]
+
+verify found no changes in insn with uid = 72.
+verify found no changes in insn with uid = 83.
+verify found no changes in insn with uid = 223.
+verify found no changes in insn with uid = 234.
+verify found no changes in insn with uid = 296.
+verify found no changes in insn with uid = 303.
+verify found no changes in insn with uid = 316.
+verify found no changes in insn with uid = 387.
+verify found no changes in insn with uid = 400.
+verify found no changes in insn with uid = 466.
+verify found no changes in insn with uid = 475.
+verify found no changes in insn with uid = 501.
+verify found no changes in insn with uid = 506.
+verify found no changes in insn with uid = 520.
+verify found no changes in insn with uid = 569.
+verify found no changes in insn with uid = 578.
+
+;; Function do_notify_resume (do_notify_resume)[0:1453]
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 26.
+
+;; Function restore_sigframe (restore_sigframe)[0:1443]
+
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 30.
+verify found no changes in insn with uid = 39.
+verify found no changes in insn with uid = 48.
+verify found no changes in insn with uid = 189.
+verify found no changes in insn with uid = 210.
+
+;; Function sys_rt_sigreturn (sys_rt_sigreturn)[0:1445]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 37.
+verify found no changes in insn with uid = 52.
+
+;; Function sys_sigreturn (sys_sigreturn)[0:1444]
+
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 42.
+
+;; Function sys_sigaction (sys_sigaction)[0:1440]
+
+verify found no changes in insn with uid = 64.
+
+;; Function sys_sigsuspend (sys_sigsuspend)[0:1439]
+
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 50.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 62.

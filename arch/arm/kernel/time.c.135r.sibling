@@ -1,0 +1,14 @@
+
+;; Function timer_init_syscore_ops (timer_init_syscore_ops)[0:1075] (unlikely executed)
+
+deleting block 4
+
+;; Function time_init (time_init)[0:1076] (unlikely executed)
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function profile_pc (profile_pc)[0:1074]
+
+deleting block 11

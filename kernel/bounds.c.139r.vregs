@@ -1,0 +1,61 @@
+
+;; Function foo (foo)[0:1]
+
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 kernel/bounds.c:17 (asm_operands/v ("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS") ("") 0 [
+            (const_int 22 [0x16])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158736) -1 (nil))
+
+(insn 6 5 7 3 kernel/bounds.c:18 (asm_operands/v ("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES") ("") 0 [
+            (const_int 3 [0x3])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158864) -1 (nil))
+
+(insn 7 6 12 3 kernel/bounds.c:19 (asm_operands/v ("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS") ("") 0 [
+            (const_int 7 [0x7])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158992) -1 (nil))
+;; End of basic block 3 -> ( 4)
+
+;; Succ edge  4 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [100.0%]  (fallthru)
+(note 12 7 11 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 6
+;; Pred edge  4 [100.0%]  (fallthru)
+(code_label 11 12 14 6 2 "" [0 uses])
+
+(note 14 11 0 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

@@ -1,0 +1,11 @@
+
+;; Function identity_mapping_del (identity_mapping_del)[0:1185]
+
+
+;; Function identity_mapping_add (identity_mapping_add)[0:1182]
+
+verify found no changes in insn with uid = 8.
+
+;; Function setup_mm_for_reboot (setup_mm_for_reboot)[0:1186]
+
+verify found no changes in insn with uid = 14.

@@ -1,0 +1,17 @@
+
+;; Function lpj_setup (lpj_setup)[0:370] (unlikely executed)
+
+verify found no changes in insn with uid = 9.
+
+;; Function calibrate_delay (calibrate_delay)[0:373] (unlikely executed)
+
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 44.
+verify found no changes in insn with uid = 61.
+verify found no changes in insn with uid = 68.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 129.
+verify found no changes in insn with uid = 172.
+verify found no changes in insn with uid = 176.
+verify found no changes in insn with uid = 180.
+verify found no changes in insn with uid = 186.

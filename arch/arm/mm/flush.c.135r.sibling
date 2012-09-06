@@ -1,0 +1,36 @@
+
+;; Function flush_cache_mm (flush_cache_mm)[0:1226]
+
+deleting block 5
+
+;; Function flush_cache_range (flush_cache_range)[0:1227]
+
+deleting block 7
+
+;; Function flush_pfn_alias (flush_pfn_alias)[0:1224]
+
+deleting block 5
+
+;; Function flush_cache_page (flush_cache_page)[0:1228]
+
+deleting block 8
+
+;; Function __flush_anon_page (__flush_anon_page)[0:1236]
+
+deleting block 7
+
+;; Function __flush_dcache_page (__flush_dcache_page)[0:1232]
+
+deleting block 10
+
+;; Function flush_dcache_page (flush_dcache_page)[0:1235]
+
+deleting block 16
+
+;; Function __sync_icache_dcache (__sync_icache_dcache)[0:1234]
+
+deleting block 13
+
+;; Function copy_to_user_page (copy_to_user_page)[0:1231]
+
+deleting block 11

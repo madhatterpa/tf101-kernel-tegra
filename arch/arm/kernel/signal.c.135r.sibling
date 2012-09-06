@@ -1,0 +1,37 @@
+
+;; Function setup_return (setup_return)[0:1448]
+
+deleting block 22
+
+;; Function setup_sigframe (setup_sigframe)[0:1446]
+
+deleting block 7
+
+;; Function do_signal (do_signal)[0:1452]
+
+deleting block 13
+deleting block 82
+
+;; Function do_notify_resume (do_notify_resume)[0:1453]
+
+deleting block 9
+
+;; Function restore_sigframe (restore_sigframe)[0:1443]
+
+deleting block 20
+
+;; Function sys_rt_sigreturn (sys_rt_sigreturn)[0:1445]
+
+deleting block 10
+
+;; Function sys_sigreturn (sys_sigreturn)[0:1444]
+
+deleting block 9
+
+;; Function sys_sigaction (sys_sigaction)[0:1440]
+
+deleting block 19
+
+;; Function sys_sigsuspend (sys_sigsuspend)[0:1439]
+
+deleting block 4

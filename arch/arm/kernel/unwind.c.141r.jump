@@ -1,0 +1,3916 @@
+
+;; Function __aeabi_unwind_cpp_pr0 (__aeabi_unwind_cpp_pr0)[0:851]
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 0 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function __aeabi_unwind_cpp_pr1 (__aeabi_unwind_cpp_pr1)[0:852]
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 0 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function __aeabi_unwind_cpp_pr2 (__aeabi_unwind_cpp_pr2)[0:853]
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 0 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_init (unwind_init)[0:862] (unlikely executed)
+
+
+6 basic blocks, 6 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 900, probably never executed.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 900, probably never executed.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  5 [100.0%]  (fallthru)
+
+Basic block 4 , prev 2, next 5, loop_depth 1, count 0, freq 9100, probably never executed.
+Predecessors:  5 [91.0%] 
+Successors:  5 [100.0%]  (fallthru,dfs_back)
+
+Basic block 5 , prev 4, next 6, loop_depth 1, count 0, freq 10000, probably never executed.
+Predecessors:  2 [100.0%]  (fallthru) 4 [100.0%]  (fallthru,dfs_back)
+Successors:  4 [91.0%]  6 [9.0%]  (fallthru)
+
+Basic block 6 , prev 5, next 1, loop_depth 0, count 0, freq 900, probably never executed.
+Predecessors:  5 [9.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 6, loop_depth 0, count 0, freq 900, probably never executed.
+Predecessors:  6 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 32 0 31 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 31 32 34 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 34 31 46 2 arch/arm/kernel/unwind.c:446 (set (reg/v/f:SI 162 [ idx ])
+        (symbol_ref:SI ("__start_unwind_idx") [flags 0xc0] <var_decl 0x11041000 __start_unwind_idx>)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 2 -> ( 4)
+
+;; Succ edge  4 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 3
+;; Pred edge  4 [91.0%] 
+(code_label 46 34 37 3 9 "" [1 uses])
+
+(note 37 46 38 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 38 37 39 3 arch/arm/kernel/unwind.c:447 (set (reg:SI 165)
+        (mem/s/j:SI (reg/v/f:SI 162 [ idx ]) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 39 38 40 3 arch/arm/kernel/unwind.c:447 (set (reg:SI 164)
+        (ashift:SI (reg:SI 165)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 40 39 41 3 arch/arm/kernel/unwind.c:447 (set (reg:SI 166)
+        (ashiftrt:SI (reg:SI 164)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 41 40 42 3 arch/arm/kernel/unwind.c:447 (set (reg:SI 167)
+        (plus:SI (reg/v/f:SI 162 [ idx ])
+            (reg:SI 166))) 4 {*arm_addsi3} (nil))
+
+(insn 42 41 43 3 arch/arm/kernel/unwind.c:447 (set (mem/s/j:SI (reg/v/f:SI 162 [ idx ]) [0 <variable>.addr+0 S4 A32])
+        (reg:SI 167)) 167 {*arm_movsi_insn} (nil))
+
+(insn 43 42 44 3 arch/arm/kernel/unwind.c:446 discrim 2 (set (reg/v/f:SI 162 [ idx ])
+        (plus:SI (reg/v/f:SI 162 [ idx ])
+            (const_int 8 [0x8]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 3 -> ( 4)
+
+;; Succ edge  4 [100.0%]  (fallthru,dfs_back)
+
+;; Start of basic block ( 2 3) -> 4
+;; Pred edge  2 [100.0%]  (fallthru)
+;; Pred edge  3 [100.0%]  (fallthru,dfs_back)
+(code_label 44 43 45 4 8 "" [0 uses])
+
+(note 45 44 47 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 47 45 48 4 arch/arm/kernel/unwind.c:446 discrim 1 (set (reg/f:SI 168)
+        (symbol_ref:SI ("__stop_unwind_idx") [flags 0xc0] <var_decl 0x11041060 __stop_unwind_idx>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 48 47 49 4 arch/arm/kernel/unwind.c:446 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 162 [ idx ])
+            (reg/f:SI 168))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 49 48 50 4 arch/arm/kernel/unwind.c:446 discrim 1 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 46)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9100 [0x238c])
+        (nil)))
+;; End of basic block 4 -> ( 3 5)
+
+;; Succ edge  3 [91.0%] 
+;; Succ edge  5 [9.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 5
+;; Pred edge  4 [9.0%]  (fallthru)
+(note 50 49 51 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 51 50 55 5 arch/arm/kernel/unwind.c:452 (set (reg:SI 163 [ <result> ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 55 51 61 5 arch/arm/kernel/unwind.c:452 (set (reg/i:SI 0 r0)
+        (reg:SI 163 [ <result> ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 61 55 0 5 arch/arm/kernel/unwind.c:452 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 5 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_table_del (unwind_table_del)[0:861]
+
+
+5 basic blocks, 5 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  7 [21.6%]  4 [78.4%]  (fallthru)
+
+Basic block 4 , prev 2, next 7, loop_depth 0, count 0, freq 7836, maybe hot.
+Predecessors:  2 [78.4%]  (fallthru)
+Successors:  EXIT [100.0%]  (ab,sibcall)
+
+Basic block 7 , prev 4, next 1, loop_depth 0, count 0, freq 2164, maybe hot.
+Predecessors:  2 [21.6%] 
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 7, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  4 [100.0%]  (ab,sibcall) 7 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/unwind.c:428 (set (reg/v/f:SI 136 [ tab ])
+        (reg:SI 0 r0 [ tab ])) 167 {*arm_movsi_insn} (nil))
+
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 6 3 7 2 arch/arm/kernel/unwind.c:431 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 136 [ tab ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 7 6 8 2 arch/arm/kernel/unwind.c:431 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 33)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 2164 [0x874])
+        (nil)))
+;; End of basic block 2 -> ( 4 3)
+
+;; Succ edge  4 [21.6%] 
+;; Succ edge  3 [78.4%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [78.4%]  (fallthru)
+(note 8 7 9 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 9 8 10 3 arch/arm/kernel/unwind.c:434 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/unwind.c:434 (set (reg:SI 0 r0)
+        (reg/f:SI 137)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 11 10 12 3 arch/arm/kernel/unwind.c:434 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_spin_lock_irqsave") [flags 0x41] <function_decl 0x10ad9d00 _raw_spin_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 12 11 13 3 arch/arm/kernel/unwind.c:434 (set (reg/v:SI 135 [ flags ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 12 14 3 include/linux/list.h:106 (set (reg/f:SI 133 [ D.15826 ])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 4 [0x4])) [0 <variable>.list.prev+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 14 13 15 3 include/linux/list.h:106 (set (reg/f:SI 134 [ D.15825 ])
+        (mem/s/f/j:SI (reg/v/f:SI 136 [ tab ]) [0 <variable>.list.next+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 15 14 16 3 include/linux/list.h:88 (set (mem/s/f/j:SI (plus:SI (reg/f:SI 134 [ D.15825 ])
+                (const_int 4 [0x4])) [0 <variable>.prev+0 S4 A32])
+        (reg/f:SI 133 [ D.15826 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 16 15 17 3 include/linux/list.h:89 (set (mem/s/f/j:SI (reg/f:SI 133 [ D.15826 ]) [0 <variable>.next+0 S4 A32])
+        (reg/f:SI 134 [ D.15825 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 17 16 18 3 include/linux/list.h:107 (set (reg:SI 138)
+        (const_int 1048832 [0x100100])) 167 {*arm_movsi_insn} (nil))
+
+(insn 18 17 19 3 include/linux/list.h:107 (set (mem/s/f/j:SI (reg/v/f:SI 136 [ tab ]) [0 <variable>.list.next+0 S4 A32])
+        (reg:SI 138)) 167 {*arm_movsi_insn} (nil))
+
+(insn 19 18 20 3 include/linux/list.h:108 (set (reg:SI 139)
+        (const_int 2097664 [0x200200])) 167 {*arm_movsi_insn} (nil))
+
+(insn 20 19 21 3 include/linux/list.h:108 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 4 [0x4])) [0 <variable>.list.prev+0 S4 A32])
+        (reg:SI 139)) 167 {*arm_movsi_insn} (nil))
+
+(insn 21 20 22 3 include/linux/spinlock.h:340 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 21 23 3 include/linux/spinlock.h:340 (set (reg:SI 0 r0)
+        (reg/f:SI 140)) 167 {*arm_movsi_insn} (nil))
+
+(insn 23 22 24 3 include/linux/spinlock.h:340 (set (reg:SI 1 r1)
+        (reg/v:SI 135 [ flags ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 24 23 25 3 include/linux/spinlock.h:340 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_spin_unlock_irqrestore") [flags 0x41] <function_decl 0x10aef080 _raw_spin_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 25 24 26 3 arch/arm/kernel/unwind.c:438 (set (reg:SI 0 r0)
+        (reg/v/f:SI 136 [ tab ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn/j 26 25 33 3 arch/arm/kernel/unwind.c:438 (parallel [
+            (call (mem:SI (symbol_ref:SI ("kfree") [flags 0x41] <function_decl 0x10d76880 kfree>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 258 {*sibcall_insn} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+;; End of basic block 3 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (ab,sibcall)
+
+;; Start of basic block ( 2) -> 4
+;; Pred edge  2 [21.6%] 
+(code_label 33 26 36 4 16 "" [1 uses])
+
+(note 36 33 0 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 4 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_table_add (unwind_table_add)[0:860]
+
+
+8 basic blocks, 9 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 1002, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 5, loop_depth 0, count 0, freq 1002, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  9 [10.1%]  5 [89.9%]  (fallthru)
+
+Basic block 5 , prev 2, next 6, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  2 [89.9%]  (fallthru)
+Successors:  7 [100.0%]  (fallthru)
+
+Basic block 6 , prev 5, next 7, loop_depth 1, count 0, freq 9100, maybe hot.
+Predecessors:  7 [91.0%] 
+Successors:  7 [100.0%]  (fallthru,dfs_back)
+
+Basic block 7 , prev 6, next 8, loop_depth 1, count 0, freq 10000, maybe hot.
+Predecessors:  5 [100.0%]  (fallthru) 6 [100.0%]  (fallthru,dfs_back)
+Successors:  6 [91.0%]  8 [9.0%]  (fallthru)
+
+Basic block 8 , prev 7, next 9, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  7 [9.0%]  (fallthru)
+Successors:  9 [100.0%]  (fallthru)
+
+Basic block 9 , prev 8, next 1, loop_depth 0, count 0, freq 1002, maybe hot.
+Predecessors:  2 [10.1%]  8 [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 9, loop_depth 0, count 0, freq 1002, maybe hot.
+Predecessors:  9 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 7 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 7 3 2 arch/arm/kernel/unwind.c:400 (set (reg/v:SI 140 [ start ])
+        (reg:SI 0 r0 [ start ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/unwind.c:400 (set (reg/v:SI 141 [ size ])
+        (reg:SI 1 r1 [ size ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 4 3 5 2 arch/arm/kernel/unwind.c:400 (set (reg/v:SI 142 [ text_addr ])
+        (reg:SI 2 r2 [ text_addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 5 4 6 2 arch/arm/kernel/unwind.c:400 (set (reg/v:SI 143 [ text_size ])
+        (reg:SI 3 r3 [ text_size ])) 167 {*arm_movsi_insn} (nil))
+
+(note 6 5 9 2 NOTE_INSN_FUNCTION_BEG)
+
+(note 9 6 11 2 ("found") NOTE_INSN_DELETED_LABEL 20)
+
+(insn 11 9 12 2 include/linux/slab_def.h:122 (set (reg/f:SI 144)
+        (symbol_ref:SI ("malloc_sizes") [flags 0xc0] <var_decl 0x11023e40 malloc_sizes>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 12 11 13 2 include/linux/slab_def.h:122 (set (reg:SI 0 r0)
+        (mem/s/f/j:SI (plus:SI (reg/f:SI 144)
+                (const_int 4 [0x4])) [0 <variable>.cs_cachep+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 12 14 2 include/linux/slab_def.h:122 (set (reg:SI 1 r1)
+        (const_int 208 [0xd0])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 14 13 15 2 include/linux/slab_def.h:122 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kmem_cache_alloc") [flags 0x41] <function_decl 0x11024200 kmem_cache_alloc>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 15 14 16 2 include/linux/slab_def.h:122 (set (reg/v/f:SI 135 [ ret ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 16 15 17 2 arch/arm/kernel/unwind.c:403 (set (reg/v/f:SI 136 [ tab ])
+        (reg/v/f:SI 135 [ ret ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 17 16 18 2 arch/arm/kernel/unwind.c:408 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 136 [ tab ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 18 17 19 2 arch/arm/kernel/unwind.c:408 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 60)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 1014 [0x3f6])
+        (nil)))
+;; End of basic block 2 -> ( 7 3)
+
+;; Succ edge  7 [10.1%] 
+;; Succ edge  3 [89.9%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [89.9%]  (fallthru)
+(note 19 18 20 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 20 19 21 3 arch/arm/kernel/unwind.c:411 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 8 [0x8])) [0 <variable>.start+0 S4 A32])
+        (reg/v:SI 140 [ start ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 21 20 22 3 arch/arm/kernel/unwind.c:412 (set (reg:SI 145)
+        (plus:SI (reg/v:SI 141 [ size ])
+            (reg/v:SI 140 [ start ]))) 4 {*arm_addsi3} (nil))
+
+(insn 22 21 23 3 arch/arm/kernel/unwind.c:412 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 12 [0xc])) [0 <variable>.stop+0 S4 A32])
+        (reg:SI 145)) 167 {*arm_movsi_insn} (nil))
+
+(insn 23 22 24 3 arch/arm/kernel/unwind.c:413 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 16 [0x10])) [0 <variable>.begin_addr+0 S4 A32])
+        (reg/v:SI 142 [ text_addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 24 23 25 3 arch/arm/kernel/unwind.c:414 (set (reg:SI 146)
+        (plus:SI (reg/v:SI 143 [ text_size ])
+            (reg/v:SI 142 [ text_addr ]))) 4 {*arm_addsi3} (nil))
+
+(insn 25 24 38 3 arch/arm/kernel/unwind.c:414 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 20 [0x14])) [0 <variable>.end_addr+0 S4 A32])
+        (reg:SI 146)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%]  (fallthru)
+
+;; Start of basic block ( 5) -> 4
+;; Pred edge  5 [91.0%] 
+(code_label 38 25 28 4 23 "" [1 uses])
+
+(note 28 38 29 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 29 28 30 4 arch/arm/kernel/unwind.c:418 (set (reg:SI 148)
+        (mem/s/j:SI (plus:SI (reg/v:SI 140 [ start ])
+                (const_int -8 [0xfffffffffffffff8])) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 30 29 31 4 arch/arm/kernel/unwind.c:418 (set (reg:SI 147)
+        (ashift:SI (reg:SI 148)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 31 30 32 4 arch/arm/kernel/unwind.c:418 (set (reg:SI 149)
+        (ashiftrt:SI (reg:SI 147)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 32 31 33 4 arch/arm/kernel/unwind.c:418 (set (reg:SI 150)
+        (plus:SI (reg/v/f:SI 133 [ idx.409 ])
+            (reg:SI 149))) 4 {*arm_addsi3} (nil))
+
+(insn 33 32 34 4 arch/arm/kernel/unwind.c:418 (set (mem/s/j:SI (plus:SI (reg/v:SI 140 [ start ])
+                (const_int -8 [0xfffffffffffffff8])) [0 <variable>.addr+0 S4 A32])
+        (reg:SI 150)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 4 -> ( 5)
+
+;; Succ edge  5 [100.0%]  (fallthru,dfs_back)
+
+;; Start of basic block ( 3 4) -> 5
+;; Pred edge  3 [100.0%]  (fallthru)
+;; Pred edge  4 [100.0%]  (fallthru,dfs_back)
+(code_label 34 33 35 5 22 "" [0 uses])
+
+(note 35 34 36 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 36 35 37 5 arch/arm/kernel/unwind.c:418 (set (reg/v/f:SI 133 [ idx.409 ])
+        (reg/v:SI 140 [ start ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 37 36 39 5 arch/arm/kernel/unwind.c:418 (set (reg/v:SI 140 [ start ])
+        (plus:SI (reg/v:SI 140 [ start ])
+            (const_int 8 [0x8]))) 4 {*arm_addsi3} (nil))
+
+(insn 39 37 40 5 arch/arm/kernel/unwind.c:417 (set (reg:SI 151)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 12 [0xc])) [0 <variable>.stop+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 40 39 41 5 arch/arm/kernel/unwind.c:417 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 133 [ idx.409 ])
+            (reg:SI 151))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 41 40 42 5 arch/arm/kernel/unwind.c:417 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 38)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9100 [0x238c])
+        (nil)))
+;; End of basic block 5 -> ( 4 6)
+
+;; Succ edge  4 [91.0%] 
+;; Succ edge  6 [9.0%]  (fallthru)
+
+;; Start of basic block ( 5) -> 6
+;; Pred edge  5 [9.0%]  (fallthru)
+(note 42 41 43 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 43 42 44 6 arch/arm/kernel/unwind.c:420 (set (reg/f:SI 152)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 44 43 45 6 arch/arm/kernel/unwind.c:420 (set (reg:SI 0 r0)
+        (reg/f:SI 152)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 45 44 46 6 arch/arm/kernel/unwind.c:420 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_spin_lock_irqsave") [flags 0x41] <function_decl 0x10ad9d00 _raw_spin_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 46 45 47 6 arch/arm/kernel/unwind.c:420 (set (reg/v:SI 137 [ flags ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 47 46 48 6 arch/arm/kernel/unwind.c:421 (set (reg/f:SI 138 [ D.15751 ])
+        (reg/v/f:SI 136 [ tab ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 48 47 49 6 include/linux/list.h:76 (set (reg/f:SI 153)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 49 48 50 6 include/linux/list.h:76 (set (reg/f:SI 134 [ D.15855 ])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 153)
+                (const_int 4 [0x4])) [0 unwind_tables.prev+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 50 49 51 6 include/linux/list.h:41 (set (reg/f:SI 154)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 51 50 52 6 include/linux/list.h:41 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 154)
+                (const_int 4 [0x4])) [0 unwind_tables.prev+0 S4 A32])
+        (reg/f:SI 138 [ D.15751 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 52 51 53 6 include/linux/list.h:42 (set (reg/f:SI 155)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 53 52 54 6 include/linux/list.h:42 (set (mem/s/f/j:SI (reg/v/f:SI 136 [ tab ]) [0 <variable>.list.next+0 S4 A32])
+        (reg/f:SI 155)) 167 {*arm_movsi_insn} (nil))
+
+(insn 54 53 55 6 include/linux/list.h:43 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 136 [ tab ])
+                (const_int 4 [0x4])) [0 <variable>.list.prev+0 S4 A32])
+        (reg/f:SI 134 [ D.15855 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 55 54 56 6 include/linux/list.h:44 (set (mem/s/f/j:SI (reg/f:SI 134 [ D.15855 ]) [0 <variable>.next+0 S4 A32])
+        (reg/f:SI 138 [ D.15751 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 56 55 57 6 include/linux/spinlock.h:340 (set (reg/f:SI 156)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 57 56 58 6 include/linux/spinlock.h:340 (set (reg:SI 0 r0)
+        (reg/f:SI 156)) 167 {*arm_movsi_insn} (nil))
+
+(insn 58 57 59 6 include/linux/spinlock.h:340 (set (reg:SI 1 r1)
+        (reg/v:SI 137 [ flags ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 59 58 60 6 include/linux/spinlock.h:340 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_spin_unlock_irqrestore") [flags 0x41] <function_decl 0x10aef080 _raw_spin_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+;; End of basic block 6 -> ( 7)
+
+;; Succ edge  7 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2 6) -> 7
+;; Pred edge  2 [10.1%] 
+;; Pred edge  6 [100.0%]  (fallthru)
+(code_label 60 59 61 7 21 "" [1 uses])
+
+(note 61 60 62 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 62 61 66 7 arch/arm/kernel/unwind.c:425 (set (reg:SI 139 [ <result> ])
+        (reg/v/f:SI 136 [ tab ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 66 62 72 7 arch/arm/kernel/unwind.c:425 (set (reg/i:SI 0 r0)
+        (reg:SI 139 [ <result> ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 72 66 0 7 arch/arm/kernel/unwind.c:425 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 7 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function search_index (search_index)[0:854]
+
+
+11 basic blocks, 14 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 738, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 738, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  4 [0.0%]  (fallthru) 5 [100.0%] 
+
+Basic block 4 , prev 2, next 5, loop_depth 0, count 0, freq 0.
+Predecessors:  2 [0.0%]  (fallthru)
+Successors:  12 [100.0%]  (fallthru)
+
+Basic block 5 , prev 4, next 7, loop_depth 0, count 0, freq 738, maybe hot.
+Predecessors:  2 [100.0%] 
+Successors:  12 [39.0%]  10 [61.0%]  (fallthru)
+
+Basic block 7 , prev 5, next 8, loop_depth 2, count 0, freq 9550, maybe hot.
+Predecessors:  10 [95.5%] 
+Successors:  8 [86.0%]  (fallthru,dfs_back) 9 [14.0%]  (dfs_back)
+
+Basic block 8 , prev 7, next 9, loop_depth 0, count 0, freq 8213, maybe hot.
+Predecessors:  7 [86.0%]  (fallthru,dfs_back)
+Successors:  10 [100.0%]  (fallthru)
+
+Basic block 9 , prev 8, next 10, loop_depth 0, count 0, freq 1337, maybe hot.
+Predecessors:  7 [14.0%]  (dfs_back)
+Successors:  10 [100.0%]  (fallthru)
+
+Basic block 10 , prev 9, next 11, loop_depth 2, count 0, freq 10000, maybe hot.
+Predecessors:  9 [100.0%]  (fallthru) 8 [100.0%]  (fallthru) 5 [61.0%]  (fallthru)
+Successors:  7 [95.5%]  11 [4.5%]  (fallthru)
+
+Basic block 11 , prev 10, next 12, loop_depth 0, count 0, freq 450, maybe hot.
+Predecessors:  10 [4.5%]  (fallthru)
+Successors:  12 [100.0%]  (fallthru)
+
+Basic block 12 , prev 11, next 1, loop_depth 0, count 0, freq 738, maybe hot.
+Predecessors:  4 [100.0%]  (fallthru) 5 [39.0%]  11 [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 12, loop_depth 0, count 0, freq 738, maybe hot.
+Predecessors:  12 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 6 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 6 3 2 arch/arm/kernel/unwind.c:107 (set (reg/v:SI 137 [ addr ])
+        (reg:SI 0 r0 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/unwind.c:107 (set (reg/v/f:SI 138 [ first ])
+        (reg:SI 1 r1 [ first ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 4 3 5 2 arch/arm/kernel/unwind.c:107 (set (reg/v/f:SI 139 [ last ])
+        (reg:SI 2 r2 [ last ])) 167 {*arm_movsi_insn} (nil))
+
+(note 5 4 8 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 8 5 9 2 arch/arm/kernel/unwind.c:110 (set (reg:SI 140)
+        (mem/s/j:SI (reg/v/f:SI 138 [ first ]) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 9 8 10 2 arch/arm/kernel/unwind.c:110 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 137 [ addr ])
+            (reg:SI 140))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 10 9 11 2 arch/arm/kernel/unwind.c:110 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 19)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+        (nil)))
+;; End of basic block 2 -> ( 3 4)
+
+;; Succ edge  3 [0.0%]  (fallthru)
+;; Succ edge  4 [100.0%] 
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [0.0%]  (fallthru)
+(note 11 10 12 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 12 11 13 3 arch/arm/kernel/unwind.c:111 (set (reg:SI 141)
+        (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x11075fa0>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 13 12 14 3 arch/arm/kernel/unwind.c:111 (set (reg:SI 0 r0)
+        (reg:SI 141)) 167 {*arm_movsi_insn} (nil))
+
+(insn 14 13 15 3 arch/arm/kernel/unwind.c:111 (set (reg:SI 1 r1)
+        (reg/v:SI 137 [ addr ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 15 14 16 3 arch/arm/kernel/unwind.c:111 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 16 15 19 3 arch/arm/kernel/unwind.c:112 (set (reg/v/f:SI 139 [ last ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 3 -> ( 10)
+
+;; Succ edge  10 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 4
+;; Pred edge  2 [100.0%] 
+(code_label 19 16 20 4 28 "" [1 uses])
+
+(note 20 19 21 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 21 20 22 4 arch/arm/kernel/unwind.c:113 (set (reg:SI 142)
+        (mem/s/j:SI (reg/v/f:SI 139 [ last ]) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 21 23 4 arch/arm/kernel/unwind.c:113 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 137 [ addr ])
+            (reg:SI 142))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 23 22 48 4 arch/arm/kernel/unwind.c:113 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 54)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3900 [0xf3c])
+        (nil)))
+;; End of basic block 4 -> ( 10 8)
+
+;; Succ edge  10 [39.0%] 
+;; Succ edge  8 [61.0%]  (fallthru)
+
+;; Start of basic block ( 8) -> 5
+;; Pred edge  8 [95.5%] 
+(code_label 48 23 27 5 32 "" [1 uses])
+
+(note 27 48 28 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 28 27 29 5 arch/arm/kernel/unwind.c:117 (set (reg:SI 143)
+        (minus:SI (reg/v/f:SI 139 [ last ])
+            (reg/v/f:SI 138 [ first ]))) 28 {*arm_subsi3_insn} (nil))
+
+(insn 29 28 30 5 arch/arm/kernel/unwind.c:117 (set (reg:SI 145)
+        (ashiftrt:SI (reg:SI 143)
+            (const_int 3 [0x3]))) 117 {*arm_shiftsi3} (expr_list:REG_EQUAL (div:SI (reg:SI 143)
+            (const_int 8 [0x8]))
+        (nil)))
+
+(insn 30 29 31 5 arch/arm/kernel/unwind.c:117 (set (reg:SI 146)
+        (plus:SI (reg:SI 145)
+            (const_int 1 [0x1]))) 4 {*arm_addsi3} (nil))
+
+(insn 31 30 32 5 arch/arm/kernel/unwind.c:117 (set (reg:SI 147)
+        (ashiftrt:SI (reg:SI 146)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 32 31 33 5 arch/arm/kernel/unwind.c:117 (set (reg:SI 148)
+        (ashift:SI (reg:SI 147)
+            (const_int 3 [0x3]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 33 32 34 5 arch/arm/kernel/unwind.c:117 (set (reg/v/f:SI 135 [ mid ])
+        (plus:SI (reg/v/f:SI 138 [ first ])
+            (reg:SI 148))) 4 {*arm_addsi3} (nil))
+
+(insn 34 33 35 5 arch/arm/kernel/unwind.c:117 (set (reg/v/f:SI 134 [ first.433 ])
+        (reg/v/f:SI 135 [ mid ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 35 34 36 5 arch/arm/kernel/unwind.c:117 (set (reg/v/f:SI 133 [ last.434 ])
+        (reg/v/f:SI 135 [ mid ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 36 35 37 5 arch/arm/kernel/unwind.c:119 (set (reg:SI 149)
+        (mem/s/j:SI (reg/v/f:SI 135 [ mid ]) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 37 36 38 5 arch/arm/kernel/unwind.c:119 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 137 [ addr ])
+            (reg:SI 149))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 38 37 39 5 arch/arm/kernel/unwind.c:119 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 43)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 1400 [0x578])
+        (nil)))
+;; End of basic block 5 -> ( 6 7)
+
+;; Succ edge  6 [86.0%]  (fallthru,dfs_back)
+;; Succ edge  7 [14.0%]  (dfs_back)
+
+;; Start of basic block ( 5) -> 6
+;; Pred edge  5 [86.0%]  (fallthru,dfs_back)
+(note 39 38 40 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 40 39 43 6 arch/arm/kernel/unwind.c:117 (set (reg/v/f:SI 139 [ last ])
+        (reg/v/f:SI 133 [ last.434 ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 6 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 5) -> 7
+;; Pred edge  5 [14.0%]  (dfs_back)
+(code_label 43 40 44 7 31 "" [1 uses])
+
+(note 44 43 45 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 45 44 46 7 arch/arm/kernel/unwind.c:117 (set (reg/v/f:SI 138 [ first ])
+        (reg/v/f:SI 134 [ first.433 ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 7 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 7 6 4) -> 8
+;; Pred edge  7 [100.0%]  (fallthru)
+;; Pred edge  6 [100.0%]  (fallthru)
+;; Pred edge  4 [61.0%]  (fallthru)
+(code_label 46 45 47 8 30 "" [0 uses])
+
+(note 47 46 49 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 49 47 50 8 arch/arm/kernel/unwind.c:116 discrim 1 (set (reg:SI 150)
+        (plus:SI (reg/v/f:SI 139 [ last ])
+            (const_int -8 [0xfffffffffffffff8]))) 4 {*arm_addsi3} (nil))
+
+(insn 50 49 51 8 arch/arm/kernel/unwind.c:116 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 138 [ first ])
+            (reg:SI 150))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 51 50 52 8 arch/arm/kernel/unwind.c:116 discrim 1 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 48)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9550 [0x254e])
+        (nil)))
+;; End of basic block 8 -> ( 5 9)
+
+;; Succ edge  5 [95.5%] 
+;; Succ edge  9 [4.5%]  (fallthru)
+
+;; Start of basic block ( 8) -> 9
+;; Pred edge  8 [4.5%]  (fallthru)
+(note 52 51 53 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 53 52 54 9 arch/arm/kernel/unwind.c:116 discrim 1 (set (reg/v/f:SI 139 [ last ])
+        (reg/v/f:SI 138 [ first ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 9 -> ( 10)
+
+;; Succ edge  10 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3 4 9) -> 10
+;; Pred edge  3 [100.0%]  (fallthru)
+;; Pred edge  4 [39.0%] 
+;; Pred edge  9 [100.0%]  (fallthru)
+(code_label 54 53 55 10 29 "" [1 uses])
+
+(note 55 54 56 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 56 55 60 10 arch/arm/kernel/unwind.c:126 (set (reg:SI 136 [ <result> ])
+        (reg/v/f:SI 139 [ last ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 60 56 66 10 arch/arm/kernel/unwind.c:126 (set (reg/i:SI 0 r0)
+        (reg:SI 136 [ <result> ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 66 60 0 10 arch/arm/kernel/unwind.c:126 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 10 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_get_byte (unwind_get_byte)[0:856]
+
+
+8 basic blocks, 9 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  4 [0.0%]  (fallthru) 5 [100.0%] 
+
+Basic block 4 , prev 2, next 5, loop_depth 0, count 0, freq 4.
+Predecessors:  2 [0.0%]  (fallthru)
+Successors:  8 [100.0%]  (fallthru)
+
+Basic block 5 , prev 4, next 6, loop_depth 0, count 0, freq 9996, maybe hot.
+Predecessors:  2 [100.0%] 
+Successors:  6 [39.0%]  (fallthru) 7 [61.0%] 
+
+Basic block 6 , prev 5, next 7, loop_depth 0, count 0, freq 3898, maybe hot.
+Predecessors:  5 [39.0%]  (fallthru)
+Successors:  8 [100.0%]  (fallthru)
+
+Basic block 7 , prev 6, next 8, loop_depth 0, count 0, freq 6098, maybe hot.
+Predecessors:  5 [61.0%] 
+Successors:  8 [100.0%]  (fallthru)
+
+Basic block 8 , prev 7, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  4 [100.0%]  (fallthru) 7 [100.0%]  (fallthru) 6 [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 8, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  8 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/unwind.c:162 (set (reg/v/f:SI 137 [ ctrl ])
+        (reg:SI 0 r0 [ ctrl ])) 167 {*arm_movsi_insn} (nil))
+
+(note 3 2 6 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 6 3 7 2 arch/arm/kernel/unwind.c:165 (set (reg:SI 138)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 68 [0x44])) [0 <variable>.entries+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 7 6 8 2 arch/arm/kernel/unwind.c:165 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 138)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 8 7 9 2 arch/arm/kernel/unwind.c:165 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 16)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+        (nil)))
+;; End of basic block 2 -> ( 3 4)
+
+;; Succ edge  3 [0.0%]  (fallthru)
+;; Succ edge  4 [100.0%] 
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [0.0%]  (fallthru)
+(note 9 8 10 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 10 9 11 3 arch/arm/kernel/unwind.c:166 (set (reg:SI 139)
+        (symbol_ref/v/f:SI ("*.LC1") [flags 0x82] <string_cst 0x110e3b80>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/unwind.c:166 (set (reg:SI 0 r0)
+        (reg:SI 139)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 12 11 13 3 arch/arm/kernel/unwind.c:166 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 13 12 16 3 arch/arm/kernel/unwind.c:167 (set (reg/v:SI 133 [ ret ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 3 -> ( 7)
+
+;; Succ edge  7 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 4
+;; Pred edge  2 [100.0%] 
+(code_label 16 13 17 4 38 "" [1 uses])
+
+(note 17 16 18 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 18 17 19 4 arch/arm/kernel/unwind.c:170 (set (reg/f:SI 135 [ D.15480 ])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 64 [0x40])) [0 <variable>.insn+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 19 18 20 4 arch/arm/kernel/unwind.c:170 (set (reg:SI 134 [ D.15482 ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 72 [0x48])) [0 <variable>.byte+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 20 19 21 4 arch/arm/kernel/unwind.c:170 (set (reg:SI 140)
+        (ashift:SI (reg:SI 134 [ D.15482 ])
+            (const_int 3 [0x3]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 21 20 22 4 arch/arm/kernel/unwind.c:170 (set (reg:SI 142)
+        (mem:SI (reg/f:SI 135 [ D.15480 ]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 21 23 4 arch/arm/kernel/unwind.c:170 (set (reg:SI 141)
+        (lshiftrt:SI (reg:SI 142)
+            (reg:SI 140))) 117 {*arm_shiftsi3} (nil))
+
+(insn 23 22 24 4 arch/arm/kernel/unwind.c:170 (set (reg/v:SI 133 [ ret ])
+        (and:SI (reg:SI 141)
+            (const_int 255 [0xff]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 24 23 25 4 arch/arm/kernel/unwind.c:172 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 134 [ D.15482 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 25 24 26 4 arch/arm/kernel/unwind.c:172 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 36)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 6100 [0x17d4])
+        (nil)))
+;; End of basic block 4 -> ( 5 6)
+
+;; Succ edge  5 [39.0%]  (fallthru)
+;; Succ edge  6 [61.0%] 
+
+;; Start of basic block ( 4) -> 5
+;; Pred edge  4 [39.0%]  (fallthru)
+(note 26 25 27 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 27 26 28 5 arch/arm/kernel/unwind.c:173 (set (reg:SI 143)
+        (plus:SI (reg/f:SI 135 [ D.15480 ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 28 27 29 5 arch/arm/kernel/unwind.c:173 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 64 [0x40])) [0 <variable>.insn+0 S4 A32])
+        (reg:SI 143)) 167 {*arm_movsi_insn} (nil))
+
+(insn 29 28 30 5 arch/arm/kernel/unwind.c:174 (set (reg:SI 144)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 68 [0x44])) [0 <variable>.entries+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 30 29 31 5 arch/arm/kernel/unwind.c:174 (set (reg:SI 145)
+        (plus:SI (reg:SI 144)
+            (const_int -1 [0xffffffffffffffff]))) 4 {*arm_addsi3} (nil))
+
+(insn 31 30 32 5 arch/arm/kernel/unwind.c:174 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 68 [0x44])) [0 <variable>.entries+0 S4 A32])
+        (reg:SI 145)) 167 {*arm_movsi_insn} (nil))
+
+(insn 32 31 33 5 arch/arm/kernel/unwind.c:175 (set (reg:SI 146)
+        (const_int 3 [0x3])) 167 {*arm_movsi_insn} (nil))
+
+(insn 33 32 36 5 arch/arm/kernel/unwind.c:175 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 72 [0x48])) [0 <variable>.byte+0 S4 A32])
+        (reg:SI 146)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 5 -> ( 7)
+
+;; Succ edge  7 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 6
+;; Pred edge  4 [61.0%] 
+(code_label 36 33 37 6 40 "" [1 uses])
+
+(note 37 36 38 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 38 37 39 6 arch/arm/kernel/unwind.c:177 (set (reg:SI 147)
+        (plus:SI (reg:SI 134 [ D.15482 ])
+            (const_int -1 [0xffffffffffffffff]))) 4 {*arm_addsi3} (nil))
+
+(insn 39 38 40 6 arch/arm/kernel/unwind.c:177 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 137 [ ctrl ])
+                (const_int 72 [0x48])) [0 <variable>.byte+0 S4 A32])
+        (reg:SI 147)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 6 -> ( 7)
+
+;; Succ edge  7 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3 6 5) -> 7
+;; Pred edge  3 [100.0%]  (fallthru)
+;; Pred edge  6 [100.0%]  (fallthru)
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 40 39 41 7 39 "" [0 uses])
+
+(note 41 40 42 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 42 41 46 7 arch/arm/kernel/unwind.c:180 (set (reg:SI 136 [ <result> ])
+        (reg/v:SI 133 [ ret ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 46 42 52 7 arch/arm/kernel/unwind.c:180 (set (reg/i:SI 0 r0)
+        (reg:SI 136 [ <result> ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 52 46 0 7 arch/arm/kernel/unwind.c:180 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 7 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_frame (unwind_frame)[0:858]
+
+
+74 basic blocks, 109 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 3411, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 3411, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  73 [61.0%]  4 [39.0%]  (fallthru)
+
+Basic block 4 , prev 2, next 5, loop_depth 0, count 0, freq 1330, maybe hot.
+Predecessors:  2 [39.0%]  (fallthru)
+Successors:  5 [50.0%]  (fallthru) 6 [50.0%] 
+
+Basic block 5 , prev 4, next 6, loop_depth 0, count 0, freq 665, maybe hot.
+Predecessors:  4 [50.0%]  (fallthru)
+Successors:  14 [100.0%]  (fallthru)
+
+Basic block 6 , prev 5, next 7, loop_depth 0, count 0, freq 665, maybe hot.
+Predecessors:  4 [50.0%] 
+Successors:  11 [100.0%]  (fallthru)
+
+Basic block 7 , prev 6, next 8, loop_depth 1, count 0, freq 9550, maybe hot.
+Predecessors:  11 [95.5%] 
+Successors:  8 [50.0%]  (fallthru) 10 [50.0%] 
+
+Basic block 8 , prev 7, next 9, loop_depth 1, count 0, freq 4775, maybe hot.
+Predecessors:  7 [50.0%]  (fallthru)
+Successors:  9 [4.5%]  (fallthru) 10 [95.5%] 
+
+Basic block 9 , prev 8, next 10, loop_depth 0, count 0, freq 215, maybe hot.
+Predecessors:  8 [4.5%]  (fallthru)
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 10 , prev 9, next 11, loop_depth 1, count 0, freq 9335, maybe hot.
+Predecessors:  7 [50.0%]  8 [95.5%] 
+Successors:  11 [100.0%]  (fallthru,dfs_back)
+
+Basic block 11 , prev 10, next 12, loop_depth 1, count 0, freq 10000, maybe hot.
+Predecessors:  6 [100.0%]  (fallthru) 10 [100.0%]  (fallthru,dfs_back)
+Successors:  7 [95.5%]  12 [4.5%]  (fallthru)
+
+Basic block 12 , prev 11, next 13, loop_depth 0, count 0, freq 450, maybe hot.
+Predecessors:  11 [4.5%]  (fallthru)
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 13 , prev 12, next 14, loop_depth 0, count 0, freq 665, maybe hot.
+Predecessors:  9 [100.0%]  (fallthru) 12 [100.0%]  (fallthru)
+Successors:  14 [100.0%]  (fallthru)
+
+Basic block 14 , prev 13, next 15, loop_depth 0, count 0, freq 1330, maybe hot.
+Predecessors:  5 [100.0%]  (fallthru) 13 [100.0%]  (fallthru)
+Successors:  15 [0.0%]  (fallthru) 16 [100.0%] 
+
+Basic block 15 , prev 14, next 16, loop_depth 0, count 0, freq 1.
+Predecessors:  14 [0.0%]  (fallthru)
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 16 , prev 15, next 17, loop_depth 0, count 0, freq 1329, maybe hot.
+Predecessors:  14 [100.0%] 
+Successors:  73 [19.9%]  17 [80.1%]  (fallthru)
+
+Basic block 17 , prev 16, next 18, loop_depth 0, count 0, freq 1065, maybe hot.
+Predecessors:  16 [80.1%]  (fallthru)
+Successors:  18 [73.0%]  (fallthru) 19 [27.0%] 
+
+Basic block 18 , prev 17, next 19, loop_depth 0, count 0, freq 777, maybe hot.
+Predecessors:  17 [73.0%]  (fallthru)
+Successors:  22 [100.0%]  (fallthru)
+
+Basic block 19 , prev 18, next 20, loop_depth 0, count 0, freq 287, maybe hot.
+Predecessors:  17 [27.0%] 
+Successors:  20 [100.0%]  (fallthru) 21 [0.0%] 
+
+Basic block 20 , prev 19, next 21, loop_depth 0, count 0, freq 287, maybe hot.
+Predecessors:  19 [100.0%]  (fallthru)
+Successors:  22 [100.0%]  (fallthru)
+
+Basic block 21 , prev 20, next 22, loop_depth 0, count 0, freq 0.
+Predecessors:  19 [0.0%] 
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 22 , prev 21, next 23, loop_depth 0, count 0, freq 1064, maybe hot.
+Predecessors:  18 [100.0%]  (fallthru) 20 [100.0%]  (fallthru)
+Successors:  23 [28.0%]  (fallthru) 24 [72.0%] 
+
+Basic block 23 , prev 22, next 24, loop_depth 0, count 0, freq 298, maybe hot.
+Predecessors:  22 [28.0%]  (fallthru)
+Successors:  68 [100.0%]  (fallthru)
+
+Basic block 24 , prev 23, next 25, loop_depth 0, count 0, freq 766, maybe hot.
+Predecessors:  22 [72.0%] 
+Successors:  25 [100.0%]  (fallthru) 26 [0.0%] 
+
+Basic block 25 , prev 24, next 26, loop_depth 0, count 0, freq 766, maybe hot.
+Predecessors:  24 [100.0%]  (fallthru)
+Successors:  68 [100.0%]  (fallthru)
+
+Basic block 26 , prev 25, next 27, loop_depth 0, count 0, freq 0.
+Predecessors:  24 [0.0%] 
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 27 , prev 26, next 28, loop_depth 1, count 0, freq 5287, maybe hot.
+Predecessors:  68 [97.8%] 
+Successors:  28 [50.0%]  (fallthru) 29 [50.0%] 
+
+Basic block 28 , prev 27, next 29, loop_depth 1, count 0, freq 2643, maybe hot.
+Predecessors:  27 [50.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 29 , prev 28, next 30, loop_depth 1, count 0, freq 2643, maybe hot.
+Predecessors:  27 [50.0%] 
+Successors:  30 [28.0%]  (fallthru) 31 [72.0%] 
+
+Basic block 30 , prev 29, next 31, loop_depth 1, count 0, freq 740, maybe hot.
+Predecessors:  29 [28.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 31 , prev 30, next 32, loop_depth 1, count 0, freq 1903, maybe hot.
+Predecessors:  29 [72.0%] 
+Successors:  32 [13.7%]  (fallthru) 40 [86.3%] 
+
+Basic block 32 , prev 31, next 33, loop_depth 1, count 0, freq 261, maybe hot.
+Predecessors:  31 [13.7%]  (fallthru)
+Successors:  33 [0.0%]  (fallthru) 34 [100.0%] 
+
+Basic block 33 , prev 32, next 34, loop_depth 0, count 0, freq 0.
+Predecessors:  32 [0.0%]  (fallthru)
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 34 , prev 33, next 35, loop_depth 1, count 0, freq 261, maybe hot.
+Predecessors:  32 [100.0%] 
+Successors:  35 [100.0%]  (fallthru)
+
+Basic block 35 , prev 34, next 36, loop_depth 2, count 0, freq 3131, maybe hot.
+Predecessors:  37 [91.7%]  (dfs_back) 34 [100.0%]  (fallthru)
+Successors:  36 [50.0%]  (fallthru) 37 [50.0%] 
+
+Basic block 36 , prev 35, next 37, loop_depth 2, count 0, freq 1566, maybe hot.
+Predecessors:  35 [50.0%]  (fallthru)
+Successors:  37 [100.0%]  (fallthru)
+
+Basic block 37 , prev 36, next 38, loop_depth 2, count 0, freq 3131, maybe hot.
+Predecessors:  35 [50.0%]  36 [100.0%]  (fallthru)
+Successors:  35 [91.7%]  (dfs_back) 38 [8.3%]  (fallthru)
+
+Basic block 38 , prev 37, next 39, loop_depth 1, count 0, freq 261, maybe hot.
+Predecessors:  37 [8.3%]  (fallthru)
+Successors:  39 [50.0%]  (fallthru) 66 [50.0%] 
+
+Basic block 39 , prev 38, next 40, loop_depth 1, count 0, freq 130, maybe hot.
+Predecessors:  38 [50.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 40 , prev 39, next 41, loop_depth 1, count 0, freq 1642, maybe hot.
+Predecessors:  31 [86.3%] 
+Successors:  41 [28.0%]  (fallthru) 43 [72.0%] 
+
+Basic block 41 , prev 40, next 42, loop_depth 1, count 0, freq 460, maybe hot.
+Predecessors:  40 [28.0%]  (fallthru)
+Successors:  42 [72.0%]  (fallthru) 50 [28.0%] 
+
+Basic block 42 , prev 41, next 43, loop_depth 1, count 0, freq 331, maybe hot.
+Predecessors:  41 [72.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 43 , prev 42, next 44, loop_depth 1, count 0, freq 1182, maybe hot.
+Predecessors:  40 [72.0%] 
+Successors:  44 [31.1%]  (fallthru) 50 [69.0%] 
+
+Basic block 44 , prev 43, next 45, loop_depth 1, count 0, freq 367, maybe hot.
+Predecessors:  43 [31.1%]  (fallthru)
+Successors:  46 [100.0%]  (fallthru)
+
+Basic block 45 , prev 44, next 46, loop_depth 2, count 0, freq 4407, maybe hot.
+Predecessors:  46 [92.3%] 
+Successors:  46 [100.0%]  (fallthru,dfs_back)
+
+Basic block 46 , prev 45, next 47, loop_depth 2, count 0, freq 4774, maybe hot.
+Predecessors:  44 [100.0%]  (fallthru) 45 [100.0%]  (fallthru,dfs_back)
+Successors:  45 [92.3%]  47 [7.7%]  (fallthru)
+
+Basic block 47 , prev 46, next 48, loop_depth 1, count 0, freq 367, maybe hot.
+Predecessors:  46 [7.7%]  (fallthru)
+Successors:  48 [50.0%]  (fallthru) 49 [50.0%] 
+
+Basic block 48 , prev 47, next 49, loop_depth 1, count 0, freq 184, maybe hot.
+Predecessors:  47 [50.0%]  (fallthru)
+Successors:  49 [100.0%]  (fallthru)
+
+Basic block 49 , prev 48, next 50, loop_depth 1, count 0, freq 367, maybe hot.
+Predecessors:  47 [50.0%]  48 [100.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 50 , prev 49, next 51, loop_depth 1, count 0, freq 944, maybe hot.
+Predecessors:  43 [69.0%]  41 [28.0%] 
+Successors:  51 [28.0%]  (fallthru) 54 [72.0%] 
+
+Basic block 51 , prev 50, next 52, loop_depth 1, count 0, freq 264, maybe hot.
+Predecessors:  50 [28.0%]  (fallthru)
+Successors:  52 [50.0%]  (fallthru) 53 [50.0%] 
+
+Basic block 52 , prev 51, next 53, loop_depth 1, count 0, freq 132, maybe hot.
+Predecessors:  51 [50.0%]  (fallthru)
+Successors:  53 [100.0%]  (fallthru)
+
+Basic block 53 , prev 52, next 54, loop_depth 1, count 0, freq 264, maybe hot.
+Predecessors:  51 [50.0%]  52 [100.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 54 , prev 53, next 55, loop_depth 1, count 0, freq 680, maybe hot.
+Predecessors:  50 [72.0%] 
+Successors:  55 [13.7%]  (fallthru) 63 [86.3%] 
+
+Basic block 55 , prev 54, next 56, loop_depth 1, count 0, freq 93, maybe hot.
+Predecessors:  54 [13.7%]  (fallthru)
+Successors:  57 [0.0%]  56 [100.0%]  (fallthru)
+
+Basic block 56 , prev 55, next 57, loop_depth 1, count 0, freq 93, maybe hot.
+Predecessors:  55 [100.0%]  (fallthru)
+Successors:  57 [0.0%]  (fallthru) 58 [100.0%] 
+
+Basic block 57 , prev 56, next 58, loop_depth 0, count 0, freq 0.
+Predecessors:  55 [0.0%]  56 [0.0%]  (fallthru)
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 58 , prev 57, next 59, loop_depth 1, count 0, freq 93, maybe hot.
+Predecessors:  56 [100.0%] 
+Successors:  59 [100.0%]  (fallthru)
+
+Basic block 59 , prev 58, next 60, loop_depth 2, count 0, freq 1491, maybe hot.
+Predecessors:  61 [93.8%]  (dfs_back) 58 [100.0%]  (fallthru)
+Successors:  60 [50.0%]  (fallthru) 61 [50.0%] 
+
+Basic block 60 , prev 59, next 61, loop_depth 2, count 0, freq 745, maybe hot.
+Predecessors:  59 [50.0%]  (fallthru)
+Successors:  61 [100.0%]  (fallthru)
+
+Basic block 61 , prev 60, next 62, loop_depth 2, count 0, freq 1491, maybe hot.
+Predecessors:  59 [50.0%]  60 [100.0%]  (fallthru)
+Successors:  59 [93.8%]  (dfs_back) 62 [6.2%]  (fallthru)
+
+Basic block 62 , prev 61, next 63, loop_depth 1, count 0, freq 93, maybe hot.
+Predecessors:  61 [6.2%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 63 , prev 62, next 64, loop_depth 1, count 0, freq 587, maybe hot.
+Predecessors:  54 [86.3%] 
+Successors:  64 [100.0%]  (fallthru) 65 [0.0%] 
+
+Basic block 64 , prev 63, next 65, loop_depth 1, count 0, freq 586, maybe hot.
+Predecessors:  63 [100.0%]  (fallthru)
+Successors:  66 [100.0%]  (fallthru)
+
+Basic block 65 , prev 64, next 66, loop_depth 0, count 0, freq 0.
+Predecessors:  63 [0.0%] 
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 66 , prev 65, next 67, loop_depth 1, count 0, freq 2643, maybe hot.
+Predecessors:  28 [100.0%]  (fallthru) 30 [100.0%]  (fallthru) 62 [100.0%]  (fallthru) 38 [50.0%]  39 [100.0%]  (fallthru) 42 [100.0%]  (fallthru) 49 [100.0%]  (fallthru) 53 [100.0%]  (fallthru) 64 [100.0%]  (fallthru)
+Successors:  73 [2.2%]  67 [97.8%]  (fallthru)
+Invalid sum of incoming frequencies 5285, should be 2643
+
+Basic block 67 , prev 66, next 68, loop_depth 1, count 0, freq 5052, maybe hot.
+Predecessors:  66 [97.8%]  (fallthru)
+Successors:  73 [14.0%]  68 [86.0%]  (fallthru,dfs_back)
+Invalid sum of incoming frequencies 2584, should be 5052
+
+Basic block 68 , prev 67, next 69, loop_depth 1, count 0, freq 5409, maybe hot.
+Predecessors:  25 [100.0%]  (fallthru) 67 [86.0%]  (fallthru,dfs_back) 23 [100.0%]  (fallthru)
+Successors:  27 [97.8%]  69 [2.2%]  (fallthru)
+
+Basic block 69 , prev 68, next 70, loop_depth 0, count 0, freq 122, maybe hot.
+Predecessors:  68 [2.2%]  (fallthru)
+Successors:  70 [50.0%]  (fallthru) 71 [50.0%] 
+
+Basic block 70 , prev 69, next 71, loop_depth 0, count 0, freq 61, maybe hot.
+Predecessors:  69 [50.0%]  (fallthru)
+Successors:  71 [100.0%]  (fallthru)
+
+Basic block 71 , prev 70, next 72, loop_depth 0, count 0, freq 122, maybe hot.
+Predecessors:  69 [50.0%]  70 [100.0%]  (fallthru)
+Successors:  73 [19.9%]  72 [80.1%]  (fallthru)
+
+Basic block 72 , prev 71, next 73, loop_depth 0, count 0, freq 97, maybe hot.
+Predecessors:  71 [80.1%]  (fallthru)
+Successors:  74 [100.0%]  (fallthru)
+
+Basic block 73 , prev 72, next 74, loop_depth 0, count 0, freq 3313, maybe hot.
+Predecessors:  2 [61.0%]  66 [2.2%]  16 [19.9%]  71 [19.9%]  67 [14.0%] 
+Successors:  74 [100.0%]  (fallthru)
+Invalid sum of incoming frequencies 3136, should be 3313
+
+Basic block 74 , prev 73, next 1, loop_depth 0, count 0, freq 3411, maybe hot.
+Predecessors:  73 [100.0%]  (fallthru) 15 [100.0%]  (fallthru) 33 [100.0%]  (fallthru) 65 [100.0%]  (fallthru) 21 [100.0%]  (fallthru) 72 [100.0%]  (fallthru) 26 [100.0%]  (fallthru) 57 [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 74, loop_depth 0, count 0, freq 3411, maybe hot.
+Predecessors:  74 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 5 0 3 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 3 5 4 2 arch/arm/kernel/unwind.c:275 (set (reg/v/f:SI 175 [ frame ])
+        (reg:SI 0 r0 [ frame ])) 167 {*arm_movsi_insn} (nil))
+
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 7 4 8 2 arch/arm/kernel/unwind.c:281 (set (reg/v:SI 165 [ low ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 4 [0x4])) [0 <variable>.sp+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 8 7 9 2 arch/arm/kernel/unwind.c:282 (set (reg:SI 177)
+        (plus:SI (reg/v:SI 165 [ low ])
+            (const_int 8128 [0x1fc0]))) 4 {*arm_addsi3} (nil))
+
+(insn 9 8 10 2 arch/arm/kernel/unwind.c:282 (set (reg:SI 176)
+        (plus:SI (reg:SI 177)
+            (const_int 63 [0x3f]))) 4 {*arm_addsi3} (expr_list:REG_EQUAL (plus:SI (reg/v:SI 165 [ low ])
+            (const_int 8191 [0x1fff]))
+        (nil)))
+
+(insn 10 9 11 2 arch/arm/kernel/unwind.c:282 (set (reg:SI 178)
+        (and:SI (reg:SI 176)
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 11 10 12 2 arch/arm/kernel/unwind.c:282 (set (reg/v:SI 166 [ high ])
+        (and:SI (reg:SI 178)
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (expr_list:REG_EQUAL (and:SI (reg:SI 176)
+            (const_int -8192 [0xffffffffffffe000]))
+        (nil)))
+
+(insn 12 11 13 2 arch/arm/kernel/unwind.c:287 (set (reg:SI 0 r0)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 12 [0xc])) [0 <variable>.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 13 12 14 2 arch/arm/kernel/unwind.c:287 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kernel_text_address") [flags 0x41] <function_decl 0x10a58300 kernel_text_address>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 14 13 15 2 arch/arm/kernel/unwind.c:287 (set (reg:SI 173 [ D.15618 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 15 14 16 2 arch/arm/kernel/unwind.c:287 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 173 [ D.15618 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 16 15 17 2 arch/arm/kernel/unwind.c:287 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 458)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+;; End of basic block 2 -> ( 72 3)
+
+;; Succ edge  72 [61.0%] 
+;; Succ edge  3 [39.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [39.0%]  (fallthru)
+(note 17 16 18 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 18 17 19 3 arch/arm/kernel/unwind.c:290 (set (reg:SI 137 [ temp.525 ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 12 [0xc])) [0 <variable>.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 19 18 20 3 arch/arm/kernel/unwind.c:135 (set (reg:SI 0 r0)
+        (reg:SI 137 [ temp.525 ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 20 19 21 3 arch/arm/kernel/unwind.c:135 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("core_kernel_text") [flags 0x41] <function_decl 0x10a58180 core_kernel_text>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 21 20 22 3 arch/arm/kernel/unwind.c:135 (set (reg:SI 155 [ D.15905 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 21 23 3 arch/arm/kernel/unwind.c:135 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 155 [ D.15905 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 23 22 24 3 arch/arm/kernel/unwind.c:135 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 34)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 3 -> ( 4 5)
+
+;; Succ edge  4 [50.0%]  (fallthru)
+;; Succ edge  5 [50.0%] 
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [50.0%]  (fallthru)
+(note 24 23 25 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 25 24 26 4 arch/arm/kernel/unwind.c:137 (set (reg:SI 179)
+        (symbol_ref:SI ("__start_unwind_idx") [flags 0xc0] <var_decl 0x11041000 __start_unwind_idx>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 26 25 27 4 arch/arm/kernel/unwind.c:137 (set (reg:SI 180)
+        (const:SI (plus:SI (symbol_ref:SI ("__stop_unwind_idx") [flags 0xc0] <var_decl 0x11041060 __stop_unwind_idx>)
+                (const_int -8 [0xfffffffffffffff8])))) 167 {*arm_movsi_insn} (nil))
+
+(insn 27 26 28 4 arch/arm/kernel/unwind.c:137 (set (reg:SI 0 r0)
+        (reg:SI 137 [ temp.525 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 28 27 29 4 arch/arm/kernel/unwind.c:137 (set (reg:SI 1 r1)
+        (reg:SI 179)) 167 {*arm_movsi_insn} (nil))
+
+(insn 29 28 30 4 arch/arm/kernel/unwind.c:137 (set (reg:SI 2 r2)
+        (reg:SI 180)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 30 29 31 4 arch/arm/kernel/unwind.c:137 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("search_index") [flags 0x3] <function_decl 0x11039a00 search_index>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 31 30 34 4 arch/arm/kernel/unwind.c:137 (set (reg/v/f:SI 164 [ idx ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 4 -> ( 13)
+
+;; Succ edge  13 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [50.0%] 
+(code_label 34 31 35 5 46 "" [1 uses])
+
+(note 35 34 36 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 36 35 37 5 arch/arm/kernel/unwind.c:143 (set (reg/f:SI 181)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 37 36 38 5 arch/arm/kernel/unwind.c:143 (set (reg:SI 0 r0)
+        (reg/f:SI 181)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 38 37 39 5 arch/arm/kernel/unwind.c:143 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_spin_lock_irqsave") [flags 0x41] <function_decl 0x10ad9d00 _raw_spin_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 39 38 40 5 arch/arm/kernel/unwind.c:143 (set (reg/v:SI 157 [ flags ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 40 39 41 5 arch/arm/kernel/unwind.c:144 (set (reg/f:SI 182)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 41 40 81 5 arch/arm/kernel/unwind.c:144 (set (reg/v/f:SI 158 [ table ])
+        (mem/s/f/j/c:SI (reg/f:SI 182) [0 unwind_tables.next+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 5 -> ( 10)
+
+;; Succ edge  10 [100.0%]  (fallthru)
+
+;; Start of basic block ( 10) -> 6
+;; Pred edge  10 [95.5%] 
+(code_label 81 41 44 6 51 "" [1 uses])
+
+(note 44 81 45 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 45 44 46 6 arch/arm/kernel/unwind.c:145 (set (reg:SI 183)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 16 [0x10])) [0 <variable>.begin_addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 46 45 47 6 arch/arm/kernel/unwind.c:145 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 137 [ temp.525 ])
+            (reg:SI 183))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 47 46 48 6 arch/arm/kernel/unwind.c:145 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 74)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 6 -> ( 7 9)
+
+;; Succ edge  7 [50.0%]  (fallthru)
+;; Succ edge  9 [50.0%] 
+
+;; Start of basic block ( 6) -> 7
+;; Pred edge  6 [50.0%]  (fallthru)
+(note 48 47 49 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 49 48 50 7 arch/arm/kernel/unwind.c:146 (set (reg:SI 184)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 20 [0x14])) [0 <variable>.end_addr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 50 49 51 7 arch/arm/kernel/unwind.c:146 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 137 [ temp.525 ])
+            (reg:SI 184))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 51 50 52 7 arch/arm/kernel/unwind.c:146 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 74)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9550 [0x254e])
+        (nil)))
+;; End of basic block 7 -> ( 8 9)
+
+;; Succ edge  8 [4.5%]  (fallthru)
+;; Succ edge  9 [95.5%] 
+
+;; Start of basic block ( 7) -> 8
+;; Pred edge  7 [4.5%]  (fallthru)
+(note 52 51 53 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 53 52 54 8 arch/arm/kernel/unwind.c:147 (set (reg:SI 186)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 12 [0xc])) [0 <variable>.stop+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 54 53 55 8 arch/arm/kernel/unwind.c:147 (set (reg:SI 185)
+        (plus:SI (reg:SI 186)
+            (const_int -8 [0xfffffffffffffff8]))) 4 {*arm_addsi3} (nil))
+
+(insn 55 54 56 8 arch/arm/kernel/unwind.c:147 (set (reg:SI 0 r0)
+        (reg:SI 137 [ temp.525 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 56 55 57 8 arch/arm/kernel/unwind.c:147 (set (reg:SI 1 r1)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 8 [0x8])) [0 <variable>.start+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 57 56 58 8 arch/arm/kernel/unwind.c:147 (set (reg:SI 2 r2)
+        (reg:SI 185)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 58 57 59 8 arch/arm/kernel/unwind.c:147 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("search_index") [flags 0x3] <function_decl 0x11039a00 search_index>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 59 58 60 8 arch/arm/kernel/unwind.c:147 (set (reg/v/f:SI 164 [ idx ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 60 59 61 8 include/linux/list.h:101 (set (reg/f:SI 161 [ D.15897 ])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 4 [0x4])) [0 <variable>.list.prev+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 61 60 62 8 include/linux/list.h:101 (set (reg/f:SI 162 [ D.15896 ])
+        (mem/s/f/j:SI (reg/v/f:SI 158 [ table ]) [0 <variable>.list.next+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 62 61 63 8 include/linux/list.h:88 (set (mem/s/f/j:SI (plus:SI (reg/f:SI 162 [ D.15896 ])
+                (const_int 4 [0x4])) [0 <variable>.prev+0 S4 A32])
+        (reg/f:SI 161 [ D.15897 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 63 62 64 8 include/linux/list.h:89 (set (mem/s/f/j:SI (reg/f:SI 161 [ D.15897 ]) [0 <variable>.next+0 S4 A32])
+        (reg/f:SI 162 [ D.15896 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 64 63 65 8 include/linux/list.h:62 (set (reg/f:SI 187)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 65 64 66 8 include/linux/list.h:62 (set (reg/f:SI 160 [ D.15898 ])
+        (mem/s/f/j/c:SI (reg/f:SI 187) [0 unwind_tables.next+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 66 65 67 8 include/linux/list.h:41 (set (mem/s/f/j:SI (plus:SI (reg/f:SI 160 [ D.15898 ])
+                (const_int 4 [0x4])) [0 <variable>.prev+0 S4 A32])
+        (reg/f:SI 156 [ D.15899 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 67 66 68 8 include/linux/list.h:42 (set (mem/s/f/j:SI (reg/v/f:SI 158 [ table ]) [0 <variable>.list.next+0 S4 A32])
+        (reg/f:SI 160 [ D.15898 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 68 67 69 8 include/linux/list.h:43 (set (reg/f:SI 188)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 69 68 70 8 include/linux/list.h:43 (set (mem/s/f/j:SI (plus:SI (reg/v/f:SI 158 [ table ])
+                (const_int 4 [0x4])) [0 <variable>.list.prev+0 S4 A32])
+        (reg/f:SI 188)) 167 {*arm_movsi_insn} (nil))
+
+(insn 70 69 71 8 include/linux/list.h:44 (set (reg/f:SI 189)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 71 70 74 8 include/linux/list.h:44 (set (mem/s/f/j/c:SI (reg/f:SI 189) [0 unwind_tables.next+0 S4 A32])
+        (reg/f:SI 156 [ D.15899 ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 8 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 9
+;; Pred edge  6 [50.0%] 
+;; Pred edge  7 [95.5%] 
+(code_label 74 71 75 9 49 "" [2 uses])
+
+(note 75 74 76 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 76 75 77 9 arch/arm/kernel/unwind.c:144 (set (reg/v/f:SI 159 [ __mptr ])
+        (mem/s/f/j:SI (reg/v/f:SI 158 [ table ]) [0 <variable>.list.next+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 77 76 78 9 arch/arm/kernel/unwind.c:144 (set (reg/v/f:SI 158 [ table ])
+        (reg/v/f:SI 159 [ __mptr ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 9 -> ( 10)
+
+;; Succ edge  10 [100.0%]  (fallthru,dfs_back)
+
+;; Start of basic block ( 5 9) -> 10
+;; Pred edge  5 [100.0%]  (fallthru)
+;; Pred edge  9 [100.0%]  (fallthru,dfs_back)
+(code_label 78 77 79 10 48 "" [0 uses])
+
+(note 79 78 80 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 80 79 82 10 arch/arm/kernel/unwind.c:144 discrim 1 (set (reg/f:SI 156 [ D.15899 ])
+        (reg/v/f:SI 158 [ table ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 82 80 83 10 arch/arm/kernel/unwind.c:144 (set (reg/f:SI 190)
+        (symbol_ref:SI ("*.LANCHOR1") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 83 82 84 10 arch/arm/kernel/unwind.c:144 (set (reg:CC 24 cc)
+        (compare:CC (reg/f:SI 156 [ D.15899 ])
+            (reg/f:SI 190))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 84 83 85 10 arch/arm/kernel/unwind.c:144 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 81)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9550 [0x254e])
+        (nil)))
+;; End of basic block 10 -> ( 6 11)
+
+;; Succ edge  6 [95.5%] 
+;; Succ edge  11 [4.5%]  (fallthru)
+
+;; Start of basic block ( 10) -> 11
+;; Pred edge  10 [4.5%]  (fallthru)
+(note 85 84 86 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+
+(insn 86 85 87 11 arch/arm/kernel/unwind.c:130 (set (reg/v/f:SI 164 [ idx ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 11 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 8 11) -> 12
+;; Pred edge  8 [100.0%]  (fallthru)
+;; Pred edge  11 [100.0%]  (fallthru)
+(code_label 87 86 88 12 50 "" [0 uses])
+
+(note 88 87 89 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+(insn 89 88 90 12 include/linux/spinlock.h:340 (set (reg/f:SI 191)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) 167 {*arm_movsi_insn} (nil))
+
+(insn 90 89 91 12 include/linux/spinlock.h:340 (set (reg:SI 0 r0)
+        (reg/f:SI 191)) 167 {*arm_movsi_insn} (nil))
+
+(insn 91 90 92 12 include/linux/spinlock.h:340 (set (reg:SI 1 r1)
+        (reg/v:SI 157 [ flags ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 92 91 93 12 include/linux/spinlock.h:340 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_spin_unlock_irqrestore") [flags 0x41] <function_decl 0x10aef080 _raw_spin_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+;; End of basic block 12 -> ( 13)
+
+;; Succ edge  13 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 12) -> 13
+;; Pred edge  4 [100.0%]  (fallthru)
+;; Pred edge  12 [100.0%]  (fallthru)
+(code_label 93 92 94 13 47 "" [0 uses])
+
+(note 94 93 95 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+
+(insn 95 94 96 13 arch/arm/kernel/unwind.c:291 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 164 [ idx ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 96 95 97 13 arch/arm/kernel/unwind.c:291 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 105)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+        (nil)))
+;; End of basic block 13 -> ( 14 15)
+
+;; Succ edge  14 [0.0%]  (fallthru)
+;; Succ edge  15 [100.0%] 
+
+;; Start of basic block ( 13) -> 14
+;; Pred edge  13 [0.0%]  (fallthru)
+(note 97 96 98 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+
+(insn 98 97 99 14 arch/arm/kernel/unwind.c:292 (set (reg:SI 192)
+        (symbol_ref/v/f:SI ("*.LC2") [flags 0x82] <string_cst 0x110ea840>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 99 98 100 14 arch/arm/kernel/unwind.c:292 (set (reg:SI 0 r0)
+        (reg:SI 192)) 167 {*arm_movsi_insn} (nil))
+
+(insn 100 99 101 14 arch/arm/kernel/unwind.c:292 (set (reg:SI 1 r1)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 12 [0xc])) [0 <variable>.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 101 100 102 14 arch/arm/kernel/unwind.c:292 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 102 101 105 14 arch/arm/kernel/unwind.c:293 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 14 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 13) -> 15
+;; Pred edge  13 [100.0%] 
+(code_label 105 102 106 15 52 "" [1 uses])
+
+(note 106 105 107 15 [bb 15] NOTE_INSN_BASIC_BLOCK)
+
+(insn 107 106 108 15 arch/arm/kernel/unwind.c:296 (set (reg:SI 193)
+        (mem/s/j:SI (reg/v/f:SI 175 [ frame ]) [0 <variable>.fp+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 108 107 109 15 arch/arm/kernel/unwind.c:296 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -32 [0xffffffffffffffe0])) [0 ctrl.vrs+44 S4 A32])
+        (reg:SI 193)) 167 {*arm_movsi_insn} (nil))
+
+(insn 109 108 110 15 arch/arm/kernel/unwind.c:297 (set (reg:SI 194)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 4 [0x4])) [0 <variable>.sp+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 110 109 111 15 arch/arm/kernel/unwind.c:297 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg:SI 194)) 167 {*arm_movsi_insn} (nil))
+
+(insn 111 110 112 15 arch/arm/kernel/unwind.c:298 (set (reg:SI 195)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 8 [0x8])) [0 <variable>.lr+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 112 111 113 15 arch/arm/kernel/unwind.c:298 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -20 [0xffffffffffffffec])) [0 ctrl.vrs+56 S4 A32])
+        (reg:SI 195)) 167 {*arm_movsi_insn} (nil))
+
+(insn 113 112 114 15 arch/arm/kernel/unwind.c:299 (set (reg:SI 196)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 114 113 115 15 arch/arm/kernel/unwind.c:299 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])
+        (reg:SI 196)) 167 {*arm_movsi_insn} (nil))
+
+(insn 115 114 116 15 arch/arm/kernel/unwind.c:301 (set (reg:SI 172 [ D.15626 ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 164 [ idx ])
+                (const_int 4 [0x4])) [0 <variable>.insn+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 116 115 117 15 arch/arm/kernel/unwind.c:301 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 172 [ D.15626 ])
+            (const_int 1 [0x1]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 117 116 118 15 arch/arm/kernel/unwind.c:301 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 458)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 1991 [0x7c7])
+        (nil)))
+;; End of basic block 15 -> ( 72 16)
+
+;; Succ edge  72 [19.9%] 
+;; Succ edge  16 [80.1%]  (fallthru)
+
+;; Start of basic block ( 15) -> 16
+;; Pred edge  15 [80.1%]  (fallthru)
+(note 118 117 119 16 [bb 16] NOTE_INSN_BASIC_BLOCK)
+
+(insn 119 118 120 16 arch/arm/kernel/unwind.c:304 (set (reg:SI 171 [ D.15629 ])
+        (reg:SI 172 [ D.15626 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 120 119 121 16 arch/arm/kernel/unwind.c:304 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 171 [ D.15629 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 121 120 122 16 arch/arm/kernel/unwind.c:304 (set (pc)
+        (if_then_else (lt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 130)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 2700 [0xa8c])
+        (nil)))
+;; End of basic block 16 -> ( 17 18)
+
+;; Succ edge  17 [73.0%]  (fallthru)
+;; Succ edge  18 [27.0%] 
+
+;; Start of basic block ( 16) -> 17
+;; Pred edge  16 [73.0%]  (fallthru)
+(note 122 121 123 17 [bb 17] NOTE_INSN_BASIC_BLOCK)
+
+(insn 123 122 124 17 arch/arm/kernel/unwind.c:306 (set (reg:SI 197)
+        (ashift:SI (reg:SI 171 [ D.15629 ])
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 124 123 125 17 arch/arm/kernel/unwind.c:306 (set (reg:SI 198)
+        (ashiftrt:SI (reg:SI 197)
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 125 124 126 17 arch/arm/kernel/unwind.c:306 (set (reg:SI 199)
+        (plus:SI (reg/v/f:SI 164 [ idx ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 126 125 127 17 arch/arm/kernel/unwind.c:306 (set (reg:SI 200)
+        (plus:SI (reg:SI 198)
+            (reg:SI 199))) 4 {*arm_addsi3} (nil))
+
+(insn 127 126 130 17 arch/arm/kernel/unwind.c:306 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 ctrl.insn+0 S4 A32])
+        (reg:SI 200)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 17 -> ( 21)
+
+;; Succ edge  21 [100.0%]  (fallthru)
+
+;; Start of basic block ( 16) -> 18
+;; Pred edge  16 [27.0%] 
+(code_label 130 127 131 18 54 "" [1 uses])
+
+(note 131 130 132 18 [bb 18] NOTE_INSN_BASIC_BLOCK)
+
+(insn 132 131 133 18 arch/arm/kernel/unwind.c:307 (set (reg:SI 201)
+        (and:SI (reg:SI 172 [ D.15626 ])
+            (const_int -16777216 [0xffffffffff000000]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 133 132 134 18 arch/arm/kernel/unwind.c:307 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 201)
+            (const_int -2147483648 [0xffffffff80000000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 134 133 135 18 arch/arm/kernel/unwind.c:307 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 140)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 4 [0x4])
+        (nil)))
+;; End of basic block 18 -> ( 19 20)
+
+;; Succ edge  19 [100.0%]  (fallthru)
+;; Succ edge  20 [0.0%] 
+
+;; Start of basic block ( 18) -> 19
+;; Pred edge  18 [100.0%]  (fallthru)
+(note 135 134 136 19 [bb 19] NOTE_INSN_BASIC_BLOCK)
+
+(insn 136 135 137 19 arch/arm/kernel/unwind.c:309 (set (reg:SI 202)
+        (plus:SI (reg/v/f:SI 164 [ idx ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 137 136 140 19 arch/arm/kernel/unwind.c:309 (set (mem/s/f/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 ctrl.insn+0 S4 A32])
+        (reg:SI 202)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 19 -> ( 21)
+
+;; Succ edge  21 [100.0%]  (fallthru)
+
+;; Start of basic block ( 18) -> 20
+;; Pred edge  18 [0.0%] 
+(code_label 140 137 141 20 56 "" [1 uses])
+
+(note 141 140 142 20 [bb 20] NOTE_INSN_BASIC_BLOCK)
+
+(insn 142 141 143 20 arch/arm/kernel/unwind.c:311 (set (reg:SI 203)
+        (symbol_ref/v/f:SI ("*.LC3") [flags 0x82] <string_cst 0x10d655a0>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 143 142 144 20 arch/arm/kernel/unwind.c:311 (set (reg:SI 0 r0)
+        (reg:SI 203)) 167 {*arm_movsi_insn} (nil))
+
+(insn 144 143 145 20 arch/arm/kernel/unwind.c:311 (set (reg:SI 1 r1)
+        (reg:SI 172 [ D.15626 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 145 144 146 20 arch/arm/kernel/unwind.c:311 (set (reg:SI 2 r2)
+        (reg/v/f:SI 164 [ idx ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 146 145 147 20 arch/arm/kernel/unwind.c:311 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 147 146 150 20 arch/arm/kernel/unwind.c:313 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 20 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 17 19) -> 21
+;; Pred edge  17 [100.0%]  (fallthru)
+;; Pred edge  19 [100.0%]  (fallthru)
+(code_label 150 147 151 21 55 "" [0 uses])
+
+(note 151 150 152 21 [bb 21] NOTE_INSN_BASIC_BLOCK)
+
+(insn 152 151 153 21 arch/arm/kernel/unwind.c:317 (set (reg/f:SI 170 [ D.15643 ])
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 ctrl.insn+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 153 152 154 21 arch/arm/kernel/unwind.c:317 (set (reg:SI 169 [ D.15644 ])
+        (mem:SI (reg/f:SI 170 [ D.15643 ]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 154 153 155 21 arch/arm/kernel/unwind.c:317 (set (reg:SI 168 [ D.15645 ])
+        (and:SI (reg:SI 169 [ D.15644 ])
+            (const_int -16777216 [0xffffffffff000000]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 155 154 156 21 arch/arm/kernel/unwind.c:317 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 168 [ D.15645 ])
+            (const_int -2147483648 [0xffffffff80000000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 156 155 157 21 arch/arm/kernel/unwind.c:317 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 164)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+;; End of basic block 21 -> ( 22 23)
+
+;; Succ edge  22 [28.0%]  (fallthru)
+;; Succ edge  23 [72.0%] 
+
+;; Start of basic block ( 21) -> 22
+;; Pred edge  21 [28.0%]  (fallthru)
+(note 157 156 158 22 [bb 22] NOTE_INSN_BASIC_BLOCK)
+
+(insn 158 157 159 22 arch/arm/kernel/unwind.c:318 (set (reg:SI 204)
+        (const_int 2 [0x2])) 167 {*arm_movsi_insn} (nil))
+
+(insn 159 158 160 22 arch/arm/kernel/unwind.c:318 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 ctrl.byte+0 S4 A32])
+        (reg:SI 204)) 167 {*arm_movsi_insn} (nil))
+
+(insn 160 159 161 22 arch/arm/kernel/unwind.c:319 (set (reg:SI 205)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn 161 160 164 22 arch/arm/kernel/unwind.c:319 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 ctrl.entries+0 S4 A32])
+        (reg:SI 205)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 22 -> ( 67)
+
+;; Succ edge  67 [100.0%]  (fallthru)
+
+;; Start of basic block ( 21) -> 23
+;; Pred edge  21 [72.0%] 
+(code_label 164 161 165 23 57 "" [1 uses])
+
+(note 165 164 166 23 [bb 23] NOTE_INSN_BASIC_BLOCK)
+
+(insn 166 165 167 23 arch/arm/kernel/unwind.c:320 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 168 [ D.15645 ])
+            (const_int -2130706432 [0xffffffff81000000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 167 166 168 23 arch/arm/kernel/unwind.c:320 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 179)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 4 [0x4])
+        (nil)))
+;; End of basic block 23 -> ( 24 25)
+
+;; Succ edge  24 [100.0%]  (fallthru)
+;; Succ edge  25 [0.0%] 
+
+;; Start of basic block ( 23) -> 24
+;; Pred edge  23 [100.0%]  (fallthru)
+(note 168 167 169 24 [bb 24] NOTE_INSN_BASIC_BLOCK)
+
+(insn 169 168 170 24 arch/arm/kernel/unwind.c:321 (set (reg:SI 206)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn 170 169 171 24 arch/arm/kernel/unwind.c:321 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 ctrl.byte+0 S4 A32])
+        (reg:SI 206)) 167 {*arm_movsi_insn} (nil))
+
+(insn 171 170 172 24 arch/arm/kernel/unwind.c:322 (set (reg/f:SI 207)
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 ctrl.insn+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 172 171 173 24 arch/arm/kernel/unwind.c:322 (set (reg:SI 209)
+        (mem:SI (reg/f:SI 207) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 173 172 174 24 arch/arm/kernel/unwind.c:322 (set (reg:SI 208)
+        (and:SI (reg:SI 209)
+            (const_int 16711680 [0xff0000]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 174 173 175 24 arch/arm/kernel/unwind.c:322 (set (reg:SI 210)
+        (lshiftrt:SI (reg:SI 208)
+            (const_int 16 [0x10]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 175 174 176 24 arch/arm/kernel/unwind.c:322 (set (reg:SI 211)
+        (plus:SI (reg:SI 210)
+            (const_int 1 [0x1]))) 4 {*arm_addsi3} (nil))
+
+(insn 176 175 179 24 arch/arm/kernel/unwind.c:322 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 ctrl.entries+0 S4 A32])
+        (reg:SI 211)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 24 -> ( 67)
+
+;; Succ edge  67 [100.0%]  (fallthru)
+
+;; Start of basic block ( 23) -> 25
+;; Pred edge  23 [0.0%] 
+(code_label 179 176 180 25 59 "" [1 uses])
+
+(note 180 179 181 25 [bb 25] NOTE_INSN_BASIC_BLOCK)
+
+(insn 181 180 182 25 arch/arm/kernel/unwind.c:324 (set (reg:SI 212)
+        (symbol_ref/v/f:SI ("*.LC4") [flags 0x82] <string_cst 0x10d65600>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 182 181 183 25 arch/arm/kernel/unwind.c:324 (set (reg:SI 0 r0)
+        (reg:SI 212)) 167 {*arm_movsi_insn} (nil))
+
+(insn 183 182 184 25 arch/arm/kernel/unwind.c:324 (set (reg:SI 1 r1)
+        (reg:SI 169 [ D.15644 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 184 183 185 25 arch/arm/kernel/unwind.c:324 (set (reg:SI 2 r2)
+        (reg/f:SI 170 [ D.15643 ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 185 184 186 25 arch/arm/kernel/unwind.c:324 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 186 185 429 25 arch/arm/kernel/unwind.c:326 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 25 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 67) -> 26
+;; Pred edge  67 [97.8%] 
+(code_label 429 186 189 26 80 "" [1 uses])
+
+(note 189 429 190 26 [bb 26] NOTE_INSN_BASIC_BLOCK)
+
+(insn 190 189 191 26 arch/arm/kernel/unwind.c:187 (set (reg:SI 213)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 191 190 192 26 arch/arm/kernel/unwind.c:187 (set (reg:SI 0 r0)
+        (reg:SI 213)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 192 191 193 26 arch/arm/kernel/unwind.c:187 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("unwind_get_byte") [flags 0x3] <function_decl 0x11039c00 unwind_get_byte>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 193 192 194 26 arch/arm/kernel/unwind.c:187 (set (reg/v:SI 146 [ insn ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 194 193 195 26 arch/arm/kernel/unwind.c:191 (set (reg:SI 141 [ D.15954 ])
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 192 [0xc0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 195 194 196 26 arch/arm/kernel/unwind.c:191 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 141 [ D.15954 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 196 195 197 26 arch/arm/kernel/unwind.c:191 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 206)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 26 -> ( 27 28)
+
+;; Succ edge  27 [50.0%]  (fallthru)
+;; Succ edge  28 [50.0%] 
+
+;; Start of basic block ( 26) -> 27
+;; Pred edge  26 [50.0%]  (fallthru)
+(note 197 196 198 27 [bb 27] NOTE_INSN_BASIC_BLOCK)
+
+(insn 198 197 199 27 arch/arm/kernel/unwind.c:192 (set (reg:SI 215)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 199 198 200 27 arch/arm/kernel/unwind.c:192 (set (reg:SI 214)
+        (plus:SI (reg:SI 215)
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 200 199 201 27 arch/arm/kernel/unwind.c:192 (set (reg:SI 216)
+        (ashift:SI (reg/v:SI 146 [ insn ])
+            (const_int 2 [0x2]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 201 200 202 27 arch/arm/kernel/unwind.c:192 (set (reg:SI 217)
+        (and:SI (reg:SI 216)
+            (const_int 255 [0xff]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 202 201 203 27 arch/arm/kernel/unwind.c:192 (set (reg:SI 218)
+        (plus:SI (reg:SI 214)
+            (reg:SI 217))) 4 {*arm_addsi3} (nil))
+
+(insn 203 202 206 27 arch/arm/kernel/unwind.c:192 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg:SI 218)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 27 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 26) -> 28
+;; Pred edge  26 [50.0%] 
+(code_label 206 203 207 28 60 "" [1 uses])
+
+(note 207 206 208 28 [bb 28] NOTE_INSN_BASIC_BLOCK)
+
+(insn 208 207 209 28 arch/arm/kernel/unwind.c:193 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 141 [ D.15954 ])
+            (const_int 64 [0x40]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 209 208 210 28 arch/arm/kernel/unwind.c:193 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 219)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+;; End of basic block 28 -> ( 29 30)
+
+;; Succ edge  29 [28.0%]  (fallthru)
+;; Succ edge  30 [72.0%] 
+
+;; Start of basic block ( 28) -> 29
+;; Pred edge  28 [28.0%]  (fallthru)
+(note 210 209 211 29 [bb 29] NOTE_INSN_BASIC_BLOCK)
+
+(insn 211 210 212 29 arch/arm/kernel/unwind.c:194 (set (reg:SI 220)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 212 211 213 29 arch/arm/kernel/unwind.c:194 (set (reg:SI 219)
+        (plus:SI (reg:SI 220)
+            (const_int -4 [0xfffffffffffffffc]))) 4 {*arm_addsi3} (nil))
+
+(insn 213 212 214 29 arch/arm/kernel/unwind.c:194 (set (reg:SI 221)
+        (ashift:SI (reg/v:SI 146 [ insn ])
+            (const_int 2 [0x2]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 214 213 215 29 arch/arm/kernel/unwind.c:194 (set (reg:SI 222)
+        (and:SI (reg:SI 221)
+            (const_int 255 [0xff]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 215 214 216 29 arch/arm/kernel/unwind.c:194 (set (reg:SI 223)
+        (minus:SI (reg:SI 219)
+            (reg:SI 222))) 28 {*arm_subsi3_insn} (nil))
+
+(insn 216 215 219 29 arch/arm/kernel/unwind.c:194 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg:SI 223)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 29 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 28) -> 30
+;; Pred edge  28 [72.0%] 
+(code_label 219 216 220 30 62 "" [1 uses])
+
+(note 220 219 221 30 [bb 30] NOTE_INSN_BASIC_BLOCK)
+
+(insn 221 220 222 30 arch/arm/kernel/unwind.c:195 (set (reg:SI 142 [ D.15946 ])
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 240 [0xf0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 222 221 223 30 arch/arm/kernel/unwind.c:195 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 142 [ D.15946 ])
+            (const_int 128 [0x80]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 223 222 224 30 arch/arm/kernel/unwind.c:195 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 271)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 8629 [0x21b5])
+        (nil)))
+;; End of basic block 30 -> ( 31 39)
+
+;; Succ edge  31 [13.7%]  (fallthru)
+;; Succ edge  39 [86.3%] 
+
+;; Start of basic block ( 30) -> 31
+;; Pred edge  30 [13.7%]  (fallthru)
+(note 224 223 225 31 [bb 31] NOTE_INSN_BASIC_BLOCK)
+
+(insn 225 224 226 31 arch/arm/kernel/unwind.c:197 (set (reg:SI 136 [ temp.538 ])
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 226 225 227 31 arch/arm/kernel/unwind.c:200 (set (reg:SI 143 [ D.15945 ])
+        (ashift:SI (reg/v:SI 146 [ insn ])
+            (const_int 8 [0x8]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 227 226 228 31 arch/arm/kernel/unwind.c:200 (set (reg:SI 224)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 228 227 229 31 arch/arm/kernel/unwind.c:200 (set (reg:SI 0 r0)
+        (reg:SI 224)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 229 228 230 31 arch/arm/kernel/unwind.c:200 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("unwind_get_byte") [flags 0x3] <function_decl 0x11039c00 unwind_get_byte>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 230 229 231 31 arch/arm/kernel/unwind.c:200 (set (reg:SI 144 [ D.15944 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 231 230 232 31 arch/arm/kernel/unwind.c:200 (set (reg/v:SI 135 [ insn.539 ])
+        (ior:SI (reg:SI 144 [ D.15944 ])
+            (reg:SI 143 [ D.15945 ]))) 89 {*arm_iorsi3} (nil))
+
+(insn 232 231 233 31 arch/arm/kernel/unwind.c:201 (set (reg:SI 225)
+        (ashift:SI (reg/v:SI 135 [ insn.539 ])
+            (const_int 20 [0x14]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 233 232 234 31 arch/arm/kernel/unwind.c:201 (set (reg/v:SI 147 [ mask ])
+        (lshiftrt:SI (reg:SI 225)
+            (const_int 20 [0x14]))) 117 {*arm_shiftsi3} (expr_list:REG_EQUAL (and:SI (reg/v:SI 135 [ insn.539 ])
+            (const_int 4095 [0xfff]))
+        (nil)))
+
+(insn 234 233 235 31 arch/arm/kernel/unwind.c:202 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 147 [ mask ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 235 234 236 31 arch/arm/kernel/unwind.c:202 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 244)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+        (nil)))
+;; End of basic block 31 -> ( 32 33)
+
+;; Succ edge  32 [0.0%]  (fallthru)
+;; Succ edge  33 [100.0%] 
+
+;; Start of basic block ( 31) -> 32
+;; Pred edge  31 [0.0%]  (fallthru)
+(note 236 235 237 32 [bb 32] NOTE_INSN_BASIC_BLOCK)
+
+(insn 237 236 238 32 arch/arm/kernel/unwind.c:203 (set (reg:SI 226)
+        (symbol_ref/v/f:SI ("*.LC5") [flags 0x82] <string_cst 0x11075a50>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 238 237 239 32 arch/arm/kernel/unwind.c:203 (set (reg:SI 0 r0)
+        (reg:SI 226)) 167 {*arm_movsi_insn} (nil))
+
+(insn 239 238 240 32 arch/arm/kernel/unwind.c:203 (set (reg:SI 1 r1)
+        (reg/v:SI 135 [ insn.539 ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 240 239 241 32 arch/arm/kernel/unwind.c:203 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 241 240 244 32 arch/arm/kernel/unwind.c:203 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 32 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 31) -> 33
+;; Pred edge  31 [100.0%] 
+(code_label 244 241 245 33 64 "" [1 uses])
+
+(note 245 244 246 33 [bb 33] NOTE_INSN_BASIC_BLOCK)
+
+(insn 246 245 247 33 arch/arm/kernel/unwind.c:197 (set (reg/v/f:SI 148 [ vsp ])
+        (reg:SI 136 [ temp.538 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 247 246 248 33 arch/arm/kernel/unwind.c:209 (set (reg/v:SI 149 [ load_sp ])
+        (and:SI (reg/v:SI 147 [ mask ])
+            (const_int 512 [0x200]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 248 247 261 33 arch/arm/kernel/unwind.c:209 (set (reg:SI 140 [ ivtmp.497 ])
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 33 -> ( 34)
+
+;; Succ edge  34 [100.0%]  (fallthru)
+
+;; Start of basic block ( 36 33) -> 34
+;; Pred edge  36 [91.7%]  (dfs_back)
+;; Pred edge  33 [100.0%]  (fallthru)
+(code_label 261 248 249 34 66 "" [1 uses])
+
+(note 249 261 250 34 [bb 34] NOTE_INSN_BASIC_BLOCK)
+
+(insn 250 249 251 34 arch/arm/kernel/unwind.c:211 (set (reg:SI 227)
+        (and:SI (reg/v:SI 147 [ mask ])
+            (const_int 1 [0x1]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 251 250 252 34 arch/arm/kernel/unwind.c:211 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 227)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 252 251 253 34 arch/arm/kernel/unwind.c:211 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 257)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 34 -> ( 35 36)
+
+;; Succ edge  35 [50.0%]  (fallthru)
+;; Succ edge  36 [50.0%] 
+
+;; Start of basic block ( 34) -> 35
+;; Pred edge  34 [50.0%]  (fallthru)
+(note 253 252 254 35 [bb 35] NOTE_INSN_BASIC_BLOCK)
+
+(insn 254 253 255 35 arch/arm/kernel/unwind.c:212 (set (reg:SI 228)
+        (mem:SI (reg/v/f:SI 148 [ vsp ]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 255 254 256 35 arch/arm/kernel/unwind.c:212 (set (mem/s/j:SI (plus:SI (reg:SI 140 [ ivtmp.497 ])
+                (const_int 16 [0x10])) [0 ctrl.vrs S4 A32])
+        (reg:SI 228)) 167 {*arm_movsi_insn} (nil))
+
+(insn 256 255 257 35 arch/arm/kernel/unwind.c:212 (set (reg/v/f:SI 148 [ vsp ])
+        (plus:SI (reg/v/f:SI 148 [ vsp ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 35 -> ( 36)
+
+;; Succ edge  36 [100.0%]  (fallthru)
+
+;; Start of basic block ( 34 35) -> 36
+;; Pred edge  34 [50.0%] 
+;; Pred edge  35 [100.0%]  (fallthru)
+(code_label 257 256 258 36 65 "" [1 uses])
+
+(note 258 257 259 36 [bb 36] NOTE_INSN_BASIC_BLOCK)
+
+(insn 259 258 260 36 arch/arm/kernel/unwind.c:213 (set (reg/v:SI 147 [ mask ])
+        (lshiftrt:SI (reg/v:SI 147 [ mask ])
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 260 259 262 36 arch/arm/kernel/unwind.c:213 (set (reg:SI 140 [ ivtmp.497 ])
+        (plus:SI (reg:SI 140 [ ivtmp.497 ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 262 260 263 36 arch/arm/kernel/unwind.c:210 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 147 [ mask ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 263 262 264 36 arch/arm/kernel/unwind.c:210 discrim 1 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 261)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9167 [0x23cf])
+        (nil)))
+;; End of basic block 36 -> ( 34 37)
+
+;; Succ edge  34 [91.7%]  (dfs_back)
+;; Succ edge  37 [8.3%]  (fallthru)
+
+;; Start of basic block ( 36) -> 37
+;; Pred edge  36 [8.3%]  (fallthru)
+(note 264 263 265 37 [bb 37] NOTE_INSN_BASIC_BLOCK)
+
+(insn 265 264 266 37 arch/arm/kernel/unwind.c:216 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 149 [ load_sp ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 266 265 267 37 arch/arm/kernel/unwind.c:216 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 419)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 37 -> ( 38 65)
+
+;; Succ edge  38 [50.0%]  (fallthru)
+;; Succ edge  65 [50.0%] 
+
+;; Start of basic block ( 37) -> 38
+;; Pred edge  37 [50.0%]  (fallthru)
+(note 267 266 268 38 [bb 38] NOTE_INSN_BASIC_BLOCK)
+
+(insn 268 267 271 38 arch/arm/kernel/unwind.c:217 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg/v/f:SI 148 [ vsp ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 38 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 30) -> 39
+;; Pred edge  30 [86.3%] 
+(code_label 271 268 272 39 63 "" [1 uses])
+
+(note 272 271 273 39 [bb 39] NOTE_INSN_BASIC_BLOCK)
+
+(insn 273 272 274 39 arch/arm/kernel/unwind.c:218 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 142 [ D.15946 ])
+            (const_int 144 [0x90]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 274 273 275 39 arch/arm/kernel/unwind.c:218 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 289)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+;; End of basic block 39 -> ( 40 42)
+
+;; Succ edge  40 [28.0%]  (fallthru)
+;; Succ edge  42 [72.0%] 
+
+;; Start of basic block ( 39) -> 40
+;; Pred edge  39 [28.0%]  (fallthru)
+(note 275 274 276 40 [bb 40] NOTE_INSN_BASIC_BLOCK)
+
+(insn 276 275 277 40 arch/arm/kernel/unwind.c:219 (set (reg:SI 229)
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 13 [0xd]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 277 276 278 40 arch/arm/kernel/unwind.c:219 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 229)
+            (const_int 13 [0xd]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 278 277 279 40 arch/arm/kernel/unwind.c:219 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 327)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 2800 [0xaf0])
+        (nil)))
+;; End of basic block 40 -> ( 41 49)
+
+;; Succ edge  41 [72.0%]  (fallthru)
+;; Succ edge  49 [28.0%] 
+
+;; Start of basic block ( 40) -> 41
+;; Pred edge  40 [72.0%]  (fallthru)
+(note 279 278 280 41 [bb 41] NOTE_INSN_BASIC_BLOCK)
+
+(insn 280 279 281 41 arch/arm/kernel/unwind.c:220 (set (reg:SI 230)
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 15 [0xf]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 281 280 282 41 arch/arm/kernel/unwind.c:220 (set (reg:SI 231)
+        (const_int -76 [0xffffffffffffffb4])) 167 {*arm_movsi_insn} (nil))
+
+(insn 282 281 283 41 arch/arm/kernel/unwind.c:220 (set (reg:SI 232)
+        (ashift:SI (reg:SI 230)
+            (const_int 2 [0x2]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 283 282 284 41 arch/arm/kernel/unwind.c:220 (set (reg:SI 233)
+        (plus:SI (reg/f:SI 25 sfp)
+            (reg:SI 232))) 4 {*arm_addsi3} (nil))
+
+(insn 284 283 285 41 arch/arm/kernel/unwind.c:220 (set (reg/f:SI 234)
+        (plus:SI (reg:SI 233)
+            (reg:SI 231))) 4 {*arm_addsi3} (nil))
+
+(insn 285 284 286 41 arch/arm/kernel/unwind.c:220 (set (reg:SI 235)
+        (mem/s/j:SI (reg/f:SI 234) [0 ctrl.vrs S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 286 285 289 41 arch/arm/kernel/unwind.c:220 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg:SI 235)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 41 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 39) -> 42
+;; Pred edge  39 [72.0%] 
+(code_label 289 286 290 42 67 "" [1 uses])
+
+(note 290 289 291 42 [bb 42] NOTE_INSN_BASIC_BLOCK)
+
+(insn 291 290 292 42 arch/arm/kernel/unwind.c:221 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 142 [ D.15946 ])
+            (const_int 160 [0xa0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 292 291 293 42 arch/arm/kernel/unwind.c:221 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 327)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 6895 [0x1aef])
+        (nil)))
+;; End of basic block 42 -> ( 43 49)
+
+;; Succ edge  43 [31.1%]  (fallthru)
+;; Succ edge  49 [69.0%] 
+
+;; Start of basic block ( 42) -> 43
+;; Pred edge  42 [31.1%]  (fallthru)
+(note 293 292 294 43 [bb 43] NOTE_INSN_BASIC_BLOCK)
+
+(insn 294 293 295 43 arch/arm/kernel/unwind.c:222 (set (reg:SI 138 [ ivtmp.511 ])
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 295 294 308 43 arch/arm/kernel/unwind.c:226 (set (reg/v:SI 151 [ reg ])
+        (const_int 4 [0x4])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 43 -> ( 45)
+
+;; Succ edge  45 [100.0%]  (fallthru)
+
+;; Start of basic block ( 45) -> 44
+;; Pred edge  45 [92.3%] 
+(code_label 308 295 298 44 70 "" [1 uses])
+
+(note 298 308 299 44 [bb 44] NOTE_INSN_BASIC_BLOCK)
+
+(insn 299 298 300 44 arch/arm/kernel/unwind.c:227 (set (reg:SI 236)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 300 299 301 44 arch/arm/kernel/unwind.c:227 (set (reg:SI 237)
+        (ashift:SI (reg:SI 145 [ reg.227 ])
+            (const_int 2 [0x2]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 301 300 302 44 arch/arm/kernel/unwind.c:227 (set (reg:SI 238)
+        (mem:SI (plus:SI (reg:SI 138 [ ivtmp.511 ])
+                (const_int -4 [0xfffffffffffffffc])) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 302 301 303 44 arch/arm/kernel/unwind.c:227 (set (mem/s/j:SI (plus:SI (reg:SI 236)
+                (reg:SI 237)) [0 ctrl.vrs S4 A32])
+        (reg:SI 238)) 167 {*arm_movsi_insn} (nil))
+
+(insn 303 302 304 44 arch/arm/kernel/unwind.c:226 discrim 2 (set (reg/v:SI 151 [ reg ])
+        (plus:SI (reg/v:SI 151 [ reg ])
+            (const_int 1 [0x1]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 44 -> ( 45)
+
+;; Succ edge  45 [100.0%]  (fallthru,dfs_back)
+
+;; Start of basic block ( 43 44) -> 45
+;; Pred edge  43 [100.0%]  (fallthru)
+;; Pred edge  44 [100.0%]  (fallthru,dfs_back)
+(code_label 304 303 305 45 69 "" [0 uses])
+
+(note 305 304 306 45 [bb 45] NOTE_INSN_BASIC_BLOCK)
+
+(insn 306 305 307 45 arch/arm/kernel/unwind.c:226 discrim 2 (set (reg:SI 145 [ reg.227 ])
+        (reg/v:SI 151 [ reg ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 307 306 309 45 arch/arm/kernel/unwind.c:226 discrim 2 (set (reg:SI 138 [ ivtmp.511 ])
+        (plus:SI (reg:SI 138 [ ivtmp.511 ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 309 307 310 45 arch/arm/kernel/unwind.c:226 discrim 1 (set (reg:SI 239)
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 7 [0x7]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 310 309 311 45 arch/arm/kernel/unwind.c:226 discrim 1 (set (reg:SI 240)
+        (plus:SI (reg:SI 239)
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 311 310 312 45 arch/arm/kernel/unwind.c:226 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 145 [ reg.227 ])
+            (reg:SI 240))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 312 311 313 45 arch/arm/kernel/unwind.c:226 discrim 1 (set (pc)
+        (if_then_else (leu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 308)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9231 [0x240f])
+        (nil)))
+;; End of basic block 45 -> ( 44 46)
+
+;; Succ edge  44 [92.3%] 
+;; Succ edge  46 [7.7%]  (fallthru)
+
+;; Start of basic block ( 45) -> 46
+;; Pred edge  45 [7.7%]  (fallthru)
+(note 313 312 314 46 [bb 46] NOTE_INSN_BASIC_BLOCK)
+
+(insn 314 313 315 46 arch/arm/kernel/unwind.c:226 discrim 1 (set (reg/v/f:SI 150 [ vsp ])
+        (plus:SI (reg:SI 138 [ ivtmp.511 ])
+            (const_int -4 [0xfffffffffffffffc]))) 4 {*arm_addsi3} (nil))
+
+(insn 315 314 316 46 arch/arm/kernel/unwind.c:228 (set (reg:SI 241)
+        (and:SI (reg/v:SI 146 [ insn ])
+            (const_int 128 [0x80]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 316 315 317 46 arch/arm/kernel/unwind.c:228 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 241)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 317 316 318 46 arch/arm/kernel/unwind.c:228 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 322)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 46 -> ( 47 48)
+
+;; Succ edge  47 [50.0%]  (fallthru)
+;; Succ edge  48 [50.0%] 
+
+;; Start of basic block ( 46) -> 47
+;; Pred edge  46 [50.0%]  (fallthru)
+(note 318 317 319 47 [bb 47] NOTE_INSN_BASIC_BLOCK)
+
+(insn 319 318 320 47 arch/arm/kernel/unwind.c:229 (set (reg:SI 242)
+        (mem:SI (reg/v/f:SI 150 [ vsp ]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 320 319 321 47 arch/arm/kernel/unwind.c:229 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -20 [0xffffffffffffffec])) [0 ctrl.vrs+56 S4 A32])
+        (reg:SI 242)) 167 {*arm_movsi_insn} (nil))
+
+(insn 321 320 322 47 arch/arm/kernel/unwind.c:229 (set (reg/v/f:SI 150 [ vsp ])
+        (plus:SI (reg/v/f:SI 150 [ vsp ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 47 -> ( 48)
+
+;; Succ edge  48 [100.0%]  (fallthru)
+
+;; Start of basic block ( 46 47) -> 48
+;; Pred edge  46 [50.0%] 
+;; Pred edge  47 [100.0%]  (fallthru)
+(code_label 322 321 323 48 71 "" [1 uses])
+
+(note 323 322 324 48 [bb 48] NOTE_INSN_BASIC_BLOCK)
+
+(insn 324 323 327 48 arch/arm/kernel/unwind.c:230 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg/v/f:SI 150 [ vsp ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 48 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 42 40) -> 49
+;; Pred edge  42 [69.0%] 
+;; Pred edge  40 [28.0%] 
+(code_label 327 324 328 49 68 "" [2 uses])
+
+(note 328 327 329 49 [bb 49] NOTE_INSN_BASIC_BLOCK)
+
+(insn 329 328 330 49 arch/arm/kernel/unwind.c:231 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 146 [ insn ])
+            (const_int 176 [0xb0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 330 329 331 49 arch/arm/kernel/unwind.c:231 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 344)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+;; End of basic block 49 -> ( 50 53)
+
+;; Succ edge  50 [28.0%]  (fallthru)
+;; Succ edge  53 [72.0%] 
+
+;; Start of basic block ( 49) -> 50
+;; Pred edge  49 [28.0%]  (fallthru)
+(note 331 330 332 50 [bb 50] NOTE_INSN_BASIC_BLOCK)
+
+(insn 332 331 333 50 arch/arm/kernel/unwind.c:232 (set (reg:SI 243)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 333 332 334 50 arch/arm/kernel/unwind.c:232 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 243)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 334 333 335 50 arch/arm/kernel/unwind.c:232 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 338)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 50 -> ( 51 52)
+
+;; Succ edge  51 [50.0%]  (fallthru)
+;; Succ edge  52 [50.0%] 
+
+;; Start of basic block ( 50) -> 51
+;; Pred edge  50 [50.0%]  (fallthru)
+(note 335 334 336 51 [bb 51] NOTE_INSN_BASIC_BLOCK)
+
+(insn 336 335 337 51 arch/arm/kernel/unwind.c:233 (set (reg:SI 244)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -20 [0xffffffffffffffec])) [0 ctrl.vrs+56 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 337 336 338 51 arch/arm/kernel/unwind.c:233 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])
+        (reg:SI 244)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 51 -> ( 52)
+
+;; Succ edge  52 [100.0%]  (fallthru)
+
+;; Start of basic block ( 50 51) -> 52
+;; Pred edge  50 [50.0%] 
+;; Pred edge  51 [100.0%]  (fallthru)
+(code_label 338 337 339 52 73 "" [1 uses])
+
+(note 339 338 340 52 [bb 52] NOTE_INSN_BASIC_BLOCK)
+
+(insn 340 339 341 52 arch/arm/kernel/unwind.c:235 (set (reg:SI 245)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 341 340 344 52 arch/arm/kernel/unwind.c:235 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 ctrl.entries+0 S4 A32])
+        (reg:SI 245)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 52 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 49) -> 53
+;; Pred edge  49 [72.0%] 
+(code_label 344 341 345 53 72 "" [1 uses])
+
+(note 345 344 346 53 [bb 53] NOTE_INSN_BASIC_BLOCK)
+
+(insn 346 345 347 53 arch/arm/kernel/unwind.c:236 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 146 [ insn ])
+            (const_int 177 [0xb1]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 347 346 348 53 arch/arm/kernel/unwind.c:236 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 394)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 8629 [0x21b5])
+        (nil)))
+;; End of basic block 53 -> ( 54 62)
+
+;; Succ edge  54 [13.7%]  (fallthru)
+;; Succ edge  62 [86.3%] 
+
+;; Start of basic block ( 53) -> 54
+;; Pred edge  53 [13.7%]  (fallthru)
+(note 348 347 349 54 [bb 54] NOTE_INSN_BASIC_BLOCK)
+
+(insn 349 348 350 54 arch/arm/kernel/unwind.c:237 (set (reg:SI 246)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 350 349 351 54 arch/arm/kernel/unwind.c:237 (set (reg:SI 0 r0)
+        (reg:SI 246)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 351 350 352 54 arch/arm/kernel/unwind.c:237 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("unwind_get_byte") [flags 0x3] <function_decl 0x11039c00 unwind_get_byte>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 352 351 353 54 arch/arm/kernel/unwind.c:237 (set (reg/v:SI 152 [ mask ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 353 352 354 54 arch/arm/kernel/unwind.c:238 (set (reg:SI 134 [ temp.542 ])
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 354 353 355 54 arch/arm/kernel/unwind.c:241 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 152 [ mask ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 355 354 356 54 arch/arm/kernel/unwind.c:241 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 360)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 4 [0x4])
+        (nil)))
+;; End of basic block 54 -> ( 56 55)
+
+;; Succ edge  56 [0.0%] 
+;; Succ edge  55 [100.0%]  (fallthru)
+
+;; Start of basic block ( 54) -> 55
+;; Pred edge  54 [100.0%]  (fallthru)
+(note 356 355 357 55 [bb 55] NOTE_INSN_BASIC_BLOCK)
+
+(insn 357 356 358 55 arch/arm/kernel/unwind.c:241 discrim 1 (set (reg:SI 247)
+        (and:SI (reg/v:SI 152 [ mask ])
+            (const_int 240 [0xf0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 358 357 359 55 arch/arm/kernel/unwind.c:241 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 247)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 359 358 360 55 arch/arm/kernel/unwind.c:241 discrim 1 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 370)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+        (nil)))
+;; End of basic block 55 -> ( 56 57)
+
+;; Succ edge  56 [0.0%]  (fallthru)
+;; Succ edge  57 [100.0%] 
+
+;; Start of basic block ( 54 55) -> 56
+;; Pred edge  54 [0.0%] 
+;; Pred edge  55 [0.0%]  (fallthru)
+(code_label 360 359 361 56 75 "" [1 uses])
+
+(note 361 360 362 56 [bb 56] NOTE_INSN_BASIC_BLOCK)
+
+(insn 362 361 363 56 arch/arm/kernel/unwind.c:242 (set (reg:SI 248)
+        (symbol_ref/v/f:SI ("*.LC6") [flags 0x82] <string_cst 0x110a6480>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 363 362 364 56 arch/arm/kernel/unwind.c:242 (set (reg:SI 249)
+        (ior:SI (reg/v:SI 152 [ mask ])
+            (const_int 45312 [0xb100]))) 89 {*arm_iorsi3} (nil))
+
+(insn 364 363 365 56 arch/arm/kernel/unwind.c:242 (set (reg:SI 0 r0)
+        (reg:SI 248)) 167 {*arm_movsi_insn} (nil))
+
+(insn 365 364 366 56 arch/arm/kernel/unwind.c:242 (set (reg:SI 1 r1)
+        (reg:SI 249)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 366 365 367 56 arch/arm/kernel/unwind.c:242 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 367 366 370 56 arch/arm/kernel/unwind.c:242 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 56 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 55) -> 57
+;; Pred edge  55 [100.0%] 
+(code_label 370 367 371 57 76 "" [1 uses])
+
+(note 371 370 372 57 [bb 57] NOTE_INSN_BASIC_BLOCK)
+
+(insn 372 371 373 57 arch/arm/kernel/unwind.c:238 (set (reg/v/f:SI 153 [ vsp ])
+        (reg:SI 134 [ temp.542 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 373 372 387 57 arch/arm/kernel/unwind.c:238 (set (reg:SI 139 [ ivtmp.505 ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 57 -> ( 58)
+
+;; Succ edge  58 [100.0%]  (fallthru)
+
+;; Start of basic block ( 60 57) -> 58
+;; Pred edge  60 [93.8%]  (dfs_back)
+;; Pred edge  57 [100.0%]  (fallthru)
+(code_label 387 373 374 58 78 "" [1 uses])
+
+(note 374 387 375 58 [bb 58] NOTE_INSN_BASIC_BLOCK)
+
+(insn 375 374 376 58 arch/arm/kernel/unwind.c:249 (set (reg:SI 250)
+        (and:SI (reg/v:SI 152 [ mask ])
+            (const_int 1 [0x1]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 376 375 377 58 arch/arm/kernel/unwind.c:249 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 250)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 377 376 378 58 arch/arm/kernel/unwind.c:249 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 383)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 58 -> ( 59 60)
+
+;; Succ edge  59 [50.0%]  (fallthru)
+;; Succ edge  60 [50.0%] 
+
+;; Start of basic block ( 58) -> 59
+;; Pred edge  58 [50.0%]  (fallthru)
+(note 378 377 379 59 [bb 59] NOTE_INSN_BASIC_BLOCK)
+
+(insn 379 378 380 59 arch/arm/kernel/unwind.c:250 (set (reg:SI 251)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 380 379 381 59 arch/arm/kernel/unwind.c:250 (set (reg:SI 252)
+        (mem:SI (reg/v/f:SI 153 [ vsp ]) [0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 381 380 382 59 arch/arm/kernel/unwind.c:250 (set (mem/s/j:SI (plus:SI (reg:SI 251)
+                (reg:SI 139 [ ivtmp.505 ])) [0 ctrl.vrs S4 A32])
+        (reg:SI 252)) 167 {*arm_movsi_insn} (nil))
+
+(insn 382 381 383 59 arch/arm/kernel/unwind.c:250 (set (reg/v/f:SI 153 [ vsp ])
+        (plus:SI (reg/v/f:SI 153 [ vsp ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+;; End of basic block 59 -> ( 60)
+
+;; Succ edge  60 [100.0%]  (fallthru)
+
+;; Start of basic block ( 58 59) -> 60
+;; Pred edge  58 [50.0%] 
+;; Pred edge  59 [100.0%]  (fallthru)
+(code_label 383 382 384 60 77 "" [1 uses])
+
+(note 384 383 385 60 [bb 60] NOTE_INSN_BASIC_BLOCK)
+
+(insn 385 384 386 60 arch/arm/kernel/unwind.c:251 (set (reg/v:SI 152 [ mask ])
+        (lshiftrt:SI (reg/v:SI 152 [ mask ])
+            (const_int 1 [0x1]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 386 385 388 60 arch/arm/kernel/unwind.c:251 (set (reg:SI 139 [ ivtmp.505 ])
+        (plus:SI (reg:SI 139 [ ivtmp.505 ])
+            (const_int 4 [0x4]))) 4 {*arm_addsi3} (nil))
+
+(insn 388 386 389 60 arch/arm/kernel/unwind.c:248 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 152 [ mask ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 389 388 390 60 arch/arm/kernel/unwind.c:248 discrim 1 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 387)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9375 [0x249f])
+        (nil)))
+;; End of basic block 60 -> ( 58 61)
+
+;; Succ edge  58 [93.8%]  (dfs_back)
+;; Succ edge  61 [6.2%]  (fallthru)
+
+;; Start of basic block ( 60) -> 61
+;; Pred edge  60 [6.2%]  (fallthru)
+(note 390 389 391 61 [bb 61] NOTE_INSN_BASIC_BLOCK)
+
+(insn 391 390 394 61 arch/arm/kernel/unwind.c:254 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg/v/f:SI 153 [ vsp ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 61 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 53) -> 62
+;; Pred edge  53 [86.3%] 
+(code_label 394 391 395 62 74 "" [1 uses])
+
+(note 395 394 396 62 [bb 62] NOTE_INSN_BASIC_BLOCK)
+
+(insn 396 395 397 62 arch/arm/kernel/unwind.c:255 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 146 [ insn ])
+            (const_int 178 [0xb2]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 397 396 398 62 arch/arm/kernel/unwind.c:255 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 410)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 4 [0x4])
+        (nil)))
+;; End of basic block 62 -> ( 63 64)
+
+;; Succ edge  63 [100.0%]  (fallthru)
+;; Succ edge  64 [0.0%] 
+
+;; Start of basic block ( 62) -> 63
+;; Pred edge  62 [100.0%]  (fallthru)
+(note 398 397 399 63 [bb 63] NOTE_INSN_BASIC_BLOCK)
+
+(insn 399 398 400 63 arch/arm/kernel/unwind.c:256 (set (reg:SI 253)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -76 [0xffffffffffffffb4]))) 4 {*arm_addsi3} (nil))
+
+(insn 400 399 401 63 arch/arm/kernel/unwind.c:256 (set (reg:SI 0 r0)
+        (reg:SI 253)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 401 400 402 63 arch/arm/kernel/unwind.c:256 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("unwind_get_byte") [flags 0x3] <function_decl 0x11039c00 unwind_get_byte>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 402 401 403 63 arch/arm/kernel/unwind.c:256 (set (reg/v:SI 154 [ uleb128 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 403 402 404 63 arch/arm/kernel/unwind.c:258 (set (reg:SI 255)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 404 403 405 63 arch/arm/kernel/unwind.c:258 (set (reg:SI 254)
+        (plus:SI (reg:SI 255)
+            (const_int 516 [0x204]))) 4 {*arm_addsi3} (nil))
+
+(insn 405 404 406 63 arch/arm/kernel/unwind.c:258 (set (reg:SI 256)
+        (ashift:SI (reg/v:SI 154 [ uleb128 ])
+            (const_int 2 [0x2]))) 117 {*arm_shiftsi3} (nil))
+
+(insn 406 405 407 63 arch/arm/kernel/unwind.c:258 (set (reg:SI 257)
+        (plus:SI (reg:SI 254)
+            (reg:SI 256))) 4 {*arm_addsi3} (nil))
+
+(insn 407 406 410 63 arch/arm/kernel/unwind.c:258 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])
+        (reg:SI 257)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 63 -> ( 65)
+
+;; Succ edge  65 [100.0%]  (fallthru)
+
+;; Start of basic block ( 62) -> 64
+;; Pred edge  62 [0.0%] 
+(code_label 410 407 411 64 79 "" [1 uses])
+
+(note 411 410 412 64 [bb 64] NOTE_INSN_BASIC_BLOCK)
+
+(insn 412 411 413 64 arch/arm/kernel/unwind.c:260 (set (reg:SI 258)
+        (symbol_ref/v/f:SI ("*.LC7") [flags 0x82] <string_cst 0x11114000>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 413 412 414 64 arch/arm/kernel/unwind.c:260 (set (reg:SI 0 r0)
+        (reg:SI 258)) 167 {*arm_movsi_insn} (nil))
+
+(insn 414 413 415 64 arch/arm/kernel/unwind.c:260 (set (reg:SI 1 r1)
+        (reg/v:SI 146 [ insn ])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 415 414 416 64 arch/arm/kernel/unwind.c:260 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("printk") [flags 0x41] <function_decl 0x10a2e600 printk>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 416 415 419 64 arch/arm/kernel/unwind.c:260 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 64 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 27 29 61 37 38 41 48 52 63) -> 65
+;; Pred edge  27 [100.0%]  (fallthru)
+;; Pred edge  29 [100.0%]  (fallthru)
+;; Pred edge  61 [100.0%]  (fallthru)
+;; Pred edge  37 [50.0%] 
+;; Pred edge  38 [100.0%]  (fallthru)
+;; Pred edge  41 [100.0%]  (fallthru)
+;; Pred edge  48 [100.0%]  (fallthru)
+;; Pred edge  52 [100.0%]  (fallthru)
+;; Pred edge  63 [100.0%]  (fallthru)
+(code_label 419 416 420 65 61 "" [1 uses])
+
+(note 420 419 421 65 [bb 65] NOTE_INSN_BASIC_BLOCK)
+
+(insn 421 420 422 65 arch/arm/kernel/unwind.c:333 (set (reg:SI 167 [ D.15661 ])
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 422 421 423 65 arch/arm/kernel/unwind.c:333 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 167 [ D.15661 ])
+            (reg/v:SI 165 [ low ]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 423 422 424 65 arch/arm/kernel/unwind.c:333 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 458)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 225 [0xe1])
+        (nil)))
+;; End of basic block 65 -> ( 72 66)
+
+;; Succ edge  72 [2.2%] 
+;; Succ edge  66 [97.8%]  (fallthru)
+
+;; Start of basic block ( 65) -> 66
+;; Pred edge  65 [97.8%]  (fallthru)
+(note 424 423 425 66 [bb 66] NOTE_INSN_BASIC_BLOCK)
+
+(insn 425 424 426 66 arch/arm/kernel/unwind.c:333 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 167 [ D.15661 ])
+            (reg/v:SI 166 [ high ]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 426 425 427 66 arch/arm/kernel/unwind.c:333 discrim 1 (set (pc)
+        (if_then_else (geu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 458)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 1400 [0x578])
+        (nil)))
+;; End of basic block 66 -> ( 72 67)
+
+;; Succ edge  72 [14.0%] 
+;; Succ edge  67 [86.0%]  (fallthru,dfs_back)
+
+;; Start of basic block ( 24 66 22) -> 67
+;; Pred edge  24 [100.0%]  (fallthru)
+;; Pred edge  66 [86.0%]  (fallthru,dfs_back)
+;; Pred edge  22 [100.0%]  (fallthru)
+(code_label 427 426 428 67 58 "" [0 uses])
+
+(note 428 427 430 67 [bb 67] NOTE_INSN_BASIC_BLOCK)
+
+(insn 430 428 431 67 arch/arm/kernel/unwind.c:329 discrim 1 (set (reg:SI 259)
+        (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 ctrl.entries+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 431 430 432 67 arch/arm/kernel/unwind.c:329 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 259)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 432 431 433 67 arch/arm/kernel/unwind.c:329 discrim 1 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 429)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9775 [0x262f])
+        (nil)))
+;; End of basic block 67 -> ( 26 68)
+
+;; Succ edge  26 [97.8%] 
+;; Succ edge  68 [2.2%]  (fallthru)
+
+;; Start of basic block ( 67) -> 68
+;; Pred edge  67 [2.2%]  (fallthru)
+(note 433 432 434 68 [bb 68] NOTE_INSN_BASIC_BLOCK)
+
+(insn 434 433 435 68 arch/arm/kernel/unwind.c:337 (set (reg:SI 260)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 435 434 436 68 arch/arm/kernel/unwind.c:337 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 260)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 436 435 437 68 arch/arm/kernel/unwind.c:337 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 440)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 68 -> ( 69 70)
+
+;; Succ edge  69 [50.0%]  (fallthru)
+;; Succ edge  70 [50.0%] 
+
+;; Start of basic block ( 68) -> 69
+;; Pred edge  68 [50.0%]  (fallthru)
+(note 437 436 438 69 [bb 69] NOTE_INSN_BASIC_BLOCK)
+
+(insn 438 437 439 69 arch/arm/kernel/unwind.c:338 (set (reg:SI 261)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -20 [0xffffffffffffffec])) [0 ctrl.vrs+56 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 439 438 440 69 arch/arm/kernel/unwind.c:338 (set (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])
+        (reg:SI 261)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 69 -> ( 70)
+
+;; Succ edge  70 [100.0%]  (fallthru)
+
+;; Start of basic block ( 68 69) -> 70
+;; Pred edge  68 [50.0%] 
+;; Pred edge  69 [100.0%]  (fallthru)
+(code_label 440 439 441 70 81 "" [1 uses])
+
+(note 441 440 442 70 [bb 70] NOTE_INSN_BASIC_BLOCK)
+
+(insn 442 441 443 70 arch/arm/kernel/unwind.c:341 (set (reg:SI 262)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 12 [0xc])) [0 <variable>.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 443 442 444 70 arch/arm/kernel/unwind.c:341 (set (reg:SI 263)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 444 443 445 70 arch/arm/kernel/unwind.c:341 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 262)
+            (reg:SI 263))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 445 444 446 70 arch/arm/kernel/unwind.c:341 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 458)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 1991 [0x7c7])
+        (nil)))
+;; End of basic block 70 -> ( 72 71)
+
+;; Succ edge  72 [19.9%] 
+;; Succ edge  71 [80.1%]  (fallthru)
+
+;; Start of basic block ( 70) -> 71
+;; Pred edge  70 [80.1%]  (fallthru)
+(note 446 445 447 71 [bb 71] NOTE_INSN_BASIC_BLOCK)
+
+(insn 447 446 448 71 arch/arm/kernel/unwind.c:344 (set (reg:SI 264)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -32 [0xffffffffffffffe0])) [0 ctrl.vrs+44 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 448 447 449 71 arch/arm/kernel/unwind.c:344 (set (mem/s/j:SI (reg/v/f:SI 175 [ frame ]) [0 <variable>.fp+0 S4 A32])
+        (reg:SI 264)) 167 {*arm_movsi_insn} (nil))
+
+(insn 449 448 450 71 arch/arm/kernel/unwind.c:345 (set (reg:SI 265)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -24 [0xffffffffffffffe8])) [0 ctrl.vrs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 450 449 451 71 arch/arm/kernel/unwind.c:345 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 4 [0x4])) [0 <variable>.sp+0 S4 A32])
+        (reg:SI 265)) 167 {*arm_movsi_insn} (nil))
+
+(insn 451 450 452 71 arch/arm/kernel/unwind.c:346 (set (reg:SI 266)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -20 [0xffffffffffffffec])) [0 ctrl.vrs+56 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 452 451 453 71 arch/arm/kernel/unwind.c:346 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 8 [0x8])) [0 <variable>.lr+0 S4 A32])
+        (reg:SI 266)) 167 {*arm_movsi_insn} (nil))
+
+(insn 453 452 454 71 arch/arm/kernel/unwind.c:347 (set (reg:SI 267)
+        (mem/s/j:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 ctrl.vrs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 454 453 455 71 arch/arm/kernel/unwind.c:347 (set (mem/s/j:SI (plus:SI (reg/v/f:SI 175 [ frame ])
+                (const_int 12 [0xc])) [0 <variable>.pc+0 S4 A32])
+        (reg:SI 267)) 167 {*arm_movsi_insn} (nil))
+
+(insn 455 454 458 71 arch/arm/kernel/unwind.c:349 (set (reg/v:SI 163 [ urc ])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 71 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2 65 15 70 66) -> 72
+;; Pred edge  2 [61.0%] 
+;; Pred edge  65 [2.2%] 
+;; Pred edge  15 [19.9%] 
+;; Pred edge  70 [19.9%] 
+;; Pred edge  66 [14.0%] 
+(code_label 458 455 459 72 45 "" [5 uses])
+
+(note 459 458 460 72 [bb 72] NOTE_INSN_BASIC_BLOCK)
+
+(insn 460 459 461 72 arch/arm/kernel/unwind.c:288 (set (reg/v:SI 163 [ urc ])
+        (const_int -9 [0xfffffffffffffff7])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 72 -> ( 73)
+
+;; Succ edge  73 [100.0%]  (fallthru)
+
+;; Start of basic block ( 72 14 32 64 20 71 25 56) -> 73
+;; Pred edge  72 [100.0%]  (fallthru)
+;; Pred edge  14 [100.0%]  (fallthru)
+;; Pred edge  32 [100.0%]  (fallthru)
+;; Pred edge  64 [100.0%]  (fallthru)
+;; Pred edge  20 [100.0%]  (fallthru)
+;; Pred edge  71 [100.0%]  (fallthru)
+;; Pred edge  25 [100.0%]  (fallthru)
+;; Pred edge  56 [100.0%]  (fallthru)
+(code_label 461 460 462 73 53 "" [0 uses])
+
+(note 462 461 463 73 [bb 73] NOTE_INSN_BASIC_BLOCK)
+
+(insn 463 462 467 73 arch/arm/kernel/unwind.c:350 (set (reg:SI 174 [ <result> ])
+        (reg/v:SI 163 [ urc ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 467 463 473 73 arch/arm/kernel/unwind.c:350 (set (reg/i:SI 0 r0)
+        (reg:SI 174 [ <result> ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 473 467 0 73 arch/arm/kernel/unwind.c:350 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 73 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function unwind_backtrace (unwind_backtrace)[0:859]
+
+
+15 basic blocks, 19 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 4, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  4 [15.0%]  (fallthru) 5 [85.0%] 
+
+Basic block 4 , prev 2, next 5, loop_depth 0, count 0, freq 135, maybe hot.
+Predecessors:  2 [15.0%]  (fallthru)
+Successors:  5 [100.0%]  (fallthru)
+
+Basic block 5 , prev 4, next 6, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  2 [85.0%]  4 [100.0%]  (fallthru)
+Successors:  6 [69.8%]  (fallthru) 10 [30.2%] 
+
+Basic block 6 , prev 5, next 7, loop_depth 0, count 0, freq 628, maybe hot.
+Predecessors:  5 [69.8%]  (fallthru)
+Successors:  7 [50.0%]  (fallthru) 8 [50.0%] 
+
+Basic block 7 , prev 6, next 8, loop_depth 0, count 0, freq 314, maybe hot.
+Predecessors:  6 [50.0%]  (fallthru)
+Successors:  9 [100.0%]  (fallthru)
+
+Basic block 8 , prev 7, next 9, loop_depth 0, count 0, freq 314, maybe hot.
+Predecessors:  6 [50.0%] 
+Successors:  9 [100.0%]  (fallthru)
+
+Basic block 9 , prev 8, next 10, loop_depth 0, count 0, freq 628, maybe hot.
+Predecessors:  7 [100.0%]  (fallthru) 8 [100.0%]  (fallthru)
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 10 , prev 9, next 11, loop_depth 0, count 0, freq 272, maybe hot.
+Predecessors:  5 [30.2%] 
+Successors:  11 [6.7%]  (fallthru) 12 [93.3%] 
+
+Basic block 11 , prev 10, next 12, loop_depth 0, count 0, freq 18, maybe hot.
+Predecessors:  10 [6.7%]  (fallthru)
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 12 , prev 11, next 13, loop_depth 0, count 0, freq 253, maybe hot.
+Predecessors:  10 [93.3%] 
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 13 , prev 12, next 14, loop_depth 1, count 0, freq 10000, maybe hot.
+Predecessors:  12 [100.0%]  (fallthru) 14 [100.0%]  (fallthru) 11 [100.0%]  (fallthru) 9 [100.0%]  (fallthru)
+Successors:  17 [9.0%]  14 [91.0%]  (fallthru)
+
+Basic block 14 , prev 13, next 17, loop_depth 1, count 0, freq 9100, maybe hot.
+Predecessors:  13 [91.0%]  (fallthru)
+Successors:  13 [100.0%]  (fallthru)
+
+Basic block 17 , prev 14, next 1, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  13 [9.0%] 
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 17, loop_depth 0, count 0, freq 900, maybe hot.
+Predecessors:  17 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 5 0 101 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 101 5 2 2 (set (reg:SI 152)
+        (reg:SI 14 lr)) 167 {*arm_movsi_insn} (nil))
+
+(insn 2 101 3 2 arch/arm/kernel/unwind.c:353 (set (reg/v/f:SI 142 [ regs ])
+        (reg:SI 0 r0 [ regs ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/unwind.c:353 (set (reg/v/f:SI 143 [ tsk ])
+        (reg:SI 1 r1 [ tsk ])) 167 {*arm_movsi_insn} (nil))
+
+(note 4 3 7 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 7 4 8 2 arch/arm/kernel/unwind.c:359 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 143 [ tsk ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 8 7 9 2 arch/arm/kernel/unwind.c:359 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 14)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 8500 [0x2134])
+        (nil)))
+;; End of basic block 2 -> ( 3 4)
+
+;; Succ edge  3 [15.0%]  (fallthru)
+;; Succ edge  4 [85.0%] 
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [15.0%]  (fallthru)
+(note 9 8 10 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 10 9 11 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 134 [ sp.83 ])
+        (reg/v:SI 13 sp [ sp ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 11 10 12 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 145)
+        (and:SI (reg:SI 134 [ sp.83 ])
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 12 11 13 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg:SI 144)
+        (and:SI (reg:SI 145)
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (expr_list:REG_EQUAL (and:SI (reg:SI 134 [ sp.83 ])
+            (const_int -8192 [0xffffffffffffe000]))
+        (nil)))
+
+(insn 13 12 14 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/current.h:10 (set (reg/v/f:SI 143 [ tsk ])
+        (mem/s/f/j:SI (plus:SI (reg:SI 144)
+                (const_int 12 [0xc])) [0 <variable>.task+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 3 -> ( 4)
+
+;; Succ edge  4 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2 3) -> 4
+;; Pred edge  2 [85.0%] 
+;; Pred edge  3 [100.0%]  (fallthru)
+(code_label 14 13 15 4 94 "" [1 uses])
+
+(note 15 14 16 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 16 15 17 4 arch/arm/kernel/unwind.c:362 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 142 [ regs ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 17 16 18 4 arch/arm/kernel/unwind.c:362 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 42)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 3017 [0xbc9])
+        (nil)))
+;; End of basic block 4 -> ( 5 9)
+
+;; Succ edge  5 [69.8%]  (fallthru)
+;; Succ edge  9 [30.2%] 
+
+;; Start of basic block ( 4) -> 5
+;; Pred edge  4 [69.8%]  (fallthru)
+(note 18 17 19 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 19 18 20 5 arch/arm/kernel/unwind.c:363 (set (reg:SI 146)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 44 [0x2c])) [0 <variable>.uregs+44 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 20 19 21 5 arch/arm/kernel/unwind.c:363 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 frame.fp+0 S4 A64])
+        (reg:SI 146)) 167 {*arm_movsi_insn} (nil))
+
+(insn 21 20 22 5 arch/arm/kernel/unwind.c:364 (set (reg:SI 147)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 52 [0x34])) [0 <variable>.uregs+52 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 22 21 23 5 arch/arm/kernel/unwind.c:364 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 frame.sp+0 S4 A32])
+        (reg:SI 147)) 167 {*arm_movsi_insn} (nil))
+
+(insn 23 22 24 5 arch/arm/kernel/unwind.c:365 (set (reg:SI 148)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 56 [0x38])) [0 <variable>.uregs+56 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 24 23 25 5 arch/arm/kernel/unwind.c:365 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 frame.lr+0 S4 A64])
+        (reg:SI 148)) 167 {*arm_movsi_insn} (nil))
+
+(insn 25 24 26 5 arch/arm/kernel/unwind.c:367 (set (reg:SI 0 r0)
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 26 25 27 5 arch/arm/kernel/unwind.c:367 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("kernel_text_address") [flags 0x41] <function_decl 0x10a58300 kernel_text_address>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 27 26 28 5 arch/arm/kernel/unwind.c:367 (set (reg:SI 140 [ D.15691 ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 28 27 29 5 arch/arm/kernel/unwind.c:367 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 140 [ D.15691 ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 29 28 30 5 arch/arm/kernel/unwind.c:367 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 34)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 5 -> ( 6 7)
+
+;; Succ edge  6 [50.0%]  (fallthru)
+;; Succ edge  7 [50.0%] 
+
+;; Start of basic block ( 5) -> 6
+;; Pred edge  5 [50.0%]  (fallthru)
+(note 30 29 31 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 31 30 34 6 arch/arm/kernel/unwind.c:367 discrim 1 (set (reg:SI 141 [ iftmp.237 ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 60 [0x3c])) [0 <variable>.uregs+60 S4 A32])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 6 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 5) -> 7
+;; Pred edge  5 [50.0%] 
+(code_label 34 31 35 7 96 "" [1 uses])
+
+(note 35 34 36 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 36 35 37 7 arch/arm/kernel/unwind.c:367 discrim 2 (set (reg:SI 141 [ iftmp.237 ])
+        (mem/s/j:SI (plus:SI (reg/v/f:SI 142 [ regs ])
+                (const_int 56 [0x38])) [0 <variable>.uregs+56 S4 A32])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 7 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 8
+;; Pred edge  6 [100.0%]  (fallthru)
+;; Pred edge  7 [100.0%]  (fallthru)
+(code_label 37 36 38 8 97 "" [0 uses])
+
+(note 38 37 39 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 39 38 42 8 arch/arm/kernel/unwind.c:367 discrim 3 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 frame.pc+0 S4 A32])
+        (reg:SI 141 [ iftmp.237 ])) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 8 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 9
+;; Pred edge  4 [30.2%] 
+(code_label 42 39 43 9 95 "" [1 uses])
+
+(note 43 42 44 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 44 43 45 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 133 [ sp.83 ])
+        (reg/v:SI 13 sp [ sp ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 45 44 46 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 150)
+        (and:SI (reg:SI 133 [ sp.83 ])
+            (const_int -8129 [0xffffffffffffe03f]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn 46 45 47 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 149)
+        (and:SI (reg:SI 150)
+            (const_int -64 [0xffffffffffffffc0]))) 67 {*arm_andsi3_insn} (expr_list:REG_EQUAL (and:SI (reg:SI 133 [ sp.83 ])
+            (const_int -8192 [0xffffffffffffe000]))
+        (nil)))
+
+(insn 47 46 48 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 151)
+        (mem/s/f/j:SI (plus:SI (reg:SI 149)
+                (const_int 12 [0xc])) [0 <variable>.task+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 48 47 49 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:CC 24 cc)
+        (compare:CC (reg/v/f:SI 143 [ tsk ])
+            (reg:SI 151))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 49 48 50 9 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 61)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 9328 [0x2470])
+        (nil)))
+;; End of basic block 9 -> ( 10 11)
+
+;; Succ edge  10 [6.7%]  (fallthru)
+;; Succ edge  11 [93.3%] 
+
+;; Start of basic block ( 9) -> 10
+;; Pred edge  9 [6.7%]  (fallthru)
+(note 50 49 51 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 51 50 52 10 arch/arm/kernel/unwind.c:370 (set (reg/f:SI 139 [ D.15699 ])
+        (reg/f:SI 11 fp)) 167 {*arm_movsi_insn} (nil))
+
+(insn 52 51 53 10 arch/arm/kernel/unwind.c:370 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 frame.fp+0 S4 A64])
+        (reg/f:SI 139 [ D.15699 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 53 52 54 10 arch/arm/kernel/unwind.c:371 (set (reg:SI 138 [ current_sp.238 ])
+        (reg/v:SI 13 sp [ current_sp ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 54 53 55 10 arch/arm/kernel/unwind.c:371 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 frame.sp+0 S4 A32])
+        (reg:SI 138 [ current_sp.238 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 55 54 56 10 arch/arm/kernel/unwind.c:372 (set (reg/f:SI 137 [ D.15702 ])
+        (reg:SI 152)) 167 {*arm_movsi_insn} (nil))
+
+(insn 56 55 57 10 arch/arm/kernel/unwind.c:372 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 frame.lr+0 S4 A64])
+        (reg/f:SI 137 [ D.15702 ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 57 56 58 10 arch/arm/kernel/unwind.c:373 (set (reg/f:SI 153)
+        (symbol_ref:SI ("unwind_backtrace") [flags 0x3] <function_decl 0x11039480 unwind_backtrace>)) 167 {*arm_movsi_insn} (nil))
+
+(insn 58 57 61 10 arch/arm/kernel/unwind.c:373 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 frame.pc+0 S4 A32])
+        (reg/f:SI 153)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 10 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 9) -> 11
+;; Pred edge  9 [93.3%] 
+(code_label 61 58 62 11 99 "" [1 uses])
+
+(note 62 61 63 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+
+(insn 63 62 64 11 arch/arm/kernel/unwind.c:376 (set (reg/f:SI 154)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 143 [ tsk ])
+                (const_int 4 [0x4])) [0 <variable>.stack+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 64 63 65 11 arch/arm/kernel/unwind.c:376 (set (reg:SI 155)
+        (mem/s/j:SI (plus:SI (reg/f:SI 154)
+                (const_int 56 [0x38])) [0 <variable>.cpu_context.fp+0 S4 A64])) 167 {*arm_movsi_insn} (nil))
+
+(insn 65 64 66 11 arch/arm/kernel/unwind.c:376 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -16 [0xfffffffffffffff0])) [0 frame.fp+0 S4 A64])
+        (reg:SI 155)) 167 {*arm_movsi_insn} (nil))
+
+(insn 66 65 67 11 arch/arm/kernel/unwind.c:377 (set (reg/f:SI 156)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 143 [ tsk ])
+                (const_int 4 [0x4])) [0 <variable>.stack+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 67 66 68 11 arch/arm/kernel/unwind.c:377 (set (reg:SI 157)
+        (mem/s/j:SI (plus:SI (reg/f:SI 156)
+                (const_int 60 [0x3c])) [0 <variable>.cpu_context.sp+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 68 67 69 11 arch/arm/kernel/unwind.c:377 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 frame.sp+0 S4 A32])
+        (reg:SI 157)) 167 {*arm_movsi_insn} (nil))
+
+(insn 69 68 70 11 arch/arm/kernel/unwind.c:382 (set (reg:SI 158)
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(insn 70 69 71 11 arch/arm/kernel/unwind.c:382 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -8 [0xfffffffffffffff8])) [0 frame.lr+0 S4 A64])
+        (reg:SI 158)) 167 {*arm_movsi_insn} (nil))
+
+(insn 71 70 72 11 arch/arm/kernel/unwind.c:383 (set (reg/f:SI 159)
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 143 [ tsk ])
+                (const_int 4 [0x4])) [0 <variable>.stack+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 72 71 73 11 arch/arm/kernel/unwind.c:383 (set (reg:SI 160)
+        (mem/s/j:SI (plus:SI (reg/f:SI 159)
+                (const_int 64 [0x40])) [0 <variable>.cpu_context.pc+0 S4 A64])) 167 {*arm_movsi_insn} (nil))
+
+(insn 73 72 74 11 arch/arm/kernel/unwind.c:383 (set (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 frame.pc+0 S4 A32])
+        (reg:SI 160)) 167 {*arm_movsi_insn} (nil))
+;; End of basic block 11 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 11 13 10 8) -> 12
+;; Pred edge  11 [100.0%]  (fallthru)
+;; Pred edge  13 [100.0%]  (fallthru)
+;; Pred edge  10 [100.0%]  (fallthru)
+;; Pred edge  8 [100.0%]  (fallthru)
+(code_label 74 73 75 12 98 "" [0 uses])
+
+(note 75 74 76 12 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+(insn 76 75 77 12 arch/arm/kernel/unwind.c:388 (set (reg/v:SI 135 [ where ])
+        (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 frame.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 77 76 78 12 arch/arm/kernel/unwind.c:390 (set (reg:SI 161)
+        (plus:SI (reg/f:SI 25 sfp)
+            (const_int -16 [0xfffffffffffffff0]))) 4 {*arm_addsi3} (nil))
+
+(insn 78 77 79 12 arch/arm/kernel/unwind.c:390 (set (reg:SI 0 r0)
+        (reg:SI 161)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 79 78 80 12 arch/arm/kernel/unwind.c:390 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("unwind_frame") [flags 0x3] <function_decl 0x11024e00 unwind_frame>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 80 79 81 12 arch/arm/kernel/unwind.c:390 (set (reg/v:SI 136 [ urc ])
+        (reg:SI 0 r0)) 167 {*arm_movsi_insn} (nil))
+
+(insn 81 80 82 12 arch/arm/kernel/unwind.c:391 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 136 [ urc ])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (nil))
+
+(jump_insn 82 81 83 12 arch/arm/kernel/unwind.c:391 (set (pc)
+        (if_then_else (lt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref:SI 97)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_BR_PROB (const_int 900 [0x384])
+        (nil)))
+;; End of basic block 12 -> ( 14 13)
+
+;; Succ edge  14 [9.0%] 
+;; Succ edge  13 [91.0%]  (fallthru)
+
+;; Start of basic block ( 12) -> 13
+;; Pred edge  12 [91.0%]  (fallthru)
+(note 83 82 84 13 [bb 13] NOTE_INSN_BASIC_BLOCK)
+
+(insn 84 83 85 13 arch/arm/kernel/unwind.c:393 (set (reg:SI 163)
+        (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -12 [0xfffffffffffffff4])) [0 frame.sp+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 85 84 86 13 arch/arm/kernel/unwind.c:393 (set (reg:SI 162)
+        (plus:SI (reg:SI 163)
+            (const_int -4 [0xfffffffffffffffc]))) 4 {*arm_addsi3} (nil))
+
+(insn 86 85 87 13 arch/arm/kernel/unwind.c:393 (set (reg:SI 0 r0)
+        (reg/v:SI 135 [ where ])) 167 {*arm_movsi_insn} (nil))
+
+(insn 87 86 88 13 arch/arm/kernel/unwind.c:393 (set (reg:SI 1 r1)
+        (mem/s/j/c:SI (plus:SI (reg/f:SI 25 sfp)
+                (const_int -4 [0xfffffffffffffffc])) [0 frame.pc+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn 88 87 89 13 arch/arm/kernel/unwind.c:393 (set (reg:SI 2 r2)
+        (reg:SI 162)) 167 {*arm_movsi_insn} (nil))
+
+(call_insn 89 88 97 13 arch/arm/kernel/unwind.c:393 (parallel [
+            (call (mem:SI (symbol_ref:SI ("dump_backtrace_entry") [flags 0x41] <function_decl 0x11039280 dump_backtrace_entry>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+;; End of basic block 13 -> ( 12)
+
+;; Succ edge  12 [100.0%]  (fallthru)
+
+;; Start of basic block ( 12) -> 14
+;; Pred edge  12 [9.0%] 
+(code_label 97 89 100 14 101 "" [1 uses])
+
+(note 100 97 0 14 [bb 14] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 14 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

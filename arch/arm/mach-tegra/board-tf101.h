@@ -210,7 +210,9 @@ unsigned int ASUSCheckTouchVendor(unsigned int vendor);
  *      No return parameter
  *      Project name will be assigned according to different kinds devices. (TF101, TF101G, TF101-WIMAX, and SL101)
  */
-static void ASUSGetProjectName(void);
+
+static void ASUSGetProjectName();
+
 
 /* Acquire pcb id
  *      No return parameter
@@ -221,7 +223,8 @@ static void ASUSGetProjectName(void);
  *      =>TF101-WiMax:x10xx0b
  *      =>SL101:x01xx0b
  */
-static void ASUSGetPcbid(void);
+
+static void ASUSGetPcbid();
 
 /* ASUS uses the following to store the lcd pixel clock freq. Then decide the vaule by project name.*/
 extern u32 lcd_pclk_khz;

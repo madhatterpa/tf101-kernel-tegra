@@ -1,0 +1,10 @@
+
+;; Function scu_get_core_count (scu_get_core_count)[0:721] (unlikely executed)
+
+
+;; Function scu_enable (scu_enable)[0:722] (unlikely executed)
+
+verify found no changes in insn with uid = 33.
+
+;; Function scu_power_mode (scu_power_mode)[0:723]
+

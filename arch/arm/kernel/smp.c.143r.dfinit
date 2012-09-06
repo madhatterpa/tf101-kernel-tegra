@@ -1,0 +1,179 @@
+
+;; Function smp_prepare_boot_cpu (smp_prepare_boot_cpu)[0:1413] (unlikely executed)
+
+
+;; Function set_smp_cross_call (set_smp_cross_call)[0:1415] (unlikely executed)
+
+
+;; Function arch_send_call_function_ipi_mask (arch_send_call_function_ipi_mask)[0:1416]
+
+verify found no changes in insn with uid = 10.
+
+;; Function arch_send_call_function_single_ipi (arch_send_call_function_single_ipi)[0:1417]
+
+verify found no changes in insn with uid = 20.
+
+;; Function smp_irq_stat_cpu (smp_irq_stat_cpu)[0:1419]
+
+
+;; Function smp_timer_broadcast (smp_timer_broadcast)[0:1423]
+
+verify found no changes in insn with uid = 10.
+
+;; Function broadcast_timer_set_mode (broadcast_timer_set_mode)[0:1424]
+
+
+;; Function smp_send_reschedule (smp_send_reschedule)[0:1432]
+
+verify found no changes in insn with uid = 20.
+
+;; Function setup_profiling_timer (setup_profiling_timer)[0:1434]
+
+
+;; Function smp_send_stop (smp_send_stop)[0:1433]
+
+verify found no changes in insn with uid = 11.
+verify found no changes in insn with uid = 25.
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 46.
+verify found no changes in insn with uid = 59.
+verify found no changes in insn with uid = 66.
+
+;; Function ipi_timer (ipi_timer)[0:1420]
+
+verify found no changes in insn with uid = 14.
+verify found no changes in insn with uid = 17.
+verify found no changes in insn with uid = 18.
+
+;; Function do_IPI (do_IPI)[0:1431]
+
+verify found no changes in insn with uid = 60.
+verify found no changes in insn with uid = 65.
+verify found no changes in insn with uid = 70.
+verify found no changes in insn with uid = 71.
+verify found no changes in insn with uid = 72.
+verify found no changes in insn with uid = 77.
+verify found no changes in insn with uid = 78.
+verify found no changes in insn with uid = 79.
+verify found no changes in insn with uid = 84.
+verify found no changes in insn with uid = 93.
+verify found no changes in insn with uid = 97.
+verify found no changes in insn with uid = 98.
+verify found no changes in insn with uid = 102.
+verify found no changes in insn with uid = 107.
+verify found no changes in insn with uid = 137.
+verify found no changes in insn with uid = 141.
+verify found no changes in insn with uid = 143.
+verify found no changes in insn with uid = 147.
+verify found no changes in insn with uid = 153.
+verify found no changes in insn with uid = 162.
+
+;; Function smp_send_all_cpu_backtrace (smp_send_all_cpu_backtrace)[0:1429]
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 32.
+verify found no changes in insn with uid = 33.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 63.
+
+;; Function percpu_timer_setup (percpu_timer_setup)[0:1426] (unlikely executed)
+
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 43.
+
+;; Function show_local_irqs (show_local_irqs)[0:1422]
+
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 36.
+verify found no changes in insn with uid = 48.
+
+;; Function show_ipi_list (show_ipi_list)[0:1418]
+
+verify found no changes in insn with uid = 50.
+verify found no changes in insn with uid = 66.
+verify found no changes in insn with uid = 73.
+verify found no changes in insn with uid = 88.
+
+;; Function smp_cpus_done (smp_cpus_done)[0:1412] (unlikely executed)
+
+verify found no changes in insn with uid = 29.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 45.
+verify found no changes in insn with uid = 49.
+verify found no changes in insn with uid = 53.
+verify found no changes in insn with uid = 59.
+
+;; Function do_local_timer (do_local_timer)[0:1421]
+
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 47.
+
+;; Function smp_prepare_cpus (smp_prepare_cpus)[0:1414] (unlikely executed)
+
+verify found no changes in insn with uid = 11.
+verify found no changes in insn with uid = 40.
+verify found no changes in insn with uid = 43.
+verify found no changes in insn with uid = 45.
+
+;; Function secondary_start_kernel (secondary_start_kernel)[0:1411] (unlikely executed)
+
+verify found no changes in insn with uid = 12.
+verify found no changes in insn with uid = 27.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 56.
+verify found no changes in insn with uid = 65.
+verify found no changes in insn with uid = 67.
+verify found no changes in insn with uid = 68.
+verify found no changes in insn with uid = 81.
+verify found no changes in insn with uid = 82.
+verify found no changes in insn with uid = 109.
+
+;; Function cpu_die (cpu_die)[0:1409]
+
+verify found no changes in insn with uid = 9.
+verify found no changes in insn with uid = 17.
+verify found no changes in insn with uid = 22.
+verify found no changes in insn with uid = 24.
+
+;; Function __cpu_die (__cpu_die)[0:1408]
+
+verify found no changes in insn with uid = 8.
+verify found no changes in insn with uid = 13.
+verify found no changes in insn with uid = 21.
+verify found no changes in insn with uid = 28.
+verify found no changes in insn with uid = 30.
+verify found no changes in insn with uid = 38.
+
+;; Function __cpu_disable (__cpu_disable)[0:1407]
+
+verify found no changes in insn with uid = 10.
+verify found no changes in insn with uid = 17.
+verify found no changes in insn with uid = 18.
+verify found no changes in insn with uid = 31.
+verify found no changes in insn with uid = 34.
+verify found no changes in insn with uid = 58.
+verify found no changes in insn with uid = 70.
+verify found no changes in insn with uid = 85.
+
+;; Function __cpu_up (__cpu_up)[0:1406] (unlikely executed)
+
+verify found no changes in insn with uid = 16.
+verify found no changes in insn with uid = 24.
+verify found no changes in insn with uid = 37.
+verify found no changes in insn with uid = 42.
+verify found no changes in insn with uid = 57.
+verify found no changes in insn with uid = 63.
+verify found no changes in insn with uid = 81.
+verify found no changes in insn with uid = 96.
+verify found no changes in insn with uid = 101.
+verify found no changes in insn with uid = 131.
+verify found no changes in insn with uid = 155.
+verify found no changes in insn with uid = 165.
+verify found no changes in insn with uid = 177.
+verify found no changes in insn with uid = 181.
+verify found no changes in insn with uid = 185.

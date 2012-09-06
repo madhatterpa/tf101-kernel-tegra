@@ -1,0 +1,697 @@
+
+;; Function __iounmap (__iounmap)[0:1243]
+
+(note 1 0 24 NOTE_INSN_DELETED)
+
+(note 24 1 4 ( io_addr (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ io_addr ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 4 24 21 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 21 4 2 NOTE_INSN_PROLOGUE_END)
+
+(note 2 21 3 NOTE_INSN_DELETED)
+
+(note 3 2 6 NOTE_INSN_FUNCTION_BEG)
+
+(note 6 3 7 NOTE_INSN_DELETED)
+
+(note 7 6 18 NOTE_INSN_DELETED)
+
+(insn:TI 18 7 25 arch/arm/mm/ioremap.c:318 (set (reg:SI 0 r0)
+        (and:SI (reg:SI 0 r0 [ io_addr ])
+            (const_int -4081 [0xfffffffffffff00f]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 25 18 19 ( io_addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 19 25 22 arch/arm/mm/ioremap.c:318 (set (reg:SI 0 r0)
+        (and:SI (reg:SI 0 r0)
+            (const_int -16 [0xfffffffffffffff0]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 22 19 23 NOTE_INSN_EPILOGUE_BEG)
+
+(insn 23 22 9 arch/arm/mm/ioremap.c:319 (parallel [
+            (unspec:SI [
+                    (reg:SI 14 lr)
+                ] 6)
+            (unspec_volatile [
+                    (return)
+                ] 1)
+        ]) 322 {sibcall_epilogue} (nil))
+
+(call_insn/j:TI 9 23 10 arch/arm/mm/ioremap.c:318 (parallel [
+            (call (mem:SI (symbol_ref:SI ("vunmap") [flags 0x41] <function_decl 0x10fb8c00 vunmap>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (return)
+            (use (const_int 0 [0x0]))
+        ]) 258 {*sibcall_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(barrier 10 9 20)
+
+(note 20 10 0 NOTE_INSN_DELETED)
+
+;; Function __arm_ioremap_pfn_caller (__arm_ioremap_pfn_caller)[0:1239]
+
+(note 1 0 156 NOTE_INSN_DELETED)
+
+(note 156 1 157 ( offset (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ offset ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 157 156 158 ( size (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ size ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 158 157 159 ( mtype (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ mtype ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 159 158 160 ( caller (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 caller+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 160 159 8 ( pfn (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ pfn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 8 160 7 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 7 8 10 NOTE_INSN_FUNCTION_BEG)
+
+(note 10 7 11 NOTE_INSN_DELETED)
+
+(insn:TI 11 10 143 arch/arm/mm/ioremap.c:201 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0 [orig:143 pfn ] [143])
+            (const_int 1048576 [0x100000]))) 219 {*arm_cmpsi_insn} (nil))
+
+(insn/f:TI 143 11 144 arch/arm/mm/ioremap.c:192 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 4 r4)
+                    ] 2))
+            (use (reg:SI 5 r5))
+            (use (reg:SI 6 r6))
+            (use (reg:SI 7 r7))
+            (use (reg:SI 8 r8))
+            (use (reg:SI 9 r9))
+            (use (reg:SI 10 sl))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_DEAD (reg:SI 7 r7)
+        (expr_list:REG_DEAD (reg:SI 6 r6)
+            (expr_list:REG_DEAD (reg:SI 5 r5)
+                (expr_list:REG_DEAD (reg:SI 4 r4)
+                    (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                                (set/f (reg/f:SI 13 sp)
+                                    (plus:SI (reg/f:SI 13 sp)
+                                        (const_int -32 [0xffffffffffffffe0])))
+                                (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                                    (reg:SI 4 r4))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 4 [0x4])) [0 S4 A32])
+                                    (reg:SI 5 r5))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 8 [0x8])) [0 S4 A32])
+                                    (reg:SI 6 r6))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 12 [0xc])) [0 S4 A32])
+                                    (reg:SI 7 r7))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 16 [0x10])) [0 S4 A32])
+                                    (reg:SI 8 r8))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 20 [0x14])) [0 S4 A32])
+                                    (reg:SI 9 r9))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 24 [0x18])) [0 S4 A32])
+                                    (reg:SI 10 sl))
+                                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                                            (const_int 28 [0x1c])) [0 S4 A32])
+                                    (reg:SI 14 lr))
+                            ])
+                        (nil)))))))
+
+(note 144 143 2 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 2 144 3 arch/arm/mm/ioremap.c:192 (set (reg/v:SI 6 r6 [orig:143 pfn ] [143])
+        (reg:SI 0 r0 [ pfn ])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 3 2 4 arch/arm/mm/ioremap.c:192 (set (reg/v:SI 7 r7 [orig:144 offset ] [144])
+        (reg:SI 1 r1 [ offset ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 1 r1 [ offset ])
+        (nil)))
+
+(insn 4 3 5 arch/arm/mm/ioremap.c:192 (set (reg/v:SI 4 r4 [orig:145 size ] [145])
+        (reg:SI 2 r2 [ size ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 2 r2 [ size ])
+        (nil)))
+
+(insn:TI 5 4 12 arch/arm/mm/ioremap.c:192 (set (reg/v:SI 5 r5 [orig:146 mtype ] [146])
+        (reg:SI 3 r3 [ mtype ])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [ mtype ])
+        (nil)))
+
+(jump_insn 12 5 161 arch/arm/mm/ioremap.c:201 (set (pc)
+        (if_then_else (ltu (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 18)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 2899 [0xb53])
+            (nil))))
+
+(note 161 12 162 ( offset (expr_list:REG_DEP_TRUE (reg/v:SI 7 r7 [orig:144 offset ] [144])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 162 161 163 ( size (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:145 size ] [145])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 163 162 164 ( mtype (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:146 mtype ] [146])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 164 163 13 ( pfn (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:143 pfn ] [143])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 13 164 14 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 14 13 15 arch/arm/mm/ioremap.c:201 discrim 1 (set (reg:SI 3 r3 [149])
+        (ashift:SI (reg:SI 0 r0 [orig:143 pfn ] [143])
+            (const_int 12 [0xc]))) 117 {*arm_shiftsi3} (expr_list:REG_DEAD (reg:SI 0 r0 [orig:143 pfn ] [143])
+        (nil)))
+
+(insn:TI 15 14 16 arch/arm/mm/ioremap.c:201 discrim 1 (set (reg:SI 3 r3 [150])
+        (and:SI (reg:SI 3 r3 [149])
+            (const_int 16777215 [0xffffff]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 16 15 17 arch/arm/mm/ioremap.c:201 discrim 1 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 3 r3 [150])
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 3 r3 [150])
+        (nil)))
+
+(jump_insn:TI 17 16 165 arch/arm/mm/ioremap.c:201 discrim 1 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 93)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9000 [0x2328])
+            (nil))))
+
+(note 165 17 18 ( mtype (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:146 mtype ] [146])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 18 165 19 4 "" [1 uses])
+
+(note 19 18 22 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(note 22 19 20 NOTE_INSN_DELETED)
+
+(insn:TI 20 22 21 arch/arm/mm/ioremap.c:207 (set (reg:SI 0 r0)
+        (reg/v:SI 6 r6 [orig:143 pfn ] [143])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 21 20 23 arch/arm/mm/ioremap.c:207 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("pfn_valid") [flags 0x41] <function_decl 0x10c01c80 pfn_valid>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn:TI 23 21 24 arch/arm/mm/ioremap.c:207 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg:SI 10 sl [orig:140 D.23354 ] [140])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 24 23 25 arch/arm/mm/ioremap.c:207 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 33)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9996 [0x270c])
+            (nil))))
+
+(note 25 24 27 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 27 25 28 arch/arm/mm/ioremap.c:207 discrim 1 (set (reg:SI 0 r0)
+        (mem:SI (label_ref 183) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x1140be10>)
+        (nil)))
+
+(insn 28 27 29 arch/arm/mm/ioremap.c:207 discrim 1 (set (reg:SI 1 r1)
+        (const_int 207 [0xcf])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 29 28 30 arch/arm/mm/ioremap.c:207 discrim 1 (parallel [
+            (call (mem:SI (symbol_ref:SI ("warn_slowpath_null") [flags 0x41] <function_decl 0x10a67280 warn_slowpath_null>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 1 r1)
+        (expr_list:REG_DEAD (reg:SI 0 r0)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 30 29 145 arch/arm/mm/ioremap.c:208 (set (reg/f:SI 0 r0 [orig:141 D.23353 ] [141])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(jump_insn:TI 145 30 132 (return) 260 {return} (nil))
+
+(barrier 132 145 33)
+
+(code_label 33 132 34 6 "" [1 uses])
+
+(note 34 33 37 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(note 37 34 35 NOTE_INSN_DELETED)
+
+(insn:TI 35 37 36 arch/arm/mm/ioremap.c:210 (set (reg:SI 0 r0)
+        (reg/v:SI 5 r5 [orig:146 mtype ] [146])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 36 35 38 arch/arm/mm/ioremap.c:210 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("get_mem_type") [flags 0x41] <function_decl 0x113ded80 get_mem_type>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn:TI 38 36 166 arch/arm/mm/ioremap.c:211 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg/v/f:SI 8 r8 [orig:137 type ] [137])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(note 166 38 39 ( type (expr_list:REG_DEP_TRUE (reg/v/f:SI 8 r8 [orig:137 type ] [137])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 39 166 40 arch/arm/mm/ioremap.c:211 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 93)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7954 [0x1f12])
+            (nil))))
+
+(note 40 39 44 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(note 44 40 50 NOTE_INSN_DELETED)
+
+(note 50 44 41 NOTE_INSN_DELETED)
+
+(insn:TI 41 50 167 arch/arm/mm/ioremap.c:217 (set (reg:SI 5 r5 [153])
+        (plus:SI (reg/v:SI 7 r7 [orig:144 offset ] [144])
+            (const_int 4080 [0xff0]))) 4 {*arm_addsi3} (nil))
+
+(note 167 41 48 ( mtype (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 48 167 42 arch/arm/mm/ioremap.c:219 (set (reg:SI 2 r2)
+        (mem/f/c/i:SI (plus:SI (reg/f:SI 13 sp)
+                (const_int 32 [0x20])) [0 caller+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 42 48 47 arch/arm/mm/ioremap.c:217 (set (reg:SI 5 r5 [152])
+        (plus:SI (reg:SI 5 r5 [153])
+            (const_int 15 [0xf]))) 4 {*arm_addsi3} (expr_list:REG_EQUAL (plus:SI (reg/v:SI 7 r7 [orig:144 offset ] [144])
+            (const_int 4095 [0xfff]))
+        (nil)))
+
+(insn 47 42 43 arch/arm/mm/ioremap.c:219 (set (reg:SI 1 r1)
+        (const_int 1 [0x1])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 43 47 139 arch/arm/mm/ioremap.c:217 (set (reg:SI 5 r5 [orig:139 D.23365 ] [139])
+        (plus:SI (reg:SI 5 r5 [152])
+            (reg/v:SI 4 r4 [orig:145 size ] [145]))) 4 {*arm_addsi3} (nil))
+
+(insn:TI 139 43 168 arch/arm/mm/ioremap.c:217 (set (reg/v:SI 5 r5 [orig:133 size.389 ] [133])
+        (and:SI (reg:SI 5 r5 [orig:139 D.23365 ] [139])
+            (const_int -4081 [0xfffffffffffff00f]))) 67 {*arm_andsi3_insn} (nil))
+
+(note 168 139 140 ( size (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:133 size.389 ] [133])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn:TI 140 168 46 arch/arm/mm/ioremap.c:217 (set (reg/v:SI 5 r5 [orig:133 size.389 ] [133])
+        (and:SI (reg/v:SI 5 r5 [orig:133 size.389 ] [133])
+            (const_int -16 [0xfffffffffffffff0]))) 67 {*arm_andsi3_insn} (nil))
+
+(insn:TI 46 140 49 arch/arm/mm/ioremap.c:219 (set (reg:SI 0 r0)
+        (reg/v:SI 5 r5 [orig:133 size.389 ] [133])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 49 46 51 arch/arm/mm/ioremap.c:219 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("get_vm_area_caller") [flags 0x41] <function_decl 0x10fb8f00 get_vm_area_caller>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 2 r2)
+        (expr_list:REG_DEAD (reg:SI 1 r1)
+            (nil)))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn:TI 51 49 169 arch/arm/mm/ioremap.c:220 (parallel [
+            (set (reg:CC 24 cc)
+                (compare:CC (reg:SI 0 r0)
+                    (const_int 0 [0x0])))
+            (set (reg/v/f:SI 0 r0 [orig:134 area ] [134])
+                (reg:SI 0 r0))
+        ]) 174 {*movsi_compare0} (nil))
+
+(note 169 51 52 ( area (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 area ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(jump_insn:TI 52 169 170 arch/arm/mm/ioremap.c:220 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 93)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 2164 [0x874])
+            (nil))))
+
+(note 170 52 53 ( caller (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int -4 [0xfffffffffffffffc])) [0 caller+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 53 170 56 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(note 56 53 57 NOTE_INSN_DELETED)
+
+(note 57 56 63 NOTE_INSN_DELETED)
+
+(note 63 57 54 NOTE_INSN_DELETED)
+
+(insn:TI 54 63 171 arch/arm/mm/ioremap.c:222 (set (reg/v:SI 4 r4 [orig:135 addr ] [135])
+        (mem/s/f/j:SI (plus:SI (reg/v/f:SI 0 r0 [orig:134 area ] [134])
+                (const_int 4 [0x4])) [0 <variable>.addr+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg/v/f:SI 0 r0 [orig:134 area ] [134])
+        (nil)))
+
+(note 171 54 60 ( addr (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:135 addr ] [135])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(insn 60 171 61 arch/arm/mm/ioremap.c:236 (set (reg:SI 2 r2)
+        (ashift:SI (reg/v:SI 6 r6 [orig:143 pfn ] [143])
+            (const_int 12 [0xc]))) 117 {*arm_shiftsi3} (nil))
+
+(insn:TI 61 60 59 arch/arm/mm/ioremap.c:236 (set (reg:SI 3 r3)
+        (mem/s/j:SI (reg/v/f:SI 8 r8 [orig:137 type ] [137]) [0 <variable>.prot_pte+0 S4 A32])) 167 {*arm_movsi_insn} (nil))
+
+(insn:TI 59 61 58 arch/arm/mm/ioremap.c:236 (set (reg:SI 1 r1)
+        (plus:SI (reg/v:SI 5 r5 [orig:133 size.389 ] [133])
+            (reg/v:SI 4 r4 [orig:135 addr ] [135]))) 4 {*arm_addsi3} (nil))
+
+(insn 58 59 172 arch/arm/mm/ioremap.c:236 (set (reg:SI 0 r0)
+        (reg/v:SI 4 r4 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(note 172 58 62 ( area (nil)) NOTE_INSN_VAR_LOCATION)
+
+(call_insn:TI 62 172 64 arch/arm/mm/ioremap.c:236 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("ioremap_page_range") [flags 0x41] <function_decl 0x10fcbc00 ioremap_page_range>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (nil))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn:TI 64 62 65 arch/arm/mm/ioremap.c:239 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 0 r0)
+            (const_int 0 [0x0]))) 219 {*arm_cmpsi_insn} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil)))
+
+(jump_insn:TI 65 64 66 arch/arm/mm/ioremap.c:239 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 72)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC 24 cc)
+        (expr_list:REG_BR_PROB (const_int 9566 [0x255e])
+            (nil))))
+
+(note 66 65 67 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 67 66 68 arch/arm/mm/ioremap.c:240 (set (reg:SI 0 r0)
+        (reg/v:SI 4 r4 [orig:135 addr ] [135])) 167 {*arm_movsi_insn} (nil))
+
+(call_insn:TI 68 67 69 arch/arm/mm/ioremap.c:240 (parallel [
+            (call (mem:SI (symbol_ref:SI ("vunmap") [flags 0x41] <function_decl 0x10fb8c00 vunmap>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 254 {*call_symbol} (expr_list:REG_DEAD (reg:SI 0 r0)
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 69 68 147 arch/arm/mm/ioremap.c:241 (set (reg/f:SI 0 r0 [orig:141 D.23353 ] [141])
+        (reg:SI 10 sl [orig:140 D.23354 ] [140])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (const_int 0 [0x0])
+        (nil)))
+
+(jump_insn:TI 147 69 134 arch/arm/mm/ioremap.c:241 (return) 260 {return} (nil))
+
+(barrier 134 147 72)
+
+(code_label 72 134 73 8 "" [1 uses])
+
+(note 73 72 76 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(note 76 73 74 NOTE_INSN_DELETED)
+
+(insn:TI 74 76 75 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cachetype.h:52 (set (reg/f:SI 3 r3 [157])
+        (mem:SI (const (plus (label_ref 183)
+                    (const_int 4 [0x4]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("cacheid") [flags 0xc0] <var_decl 0x10fc0960 cacheid>)
+        (nil)))
+
+(insn:TI 75 74 77 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cachetype.h:52 (set (reg:SI 3 r3 [orig:159 cacheid ] [159])
+        (mem/c/i:SI (reg/f:SI 3 r3 [157]) [0 cacheid+0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUAL (mem/c/i:SI (symbol_ref:SI ("cacheid") [flags 0xc0] <var_decl 0x10fc0960 cacheid>) [0 cacheid+0 S4 A32])
+        (nil)))
+
+(insn:TI 77 75 78 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cachetype.h:52 (set (reg:CC_NOOV 24 cc)
+        (compare:CC_NOOV (zero_extract:SI (reg:SI 3 r3 [orig:159 cacheid ] [159])
+                (const_int 1 [0x1])
+                (const_int 1 [0x1]))
+            (const_int 0 [0x0]))) 71 {*zeroextractsi_compare0_scratch} (expr_list:REG_DEAD (reg:SI 3 r3 [orig:159 cacheid ] [159])
+        (nil)))
+
+(jump_insn:TI 78 77 79 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cachetype.h:52 (set (pc)
+        (if_then_else (ne (reg:CC_NOOV 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 85)
+            (pc))) 229 {*arm_cond_branch} (expr_list:REG_DEAD (reg:CC_NOOV 24 cc)
+        (expr_list:REG_BR_PROB (const_int 7100 [0x1bbc])
+            (nil))))
+
+(note 79 78 81 [bb 11] NOTE_INSN_BASIC_BLOCK)
+
+(note 81 79 80 NOTE_INSN_DELETED)
+
+(insn:TI 80 81 82 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cacheflush.h:332 (set (reg/f:SI 3 r3 [160])
+        (mem:SI (const (plus (label_ref 183)
+                    (const_int 8 [0x8]))) [0 S4 A32])) 167 {*arm_movsi_insn} (expr_list:REG_EQUIV (symbol_ref:SI ("cpu_cache") [flags 0xc0] <var_decl 0x10fc0f60 cpu_cache>)
+        (nil)))
+
+(call_insn:TI 82 80 154 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cacheflush.h:332 (parallel [
+            (call (mem:SI (mem/s/f/j/c:SI (plus:SI (reg/f:SI 3 r3 [160])
+                            (const_int 4 [0x4])) [0 cpu_cache.flush_kern_all+0 S4 A32]) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 246 {*call_mem} (expr_list:REG_DEAD (reg/f:SI 3 r3 [160])
+        (nil))
+    (nil))
+
+(jump_insn 154 82 155 (set (pc)
+        (label_ref 88)) 242 {*arm_jump} (nil))
+
+(barrier 155 154 85)
+
+(code_label 85 155 86 9 "" [1 uses])
+
+(note 86 85 87 [bb 12] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 87 86 88 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/cacheflush.h:338 (parallel [
+            (asm_operands/v ("dsb") ("") 0 []
+                 [] 5635626)
+            (clobber (mem:BLK (scratch) [0 A8]))
+        ]) -1 (nil))
+
+(code_label 88 87 89 10 "" [1 uses])
+
+(note 89 88 90 [bb 13] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 90 89 146 arch/arm/mm/ioremap.c:245 (set (reg/f:SI 0 r0 [orig:141 D.23353 ] [141])
+        (plus:SI (reg/v:SI 7 r7 [orig:144 offset ] [144])
+            (reg/v:SI 4 r4 [orig:135 addr ] [135]))) 4 {*arm_addsi3} (nil))
+
+(jump_insn 146 90 138 arch/arm/mm/ioremap.c:245 (return) 260 {return} (nil))
+
+(barrier 138 146 173)
+
+(note 173 138 174 ( offset (expr_list:REG_DEP_TRUE (reg/v:SI 7 r7 [orig:144 offset ] [144])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 174 173 175 ( size (expr_list:REG_DEP_TRUE (reg/v:SI 4 r4 [orig:145 size ] [145])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 175 174 176 ( mtype (expr_list:REG_DEP_TRUE (reg/v:SI 5 r5 [orig:146 mtype ] [146])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 176 175 177 ( caller (expr_list:REG_DEP_TRUE (mem/f/c/i:SI (plus:SI (reg/f:SI 26 afp)
+            (const_int 4 [0x4])) [0 caller+0 S4 A32])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 177 176 178 ( addr (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 178 177 179 ( area (expr_list:REG_DEP_TRUE (reg/v/f:SI 0 r0 [orig:134 area ] [134])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 179 178 93 ( pfn (expr_list:REG_DEP_TRUE (reg/v:SI 6 r6 [orig:143 pfn ] [143])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(code_label 93 179 94 5 "" [3 uses])
+
+(note 94 93 95 [bb 14] NOTE_INSN_BASIC_BLOCK)
+
+(insn:TI 95 94 180 arch/arm/mm/ioremap.c:202 (set (reg/f:SI 0 r0 [orig:141 D.23353 ] [141])
+        (const_int 0 [0x0])) 167 {*arm_movsi_insn} (nil))
+
+(note 180 95 108 ( area (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 108 180 149 arch/arm/mm/ioremap.c:246 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(jump_insn 149 108 148 arch/arm/mm/ioremap.c:246 (return) 260 {return} (nil))
+
+(barrier 148 149 181)
+
+(code_label 181 148 182 14 "" [0 uses])
+
+(insn 182 181 183 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 2) -1 (nil))
+
+(code_label 183 182 184 13 "" [0 uses])
+
+(insn 184 183 185 (unspec_volatile [
+            (symbol_ref/v/f:SI ("*.LC0") [flags 0x82] <string_cst 0x1140be10>)
+        ] 6) -1 (nil))
+
+(insn 185 184 186 (unspec_volatile [
+            (symbol_ref:SI ("cacheid") [flags 0xc0] <var_decl 0x10fc0960 cacheid>)
+        ] 6) -1 (nil))
+
+(insn 186 185 187 (unspec_volatile [
+            (symbol_ref:SI ("cpu_cache") [flags 0xc0] <var_decl 0x10fc0f60 cpu_cache>)
+        ] 6) -1 (nil))
+
+(insn 187 186 188 (unspec_volatile [
+            (const_int 0 [0x0])
+        ] 3) -1 (nil))
+
+(barrier 188 187 141)
+
+(note 141 188 142 NOTE_INSN_DELETED)
+
+(note 142 141 0 NOTE_INSN_DELETED)
+
+;; Function __arm_ioremap_pfn (__arm_ioremap_pfn)[0:1241]
+
+(note 1 0 39 NOTE_INSN_DELETED)
+
+(note 39 1 40 ( pfn (expr_list:REG_DEP_TRUE (reg:SI 0 r0 [ pfn ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 40 39 41 ( offset (expr_list:REG_DEP_TRUE (reg:SI 1 r1 [ offset ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 41 40 42 ( size (expr_list:REG_DEP_TRUE (reg:SI 2 r2 [ size ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 42 41 7 ( mtype (expr_list:REG_DEP_TRUE (reg:SI 3 r3 [ mtype ])
+    (const_int 0 [0x0]))) NOTE_INSN_VAR_LOCATION)
+
+(note 7 42 31 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 31 7 6 NOTE_INSN_DELETED)
+
+(note 6 31 34 NOTE_INSN_FUNCTION_BEG)
+
+(insn/f:TI 34 6 45 arch/arm/mm/ioremap.c:278 (parallel [
+            (set (mem/c:BLK (pre_dec:BLK (reg/f:SI 13 sp)) [0 A8])
+                (unspec:BLK [
+                        (reg:SI 0 r0)
+                    ] 2))
+            (use (reg:SI 1 r1))
+            (use (reg:SI 2 r2))
+            (use (reg:SI 14 lr))
+        ]) 327 {*push_multi} (expr_list:REG_FRAME_RELATED_EXPR (sequence [
+                (set/f (reg/f:SI 13 sp)
+                    (plus:SI (reg/f:SI 13 sp)
+                        (const_int -16 [0xfffffffffffffff0])))
+                (set/f (mem/c:SI (reg/f:SI 13 sp) [0 S4 A32])
+                    (reg:SI 0 r0))
+                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                            (const_int 4 [0x4])) [0 S4 A32])
+                    (reg:SI 1 r1))
+                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                            (const_int 8 [0x8])) [0 S4 A32])
+                    (reg:SI 2 r2))
+                (set/f (mem/c:SI (plus:SI (reg/f:SI 13 sp)
+                            (const_int 12 [0xc])) [0 S4 A32])
+                    (reg:SI 14 lr))
+            ])
+        (nil)))
+
+(note 45 34 44 ( pfn (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 44 45 43 ( offset (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 43 44 35 ( size (nil)) NOTE_INSN_VAR_LOCATION)
+
+(note 35 43 10 NOTE_INSN_PROLOGUE_END)
+
+(insn:TI 10 35 15 arch/arm/mm/ioremap.c:279 (set (mem:SI (reg/f:SI 13 sp) [0 S4 A32])
+        (reg:SI 14 lr)) 167 {*arm_movsi_insn} (expr_list:REG_DEAD (reg:SI 14 lr)
+        (nil)))
+
+(call_insn 15 10 46 arch/arm/mm/ioremap.c:279 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("__arm_ioremap_pfn_caller") [flags 0x3] <function_decl 0x10fbf980 __arm_ioremap_pfn_caller>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) 255 {*call_value_symbol} (expr_list:REG_DEAD (reg:SI 3 r3)
+        (expr_list:REG_DEAD (reg:SI 2 r2)
+            (expr_list:REG_DEAD (reg:SI 1 r1)
+                (expr_list:REG_EH_REGION (const_int 0 [0x0])
+                    (nil)))))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(note 46 15 27 ( mtype (nil)) NOTE_INSN_VAR_LOCATION)
+
+(insn 27 46 36 arch/arm/mm/ioremap.c:281 (use (reg/i:SI 0 r0)) -1 (nil))
+
+(note 36 27 37 NOTE_INSN_EPILOGUE_BEG)
+
+(jump_insn:TI 37 36 38 arch/arm/mm/ioremap.c:281 (unspec_volatile [
+            (return)
+        ] 1) 323 {*epilogue_insns} (nil))
+
+(barrier 38 37 32)
+
+(note 32 38 33 NOTE_INSN_DELETED)
+
+(note 33 32 0 NOTE_INSN_DELETED)

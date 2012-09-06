@@ -1,0 +1,878 @@
+
+;; Function scu_get_core_count (scu_get_core_count)[0:721] (unlikely executed)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; D.11027 = (volatile unsigned int *) scu_base + 4;
+
+(insn 6 5 0 arch/arm/kernel/smp_scu.c:30 (set (reg/f:SI 134 [ D.11027 ])
+        (plus:SI (reg/v/f:SI 136 [ scu_base ])
+            (const_int 4 [0x4]))) -1 (nil))
+
+;; ncores ={v} *D.11027;
+
+(insn 7 6 0 arch/arm/kernel/smp_scu.c:30 (set (reg/v:SI 133 [ ncores ])
+        (mem/v:SI (reg/f:SI 134 [ D.11027 ]) [0 S4 A32])) -1 (nil))
+
+;; return (ncores & 3) + 1;
+
+(insn 8 7 9 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 138)
+        (and:SI (reg/v:SI 133 [ ncores ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(insn 9 8 10 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 137)
+        (plus:SI (reg:SI 138)
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 135 [ <result> ])
+        (reg:SI 137)) -1 (nil))
+
+(jump_insn 11 10 12 arch/arm/kernel/smp_scu.c:32 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 12 11 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/smp_scu.c:29 (set (reg/v/f:SI 136 [ scu_base ])
+        (reg:SI 0 r0 [ scu_base ])) -1 (nil))
+
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 5 3 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 6 5 7 3 arch/arm/kernel/smp_scu.c:30 (set (reg/f:SI 134 [ D.11027 ])
+        (plus:SI (reg/v/f:SI 136 [ scu_base ])
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/smp_scu.c:30 (set (reg/v:SI 133 [ ncores ])
+        (mem/v:SI (reg/f:SI 134 [ D.11027 ]) [0 S4 A32])) -1 (nil))
+
+(insn 8 7 9 3 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 138)
+        (and:SI (reg/v:SI 133 [ ncores ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(insn 9 8 10 3 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 137)
+        (plus:SI (reg:SI 138)
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/smp_scu.c:32 (set (reg:SI 135 [ <result> ])
+        (reg:SI 137)) -1 (nil))
+
+(jump_insn 11 10 12 3 arch/arm/kernel/smp_scu.c:32 (set (pc)
+        (label_ref 13)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 12 11 21)
+
+;; Start of basic block () -> 4
+(note 21 12 15 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 15 21 16 4 arch/arm/kernel/smp_scu.c:32 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 16 15 17 4 arch/arm/kernel/smp_scu.c:32 (clobber (reg:SI 135 [ <result> ])) -1 (nil))
+
+(jump_insn 17 16 18 4 arch/arm/kernel/smp_scu.c:32 (set (pc)
+        (label_ref 19)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 18 17 13)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 13 18 22 5 1 "" [1 uses])
+
+(note 22 13 14 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 14 22 19 5 arch/arm/kernel/smp_scu.c:32 (set (reg/i:SI 0 r0)
+        (reg:SI 135 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 19 14 23 6 2 "" [1 uses])
+
+(note 23 19 20 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 20 23 0 6 arch/arm/kernel/smp_scu.c:32 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function scu_enable (scu_enable)[0:722] (unlikely executed)
+
+
+;; Generating RTL for gimple basic block 2
+
+;; __asm__("mrc	p15, 0, %0, c0, c0, 0" : "=r" __val : "cc");
+
+(insn 6 5 0 arch/arm/kernel/smp_scu.c:43 (parallel [
+            (set (reg/v:SI 136 [ __val ])
+                (asm_operands:SI ("mrc	p15, 0, %0, c0, c0, 0") ("=r") 0 []
+                     [] 4545179))
+            (clobber (reg:QI 24 cc))
+        ]) -1 (nil))
+
+;; if (__val & 4279238640 == 1091551376)
+
+(insn 7 6 8 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 142)
+        (and:SI (reg/v:SI 136 [ __val ])
+            (const_int -15728641 [0xffffffffff0fffff]))) -1 (nil))
+
+(insn 8 7 9 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 141)
+        (and:SI (reg:SI 142)
+            (const_int -16 [0xfffffffffffffff0]))) -1 (expr_list:REG_EQUAL (and:SI (reg/v:SI 136 [ __val ])
+            (const_int -15728656 [0xffffffffff0ffff0]))
+        (nil)))
+
+(insn 9 8 10 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 143)
+        (const_int 1091551376 [0x410fc090])) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/smp_scu.c:43 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 141)
+            (reg:SI 143))) -1 (nil))
+
+(jump_insn 11 10 0 arch/arm/kernel/smp_scu.c:43 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+
+;; Generating RTL for gimple basic block 3
+
+;; D.11040 = (volatile unsigned int *) scu_base + 48;
+
+(insn 13 12 0 arch/arm/kernel/smp_scu.c:44 (set (reg/f:SI 139 [ D.11040 ])
+        (plus:SI (reg/v/f:SI 140 [ scu_base ])
+            (const_int 48 [0x30]))) -1 (nil))
+
+;; scu_ctrl ={v} *D.11040;
+
+(insn 14 13 0 arch/arm/kernel/smp_scu.c:44 (set (reg/v:SI 137 [ scu_ctrl ])
+        (mem/v:SI (reg/f:SI 139 [ D.11040 ]) [0 S4 A32])) -1 (nil))
+
+;; if ((int) scu_ctrl & 1 == 0)
+
+(insn 15 14 16 arch/arm/kernel/smp_scu.c:45 (set (reg:SI 144)
+        (and:SI (reg/v:SI 137 [ scu_ctrl ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 16 15 17 arch/arm/kernel/smp_scu.c:45 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 144)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 17 16 0 arch/arm/kernel/smp_scu.c:45 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+
+;; Generating RTL for gimple basic block 4
+
+;; D.11045 = scu_ctrl | 1;
+
+(insn 19 18 0 arch/arm/kernel/smp_scu.c:46 (set (reg:SI 138 [ D.11045 ])
+        (ior:SI (reg/v:SI 137 [ scu_ctrl ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+;; *D.11040 ={v} D.11045;
+
+(insn 20 19 0 arch/arm/kernel/smp_scu.c:46 (set (mem/v:SI (reg/f:SI 139 [ D.11040 ]) [0 S4 A32])
+        (reg:SI 138 [ D.11045 ])) -1 (nil))
+
+;; Generating RTL for gimple basic block 5
+
+;; 
+
+(code_label 21 20 22 4 "" [0 uses])
+
+(note 22 21 0 NOTE_INSN_BASIC_BLOCK)
+
+;; scu_base.255 = (volatile unsigned int *) scu_base;
+
+(insn 23 22 0 arch/arm/kernel/smp_scu.c:50 (set (reg/f:SI 135 [ scu_base.255 ])
+        (reg/v/f:SI 140 [ scu_base ])) -1 (nil))
+
+;; scu_ctrl.256 ={v} *scu_base.255;
+
+(insn 24 23 0 arch/arm/kernel/smp_scu.c:50 (set (reg/v:SI 134 [ scu_ctrl.256 ])
+        (mem/v:SI (reg/f:SI 135 [ scu_base.255 ]) [0 S4 A32])) -1 (nil))
+
+;; if ((int) scu_ctrl.256 & 1 != 0)
+
+(insn 25 24 26 arch/arm/kernel/smp_scu.c:52 (set (reg:SI 145)
+        (and:SI (reg/v:SI 134 [ scu_ctrl.256 ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 26 25 27 arch/arm/kernel/smp_scu.c:52 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 145)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 27 26 0 arch/arm/kernel/smp_scu.c:52 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+
+;; Generating RTL for gimple basic block 6
+
+;; scu_ctrl.259 = scu_ctrl.256 | 1;
+
+(insn 29 28 0 arch/arm/kernel/smp_scu.c:55 (set (reg/v:SI 133 [ scu_ctrl.259 ])
+        (ior:SI (reg/v:SI 134 [ scu_ctrl.256 ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+;; *scu_base.255 ={v} scu_ctrl.259;
+
+(insn 30 29 0 arch/arm/kernel/smp_scu.c:56 (set (mem/v:SI (reg/f:SI 135 [ scu_base.255 ]) [0 S4 A32])
+        (reg/v:SI 133 [ scu_ctrl.259 ])) -1 (nil))
+
+;; cpu_cache.flush_kern_all (); [tail call]
+
+(insn 31 30 32 arch/arm/kernel/smp_scu.c:62 (set (reg/f:SI 146)
+        (symbol_ref:SI ("cpu_cache") [flags 0xc0] <var_decl 0x10e32ea0 cpu_cache>)) -1 (nil))
+
+(insn 32 31 33 arch/arm/kernel/smp_scu.c:62 (set (reg/f:SI 147)
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 146)
+                (const_int 4 [0x4])) [0 cpu_cache.flush_kern_all+0 S4 A32])) -1 (nil))
+
+(call_insn 33 32 0 arch/arm/kernel/smp_scu.c:62 (parallel [
+            (call (mem:SI (reg/f:SI 147) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (nil))
+
+;; Generating RTL for gimple basic block 7
+
+;; 
+
+(code_label 34 33 35 5 "" [0 uses])
+
+(note 35 34 0 NOTE_INSN_BASIC_BLOCK)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/smp_scu.c:38 (set (reg/v/f:SI 140 [ scu_base ])
+        (reg:SI 0 r0 [ scu_base ])) -1 (nil))
+
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 5 3 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 6 5 7 3 arch/arm/kernel/smp_scu.c:43 (parallel [
+            (set (reg/v:SI 136 [ __val ])
+                (asm_operands:SI ("mrc	p15, 0, %0, c0, c0, 0") ("=r") 0 []
+                     [] 4545179))
+            (clobber (reg:QI 24 cc))
+        ]) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 142)
+        (and:SI (reg/v:SI 136 [ __val ])
+            (const_int -15728641 [0xffffffffff0fffff]))) -1 (nil))
+
+(insn 8 7 9 3 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 141)
+        (and:SI (reg:SI 142)
+            (const_int -16 [0xfffffffffffffff0]))) -1 (expr_list:REG_EQUAL (and:SI (reg/v:SI 136 [ __val ])
+            (const_int -15728656 [0xffffffffff0ffff0]))
+        (nil)))
+
+(insn 9 8 10 3 arch/arm/kernel/smp_scu.c:43 (set (reg:SI 143)
+        (const_int 1091551376 [0x410fc090])) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/smp_scu.c:43 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 141)
+            (reg:SI 143))) -1 (nil))
+
+(jump_insn 11 10 12 3 arch/arm/kernel/smp_scu.c:43 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 21)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 7200 [0x1c20])
+        (nil)))
+;; End of basic block 3 -> ( 4 6)
+
+;; Succ edge  4 [28.0%]  (fallthru)
+;; Succ edge  6 [72.0%] 
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [28.0%]  (fallthru)
+(note 12 11 13 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 13 12 14 4 arch/arm/kernel/smp_scu.c:44 (set (reg/f:SI 139 [ D.11040 ])
+        (plus:SI (reg/v/f:SI 140 [ scu_base ])
+            (const_int 48 [0x30]))) -1 (nil))
+
+(insn 14 13 15 4 arch/arm/kernel/smp_scu.c:44 (set (reg/v:SI 137 [ scu_ctrl ])
+        (mem/v:SI (reg/f:SI 139 [ D.11040 ]) [0 S4 A32])) -1 (nil))
+
+(insn 15 14 16 4 arch/arm/kernel/smp_scu.c:45 (set (reg:SI 144)
+        (and:SI (reg/v:SI 137 [ scu_ctrl ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 16 15 17 4 arch/arm/kernel/smp_scu.c:45 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 144)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 17 16 18 4 arch/arm/kernel/smp_scu.c:45 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 21)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 5000 [0x1388])
+        (nil)))
+;; End of basic block 4 -> ( 5 6)
+
+;; Succ edge  5 [50.0%]  (fallthru)
+;; Succ edge  6 [50.0%] 
+
+;; Start of basic block ( 4) -> 5
+;; Pred edge  4 [50.0%]  (fallthru)
+(note 18 17 19 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 19 18 20 5 arch/arm/kernel/smp_scu.c:46 (set (reg:SI 138 [ D.11045 ])
+        (ior:SI (reg/v:SI 137 [ scu_ctrl ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 20 19 21 5 arch/arm/kernel/smp_scu.c:46 (set (mem/v:SI (reg/f:SI 139 [ D.11040 ]) [0 S4 A32])
+        (reg:SI 138 [ D.11045 ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3 4 5) -> 6
+;; Pred edge  3 [72.0%] 
+;; Pred edge  4 [50.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 21 20 22 6 4 "" [2 uses])
+
+(note 22 21 23 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 23 22 24 6 arch/arm/kernel/smp_scu.c:50 (set (reg/f:SI 135 [ scu_base.255 ])
+        (reg/v/f:SI 140 [ scu_base ])) -1 (nil))
+
+(insn 24 23 25 6 arch/arm/kernel/smp_scu.c:50 (set (reg/v:SI 134 [ scu_ctrl.256 ])
+        (mem/v:SI (reg/f:SI 135 [ scu_base.255 ]) [0 S4 A32])) -1 (nil))
+
+(insn 25 24 26 6 arch/arm/kernel/smp_scu.c:52 (set (reg:SI 145)
+        (and:SI (reg/v:SI 134 [ scu_ctrl.256 ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 26 25 27 6 arch/arm/kernel/smp_scu.c:52 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 145)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 27 26 28 6 arch/arm/kernel/smp_scu.c:52 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 34)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+;; End of basic block 6 -> ( 8 7)
+
+;; Succ edge  8 [61.0%] 
+;; Succ edge  7 [39.0%]  (fallthru)
+
+;; Start of basic block ( 6) -> 7
+;; Pred edge  6 [39.0%]  (fallthru)
+(note 28 27 29 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 29 28 30 7 arch/arm/kernel/smp_scu.c:55 (set (reg/v:SI 133 [ scu_ctrl.259 ])
+        (ior:SI (reg/v:SI 134 [ scu_ctrl.256 ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 30 29 31 7 arch/arm/kernel/smp_scu.c:56 (set (mem/v:SI (reg/f:SI 135 [ scu_base.255 ]) [0 S4 A32])
+        (reg/v:SI 133 [ scu_ctrl.259 ])) -1 (nil))
+
+(insn 31 30 32 7 arch/arm/kernel/smp_scu.c:62 (set (reg/f:SI 146)
+        (symbol_ref:SI ("cpu_cache") [flags 0xc0] <var_decl 0x10e32ea0 cpu_cache>)) -1 (nil))
+
+(insn 32 31 33 7 arch/arm/kernel/smp_scu.c:62 (set (reg/f:SI 147)
+        (mem/s/f/j/c:SI (plus:SI (reg/f:SI 146)
+                (const_int 4 [0x4])) [0 cpu_cache.flush_kern_all+0 S4 A32])) -1 (nil))
+
+(call_insn 33 32 34 7 arch/arm/kernel/smp_scu.c:62 (parallel [
+            (call (mem:SI (reg/f:SI 147) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (nil))
+;; End of basic block 7 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 8
+;; Pred edge  6 [61.0%] 
+;; Pred edge  7 [100.0%]  (fallthru)
+(code_label 34 33 35 8 5 "" [1 uses])
+
+(note 35 34 40 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 8 -> ( 9)
+
+;; Succ edge  9 [100.0%]  (fallthru)
+
+;; Start of basic block ( 8) -> 9
+;; Pred edge  8 [100.0%]  (fallthru)
+(note 40 35 37 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(jump_insn 37 40 38 9 arch/arm/kernel/smp_scu.c:63 (set (pc)
+        (label_ref 39)) -1 (nil))
+;; End of basic block 9 -> ( 11)
+
+;; Succ edge  11 [100.0%] 
+
+(barrier 38 37 36)
+
+;; Start of basic block () -> 10
+(code_label 36 38 41 10 3 "" [0 uses])
+
+(note 41 36 39 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 10 -> ( 11)
+
+;; Succ edge  11 [100.0%]  (fallthru)
+
+;; Start of basic block ( 9 10) -> 11
+;; Pred edge  9 [100.0%] 
+;; Pred edge  10 [100.0%]  (fallthru)
+(code_label 39 41 42 11 6 "" [1 uses])
+
+(note 42 39 0 11 [bb 11] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 11 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function scu_power_mode (scu_power_mode)[0:723]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; sp.80 = sp;
+
+(insn 7 6 0 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 133 [ sp.80 ])
+        (reg/v:SI 13 sp [ sp ])) -1 (nil))
+
+;; D.11057 = ((struct thread_info *) (sp.80 & 4294959104))->cpu;
+
+(insn 8 7 9 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 144)
+        (and:SI (reg:SI 133 [ sp.80 ])
+            (const_int -8129 [0xffffffffffffe03f]))) -1 (nil))
+
+(insn 9 8 10 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 143)
+        (and:SI (reg:SI 144)
+            (const_int -64 [0xffffffffffffffc0]))) -1 (expr_list:REG_EQUAL (and:SI (reg:SI 133 [ sp.80 ])
+            (const_int -8192 [0xffffffffffffe000]))
+        (nil)))
+
+(insn 10 9 0 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 139 [ D.11057 ])
+        (mem/s/j:SI (plus:SI (reg:SI 143)
+                (const_int 20 [0x14])) [0 <variable>.cpu+0 S4 A32])) -1 (nil))
+
+;; if (mode == 1 | mode > 3 != 0)
+
+(insn 11 10 12 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 142 [ mode ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 146)
+        (eq:SI (reg:CC 24 cc)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(insn 13 12 14 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 145)
+        (subreg:QI (reg:SI 146) 0)) -1 (nil))
+
+(insn 14 13 15 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 142 [ mode ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(insn 15 14 16 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 148)
+        (gtu:SI (reg:CC 24 cc)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(insn 16 15 17 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 147)
+        (subreg:QI (reg:SI 148) 0)) -1 (nil))
+
+(insn 17 16 18 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 149)
+        (ior:SI (subreg:SI (reg:QI 145) 0)
+            (subreg:SI (reg:QI 147) 0))) -1 (nil))
+
+(insn 18 17 19 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 150)
+        (subreg:QI (reg:SI 149) 0)) -1 (nil))
+
+(insn 19 18 20 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 151)
+        (zero_extend:SI (reg:QI 150))) -1 (nil))
+
+(insn 20 19 21 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 151)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 21 20 0 arch/arm/kernel/smp_scu.c:79 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 9600 [0x2580])
+        (nil)))
+
+;; Generating RTL for gimple basic block 3
+
+;; if ((int) D.11057 > 3)
+
+(insn 23 22 24 arch/arm/kernel/smp_scu.c:77 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 139 [ D.11057 ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(jump_insn 24 23 0 arch/arm/kernel/smp_scu.c:77 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 3900 [0xf3c])
+        (nil)))
+
+;; Generating RTL for gimple basic block 4
+
+;; D.11068 = (volatile unsigned char *) (scu_base + (D.11057 + 8));
+
+(insn 26 25 27 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 152)
+        (plus:SI (reg:SI 139 [ D.11057 ])
+            (const_int 8 [0x8]))) -1 (nil))
+
+(insn 27 26 0 arch/arm/kernel/smp_scu.c:82 (set (reg/f:SI 137 [ D.11068 ])
+        (plus:SI (reg/v/f:SI 141 [ scu_base ])
+            (reg:SI 152))) -1 (nil))
+
+;; D.11069 ={v} *D.11068;
+
+(insn 28 27 29 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 154)
+        (zero_extend:SI (mem/v:QI (reg/f:SI 137 [ D.11068 ]) [0 S1 A8]))) -1 (nil))
+
+(insn 29 28 30 arch/arm/kernel/smp_scu.c:82 (set (reg:QI 153)
+        (subreg:QI (reg:SI 154) 0)) -1 (nil))
+
+(insn 30 29 0 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 136 [ D.11069 ])
+        (zero_extend:SI (reg:QI 153))) -1 (nil))
+
+;; val = (unsigned int) D.11069 & 4294967292;
+
+(insn 31 30 0 arch/arm/kernel/smp_scu.c:82 (set (reg/v:SI 134 [ val ])
+        (and:SI (reg:SI 136 [ D.11069 ])
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+;; D.11071 = (volatile unsigned char) (val | mode);
+
+(insn 32 31 33 arch/arm/kernel/smp_scu.c:84 (set (reg:SI 155)
+        (ior:SI (reg/v:SI 134 [ val ])
+            (reg/v:SI 142 [ mode ]))) -1 (nil))
+
+(insn 33 32 0 arch/arm/kernel/smp_scu.c:84 (set (reg:SI 135 [ D.11071 ])
+        (zero_extend:SI (subreg:QI (reg:SI 155) 0))) -1 (nil))
+
+;; *D.11068 ={v} D.11071;
+
+(insn 34 33 35 arch/arm/kernel/smp_scu.c:84 (set (reg:QI 156)
+        (subreg/s/u:QI (reg:SI 135 [ D.11071 ]) 0)) -1 (nil))
+
+(insn 35 34 0 arch/arm/kernel/smp_scu.c:84 (set (mem/v:QI (reg/f:SI 137 [ D.11068 ]) [0 S1 A8])
+        (reg:QI 156)) -1 (nil))
+
+;; D.11064 = 0;
+
+(insn 36 35 0 arch/arm/kernel/smp_scu.c:86 (set (reg:SI 138 [ D.11064 ])
+        (const_int 0 [0x0])) -1 (nil))
+
+;; Generating RTL for gimple basic block 5
+
+;; 
+
+(code_label 39 38 40 11 "" [0 uses])
+
+(note 40 39 0 NOTE_INSN_BASIC_BLOCK)
+
+;; D.11064 = -22;
+
+(insn 41 40 0 arch/arm/kernel/smp_scu.c:80 (set (reg:SI 138 [ D.11064 ])
+        (const_int -22 [0xffffffffffffffea])) -1 (nil))
+
+;; Generating RTL for gimple basic block 6
+
+;; 
+
+(code_label 42 41 43 12 "" [0 uses])
+
+(note 43 42 0 NOTE_INSN_BASIC_BLOCK)
+
+;; return D.11064;
+
+(insn 44 43 45 arch/arm/kernel/smp_scu.c:87 (set (reg:SI 140 [ <result> ])
+        (reg:SI 138 [ D.11064 ])) -1 (nil))
+
+(jump_insn 45 44 46 arch/arm/kernel/smp_scu.c:87 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 46 45 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 5 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 5 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 5 3 2 arch/arm/kernel/smp_scu.c:75 (set (reg/v/f:SI 141 [ scu_base ])
+        (reg:SI 0 r0 [ scu_base ])) -1 (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/smp_scu.c:75 (set (reg/v:SI 142 [ mode ])
+        (reg:SI 1 r1 [ mode ])) -1 (nil))
+
+(note 4 3 6 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 6 4 7 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 7 6 8 3 /Volumes/Jenkins/tf101-kernel-tegra/arch/arm/include/asm/thread_info.h:97 (set (reg:SI 133 [ sp.80 ])
+        (reg/v:SI 13 sp [ sp ])) -1 (nil))
+
+(insn 8 7 9 3 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 144)
+        (and:SI (reg:SI 133 [ sp.80 ])
+            (const_int -8129 [0xffffffffffffe03f]))) -1 (nil))
+
+(insn 9 8 10 3 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 143)
+        (and:SI (reg:SI 144)
+            (const_int -64 [0xffffffffffffffc0]))) -1 (expr_list:REG_EQUAL (and:SI (reg:SI 133 [ sp.80 ])
+            (const_int -8192 [0xffffffffffffe000]))
+        (nil)))
+
+(insn 10 9 11 3 arch/arm/kernel/smp_scu.c:77 (set (reg:SI 139 [ D.11057 ])
+        (mem/s/j:SI (plus:SI (reg:SI 143)
+                (const_int 20 [0x14])) [0 <variable>.cpu+0 S4 A32])) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 142 [ mode ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 146)
+        (eq:SI (reg:CC 24 cc)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(insn 13 12 14 3 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 145)
+        (subreg:QI (reg:SI 146) 0)) -1 (nil))
+
+(insn 14 13 15 3 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 142 [ mode ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(insn 15 14 16 3 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 148)
+        (gtu:SI (reg:CC 24 cc)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(insn 16 15 17 3 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 147)
+        (subreg:QI (reg:SI 148) 0)) -1 (nil))
+
+(insn 17 16 18 3 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 149)
+        (ior:SI (subreg:SI (reg:QI 145) 0)
+            (subreg:SI (reg:QI 147) 0))) -1 (nil))
+
+(insn 18 17 19 3 arch/arm/kernel/smp_scu.c:79 (set (reg:QI 150)
+        (subreg:QI (reg:SI 149) 0)) -1 (nil))
+
+(insn 19 18 20 3 arch/arm/kernel/smp_scu.c:79 (set (reg:SI 151)
+        (zero_extend:SI (reg:QI 150))) -1 (nil))
+
+(insn 20 19 21 3 arch/arm/kernel/smp_scu.c:79 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 151)
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 21 20 22 3 arch/arm/kernel/smp_scu.c:79 (set (pc)
+        (if_then_else (ne (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 39)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 9600 [0x2580])
+        (nil)))
+;; End of basic block 3 -> ( 6 4)
+
+;; Succ edge  6 [96.0%] 
+;; Succ edge  4 [4.0%]  (fallthru)
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [4.0%]  (fallthru)
+(note 22 21 23 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 23 22 24 4 arch/arm/kernel/smp_scu.c:77 (set (reg:CC 24 cc)
+        (compare:CC (reg:SI 139 [ D.11057 ])
+            (const_int 3 [0x3]))) -1 (nil))
+
+(jump_insn 24 23 25 4 arch/arm/kernel/smp_scu.c:77 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 39)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 3900 [0xf3c])
+        (nil)))
+;; End of basic block 4 -> ( 6 5)
+
+;; Succ edge  6 [39.0%] 
+;; Succ edge  5 [61.0%]  (fallthru)
+
+;; Start of basic block ( 4) -> 5
+;; Pred edge  4 [61.0%]  (fallthru)
+(note 25 24 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 25 27 5 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 152)
+        (plus:SI (reg:SI 139 [ D.11057 ])
+            (const_int 8 [0x8]))) -1 (nil))
+
+(insn 27 26 28 5 arch/arm/kernel/smp_scu.c:82 (set (reg/f:SI 137 [ D.11068 ])
+        (plus:SI (reg/v/f:SI 141 [ scu_base ])
+            (reg:SI 152))) -1 (nil))
+
+(insn 28 27 29 5 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 154)
+        (zero_extend:SI (mem/v:QI (reg/f:SI 137 [ D.11068 ]) [0 S1 A8]))) -1 (nil))
+
+(insn 29 28 30 5 arch/arm/kernel/smp_scu.c:82 (set (reg:QI 153)
+        (subreg:QI (reg:SI 154) 0)) -1 (nil))
+
+(insn 30 29 31 5 arch/arm/kernel/smp_scu.c:82 (set (reg:SI 136 [ D.11069 ])
+        (zero_extend:SI (reg:QI 153))) -1 (nil))
+
+(insn 31 30 32 5 arch/arm/kernel/smp_scu.c:82 (set (reg/v:SI 134 [ val ])
+        (and:SI (reg:SI 136 [ D.11069 ])
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+(insn 32 31 33 5 arch/arm/kernel/smp_scu.c:84 (set (reg:SI 155)
+        (ior:SI (reg/v:SI 134 [ val ])
+            (reg/v:SI 142 [ mode ]))) -1 (nil))
+
+(insn 33 32 34 5 arch/arm/kernel/smp_scu.c:84 (set (reg:SI 135 [ D.11071 ])
+        (zero_extend:SI (subreg:QI (reg:SI 155) 0))) -1 (nil))
+
+(insn 34 33 35 5 arch/arm/kernel/smp_scu.c:84 (set (reg:QI 156)
+        (subreg/s/u:QI (reg:SI 135 [ D.11071 ]) 0)) -1 (nil))
+
+(insn 35 34 36 5 arch/arm/kernel/smp_scu.c:84 (set (mem/v:QI (reg/f:SI 137 [ D.11068 ]) [0 S1 A8])
+        (reg:QI 156)) -1 (nil))
+
+(insn 36 35 37 5 arch/arm/kernel/smp_scu.c:86 (set (reg:SI 138 [ D.11064 ])
+        (const_int 0 [0x0])) -1 (nil))
+
+(jump_insn 37 36 38 5 arch/arm/kernel/smp_scu.c:86 (set (pc)
+        (label_ref 42)) -1 (nil))
+;; End of basic block 5 -> ( 7)
+
+;; Succ edge  7 [100.0%] 
+
+(barrier 38 37 39)
+
+;; Start of basic block ( 4 3) -> 6
+;; Pred edge  4 [39.0%] 
+;; Pred edge  3 [96.0%] 
+(code_label 39 38 40 6 11 "" [2 uses])
+
+(note 40 39 41 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 41 40 42 6 arch/arm/kernel/smp_scu.c:80 (set (reg:SI 138 [ D.11064 ])
+        (const_int -22 [0xffffffffffffffea])) -1 (nil))
+;; End of basic block 6 -> ( 7)
+
+;; Succ edge  7 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 5) -> 7
+;; Pred edge  6 [100.0%]  (fallthru)
+;; Pred edge  5 [100.0%] 
+(code_label 42 41 43 7 12 "" [1 uses])
+
+(note 43 42 44 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 44 43 45 7 arch/arm/kernel/smp_scu.c:87 (set (reg:SI 140 [ <result> ])
+        (reg:SI 138 [ D.11064 ])) -1 (nil))
+
+(jump_insn 45 44 46 7 arch/arm/kernel/smp_scu.c:87 (set (pc)
+        (label_ref 47)) -1 (nil))
+;; End of basic block 7 -> ( 9)
+
+;; Succ edge  9 [100.0%] 
+
+(barrier 46 45 55)
+
+;; Start of basic block () -> 8
+(note 55 46 49 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 49 55 50 8 arch/arm/kernel/smp_scu.c:87 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 50 49 51 8 arch/arm/kernel/smp_scu.c:87 (clobber (reg:SI 140 [ <result> ])) -1 (nil))
+
+(jump_insn 51 50 52 8 arch/arm/kernel/smp_scu.c:87 (set (pc)
+        (label_ref 53)) -1 (nil))
+;; End of basic block 8 -> ( 10)
+
+;; Succ edge  10 [100.0%] 
+
+(barrier 52 51 47)
+
+;; Start of basic block ( 7) -> 9
+;; Pred edge  7 [100.0%] 
+(code_label 47 52 56 9 10 "" [1 uses])
+
+(note 56 47 48 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 48 56 53 9 arch/arm/kernel/smp_scu.c:87 (set (reg/i:SI 0 r0)
+        (reg:SI 140 [ <result> ])) -1 (nil))
+;; End of basic block 9 -> ( 10)
+
+;; Succ edge  10 [100.0%]  (fallthru)
+
+;; Start of basic block ( 8 9) -> 10
+;; Pred edge  8 [100.0%] 
+;; Pred edge  9 [100.0%]  (fallthru)
+(code_label 53 48 57 10 13 "" [1 uses])
+
+(note 57 53 54 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+
+(insn 54 57 0 10 arch/arm/kernel/smp_scu.c:87 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 10 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

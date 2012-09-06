@@ -1,0 +1,1846 @@
+
+;; Function cpu_pm_notify (cpu_pm_notify)[0:584]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; ret = __raw_notifier_call_chain (&cpu_pm_notifier_chain, event, 0B, nr_to_call, nr_calls);
+
+(insn 8 7 9 arch/arm/kernel/cpu_pm.c:58 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 9 8 10 arch/arm/kernel/cpu_pm.c:58 (set (mem:SI (reg/f:SI 131 virtual-outgoing-args) [0 S4 A32])
+        (reg/v/f:SI 139 [ nr_calls ])) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 0 r0)
+        (reg/f:SI 140)) -1 (nil))
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 1 r1)
+        (reg/v:SI 137 [ event ])) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(insn 13 12 14 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 3 r3)
+        (reg/v:SI 138 [ nr_to_call ])) -1 (nil))
+
+(call_insn 14 13 15 arch/arm/kernel/cpu_pm.c:58 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("__raw_notifier_call_chain") [flags 0x41] <function_decl 0x10c43f00 __raw_notifier_call_chain>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 15 14 0 arch/arm/kernel/cpu_pm.c:58 (set (reg/v:SI 135 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; ret = ret & -32769;
+
+(insn 16 15 0 include/linux/notifier.h:176 (set (reg/v:SI 134 [ ret ])
+        (and:SI (reg/v:SI 135 [ ret ])
+            (const_int -32769 [0xffffffffffff7fff]))) -1 (nil))
+
+;; if (ret > 1)
+
+(insn 17 16 18 include/linux/notifier.h:177 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 134 [ ret ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(jump_insn 18 17 0 include/linux/notifier.h:177 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 8088 [0x1f98])
+        (nil)))
+
+;; Generating RTL for gimple basic block 3
+
+;; D.11196 = 0;
+
+(insn 20 19 0 include/linux/notifier.h:177 discrim 2 (set (reg:SI 133 [ D.11196 ])
+        (const_int 0 [0x0])) -1 (nil))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 23 22 24 2 "" [0 uses])
+
+(note 24 23 0 NOTE_INSN_BASIC_BLOCK)
+
+;; D.11196 = 1 - ret;
+
+(insn 25 24 0 include/linux/notifier.h:177 discrim 1 (set (reg:SI 133 [ D.11196 ])
+        (minus:SI (const_int 1 [0x1])
+            (reg/v:SI 134 [ ret ]))) -1 (nil))
+
+;; Generating RTL for gimple basic block 5
+
+;; 
+
+(code_label 26 25 27 3 "" [0 uses])
+
+(note 27 26 0 NOTE_INSN_BASIC_BLOCK)
+
+;; return D.11196;
+
+(insn 28 27 29 arch/arm/kernel/cpu_pm.c:62 (set (reg:SI 136 [ <result> ])
+        (reg:SI 133 [ D.11196 ])) -1 (nil))
+
+(jump_insn 29 28 30 arch/arm/kernel/cpu_pm.c:62 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 30 29 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 6 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 6 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 6 3 2 arch/arm/kernel/cpu_pm.c:55 (set (reg/v:SI 137 [ event ])
+        (reg:SI 0 r0 [ event ])) -1 (nil))
+
+(insn 3 2 4 2 arch/arm/kernel/cpu_pm.c:55 (set (reg/v:SI 138 [ nr_to_call ])
+        (reg:SI 1 r1 [ nr_to_call ])) -1 (nil))
+
+(insn 4 3 5 2 arch/arm/kernel/cpu_pm.c:55 (set (reg/v/f:SI 139 [ nr_calls ])
+        (reg:SI 2 r2 [ nr_calls ])) -1 (nil))
+
+(note 5 4 7 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 7 5 8 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:58 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:58 (set (mem:SI (reg/f:SI 131 virtual-outgoing-args) [0 S4 A32])
+        (reg/v/f:SI 139 [ nr_calls ])) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 0 r0)
+        (reg/f:SI 140)) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 1 r1)
+        (reg/v:SI 137 [ event ])) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:58 (set (reg:SI 3 r3)
+        (reg/v:SI 138 [ nr_to_call ])) -1 (nil))
+
+(call_insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:58 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("__raw_notifier_call_chain") [flags 0x41] <function_decl 0x10c43f00 __raw_notifier_call_chain>) [0 S4 A32])
+                    (const_int 8 [0x8])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 3 r3))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+                (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                    (nil))))))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:58 (set (reg/v:SI 135 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 16 15 17 3 include/linux/notifier.h:176 (set (reg/v:SI 134 [ ret ])
+        (and:SI (reg/v:SI 135 [ ret ])
+            (const_int -32769 [0xffffffffffff7fff]))) -1 (nil))
+
+(insn 17 16 18 3 include/linux/notifier.h:177 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 134 [ ret ])
+            (const_int 1 [0x1]))) -1 (nil))
+
+(jump_insn 18 17 19 3 include/linux/notifier.h:177 (set (pc)
+        (if_then_else (gt (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 23)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 8088 [0x1f98])
+        (nil)))
+;; End of basic block 3 -> ( 5 4)
+
+;; Succ edge  5 [80.9%] 
+;; Succ edge  4 [19.1%]  (fallthru)
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [19.1%]  (fallthru)
+(note 19 18 20 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 20 19 21 4 include/linux/notifier.h:177 discrim 2 (set (reg:SI 133 [ D.11196 ])
+        (const_int 0 [0x0])) -1 (nil))
+
+(jump_insn 21 20 22 4 include/linux/notifier.h:177 discrim 2 (set (pc)
+        (label_ref 26)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 22 21 23)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [80.9%] 
+(code_label 23 22 24 5 2 "" [1 uses])
+
+(note 24 23 25 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 25 24 26 5 include/linux/notifier.h:177 discrim 1 (set (reg:SI 133 [ D.11196 ])
+        (minus:SI (const_int 1 [0x1])
+            (reg/v:SI 134 [ ret ]))) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 26 25 27 6 3 "" [1 uses])
+
+(note 27 26 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 28 27 29 6 arch/arm/kernel/cpu_pm.c:62 (set (reg:SI 136 [ <result> ])
+        (reg:SI 133 [ D.11196 ])) -1 (nil))
+
+(jump_insn 29 28 30 6 arch/arm/kernel/cpu_pm.c:62 (set (pc)
+        (label_ref 31)) -1 (nil))
+;; End of basic block 6 -> ( 8)
+
+;; Succ edge  8 [100.0%] 
+
+(barrier 30 29 39)
+
+;; Start of basic block () -> 7
+(note 39 30 33 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 33 39 34 7 arch/arm/kernel/cpu_pm.c:62 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 34 33 35 7 arch/arm/kernel/cpu_pm.c:62 (clobber (reg:SI 136 [ <result> ])) -1 (nil))
+
+(jump_insn 35 34 36 7 arch/arm/kernel/cpu_pm.c:62 (set (pc)
+        (label_ref 37)) -1 (nil))
+;; End of basic block 7 -> ( 9)
+
+;; Succ edge  9 [100.0%] 
+
+(barrier 36 35 31)
+
+;; Start of basic block ( 6) -> 8
+;; Pred edge  6 [100.0%] 
+(code_label 31 36 40 8 1 "" [1 uses])
+
+(note 40 31 32 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 32 40 37 8 arch/arm/kernel/cpu_pm.c:62 (set (reg/i:SI 0 r0)
+        (reg:SI 136 [ <result> ])) -1 (nil))
+;; End of basic block 8 -> ( 9)
+
+;; Succ edge  9 [100.0%]  (fallthru)
+
+;; Start of basic block ( 7 8) -> 9
+;; Pred edge  7 [100.0%] 
+;; Pred edge  8 [100.0%]  (fallthru)
+(code_label 37 32 41 9 4 "" [1 uses])
+
+(note 41 37 38 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+
+(insn 38 41 0 9 arch/arm/kernel/cpu_pm.c:62 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 9 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_complex_pm_exit (cpu_complex_pm_exit)[0:588]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; _raw_read_lock (&cpu_pm_notifier_lock);
+
+(insn 5 4 6 arch/arm/kernel/cpu_pm.c:110 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:110 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:110 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 0 arch/arm/kernel/cpu_pm.c:110 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; ret = cpu_pm_notify (5, -1, 0B);
+
+(insn 9 8 10 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 0 r0)
+        (const_int 5 [0x5])) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 12 11 13 arch/arm/kernel/cpu_pm.c:111 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 13 12 0 arch/arm/kernel/cpu_pm.c:111 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; _raw_read_unlock (&cpu_pm_notifier_lock);
+
+(insn 14 13 15 arch/arm/kernel/cpu_pm.c:112 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 15 14 16 arch/arm/kernel/cpu_pm.c:112 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 16 15 17 arch/arm/kernel/cpu_pm.c:112 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 17 16 0 arch/arm/kernel/cpu_pm.c:112 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; return ret;
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:115 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 19 18 20 arch/arm/kernel/cpu_pm.c:115 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 20 19 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 arch/arm/kernel/cpu_pm.c:110 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:110 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:110 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:110 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 0 r0)
+        (const_int 5 [0x5])) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:111 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:111 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:111 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:112 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:112 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:112 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 17 16 18 3 arch/arm/kernel/cpu_pm.c:112 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 18 17 19 3 arch/arm/kernel/cpu_pm.c:115 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 19 18 20 3 arch/arm/kernel/cpu_pm.c:115 (set (pc)
+        (label_ref 21)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 20 19 29)
+
+;; Start of basic block () -> 4
+(note 29 20 23 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 23 29 24 4 arch/arm/kernel/cpu_pm.c:115 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 24 23 25 4 arch/arm/kernel/cpu_pm.c:115 (clobber (reg:SI 134 [ <result> ])) -1 (nil))
+
+(jump_insn 25 24 26 4 arch/arm/kernel/cpu_pm.c:115 (set (pc)
+        (label_ref 27)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 26 25 21)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 21 26 30 5 7 "" [1 uses])
+
+(note 30 21 22 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 22 30 27 5 arch/arm/kernel/cpu_pm.c:115 (set (reg/i:SI 0 r0)
+        (reg:SI 134 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 27 22 31 6 8 "" [1 uses])
+
+(note 31 27 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 28 31 0 6 arch/arm/kernel/cpu_pm.c:115 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_complex_pm_enter (cpu_complex_pm_enter)[0:587]
+
+Partition 0: size 4 align 4
+	nr_calls, offset 0
+
+;; Generating RTL for gimple basic block 2
+
+;; _raw_read_lock (&cpu_pm_notifier_lock);
+
+(insn 5 4 6 arch/arm/kernel/cpu_pm.c:96 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:96 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:96 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 0 arch/arm/kernel/cpu_pm.c:96 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; ret = cpu_pm_notify (3, -1, &nr_calls);
+
+(insn 9 8 10 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 137)
+        (plus:SI (reg/f:SI 129 virtual-stack-vars)
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 0 r0)
+        (const_int 3 [0x3])) -1 (nil))
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 2 r2)
+        (reg:SI 137)) -1 (nil))
+
+(call_insn 13 12 14 arch/arm/kernel/cpu_pm.c:97 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 14 13 0 arch/arm/kernel/cpu_pm.c:97 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; if (ret != 0)
+
+(insn 15 14 16 arch/arm/kernel/cpu_pm.c:98 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 133 [ ret ])
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 16 15 0 arch/arm/kernel/cpu_pm.c:98 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+
+;; Generating RTL for gimple basic block 3
+
+;; cpu_pm_notify (4, nr_calls + -1, 0B);
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 139)
+        (mem/c/i:SI (plus:SI (reg/f:SI 129 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [0 nr_calls+0 S4 A32])) -1 (nil))
+
+(insn 19 18 20 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 138)
+        (plus:SI (reg:SI 139)
+            (const_int -1 [0xffffffffffffffff]))) -1 (nil))
+
+(insn 20 19 21 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 0 r0)
+        (const_int 4 [0x4])) -1 (nil))
+
+(insn 21 20 22 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 1 r1)
+        (reg:SI 138)) -1 (nil))
+
+(insn 22 21 23 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 23 22 0 arch/arm/kernel/cpu_pm.c:99 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 24 23 25 12 "" [0 uses])
+
+(note 25 24 0 NOTE_INSN_BASIC_BLOCK)
+
+;; _raw_read_unlock (&cpu_pm_notifier_lock);
+
+(insn 26 25 27 arch/arm/kernel/cpu_pm.c:100 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 27 26 28 arch/arm/kernel/cpu_pm.c:100 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 28 27 29 arch/arm/kernel/cpu_pm.c:100 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(call_insn 29 28 0 arch/arm/kernel/cpu_pm.c:100 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; return ret;
+
+(insn 30 29 31 arch/arm/kernel/cpu_pm.c:103 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 31 30 32 arch/arm/kernel/cpu_pm.c:103 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 32 31 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 arch/arm/kernel/cpu_pm.c:96 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:96 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:96 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:96 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 137)
+        (plus:SI (reg/f:SI 129 virtual-stack-vars)
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 0 r0)
+        (const_int 3 [0x3])) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:97 (set (reg:SI 2 r2)
+        (reg:SI 137)) -1 (nil))
+
+(call_insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:97 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:97 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:98 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 133 [ ret ])
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:98 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 24)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+;; End of basic block 3 -> ( 4 5)
+
+;; Succ edge  4 [39.0%]  (fallthru)
+;; Succ edge  5 [61.0%] 
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [39.0%]  (fallthru)
+(note 17 16 18 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 18 17 19 4 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 139)
+        (mem/c/i:SI (plus:SI (reg/f:SI 129 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [0 nr_calls+0 S4 A32])) -1 (nil))
+
+(insn 19 18 20 4 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 138)
+        (plus:SI (reg:SI 139)
+            (const_int -1 [0xffffffffffffffff]))) -1 (nil))
+
+(insn 20 19 21 4 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 0 r0)
+        (const_int 4 [0x4])) -1 (nil))
+
+(insn 21 20 22 4 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 1 r1)
+        (reg:SI 138)) -1 (nil))
+
+(insn 22 21 23 4 arch/arm/kernel/cpu_pm.c:99 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 23 22 24 4 arch/arm/kernel/cpu_pm.c:99 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+;; End of basic block 4 -> ( 5)
+
+;; Succ edge  5 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3 4) -> 5
+;; Pred edge  3 [61.0%] 
+;; Pred edge  4 [100.0%]  (fallthru)
+(code_label 24 23 25 5 12 "" [1 uses])
+
+(note 25 24 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 25 27 5 arch/arm/kernel/cpu_pm.c:100 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 27 26 28 5 arch/arm/kernel/cpu_pm.c:100 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 28 27 29 5 arch/arm/kernel/cpu_pm.c:100 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(call_insn 29 28 30 5 arch/arm/kernel/cpu_pm.c:100 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 30 29 31 5 arch/arm/kernel/cpu_pm.c:103 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 31 30 32 5 arch/arm/kernel/cpu_pm.c:103 (set (pc)
+        (label_ref 33)) -1 (nil))
+;; End of basic block 5 -> ( 7)
+
+;; Succ edge  7 [100.0%] 
+
+(barrier 32 31 41)
+
+;; Start of basic block () -> 6
+(note 41 32 35 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 35 41 36 6 arch/arm/kernel/cpu_pm.c:103 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 36 35 37 6 arch/arm/kernel/cpu_pm.c:103 (clobber (reg:SI 134 [ <result> ])) -1 (nil))
+
+(jump_insn 37 36 38 6 arch/arm/kernel/cpu_pm.c:103 (set (pc)
+        (label_ref 39)) -1 (nil))
+;; End of basic block 6 -> ( 8)
+
+;; Succ edge  8 [100.0%] 
+
+(barrier 38 37 33)
+
+;; Start of basic block ( 5) -> 7
+;; Pred edge  5 [100.0%] 
+(code_label 33 38 42 7 11 "" [1 uses])
+
+(note 42 33 34 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 34 42 39 7 arch/arm/kernel/cpu_pm.c:103 (set (reg/i:SI 0 r0)
+        (reg:SI 134 [ <result> ])) -1 (nil))
+;; End of basic block 7 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 8
+;; Pred edge  6 [100.0%] 
+;; Pred edge  7 [100.0%]  (fallthru)
+(code_label 39 34 43 8 13 "" [1 uses])
+
+(note 43 39 40 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 40 43 0 8 arch/arm/kernel/cpu_pm.c:103 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 8 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_pm_exit (cpu_pm_exit)[0:586]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; _raw_read_lock (&cpu_pm_notifier_lock);
+
+(insn 5 4 6 arch/arm/kernel/cpu_pm.c:83 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:83 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:83 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 0 arch/arm/kernel/cpu_pm.c:83 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; ret = cpu_pm_notify (2, -1, 0B);
+
+(insn 9 8 10 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 0 r0)
+        (const_int 2 [0x2])) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 12 11 13 arch/arm/kernel/cpu_pm.c:84 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 13 12 0 arch/arm/kernel/cpu_pm.c:84 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; _raw_read_unlock (&cpu_pm_notifier_lock);
+
+(insn 14 13 15 arch/arm/kernel/cpu_pm.c:85 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 15 14 16 arch/arm/kernel/cpu_pm.c:85 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 16 15 17 arch/arm/kernel/cpu_pm.c:85 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 17 16 0 arch/arm/kernel/cpu_pm.c:85 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; return ret;
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:88 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 19 18 20 arch/arm/kernel/cpu_pm.c:88 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 20 19 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 arch/arm/kernel/cpu_pm.c:83 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:83 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:83 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:83 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 0 r0)
+        (const_int 2 [0x2])) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:84 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:84 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:84 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:85 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:85 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:85 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 17 16 18 3 arch/arm/kernel/cpu_pm.c:85 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 18 17 19 3 arch/arm/kernel/cpu_pm.c:88 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 19 18 20 3 arch/arm/kernel/cpu_pm.c:88 (set (pc)
+        (label_ref 21)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 20 19 29)
+
+;; Start of basic block () -> 4
+(note 29 20 23 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 23 29 24 4 arch/arm/kernel/cpu_pm.c:88 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 24 23 25 4 arch/arm/kernel/cpu_pm.c:88 (clobber (reg:SI 134 [ <result> ])) -1 (nil))
+
+(jump_insn 25 24 26 4 arch/arm/kernel/cpu_pm.c:88 (set (pc)
+        (label_ref 27)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 26 25 21)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 21 26 30 5 17 "" [1 uses])
+
+(note 30 21 22 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 22 30 27 5 arch/arm/kernel/cpu_pm.c:88 (set (reg/i:SI 0 r0)
+        (reg:SI 134 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 27 22 31 6 18 "" [1 uses])
+
+(note 31 27 28 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 28 31 0 6 arch/arm/kernel/cpu_pm.c:88 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_pm_enter (cpu_pm_enter)[0:585]
+
+Partition 0: size 4 align 4
+	nr_calls, offset 0
+
+;; Generating RTL for gimple basic block 2
+
+;; _raw_read_lock (&cpu_pm_notifier_lock);
+
+(insn 5 4 6 arch/arm/kernel/cpu_pm.c:69 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:69 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:69 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 0 arch/arm/kernel/cpu_pm.c:69 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; ret = cpu_pm_notify (0, -1, &nr_calls);
+
+(insn 9 8 10 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 137)
+        (plus:SI (reg/f:SI 129 virtual-stack-vars)
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+(insn 10 9 11 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 0 r0)
+        (const_int 0 [0x0])) -1 (nil))
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 2 r2)
+        (reg:SI 137)) -1 (nil))
+
+(call_insn 13 12 14 arch/arm/kernel/cpu_pm.c:70 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 14 13 0 arch/arm/kernel/cpu_pm.c:70 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; if (ret != 0)
+
+(insn 15 14 16 arch/arm/kernel/cpu_pm.c:71 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 133 [ ret ])
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 16 15 0 arch/arm/kernel/cpu_pm.c:71 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 0)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+
+;; Generating RTL for gimple basic block 3
+
+;; cpu_pm_notify (1, nr_calls + -1, 0B);
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 139)
+        (mem/c/i:SI (plus:SI (reg/f:SI 129 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [0 nr_calls+0 S4 A32])) -1 (nil))
+
+(insn 19 18 20 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 138)
+        (plus:SI (reg:SI 139)
+            (const_int -1 [0xffffffffffffffff]))) -1 (nil))
+
+(insn 20 19 21 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 0 r0)
+        (const_int 1 [0x1])) -1 (nil))
+
+(insn 21 20 22 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 1 r1)
+        (reg:SI 138)) -1 (nil))
+
+(insn 22 21 23 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 23 22 0 arch/arm/kernel/cpu_pm.c:72 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+;; Generating RTL for gimple basic block 4
+
+;; 
+
+(code_label 24 23 25 22 "" [0 uses])
+
+(note 25 24 0 NOTE_INSN_BASIC_BLOCK)
+
+;; _raw_read_unlock (&cpu_pm_notifier_lock);
+
+(insn 26 25 27 arch/arm/kernel/cpu_pm.c:73 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 27 26 28 arch/arm/kernel/cpu_pm.c:73 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 28 27 29 arch/arm/kernel/cpu_pm.c:73 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(call_insn 29 28 0 arch/arm/kernel/cpu_pm.c:73 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+;; return ret;
+
+(insn 30 29 31 arch/arm/kernel/cpu_pm.c:76 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 31 30 32 arch/arm/kernel/cpu_pm.c:76 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 32 31 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 arch/arm/kernel/cpu_pm.c:69 (set (reg/f:SI 135)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:69 (set (reg:SI 136)
+        (plus:SI (reg/f:SI 135)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:69 (set (reg:SI 0 r0)
+        (reg:SI 136)) -1 (nil))
+
+(call_insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:69 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_lock") [flags 0x41] <function_decl 0x10aef700 _raw_read_lock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 137)
+        (plus:SI (reg/f:SI 129 virtual-stack-vars)
+            (const_int -4 [0xfffffffffffffffc]))) -1 (nil))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 0 r0)
+        (const_int 0 [0x0])) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 1 r1)
+        (const_int -1 [0xffffffffffffffff])) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:70 (set (reg:SI 2 r2)
+        (reg:SI 137)) -1 (nil))
+
+(call_insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:70 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+
+(insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:70 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:71 (set (reg:CC 24 cc)
+        (compare:CC (reg/v:SI 133 [ ret ])
+            (const_int 0 [0x0]))) -1 (nil))
+
+(jump_insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:71 (set (pc)
+        (if_then_else (eq (reg:CC 24 cc)
+                (const_int 0 [0x0]))
+            (label_ref 24)
+            (pc))) -1 (expr_list:REG_BR_PROB (const_int 6102 [0x17d6])
+        (nil)))
+;; End of basic block 3 -> ( 4 5)
+
+;; Succ edge  4 [39.0%]  (fallthru)
+;; Succ edge  5 [61.0%] 
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [39.0%]  (fallthru)
+(note 17 16 18 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 18 17 19 4 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 139)
+        (mem/c/i:SI (plus:SI (reg/f:SI 129 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [0 nr_calls+0 S4 A32])) -1 (nil))
+
+(insn 19 18 20 4 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 138)
+        (plus:SI (reg:SI 139)
+            (const_int -1 [0xffffffffffffffff]))) -1 (nil))
+
+(insn 20 19 21 4 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 0 r0)
+        (const_int 1 [0x1])) -1 (nil))
+
+(insn 21 20 22 4 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 1 r1)
+        (reg:SI 138)) -1 (nil))
+
+(insn 22 21 23 4 arch/arm/kernel/cpu_pm.c:72 (set (reg:SI 2 r2)
+        (const_int 0 [0x0])) -1 (nil))
+
+(call_insn 23 22 24 4 arch/arm/kernel/cpu_pm.c:72 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("cpu_pm_notify") [flags 0x3] <function_decl 0x10e39d00 cpu_pm_notify>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (expr_list:REG_EH_REGION (const_int 0 [0x0])
+        (nil))
+    (expr_list:REG_DEP_TRUE (use (reg:SI 2 r2))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+            (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+                (nil)))))
+;; End of basic block 4 -> ( 5)
+
+;; Succ edge  5 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3 4) -> 5
+;; Pred edge  3 [61.0%] 
+;; Pred edge  4 [100.0%]  (fallthru)
+(code_label 24 23 25 5 22 "" [1 uses])
+
+(note 25 24 26 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 25 27 5 arch/arm/kernel/cpu_pm.c:73 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 27 26 28 5 arch/arm/kernel/cpu_pm.c:73 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 28 27 29 5 arch/arm/kernel/cpu_pm.c:73 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(call_insn 29 28 30 5 arch/arm/kernel/cpu_pm.c:73 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_read_unlock") [flags 0x41] <function_decl 0x10aefc00 _raw_read_unlock>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 30 29 31 5 arch/arm/kernel/cpu_pm.c:76 (set (reg:SI 134 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 31 30 32 5 arch/arm/kernel/cpu_pm.c:76 (set (pc)
+        (label_ref 33)) -1 (nil))
+;; End of basic block 5 -> ( 7)
+
+;; Succ edge  7 [100.0%] 
+
+(barrier 32 31 41)
+
+;; Start of basic block () -> 6
+(note 41 32 35 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 35 41 36 6 arch/arm/kernel/cpu_pm.c:76 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 36 35 37 6 arch/arm/kernel/cpu_pm.c:76 (clobber (reg:SI 134 [ <result> ])) -1 (nil))
+
+(jump_insn 37 36 38 6 arch/arm/kernel/cpu_pm.c:76 (set (pc)
+        (label_ref 39)) -1 (nil))
+;; End of basic block 6 -> ( 8)
+
+;; Succ edge  8 [100.0%] 
+
+(barrier 38 37 33)
+
+;; Start of basic block ( 5) -> 7
+;; Pred edge  5 [100.0%] 
+(code_label 33 38 42 7 21 "" [1 uses])
+
+(note 42 33 34 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+
+(insn 34 42 39 7 arch/arm/kernel/cpu_pm.c:76 (set (reg/i:SI 0 r0)
+        (reg:SI 134 [ <result> ])) -1 (nil))
+;; End of basic block 7 -> ( 8)
+
+;; Succ edge  8 [100.0%]  (fallthru)
+
+;; Start of basic block ( 6 7) -> 8
+;; Pred edge  6 [100.0%] 
+;; Pred edge  7 [100.0%]  (fallthru)
+(code_label 39 34 43 8 23 "" [1 uses])
+
+(note 43 39 40 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+
+(insn 40 43 0 8 arch/arm/kernel/cpu_pm.c:76 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 8 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_pm_unregister_notifier (cpu_pm_unregister_notifier)[0:583]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; flags = _raw_write_lock_irqsave (&cpu_pm_notifier_lock);
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:46 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:46 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 8 7 9 arch/arm/kernel/cpu_pm.c:46 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 9 8 10 arch/arm/kernel/cpu_pm.c:46 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_write_lock_irqsave") [flags 0x41] <function_decl 0x10aefa80 _raw_write_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 10 9 0 arch/arm/kernel/cpu_pm.c:46 (set (reg/v:SI 134 [ flags ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; ret = raw_notifier_chain_unregister (&cpu_pm_notifier_chain, nb);
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:47 (set (reg/f:SI 139)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/cpu_pm.c:47 (set (reg:SI 0 r0)
+        (reg/f:SI 139)) -1 (nil))
+
+(insn 13 12 14 arch/arm/kernel/cpu_pm.c:47 (set (reg:SI 1 r1)
+        (reg/v/f:SI 136 [ nb ])) -1 (nil))
+
+(call_insn 14 13 15 arch/arm/kernel/cpu_pm.c:47 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("raw_notifier_chain_unregister") [flags 0x41] <function_decl 0x10c43b80 raw_notifier_chain_unregister>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 15 14 0 arch/arm/kernel/cpu_pm.c:47 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; _raw_write_unlock_irqrestore (&cpu_pm_notifier_lock, flags);
+
+(insn 16 15 17 arch/arm/kernel/cpu_pm.c:48 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 17 16 18 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(insn 19 18 20 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 1 r1)
+        (reg/v:SI 134 [ flags ])) -1 (nil))
+
+(call_insn 20 19 0 arch/arm/kernel/cpu_pm.c:48 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_write_unlock_irqrestore") [flags 0x41] <function_decl 0x10aeff80 _raw_write_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+;; return ret;
+
+(insn 21 20 22 arch/arm/kernel/cpu_pm.c:51 (set (reg:SI 135 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 22 21 23 arch/arm/kernel/cpu_pm.c:51 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 23 22 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/cpu_pm.c:42 (set (reg/v/f:SI 136 [ nb ])
+        (reg:SI 0 r0 [ nb ])) -1 (nil))
+
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 5 3 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:46 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:46 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:46 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:46 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_write_lock_irqsave") [flags 0x41] <function_decl 0x10aefa80 _raw_write_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:46 (set (reg/v:SI 134 [ flags ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:47 (set (reg/f:SI 139)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:47 (set (reg:SI 0 r0)
+        (reg/f:SI 139)) -1 (nil))
+
+(insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:47 (set (reg:SI 1 r1)
+        (reg/v/f:SI 136 [ nb ])) -1 (nil))
+
+(call_insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:47 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("raw_notifier_chain_unregister") [flags 0x41] <function_decl 0x10c43b80 raw_notifier_chain_unregister>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:47 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:48 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 17 16 18 3 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 18 17 19 3 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(insn 19 18 20 3 arch/arm/kernel/cpu_pm.c:48 (set (reg:SI 1 r1)
+        (reg/v:SI 134 [ flags ])) -1 (nil))
+
+(call_insn 20 19 21 3 arch/arm/kernel/cpu_pm.c:48 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_write_unlock_irqrestore") [flags 0x41] <function_decl 0x10aeff80 _raw_write_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 21 20 22 3 arch/arm/kernel/cpu_pm.c:51 (set (reg:SI 135 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 22 21 23 3 arch/arm/kernel/cpu_pm.c:51 (set (pc)
+        (label_ref 24)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 23 22 32)
+
+;; Start of basic block () -> 4
+(note 32 23 26 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 32 27 4 arch/arm/kernel/cpu_pm.c:51 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 27 26 28 4 arch/arm/kernel/cpu_pm.c:51 (clobber (reg:SI 135 [ <result> ])) -1 (nil))
+
+(jump_insn 28 27 29 4 arch/arm/kernel/cpu_pm.c:51 (set (pc)
+        (label_ref 30)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 29 28 24)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 24 29 33 5 26 "" [1 uses])
+
+(note 33 24 25 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 25 33 30 5 arch/arm/kernel/cpu_pm.c:51 (set (reg/i:SI 0 r0)
+        (reg:SI 135 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 30 25 34 6 27 "" [1 uses])
+
+(note 34 30 31 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 31 34 0 6 arch/arm/kernel/cpu_pm.c:51 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+
+
+;; Function cpu_pm_register_notifier (cpu_pm_register_notifier)[0:582]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; flags = _raw_write_lock_irqsave (&cpu_pm_notifier_lock);
+
+(insn 6 5 7 arch/arm/kernel/cpu_pm.c:33 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 7 6 8 arch/arm/kernel/cpu_pm.c:33 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 8 7 9 arch/arm/kernel/cpu_pm.c:33 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 9 8 10 arch/arm/kernel/cpu_pm.c:33 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_write_lock_irqsave") [flags 0x41] <function_decl 0x10aefa80 _raw_write_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 10 9 0 arch/arm/kernel/cpu_pm.c:33 (set (reg/v:SI 134 [ flags ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; ret = raw_notifier_chain_register (&cpu_pm_notifier_chain, nb);
+
+(insn 11 10 12 arch/arm/kernel/cpu_pm.c:34 (set (reg/f:SI 139)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 12 11 13 arch/arm/kernel/cpu_pm.c:34 (set (reg:SI 0 r0)
+        (reg/f:SI 139)) -1 (nil))
+
+(insn 13 12 14 arch/arm/kernel/cpu_pm.c:34 (set (reg:SI 1 r1)
+        (reg/v/f:SI 136 [ nb ])) -1 (nil))
+
+(call_insn 14 13 15 arch/arm/kernel/cpu_pm.c:34 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("raw_notifier_chain_register") [flags 0x41] <function_decl 0x10c43900 raw_notifier_chain_register>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 15 14 0 arch/arm/kernel/cpu_pm.c:34 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+;; _raw_write_unlock_irqrestore (&cpu_pm_notifier_lock, flags);
+
+(insn 16 15 17 arch/arm/kernel/cpu_pm.c:35 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 17 16 18 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 18 17 19 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(insn 19 18 20 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 1 r1)
+        (reg/v:SI 134 [ flags ])) -1 (nil))
+
+(call_insn 20 19 0 arch/arm/kernel/cpu_pm.c:35 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_write_unlock_irqrestore") [flags 0x41] <function_decl 0x10aeff80 _raw_write_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+;; return ret;
+
+(insn 21 20 22 arch/arm/kernel/cpu_pm.c:38 (set (reg:SI 135 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 22 21 23 arch/arm/kernel/cpu_pm.c:38 (set (pc)
+        (label_ref 0)) -1 (nil))
+
+(barrier 23 22 0)
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 4 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 4 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(insn 2 4 3 2 arch/arm/kernel/cpu_pm.c:29 (set (reg/v/f:SI 136 [ nb ])
+        (reg:SI 0 r0 [ nb ])) -1 (nil))
+
+(note 3 2 5 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 5 3 6 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 6 5 7 3 arch/arm/kernel/cpu_pm.c:33 (set (reg/f:SI 137)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 7 6 8 3 arch/arm/kernel/cpu_pm.c:33 (set (reg:SI 138)
+        (plus:SI (reg/f:SI 137)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 8 7 9 3 arch/arm/kernel/cpu_pm.c:33 (set (reg:SI 0 r0)
+        (reg:SI 138)) -1 (nil))
+
+(call_insn 9 8 10 3 arch/arm/kernel/cpu_pm.c:33 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("_raw_write_lock_irqsave") [flags 0x41] <function_decl 0x10aefa80 _raw_write_lock_irqsave>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+        (nil)))
+
+(insn 10 9 11 3 arch/arm/kernel/cpu_pm.c:33 (set (reg/v:SI 134 [ flags ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 11 10 12 3 arch/arm/kernel/cpu_pm.c:34 (set (reg/f:SI 139)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 12 11 13 3 arch/arm/kernel/cpu_pm.c:34 (set (reg:SI 0 r0)
+        (reg/f:SI 139)) -1 (nil))
+
+(insn 13 12 14 3 arch/arm/kernel/cpu_pm.c:34 (set (reg:SI 1 r1)
+        (reg/v/f:SI 136 [ nb ])) -1 (nil))
+
+(call_insn 14 13 15 3 arch/arm/kernel/cpu_pm.c:34 (parallel [
+            (set (reg:SI 0 r0)
+                (call (mem:SI (symbol_ref:SI ("raw_notifier_chain_register") [flags 0x41] <function_decl 0x10c43900 raw_notifier_chain_register>) [0 S4 A32])
+                    (const_int 0 [0x0])))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 15 14 16 3 arch/arm/kernel/cpu_pm.c:34 (set (reg/v:SI 133 [ ret ])
+        (reg:SI 0 r0)) -1 (nil))
+
+(insn 16 15 17 3 arch/arm/kernel/cpu_pm.c:35 (set (reg/f:SI 140)
+        (symbol_ref:SI ("*.LANCHOR0") [flags 0x182])) -1 (nil))
+
+(insn 17 16 18 3 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 141)
+        (plus:SI (reg/f:SI 140)
+            (const_int 4 [0x4]))) -1 (nil))
+
+(insn 18 17 19 3 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 0 r0)
+        (reg:SI 141)) -1 (nil))
+
+(insn 19 18 20 3 arch/arm/kernel/cpu_pm.c:35 (set (reg:SI 1 r1)
+        (reg/v:SI 134 [ flags ])) -1 (nil))
+
+(call_insn 20 19 21 3 arch/arm/kernel/cpu_pm.c:35 (parallel [
+            (call (mem:SI (symbol_ref:SI ("_raw_write_unlock_irqrestore") [flags 0x41] <function_decl 0x10aeff80 _raw_write_unlock_irqrestore>) [0 S4 A32])
+                (const_int 0 [0x0]))
+            (use (const_int 0 [0x0]))
+            (clobber (reg:SI 14 lr))
+        ]) -1 (nil)
+    (expr_list:REG_DEP_TRUE (use (reg:SI 1 r1))
+        (expr_list:REG_DEP_TRUE (use (reg:SI 0 r0))
+            (nil))))
+
+(insn 21 20 22 3 arch/arm/kernel/cpu_pm.c:38 (set (reg:SI 135 [ <result> ])
+        (reg/v:SI 133 [ ret ])) -1 (nil))
+
+(jump_insn 22 21 23 3 arch/arm/kernel/cpu_pm.c:38 (set (pc)
+        (label_ref 24)) -1 (nil))
+;; End of basic block 3 -> ( 5)
+
+;; Succ edge  5 [100.0%] 
+
+(barrier 23 22 32)
+
+;; Start of basic block () -> 4
+(note 32 23 26 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(insn 26 32 27 4 arch/arm/kernel/cpu_pm.c:38 (clobber (reg/i:SI 0 r0)) -1 (nil))
+
+(insn 27 26 28 4 arch/arm/kernel/cpu_pm.c:38 (clobber (reg:SI 135 [ <result> ])) -1 (nil))
+
+(jump_insn 28 27 29 4 arch/arm/kernel/cpu_pm.c:38 (set (pc)
+        (label_ref 30)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 29 28 24)
+
+;; Start of basic block ( 3) -> 5
+;; Pred edge  3 [100.0%] 
+(code_label 24 29 33 5 30 "" [1 uses])
+
+(note 33 24 25 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+
+(insn 25 33 30 5 arch/arm/kernel/cpu_pm.c:38 (set (reg/i:SI 0 r0)
+        (reg:SI 135 [ <result> ])) -1 (nil))
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 30 25 34 6 31 "" [1 uses])
+
+(note 34 30 31 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+
+(insn 31 34 0 6 arch/arm/kernel/cpu_pm.c:38 (use (reg/i:SI 0 r0)) -1 (nil))
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

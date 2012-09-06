@@ -1,0 +1,115 @@
+
+;; Function foo (foo)[0:1]
+
+
+;; Generating RTL for gimple basic block 2
+
+;; __asm__ __volatile__("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS" : "i" 22);
+
+(insn 5 4 0 kernel/bounds.c:17 (asm_operands/v ("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS") ("") 0 [
+            (const_int 22 [0x16])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158736) -1 (nil))
+
+;; __asm__ __volatile__("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES" : "i" 3);
+
+(insn 6 5 0 kernel/bounds.c:18 (asm_operands/v ("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES") ("") 0 [
+            (const_int 3 [0x3])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158864) -1 (nil))
+
+;; __asm__ __volatile__("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS" : "i" 7);
+
+(insn 7 6 0 kernel/bounds.c:19 (asm_operands/v ("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS") ("") 0 [
+            (const_int 7 [0x7])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158992) -1 (nil))
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 4 2 NOTE_INSN_FUNCTION_BEG)
+;; End of basic block 2 -> ( 3)
+
+;; Succ edge  3 [100.0%]  (fallthru)
+
+;; Start of basic block ( 2) -> 3
+;; Pred edge  2 [100.0%]  (fallthru)
+(note 4 2 5 3 [bb 3] NOTE_INSN_BASIC_BLOCK)
+
+(insn 5 4 6 3 kernel/bounds.c:17 (asm_operands/v ("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS") ("") 0 [
+            (const_int 22 [0x16])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158736) -1 (nil))
+
+(insn 6 5 7 3 kernel/bounds.c:18 (asm_operands/v ("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES") ("") 0 [
+            (const_int 3 [0x3])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158864) -1 (nil))
+
+(insn 7 6 12 3 kernel/bounds.c:19 (asm_operands/v ("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS") ("") 0 [
+            (const_int 7 [0x7])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158992) -1 (nil))
+;; End of basic block 3 -> ( 4)
+
+;; Succ edge  4 [100.0%]  (fallthru)
+
+;; Start of basic block ( 3) -> 4
+;; Pred edge  3 [100.0%]  (fallthru)
+(note 12 7 9 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+
+(jump_insn 9 12 10 4 kernel/bounds.c:21 (set (pc)
+        (label_ref 11)) -1 (nil))
+;; End of basic block 4 -> ( 6)
+
+;; Succ edge  6 [100.0%] 
+
+(barrier 10 9 8)
+
+;; Start of basic block () -> 5
+(code_label 8 10 13 5 1 "" [0 uses])
+
+(note 13 8 11 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 5 -> ( 6)
+
+;; Succ edge  6 [100.0%]  (fallthru)
+
+;; Start of basic block ( 4 5) -> 6
+;; Pred edge  4 [100.0%] 
+;; Pred edge  5 [100.0%]  (fallthru)
+(code_label 11 13 14 6 2 "" [1 uses])
+
+(note 14 11 0 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+;; End of basic block 6 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

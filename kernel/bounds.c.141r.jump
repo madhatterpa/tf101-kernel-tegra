@@ -1,0 +1,55 @@
+
+;; Function foo (foo)[0:1]
+
+
+3 basic blocks, 2 edges.
+
+Basic block 0 , next 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors: 
+Successors:  2 [100.0%]  (fallthru)
+
+Basic block 2 , prev 0, next 1, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  ENTRY [100.0%]  (fallthru)
+Successors:  EXIT [100.0%]  (fallthru)
+
+Basic block 1 , prev 2, loop_depth 0, count 0, freq 10000, maybe hot.
+Predecessors:  2 [100.0%]  (fallthru)
+Successors: 
+
+
+
+try_optimize_cfg iteration 1
+
+;; Start of basic block ( 0) -> 2
+;; Pred edge  ENTRY [100.0%]  (fallthru)
+(note 3 0 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+
+(insn 5 2 6 2 kernel/bounds.c:17 (asm_operands/v ("
+->NR_PAGEFLAGS %0 __NR_PAGEFLAGS") ("") 0 [
+            (const_int 22 [0x16])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158736) -1 (nil))
+
+(insn 6 5 7 2 kernel/bounds.c:18 (asm_operands/v ("
+->MAX_NR_ZONES %0 __MAX_NR_ZONES") ("") 0 [
+            (const_int 3 [0x3])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158864) -1 (nil))
+
+(insn 7 6 0 2 kernel/bounds.c:19 (asm_operands/v ("
+->NR_PCG_FLAGS %0 __NR_PCG_FLAGS") ("") 0 [
+            (const_int 7 [0x7])
+        ]
+         [
+            (asm_input:SI ("i") 0)
+        ] 1158992) -1 (nil))
+;; End of basic block 2 -> ( 1)
+
+;; Succ edge  EXIT [100.0%]  (fallthru)
+

@@ -1,0 +1,84 @@
+
+;; Function dma_supported (dma_supported)[0:1293]
+
+deleting block 10
+
+;; Function dma_set_mask (dma_set_mask)[0:1294]
+
+deleting block 13
+
+;; Function dma_debug_do_init (dma_debug_do_init)[0:1295] (unlikely executed)
+
+deleting block 4
+
+;; Function consistent_init (consistent_init)[0:1274] (unlikely executed)
+
+deleting block 15
+
+;; Function ___dma_single_dev_to_cpu (___dma_single_dev_to_cpu)[0:1285]
+
+deleting block 15
+
+;; Function ___dma_single_cpu_to_dev (___dma_single_cpu_to_dev)[0:1284]
+
+deleting block 17
+
+;; Function dma_cache_maint_page (dma_cache_maint_page)[0:1286]
+
+deleting block 18
+
+;; Function ___dma_page_dev_to_cpu (___dma_page_dev_to_cpu)[0:1288]
+
+deleting block 11
+
+;; Function dma_sync_sg_for_cpu (dma_sync_sg_for_cpu)[0:1291]
+
+deleting block 12
+
+;; Function dma_unmap_sg (dma_unmap_sg)[0:1290]
+
+deleting block 8
+
+;; Function ___dma_page_cpu_to_dev (___dma_page_cpu_to_dev)[0:1287]
+
+deleting block 10
+
+;; Function dma_sync_sg_for_device (dma_sync_sg_for_device)[0:1292]
+
+deleting block 12
+
+;; Function dma_map_sg (dma_map_sg)[0:1289]
+
+deleting block 19
+
+;; Function dma_free_coherent (dma_free_coherent)[0:1283]
+
+deleting block 27
+
+;; Function dma_mmap (dma_mmap)[0:1280]
+
+deleting block 9
+
+;; Function dma_mmap_writecombine (dma_mmap_writecombine)[0:1282]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function dma_mmap_coherent (dma_mmap_coherent)[0:1281]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function __dma_alloc (__dma_alloc)[0:1277]
+
+deleting block 43
+
+;; Function dma_alloc_writecombine (dma_alloc_writecombine)[0:1279]
+
+deleting block 4
+
+;; Function dma_alloc_coherent (dma_alloc_coherent)[0:1278]
+
+deleting block 7

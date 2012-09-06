@@ -1,0 +1,13 @@
+
+;; Function elf_check_arch (elf_check_arch)[0:793]
+
+
+;; Function arm_elf_read_implies_exec (arm_elf_read_implies_exec)[0:795]
+
+verify found no changes in insn with uid = 15.
+
+;; Function elf_set_personality (elf_set_personality)[0:794]
+
+verify found no changes in insn with uid = 32.
+verify found no changes in insn with uid = 51.
+verify found no changes in insn with uid = 60.

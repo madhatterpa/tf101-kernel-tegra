@@ -1,0 +1,63 @@
+
+;; Function tcm_init (tcm_init)[0:1385]
+
+
+;; Function cpu_architecture (cpu_architecture)[0:1386]
+
+
+;; Function parse_tag_core (parse_tag_core)[0:1398] (unlikely executed)
+
+
+;; Function parse_tag_ramdisk (parse_tag_ramdisk)[0:1400] (unlikely executed)
+
+
+;; Function parse_tag_serialnr (parse_tag_serialnr)[0:1401] (unlikely executed)
+
+
+;; Function parse_tag_revision (parse_tag_revision)[0:1402] (unlikely executed)
+
+
+;; Function customize_machine (customize_machine)[0:1406] (unlikely executed)
+
+
+;; Function c_start (c_start)[0:1414]
+
+
+;; Function c_next (c_next)[0:1415]
+
+
+;; Function c_stop (c_stop)[0:1416]
+
+
+;; Function parse_tag_cmdline (parse_tag_cmdline)[0:1403] (unlikely executed)
+
+
+;; Function topology_init (topology_init)[0:1411] (unlikely executed)
+
+
+;; Function proc_cpu_init (proc_cpu_init)[0:1412] (unlikely executed)
+
+
+;; Function c_show (c_show)[0:1413]
+
+
+;; Function arm_add_memory (arm_add_memory)[0:1394] (unlikely executed)
+
+
+;; Function early_mem (early_mem)[0:1395] (unlikely executed)
+
+
+;; Function parse_tag_mem32 (parse_tag_mem32)[0:1399] (unlikely executed)
+
+
+;; Function cpu_init (cpu_init)[0:1391]
+
+
+;; Function early_print (early_print)[0:1389] (unlikely executed)
+
+
+;; Function dump_machine_table (dump_machine_table)[0:1393] (unlikely executed)
+
+
+;; Function setup_arch (setup_arch)[0:1410] (unlikely executed)
+

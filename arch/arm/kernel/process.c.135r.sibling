@@ -1,0 +1,138 @@
+
+;; Function disable_hlt (disable_hlt)[0:1338]
+
+deleting block 5
+
+;; Function enable_hlt (enable_hlt)[0:1339]
+
+deleting block 5
+
+;; Function nohlt_setup (nohlt_setup)[0:1340] (unlikely executed)
+
+deleting block 4
+
+;; Function hlt_setup (hlt_setup)[0:1341] (unlikely executed)
+
+deleting block 4
+
+;; Function arm_machine_flush_console (arm_machine_flush_console)[0:1342]
+
+deleting block 5
+
+;; Function do_nothing (do_nothing)[0:1344]
+
+deleting block 5
+
+;; Function default_idle (default_idle)[0:1346]
+
+deleting block 5
+
+;; Function reboot_setup (reboot_setup)[0:1348] (unlikely executed)
+
+deleting block 4
+
+;; Function release_thread (release_thread)[0:1359]
+
+deleting block 5
+
+;; Function dump_task_regs (dump_task_regs)[0:1361]
+
+deleting block 4
+
+;; Function arch_vma_name (arch_vma_name)[0:1367]
+
+deleting block 7
+
+;; Function vectors_user_mapping (vectors_user_mapping)[0:1366]
+
+deleting block 4
+
+;; Function arch_randomize_brk (arch_randomize_brk)[0:1365]
+
+deleting block 6
+
+;; Function get_wchan (get_wchan)[0:1364]
+
+deleting block 14
+
+;; Function kernel_thread (kernel_thread)[0:1363]
+
+deleting block 4
+
+;; Function dump_fpu (dump_fpu)[0:1362]
+
+deleting block 6
+
+;; Function copy_thread (copy_thread)[0:1360]
+
+deleting block 6
+
+;; Function exit_thread (exit_thread)[0:1357]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function flush_thread (flush_thread)[0:1358]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function machine_shutdown (machine_shutdown)[0:1349]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function machine_restart (machine_restart)[0:1352]
+
+deleting block 5
+
+;; Function machine_power_off (machine_power_off)[0:1351]
+
+deleting block 7
+
+;; Function machine_halt (machine_halt)[0:1350]
+
+deleting block 5
+deleting block 6
+deleting block 7
+
+;; Function cpu_idle (cpu_idle)[0:1347]
+
+deleting block 18
+deleting block 19
+deleting block 20
+
+;; Function cpu_idle_wait (cpu_idle_wait)[0:1345]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function arm_machine_restart (arm_machine_restart)[0:1343]
+
+deleting block 8
+deleting block 9
+deleting block 10
+
+;; Function arch_trigger_all_cpu_backtrace (arch_trigger_all_cpu_backtrace)[0:1337]
+
+deleting block 4
+deleting block 5
+deleting block 6
+
+;; Function show_data.clone.0 (show_data.clone.0)[0:1368]
+
+deleting block 15
+
+;; Function __show_regs (__show_regs)[0:1355]
+
+deleting block 26
+
+;; Function show_regs (show_regs)[0:1356]
+
+deleting block 4
+deleting block 5
+deleting block 6
