@@ -2013,8 +2013,7 @@ int uart_resume_port(struct uart_driver *drv, struct uart_port *uport)
 
 		if (console_suspend_enabled)
 			uart_change_pm(state, 0);
-		if (uport->type != PORT_TEGRA)
-			uport->ops->set_termios(uport, &termios, NULL);
+		uport->ops->set_termios(uport, &termios, NULL);
 		if (console_suspend_enabled)
 			console_start(uport->cons);
 	}

@@ -564,10 +564,9 @@ config MAX1749_VIBRATOR
 
 config FM34_VOICE_PROCESSOR
 	bool "FM34 voice processor driver"
-	default n	
+	default n
 	---help---
 	Support for the fortemedia FM34 voice processor.
-
 
 source "drivers/misc/c2port/Kconfig"
 source "drivers/misc/eeprom/Kconfig"

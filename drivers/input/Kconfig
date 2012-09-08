@@ -182,9 +182,8 @@ config INPUT_ASUSEC
 config SENSORS_PROX_LDS6202
 	tristate "IDT Proximity Sensor Driver LDS6202"
 	depends on I2C
-	---help---
+	help
 	  This enables support for Proximity sensor over I2C based sensors.
-
 
 comment "Input Device Drivers"
 

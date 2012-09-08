@@ -260,14 +260,6 @@ static inline void spi_tegra_writel(struct spi_tegra_data *tspi,
 	writel(val, tspi->base + reg);
 }
 
-static void cancel_dma(struct tegra_dma_channel *dma_chan,
-		struct tegra_dma_req *req)
-{
-	tegra_dma_cancel(dma_chan);
-	if (req->status == -TEGRA_DMA_REQ_ERROR_ABORTED)
-		req->complete(req);
-}
-
 int spi_tegra_register_callback(struct spi_device *spi, callback func,
 			void *client_data)
 {
@@ -549,7 +541,8 @@ static int spi_tegra_start_dma_based_transfer(
 			dev_err(&tspi->pdev->dev, "Error in starting rx dma "
 						" error = %d\n", ret);
 			if (tspi->cur_direction & DATA_DIR_TX)
-				cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
+				tegra_dma_dequeue_req(tspi->tx_dma,
+							&tspi->tx_dma_req);
 			return ret;
 		}
 	}
@@ -795,7 +788,7 @@ static int spi_tegra_setup(struct spi_device *spi)
 		val |= cs_bit;
 	else
 		val &= ~cs_bit;
-	tspi->def_command_reg = val;
+	tspi->def_command_reg |= val;
 
 	if (!tspi->is_clkon_always && !tspi->clk_state) {
 		clk_enable(tspi->clk);
@@ -981,13 +974,14 @@ static irqreturn_t spi_tegra_isr_thread(int irq, void *context_data)
 	/* Abort dmas if any error */
 	if (tspi->cur_direction & DATA_DIR_TX) {
 		if (tspi->tx_status) {
-			cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
+			tegra_dma_dequeue_req(tspi->tx_dma, &tspi->tx_dma_req);
 			err += 1;
 		} else {
 			wait_status = wait_for_completion_interruptible_timeout(
 				&tspi->tx_dma_complete, SLINK_DMA_TIMEOUT);
 			if (wait_status <= 0) {
-				cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
+				tegra_dma_dequeue_req(tspi->tx_dma,
+							&tspi->tx_dma_req);
 				dev_err(&tspi->pdev->dev, "Error in Dma Tx "
 							"transfer\n");
 				err += 1;
@@ -997,13 +991,14 @@ static irqreturn_t spi_tegra_isr_thread(int irq, void *context_data)
 
 	if (tspi->cur_direction & DATA_DIR_RX) {
 		if (tspi->rx_status) {
-			cancel_dma(tspi->rx_dma, &tspi->rx_dma_req);
+			tegra_dma_dequeue_req(tspi->rx_dma, &tspi->rx_dma_req);
 			err += 2;
 		} else {
 			wait_status = wait_for_completion_interruptible_timeout(
 				&tspi->rx_dma_complete, SLINK_DMA_TIMEOUT);
 			if (wait_status <= 0) {
-				cancel_dma(tspi->rx_dma, &tspi->rx_dma_req);
+				tegra_dma_dequeue_req(tspi->rx_dma,
+						&tspi->rx_dma_req);
 				dev_err(&tspi->pdev->dev, "Error in Dma Rx "
 							"transfer\n");
 				err += 2;

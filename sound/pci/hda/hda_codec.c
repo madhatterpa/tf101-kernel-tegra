@@ -2840,22 +2840,12 @@ static int snd_hda_spdif_out_switch_put(struct snd_kcontrol *kcontrol,
 	return change;
 }
 
-int snd_hda_hdmi_decode_info(struct snd_kcontrol *kcontrol,
-				struct snd_ctl_elem_info *uinfo)
-{
-	uinfo->type = SNDRV_CTL_ELEM_TYPE_INTEGER;
-	uinfo->count = 1;
-	uinfo->value.integer.min = 0;
-	uinfo->value.integer.max = 0xFFFFFFFF;
-	return 0;
-}
-
 static int snd_hda_hdmi_decode_get(struct snd_kcontrol *kcontrol,
 					struct snd_ctl_elem_value *ucontrol)
 {
 	struct hda_codec *codec = snd_kcontrol_chip(kcontrol);
 
-	ucontrol->value.integer.value[0] = codec->recv_dec_cap;
+	ucontrol->value.integer.value[0] = codec->ac3dec_capable;
 	return 0;
 }
 
@@ -2890,8 +2880,8 @@ static struct snd_kcontrol_new dig_mixes[] = {
 	},
 	{
 		.iface = SNDRV_CTL_ELEM_IFACE_MIXER,
-		.name = "HDA Decode Capability",
-		.info = snd_hda_hdmi_decode_info,
+		.name = "AC3 Decode Capability",
+		.info = snd_ctl_boolean_mono_info,
 		.get = snd_hda_hdmi_decode_get,
 	},
 	{ } /* end */
@@ -3286,7 +3276,7 @@ void snd_hda_codec_set_power_to_all(struct hda_codec *codec, hda_nid_t fg,
 						   AC_VERB_GET_POWER_STATE, 0);
 			if (state == power_state)
 				break;
-			mdelay(1);
+			msleep(1);
 		} while (time_after_eq(end_time, jiffies));
 	}
 }

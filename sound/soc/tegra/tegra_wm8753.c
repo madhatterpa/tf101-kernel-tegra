@@ -39,7 +39,7 @@
 #include <linux/switch.h>
 #endif
 
-#include <mach/tegra_asoc_pdata.h>
+#include <mach/tegra_wm8753_pdata.h>
 
 #include <sound/core.h>
 #include <sound/jack.h>
@@ -63,11 +63,9 @@
 #define GPIO_INT_MIC_EN BIT(2)
 #define GPIO_EXT_MIC_EN BIT(3)
 
-extern int g_is_call_mode;
-
 struct tegra_wm8753 {
 	struct tegra_asoc_utils_data util_data;
-	struct tegra_asoc_platform_data *pdata;
+	struct tegra_wm8753_platform_data *pdata;
 	struct regulator *audio_reg;
 	int gpio_requested;
 	int is_call_mode;
@@ -212,7 +210,7 @@ static int tegra_bt_sco_hw_params(struct snd_pcm_substream *substream,
 	err = snd_soc_dai_set_fmt(cpu_dai,
 					SND_SOC_DAIFMT_DSP_A |
 					SND_SOC_DAIFMT_NB_NF |
-					SND_SOC_DAIFMT_CBS_CFS);
+					SND_SOC_DAIFMT_CBM_CFM);
 	if (err < 0) {
 		dev_err(card->dev, "cpu_dai fmt not set\n");
 		return err;
@@ -505,9 +503,9 @@ static int tegra_call_mode_put(struct snd_kcontrol *kcontrol,
 		tegra20_das_set_tristate(codec_dap_id, 1);
 		tegra20_das_set_tristate(bb_dap_id, 1);
 		tegra20_das_connect_dap_to_dap(codec_dap_id,
-			bb_dap_sel, 0, 0, 0);
+			bb_dap_sel, 1, 0, 0);
 		tegra20_das_connect_dap_to_dap(bb_dap_id,
-			codec_dap_sel, 1, 0, 0);
+			codec_dap_sel, 0, 0, 0);
 		tegra20_das_set_tristate(codec_dap_id, 0);
 		tegra20_das_set_tristate(bb_dap_id, 0);
 #endif
@@ -525,7 +523,6 @@ static int tegra_call_mode_put(struct snd_kcontrol *kcontrol,
 	}
 
 	machine->is_call_mode = is_call_mode_new;
-	g_is_call_mode = machine->is_call_mode;
 
 	return 1;
 }
@@ -614,7 +611,7 @@ static int tegra_wm8753_event_int_spk(struct snd_soc_dapm_widget *w,
 	struct snd_soc_dapm_context *dapm = w->dapm;
 	struct snd_soc_card *card = dapm->card;
 	struct tegra_wm8753 *machine = snd_soc_card_get_drvdata(card);
-	struct tegra_asoc_platform_data *pdata = machine->pdata;
+	struct tegra_wm8753_platform_data *pdata = machine->pdata;
 
 	if (!(machine->gpio_requested & GPIO_SPKR_EN))
 		return 0;
@@ -631,7 +628,7 @@ static int tegra_wm8753_event_hp(struct snd_soc_dapm_widget *w,
 	struct snd_soc_dapm_context *dapm = w->dapm;
 	struct snd_soc_card *card = dapm->card;
 	struct tegra_wm8753 *machine = snd_soc_card_get_drvdata(card);
-	struct tegra_asoc_platform_data *pdata = machine->pdata;
+	struct tegra_wm8753_platform_data *pdata = machine->pdata;
 
 	if (!(machine->gpio_requested & GPIO_HP_MUTE))
 		return 0;
@@ -687,7 +684,7 @@ static int tegra_wm8753_init(struct snd_soc_pcm_runtime *rtd)
 	struct snd_soc_dapm_context *dapm = &codec->dapm;
 	struct snd_soc_card *card = codec->card;
 	struct tegra_wm8753 *machine = snd_soc_card_get_drvdata(card);
-	struct tegra_asoc_platform_data *pdata = machine->pdata;
+	struct tegra_wm8753_platform_data *pdata = machine->pdata;
 	int ret;
 
 	if (machine_is_whistler()) {
@@ -854,7 +851,7 @@ static __devinit int tegra_wm8753_driver_probe(struct platform_device *pdev)
 {
 	struct snd_soc_card *card = &snd_soc_tegra_wm8753;
 	struct tegra_wm8753 *machine;
-	struct tegra_asoc_platform_data *pdata;
+	struct tegra_wm8753_platform_data *pdata;
 	int ret;
 
 
@@ -872,7 +869,7 @@ static __devinit int tegra_wm8753_driver_probe(struct platform_device *pdev)
 
 	machine->pdata = pdata;
 
-	ret = tegra_asoc_utils_init(&machine->util_data, &pdev->dev, card);
+	ret = tegra_asoc_utils_init(&machine->util_data, &pdev->dev);
 	if (ret)
 		goto err_free_machine;
 
@@ -916,7 +913,7 @@ static int __devexit tegra_wm8753_driver_remove(struct platform_device *pdev)
 {
 	struct snd_soc_card *card = platform_get_drvdata(pdev);
 	struct tegra_wm8753 *machine = snd_soc_card_get_drvdata(card);
-	struct tegra_asoc_platform_data *pdata = machine->pdata;
+	struct tegra_wm8753_platform_data *pdata = machine->pdata;
 
 	snd_soc_unregister_card(card);
 

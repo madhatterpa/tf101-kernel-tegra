@@ -204,8 +204,6 @@ static int acm_write_start(struct acm *acm, int wbn)
 	usb_mark_last_busy(acm->dev);
 #ifdef CONFIG_PM
 	while ((res = usb_get_from_anchor(&acm->deferred))) {
-		/* decrement ref count*/
-		usb_put_urb(res);
 		rc = usb_submit_urb(res, GFP_ATOMIC);
 		if (rc < 0) {
 			dbg("usb_submit_urb(pending request) failed: %d", rc);
@@ -507,9 +505,6 @@ static int acm_tty_open(struct tty_struct *tty, struct file *filp)
 		goto out;
 	}
 
-	if (acm_submit_read_urbs(acm, GFP_KERNEL))
-		goto bail_out;
-
 	acm->ctrlurb->dev = acm->dev;
 	if (usb_submit_urb(acm->ctrlurb, GFP_KERNEL)) {
 		dev_err(&acm->control->dev,
@@ -522,6 +517,9 @@ static int acm_tty_open(struct tty_struct *tty, struct file *filp)
 		goto bail_out;
 
 	usb_autopm_put_interface(acm->control);
+
+	if (acm_submit_read_urbs(acm, GFP_KERNEL))
+		goto bail_out;
 
 	set_bit(ASYNCB_INITIALIZED, &acm->port.flags);
 	rv = tty_port_block_til_ready(&acm->port, tty, filp);
@@ -1284,11 +1282,6 @@ static void stop_data_traffic(struct acm *acm)
 {
 	int i;
 
-	if (!acm) {
-		pr_err("%s: !acm\n", __func__);
-		return;
-	}
-
 	dev_dbg(&acm->control->dev, "%s\n", __func__);
 
 	usb_kill_urb(acm->ctrlurb);
@@ -1305,7 +1298,6 @@ static void acm_disconnect(struct usb_interface *intf)
 	struct acm *acm = usb_get_intfdata(intf);
 	struct usb_device *usb_dev = interface_to_usbdev(intf);
 	struct tty_struct *tty;
-	struct urb *res;
 
 	/* sibling interface is already cleaning up */
 	if (!acm)
@@ -1325,10 +1317,7 @@ static void acm_disconnect(struct usb_interface *intf)
 
 	stop_data_traffic(acm);
 
-	/* decrement ref count of anchored urbs */
-	while ((res = usb_get_from_anchor(&acm->deferred)))
-		usb_put_urb(res);
-
+	usb_kill_anchored_urbs(&acm->deferred);
 	acm_write_buffers_free(acm);
 	usb_free_coherent(usb_dev, acm->ctrlsize, acm->ctrl_buffer,
 			  acm->ctrl_dma);
@@ -1357,11 +1346,6 @@ static int acm_suspend(struct usb_interface *intf, pm_message_t message)
 {
 	struct acm *acm = usb_get_intfdata(intf);
 	int cnt;
-
-	if (!acm) {
-		pr_err("%s: !acm\n", __func__);
-		return -ENODEV;
-	}
 
 	if (message.event & PM_EVENT_AUTO) {
 		int b;
@@ -1397,27 +1381,16 @@ static int acm_suspend(struct usb_interface *intf, pm_message_t message)
 static int acm_resume(struct usb_interface *intf)
 {
 	struct acm *acm = usb_get_intfdata(intf);
+	struct acm_wb *wb;
 	int rv = 0;
 	int cnt;
 #ifdef CONFIG_PM
 	struct urb *res;
-#else
-	struct acm_wb *wb;
 #endif
 
-	if (!acm) {
-		pr_err("%s: !acm\n", __func__);
-		return -ENODEV;
-	}
-
 	spin_lock_irq(&acm->read_lock);
-	if (acm->susp_count > 0) {
-		acm->susp_count -= 1;
-		cnt = acm->susp_count;
-	} else {
-		spin_unlock_irq(&acm->read_lock);
-		return 0;
-	}
+	acm->susp_count -= 1;
+	cnt = acm->susp_count;
 	spin_unlock_irq(&acm->read_lock);
 
 	if (cnt)
@@ -1431,8 +1404,6 @@ static int acm_resume(struct usb_interface *intf)
 		spin_lock_irq(&acm->write_lock);
 #ifdef CONFIG_PM
 		while ((res = usb_get_from_anchor(&acm->deferred))) {
-			/* decrement ref count*/
-			usb_put_urb(res);
 			rv = usb_submit_urb(res, GFP_ATOMIC);
 			if (rv < 0) {
 				dbg("usb_submit_urb(pending request)"
@@ -1472,11 +1443,6 @@ static int acm_reset_resume(struct usb_interface *intf)
 {
 	struct acm *acm = usb_get_intfdata(intf);
 	struct tty_struct *tty;
-
-	if (!acm) {
-		pr_err("%s: !acm\n", __func__);
-		return -ENODEV;
-	}
 
 	mutex_lock(&acm->mutex);
 	if (acm->port.count) {

@@ -108,7 +108,6 @@ static struct resource sdhci_resource3[] = {
 	},
 };
 
-#ifdef CONFIG_MMC_EMBEDDED_SDIO
 static struct embedded_sdio_data embedded_sdio_data0 = {
 	.cccr   = {
 		.sdio_vsn	= 2,
@@ -123,20 +122,13 @@ static struct embedded_sdio_data embedded_sdio_data0 = {
 		.device 	= 0x4329,
 	},
 };
-#endif
 
 static struct tegra_sdhci_platform_data tegra_sdhci_platform_data0 = {
 	.mmc_data = {
 		.register_status_notify	= ventana_wifi_status_register,
-#ifdef CONFIG_MMC_EMBEDDED_SDIO
 		.embedded_sdio = &embedded_sdio_data0,
-#endif
-		.built_in = 0,
-		.ocr_mask = MMC_OCR_1V8_MASK,
+		.built_in = 1,
 	},
-#ifndef CONFIG_MMC_EMBEDDED_SDIO
-	.pm_flags = MMC_PM_KEEP_POWER,
-#endif
 	.cd_gpio = -1,
 	.wp_gpio = -1,
 	.power_gpio = -1,
@@ -145,14 +137,14 @@ static struct tegra_sdhci_platform_data tegra_sdhci_platform_data0 = {
 static struct tegra_sdhci_platform_data tegra_sdhci_platform_data2 = {
 	.cd_gpio = TEGRA_GPIO_PI5,
 	.wp_gpio = TEGRA_GPIO_PH1,
-	.power_gpio = TEGRA_GPIO_PI6,
+	.power_gpio = TEGRA_GPIO_PT3,
 };
 
 static struct tegra_sdhci_platform_data tegra_sdhci_platform_data3 = {
 	.is_8bit = 1,
 	.cd_gpio = -1,
 	.wp_gpio = -1,
-	.power_gpio = -1,
+	.power_gpio = TEGRA_GPIO_PI6,
 	.mmc_data = {
 		.built_in = 1,
 	}
@@ -231,20 +223,6 @@ static int ventana_wifi_reset(int on)
 	pr_debug("%s: do nothing\n", __func__);
 	return 0;
 }
-
-#ifdef CONFIG_TEGRA_PREPOWER_WIFI
-static int __init ventana_wifi_prepower(void)
-{
-	if (!machine_is_ventana())
-		return 0;
-
-	ventana_wifi_power(1);
-
-	return 0;
-}
-
-subsys_initcall_sync(ventana_wifi_prepower);
-#endif
 
 static int __init ventana_wifi_init(void)
 {

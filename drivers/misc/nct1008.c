@@ -32,6 +32,8 @@
 #include <linux/delay.h>
 #include <linux/regulator/consumer.h>
 
+#define DRIVER_NAME "nct1008"
+
 /* Register Addresses */
 #define LOCAL_TEMP_RD			0x00
 #define EXT_TEMP_RD_HI			0x01
@@ -51,7 +53,6 @@
 #define LOCAL_TEMP_LO_LIMIT_WR		0x0C
 #define EXT_TEMP_HI_LIMIT_HI_BYTE_WR	0x0D
 #define EXT_TEMP_LO_LIMIT_HI_BYTE_WR	0x0E
-#define ONE_SHOT			0x0F
 #define OFFSET_WR			0x11
 #define OFFSET_QUARTER_WR		0x12
 #define EXT_THERM_LIMIT_WR		0x19
@@ -74,13 +75,9 @@
 
 #define MAX_STR_PRINT 50
 
-#define MAX_CONV_TIME_ONESHOT_MS (52)
+#define MIN_SLEEP_MSEC			20
 #define CELSIUS_TO_MILLICELSIUS(x) ((x)*1000)
 #define MILLICELSIUS_TO_CELSIUS(x) ((x)/1000)
-
-
-static int conv_period_ms_table[] =
-	{16000, 8000, 4000, 2000, 1000, 500, 250, 125, 63, 32, 16};
 
 static inline s8 value_to_temperature(bool extended, u8 value)
 {
@@ -401,7 +398,7 @@ static void print_reg(const char *reg_name, struct seq_file *s,
 
 static int dbg_nct1008_show(struct seq_file *s, void *unused)
 {
-	seq_printf(s, "nct1008 nct72 Registers\n");
+	seq_printf(s, "nct1008 Registers\n");
 	seq_printf(s, "------------------\n");
 	print_reg("Local Temp Value    ",     s, 0x00);
 	print_reg("Ext Temp Value Hi   ",     s, 0x01);
@@ -440,12 +437,8 @@ static int __init nct1008_debuginit(struct nct1008_data *nct)
 {
 	int err = 0;
 	struct dentry *d;
-	if (nct->chip == NCT72)
-		d = debugfs_create_file("nct72", S_IRUGO, NULL,
-				(void *)nct, &debug_fops);
-	else
-		d = debugfs_create_file("nct1008", S_IRUGO, NULL,
-				(void *)nct, &debug_fops);
+	d = debugfs_create_file("nct1008", S_IRUGO, NULL,
+			(void *)nct, &debug_fops);
 	if ((!d) || IS_ERR(d)) {
 		dev_err(&nct->client->dev, "Error: %s debugfs_create_file"
 			" returned an error\n", __func__);
@@ -495,49 +488,99 @@ static int nct1008_disable(struct i2c_client *client)
 	return err;
 }
 
-static int nct1008_within_limits(struct nct1008_data *data)
+static int nct1008_disable_alert(struct nct1008_data *data)
 {
-	int intr_status;
+	struct i2c_client *client = data->client;
+	int ret = 0;
+	int val;
 
-	intr_status = i2c_smbus_read_byte_data(data->client, STATUS_RD);
+	/*
+	 * Disable ALERT# output, because these chips don't implement
+	 * SMBus alert correctly; they should only hold the alert line
+	 * low briefly.
+	 */
+	val = i2c_smbus_read_byte_data(data->client, CONFIG_RD);
+	if (val < 0) {
+		dev_err(&client->dev, "%s, line=%d, disable alert failed ... "
+			"i2c read error=%d\n", __func__, __LINE__, val);
+		return val;
+	}
+	data->config = val | ALERT_BIT;
+	ret = i2c_smbus_write_byte_data(client, CONFIG_WR, data->config);
+	if (ret)
+		dev_err(&client->dev, "%s: fail to disable alert, i2c "
+			"write error=%d#\n", __func__, ret);
 
-	return !(intr_status & (BIT(3) | BIT(4)));
+	return ret;
+}
+
+static int nct1008_enable_alert(struct nct1008_data *data)
+{
+	int val;
+	int ret;
+
+	val = i2c_smbus_read_byte_data(data->client, CONFIG_RD);
+	if (val < 0) {
+		dev_err(&data->client->dev, "%s, line=%d, enable alert "
+			"failed ... i2c read error=%d\n", __func__,
+			__LINE__, val);
+		return val;
+	}
+	val &= ~(ALERT_BIT | THERM2_BIT);
+	ret = i2c_smbus_write_byte_data(data->client, CONFIG_WR, val);
+	if (ret) {
+		dev_err(&data->client->dev, "%s: fail to enable alert, i2c "
+			"write error=%d\n", __func__, ret);
+		return ret;
+	}
+
+	return ret;
 }
 
 static void nct1008_work_func(struct work_struct *work)
 {
 	struct nct1008_data *data = container_of(work, struct nct1008_data,
 						work);
-	int intr_status;
-	struct timespec ts;
+	int err = 0;
+	int intr_status = i2c_smbus_read_byte_data(data->client, STATUS_RD);
 
-	nct1008_disable(data->client);
+	if (intr_status < 0) {
+		dev_err(&data->client->dev, "%s, line=%d, i2c read error=%d\n",
+			__func__, __LINE__, intr_status);
+		return;
+	}
 
-	if (data->alert_func)
-		if (!nct1008_within_limits(data))
-			data->alert_func(data->alert_data);
+	intr_status &= (BIT(3) | BIT(4));
+	if (!intr_status)
+		return;
 
-	/* Initiate one-shot conversion */
-	i2c_smbus_write_byte_data(data->client, ONE_SHOT, 0x1);
+	if (data->alert_func) {
+		err = nct1008_disable_alert(data);
+		if (err) {
+			dev_err(&data->client->dev,
+				"%s: disable alert fail(error=%d)\n",
+				__func__, err);
+			return;
+		}
 
-	/* Give hardware necessary time to finish conversion */
-	ts = ns_to_timespec(MAX_CONV_TIME_ONESHOT_MS * 1000 * 1000);
-	hrtimer_nanosleep(&ts, NULL, HRTIMER_MODE_REL, CLOCK_MONOTONIC);
+		data->alert_func(data->alert_data);
 
-	intr_status = i2c_smbus_read_byte_data(data->client, STATUS_RD);
+		nct1008_enable_alert(data);
+	}
 
-	nct1008_enable(data->client);
 
-	enable_irq(data->client->irq);
+	if (err)
+		dev_err(&data->client->dev, "%s: fail(error=%d)\n", __func__,
+			err);
+	else
+		pr_debug("%s: done\n", __func__);
 }
 
 static irqreturn_t nct1008_irq(int irq, void *dev_id)
 {
 	struct nct1008_data *data = dev_id;
 
-	disable_irq_nosync(irq);
-	queue_work(data->workqueue, &data->work);
-
+	schedule_work(&data->work);
 	return IRQ_HANDLED;
 }
 
@@ -547,14 +590,10 @@ static void nct1008_power_control(struct nct1008_data *data, bool is_enable)
 	if (!data->nct_reg) {
 		data->nct_reg = regulator_get(&data->client->dev, "vdd");
 		if (IS_ERR_OR_NULL(data->nct_reg)) {
-			if (PTR_ERR(data->nct_reg) == -ENODEV)
-				dev_info(&data->client->dev,
-					"no regulator found for vdd."
-					" Assuming vdd is always powered");
-			else
-				dev_warn(&data->client->dev, "Error [%ld] in "
-					"getting the regulator handle for"
-					" vdd\n", PTR_ERR(data->nct_reg));
+			dev_warn(&data->client->dev, "Error [%d] in"
+				"getting the regulator handle for vdd "
+				"of %s\n", (int)data->nct_reg,
+				dev_name(&data->client->dev));
 			data->nct_reg = NULL;
 			return;
 		}
@@ -565,14 +604,12 @@ static void nct1008_power_control(struct nct1008_data *data, bool is_enable)
 		ret = regulator_disable(data->nct_reg);
 
 	if (ret < 0)
-		dev_err(&data->client->dev, "Error in %s rail vdd_nct%s, "
+		dev_err(&data->client->dev, "Error in %s rail vdd_nct1008, "
 			"error %d\n", (is_enable) ? "enabling" : "disabling",
-			(data->chip == NCT72) ? "72" : "1008",
 			ret);
 	else
-		dev_info(&data->client->dev, "success in %s rail vdd_nct%s\n",
-			(is_enable) ? "enabling" : "disabling",
-			(data->chip == NCT72) ? "72" : "1008");
+		dev_info(&data->client->dev, "success in %s rail vdd_nct1008\n",
+			(is_enable) ? "enabling" : "disabling");
 }
 
 static int __devinit nct1008_configure_sensor(struct nct1008_data* data)
@@ -618,8 +655,6 @@ static int __devinit nct1008_configure_sensor(struct nct1008_data* data)
 	err = i2c_smbus_write_byte_data(client, CONV_RATE_WR, pdata->conv_rate);
 	if (err)
 		goto error;
-
-	data->conv_period_ms = conv_period_ms_table[pdata->conv_rate];
 
 	/* Setup local hi and lo limits */
 	err = i2c_smbus_write_byte_data(client,
@@ -696,18 +731,43 @@ error:
 
 static int __devinit nct1008_configure_irq(struct nct1008_data *data)
 {
-	data->workqueue = create_singlethread_workqueue((data->chip == NCT72) \
-							? "nct72" : "nct1008");
-
 	INIT_WORK(&data->work, nct1008_work_func);
 
 	if (data->client->irq < 0)
 		return 0;
 	else
 		return request_irq(data->client->irq, nct1008_irq,
-			IRQF_TRIGGER_LOW,
-			(data->chip == NCT72) ? "nct72" : "nct1008",
-			data);
+			IRQF_TRIGGER_FALLING | IRQF_TRIGGER_RISING,
+			DRIVER_NAME, data);
+}
+
+static unsigned int get_ext_mode_delay_ms(unsigned int conv_rate)
+{
+	switch (conv_rate) {
+	case 0:
+		return 16000;
+	case 1:
+		return 8000;
+	case 2:
+		return 4000;
+	case 3:
+		return 2000;
+	case 4:
+		return 1000;
+	case 5:
+		return 500;
+	case 6:
+		return 250;
+	case 7:
+		return 125;
+	case 9:
+		return 32;
+	case 10:
+		return 16;
+	case 8:
+	default:
+		return 63;
+	}
 }
 
 int nct1008_thermal_get_temp(struct nct1008_data *data, long *temp)
@@ -733,6 +793,10 @@ int nct1008_thermal_set_limits(struct nct1008_data *data,
 
 	if (lo_limit >= hi_limit)
 		return -EINVAL;
+
+	if (data->current_lo_limit == lo_limit &&
+		data->current_hi_limit == hi_limit)
+		return 0;
 
 	if (data->current_lo_limit != lo_limit) {
 		value = temperature_to_value(extended_range, lo_limit);
@@ -816,13 +880,13 @@ static int __devinit nct1008_probe(struct i2c_client *client,
 {
 	struct nct1008_data *data;
 	int err;
+	unsigned int delay;
 
 	data = kzalloc(sizeof(struct nct1008_data), GFP_KERNEL);
 	if (!data)
 		return -ENOMEM;
 
 	data->client = client;
-	data->chip = id->driver_data;
 	memcpy(&data->plat_data, client->dev.platform_data,
 		sizeof(struct nct1008_platform_data));
 	i2c_set_clientdata(client, data);
@@ -856,6 +920,14 @@ static int __devinit nct1008_probe(struct i2c_client *client,
 	err = nct1008_debuginit(data);
 	if (err < 0)
 		err = 0; /* without debugfs we may continue */
+
+	/* switch to extended mode reports correct temperature
+	 * from next measurement cycle */
+	if (data->plat_data.ext_range) {
+		delay = get_ext_mode_delay_ms(
+			data->plat_data.conv_rate);
+		msleep(delay); /* 63msec for default conv rate 0x8 */
+	}
 
 	/* notify callback that probe is done */
 	if (data->plat_data.probe_callback)
@@ -903,6 +975,7 @@ static int nct1008_suspend(struct i2c_client *client, pm_message_t state)
 
 static int nct1008_resume(struct i2c_client *client)
 {
+	struct nct1008_data *data = i2c_get_clientdata(client);
 	int err;
 
 	err = nct1008_enable(client);
@@ -912,21 +985,21 @@ static int nct1008_resume(struct i2c_client *client)
 		return err;
 	}
 	enable_irq(client->irq);
+	schedule_work(&data->work);
 
 	return 0;
 }
 #endif
 
 static const struct i2c_device_id nct1008_id[] = {
-	{ "nct1008", NCT1008 },
-	{ "nct72", NCT72},
-	{}
+	{ DRIVER_NAME, 0 },
+	{ }
 };
 MODULE_DEVICE_TABLE(i2c, nct1008_id);
 
 static struct i2c_driver nct1008_driver = {
 	.driver = {
-		.name	= "nct1008_nct72",
+		.name	= DRIVER_NAME,
 	},
 	.probe		= nct1008_probe,
 	.remove		= __devexit_p(nct1008_remove),
@@ -947,7 +1020,7 @@ static void __exit nct1008_exit(void)
 	i2c_del_driver(&nct1008_driver);
 }
 
-MODULE_DESCRIPTION("Temperature sensor driver for OnSemi NCT1008/NCT72");
+MODULE_DESCRIPTION("Temperature sensor driver for OnSemi NCT1008");
 MODULE_LICENSE("GPL");
 
 module_init(nct1008_init);

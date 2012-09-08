@@ -1075,8 +1075,8 @@ static void pch_spi_handle_dma(struct pch_spi_data *data, int *bpw)
 		sg_dma_address(sg) = dma->rx_buf_dma + sg->offset;
 	}
 	sg = dma->sg_rx_p;
-	desc_rx = dmaengine_prep_slave_sg(dma->chan_rx, sg,
-					num, DMA_DEV_TO_MEM,
+	desc_rx = dma->chan_rx->device->device_prep_slave_sg(dma->chan_rx, sg,
+					num, DMA_FROM_DEVICE,
 					DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
 	if (!desc_rx) {
 		dev_err(&data->master->dev, "%s:device_prep_slave_sg Failed\n",
@@ -1120,8 +1120,8 @@ static void pch_spi_handle_dma(struct pch_spi_data *data, int *bpw)
 		sg_dma_address(sg) = dma->tx_buf_dma + sg->offset;
 	}
 	sg = dma->sg_tx_p;
-	desc_tx = dmaengine_prep_slave_sg(dma->chan_tx,
-					sg, num, DMA_MEM_TO_DEV,
+	desc_tx = dma->chan_tx->device->device_prep_slave_sg(dma->chan_tx,
+					sg, num, DMA_TO_DEVICE,
 					DMA_PREP_INTERRUPT | DMA_CTRL_ACK);
 	if (!desc_tx) {
 		dev_err(&data->master->dev, "%s:device_prep_slave_sg Failed\n",

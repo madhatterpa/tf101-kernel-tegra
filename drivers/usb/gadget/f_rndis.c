@@ -391,6 +391,7 @@ static void rndis_response_available(void *_rndis)
 {
 	struct f_rndis			*rndis = _rndis;
 	struct usb_request		*req = rndis->notify_req;
+	struct usb_composite_dev	*cdev = rndis->port.func.config->cdev;
 	__le32				*data = req->buf;
 	int				status;
 
@@ -408,13 +409,14 @@ static void rndis_response_available(void *_rndis)
 	status = usb_ep_queue(rndis->notify, req, GFP_ATOMIC);
 	if (status) {
 		atomic_dec(&rndis->notify_count);
-		pr_err("notify/0 --> %d\n", status);
+		DBG(cdev, "notify/0 --> %d\n", status);
 	}
 }
 
 static void rndis_response_complete(struct usb_ep *ep, struct usb_request *req)
 {
 	struct f_rndis			*rndis = req->context;
+	struct usb_composite_dev	*cdev = rndis->port.func.config->cdev;
 	int				status = req->status;
 
 	/* after TX:
@@ -428,7 +430,7 @@ static void rndis_response_complete(struct usb_ep *ep, struct usb_request *req)
 		atomic_set(&rndis->notify_count, 0);
 		break;
 	default:
-		pr_err("RNDIS %s response error %d, %d/%d\n",
+		DBG(cdev, "RNDIS %s response error %d, %d/%d\n",
 			ep->name, status,
 			req->actual, req->length);
 		/* FALLTHROUGH */
@@ -444,7 +446,7 @@ static void rndis_response_complete(struct usb_ep *ep, struct usb_request *req)
 		status = usb_ep_queue(rndis->notify, req, GFP_ATOMIC);
 		if (status) {
 			atomic_dec(&rndis->notify_count);
-			pr_err("notify/1 --> %d\n", status);
+			DBG(cdev, "notify/1 --> %d\n", status);
 		}
 		break;
 	}
@@ -453,13 +455,14 @@ static void rndis_response_complete(struct usb_ep *ep, struct usb_request *req)
 static void rndis_command_complete(struct usb_ep *ep, struct usb_request *req)
 {
 	struct f_rndis			*rndis = req->context;
+	struct usb_composite_dev	*cdev = rndis->port.func.config->cdev;
 	int				status;
 
 	/* received RNDIS command from USB_CDC_SEND_ENCAPSULATED_COMMAND */
 //	spin_lock(&dev->lock);
 	status = rndis_msg_parser(rndis->config, (u8 *) req->buf);
 	if (status < 0)
-		pr_err("RNDIS command error %d, %d/%d\n",
+		ERROR(cdev, "RNDIS command error %d, %d/%d\n",
 			status, req->actual, req->length);
 //	spin_unlock(&dev->lock);
 }

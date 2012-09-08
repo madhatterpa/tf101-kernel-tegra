@@ -178,7 +178,6 @@ struct spi_tegra_data {
 	char			port_name[32];
 
 	struct clk		*clk;
-	struct clk		*sclk;
 	void __iomem		*base;
 	phys_addr_t		phys;
 	unsigned		irq;
@@ -247,9 +246,6 @@ struct spi_tegra_data {
 	struct work_struct spi_transfer_work;
 };
 
-static int tegra_spi_runtime_idle(struct device *dev);
-static int tegra_spi_runtime_resume(struct device *dev);
-
 static inline unsigned long spi_tegra_readl(struct spi_tegra_data *tspi,
 		    unsigned long reg)
 {
@@ -264,17 +260,6 @@ static inline void spi_tegra_writel(struct spi_tegra_data *tspi,
 	if (!tspi->clk_state)
 		BUG();
 	writel(val, tspi->base + reg);
-
-	/* Synchronize write by reading back the register */
-	readl(tspi->base + SLINK_MAS_DATA);
-}
-
-static void cancel_dma(struct tegra_dma_channel *dma_chan,
-	struct tegra_dma_req *req)
-{
-	tegra_dma_cancel(dma_chan);
-	if (req->status == -TEGRA_DMA_REQ_ERROR_ABORTED)
-		req->complete(req);
 }
 
 static void spi_tegra_clear_status(struct spi_tegra_data *tspi)
@@ -427,7 +412,7 @@ static unsigned int spi_tegra_read_rx_fifo_to_client_rxbuf(
 
 		bits_per_word = t->bits_per_word ? t->bits_per_word :
 						tspi->cur_spi->bits_per_word;
-		rx_mask = (1 << bits_per_word) - 1;
+		rx_mask = (1 << bits_per_word) -1;
 		for (count = 0; count < rx_full_count; ++count) {
 			x = spi_tegra_readl(tspi, SLINK_RX_FIFO);
 			x &= rx_mask;
@@ -444,11 +429,6 @@ static void spi_tegra_copy_client_txbuf_to_spi_txbuf(
 		struct spi_tegra_data *tspi, struct spi_transfer *t)
 {
 	unsigned len;
-
-	/* Make the dma buffer to read by cpu */
-	dma_sync_single_for_cpu(&tspi->pdev->dev, tspi->tx_buf_phys,
-				tspi->dma_buf_size, DMA_TO_DEVICE);
-
 	if (tspi->is_packed) {
 		len = tspi->curr_dma_words * tspi->bytes_per_word;
 		memcpy(tspi->tx_buf, t->tx_buf + tspi->cur_pos, len);
@@ -468,21 +448,12 @@ static void spi_tegra_copy_client_txbuf_to_spi_txbuf(
 		}
 	}
 	tspi->cur_tx_pos += tspi->curr_dma_words * tspi->bytes_per_word;
-
-	/* Make the dma buffer to read by dma */
-	dma_sync_single_for_device(&tspi->pdev->dev, tspi->tx_buf_phys,
-				tspi->dma_buf_size, DMA_TO_DEVICE);
 }
 
 static void spi_tegra_copy_spi_rxbuf_to_client_rxbuf(
 		struct spi_tegra_data *tspi, struct spi_transfer *t)
 {
 	unsigned len;
-
-	/* Make the dma buffer to read by cpu */
-	dma_sync_single_for_cpu(&tspi->pdev->dev, tspi->rx_buf_phys,
-		tspi->dma_buf_size, DMA_FROM_DEVICE);
-
 	if (tspi->is_packed) {
 		len = tspi->curr_dma_words * tspi->bytes_per_word;
 		memcpy(t->rx_buf + tspi->cur_rx_pos, tspi->rx_buf, len);
@@ -495,7 +466,7 @@ static void spi_tegra_copy_spi_rxbuf_to_client_rxbuf(
 
 		bits_per_word = t->bits_per_word ? t->bits_per_word :
 						tspi->cur_spi->bits_per_word;
-		rx_mask = (1 << bits_per_word) - 1;
+		rx_mask = (1 << bits_per_word) -1;
 		for (count = 0; count < tspi->curr_dma_words; ++count) {
 			x = tspi->rx_buf[count];
 			x &= rx_mask;
@@ -504,10 +475,6 @@ static void spi_tegra_copy_spi_rxbuf_to_client_rxbuf(
 		}
 	}
 	tspi->cur_rx_pos += tspi->curr_dma_words * tspi->bytes_per_word;
-
-	/* Make the dma buffer to read by dma */
-	dma_sync_single_for_device(&tspi->pdev->dev, tspi->rx_buf_phys,
-		tspi->dma_buf_size, DMA_FROM_DEVICE);
 }
 
 static int spi_tegra_start_dma_based_transfer(
@@ -520,13 +487,6 @@ static int spi_tegra_start_dma_based_transfer(
 
 	INIT_COMPLETION(tspi->rx_dma_complete);
 	INIT_COMPLETION(tspi->tx_dma_complete);
-
-	/* Make sure that Rx and Tx fifo are empty */
-	test_val = spi_tegra_readl(tspi, SLINK_STATUS);
-	if (((test_val >> 20) & 0xF) != 0xA)
-		dev_err(&tspi->pdev->dev,
-			"The Rx and Tx fifo are not empty status 0x%08lx\n",
-				test_val);
 
 	val = SLINK_DMA_BLOCK_SIZE(tspi->curr_dma_words - 1);
 	val |= tspi->packed_size;
@@ -558,8 +518,8 @@ static int spi_tegra_start_dma_based_transfer(
 		tspi->tx_dma_req.size = len;
 		ret = tegra_dma_enqueue_req(tspi->tx_dma, &tspi->tx_dma_req);
 		if (ret < 0) {
-			dev_err(&tspi->pdev->dev,
-				"Error in starting tx dma error = %d\n", ret);
+			dev_err(&tspi->pdev->dev, "Error in starting tx dma "
+						" error = %d\n", ret);
 			return ret;
 		}
 
@@ -570,17 +530,14 @@ static int spi_tegra_start_dma_based_transfer(
 	}
 
 	if (tspi->cur_direction & DATA_DIR_RX) {
-		/* Make the dma buffer to read by dma */
-		dma_sync_single_for_device(&tspi->pdev->dev, tspi->rx_buf_phys,
-				tspi->dma_buf_size, DMA_FROM_DEVICE);
-
 		tspi->rx_dma_req.size = len;
 		ret = tegra_dma_enqueue_req(tspi->rx_dma, &tspi->rx_dma_req);
 		if (ret < 0) {
-			dev_err(&tspi->pdev->dev,
-				"Error in starting rx dma error = %d\n", ret);
+			dev_err(&tspi->pdev->dev, "Error in starting rx dma "
+						" error = %d\n", ret);
 			if (tspi->cur_direction & DATA_DIR_TX)
-				cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
+				tegra_dma_dequeue_req(tspi->tx_dma,
+							&tspi->tx_dma_req);
 			return ret;
 		}
 	}
@@ -666,8 +623,8 @@ static void set_best_clk_source(struct spi_tegra_data *tspi,
 		ret = clk_set_parent(tspi->clk,
 			tspi->parent_clk_list[count].parent_clk);
 		if (ret < 0) {
-			dev_warn(&tspi->pdev->dev,
-				"Error in setting parent clk src %s\n",
+			dev_warn(&tspi->pdev->dev, "Error in setting parent "
+				" clk src %s\n",
 				tspi->parent_clk_list[count].name);
 			continue;
 		}
@@ -737,7 +694,12 @@ static void spi_tegra_start_transfer(struct spi_device *spi,
 
 	command2 = tspi->def_command2_reg;
 	if (is_first_of_msg) {
-		pm_runtime_get_sync(&tspi->pdev->dev);
+		if (!tspi->is_clkon_always) {
+			if (!tspi->clk_state) {
+				pm_runtime_get_sync(&tspi->pdev->dev);
+				tspi->clk_state = 1;
+			}
+		}
 
 		spi_tegra_clear_status(tspi);
 
@@ -849,19 +811,27 @@ static int spi_tegra_setup(struct spi_device *spi)
 		return -EINVAL;
 	}
 
-	pm_runtime_get_sync(&tspi->pdev->dev);
-
 	spin_lock_irqsave(&tspi->lock, flags);
 	val = tspi->def_command_reg;
 	if (spi->mode & SPI_CS_HIGH)
 		val |= cs_bit;
 	else
 		val &= ~cs_bit;
-	tspi->def_command_reg = val;
-	spi_tegra_writel(tspi, tspi->def_command_reg, SLINK_COMMAND);
-	spin_unlock_irqrestore(&tspi->lock, flags);
+	tspi->def_command_reg |= val;
 
-	pm_runtime_put_sync(&tspi->pdev->dev);
+	if (!tspi->is_clkon_always && !tspi->clk_state) {
+		spin_unlock_irqrestore(&tspi->lock, flags);
+		pm_runtime_get_sync(&tspi->pdev->dev);
+		spin_lock_irqsave(&tspi->lock, flags);
+		tspi->clk_state = 1;
+	}
+	spi_tegra_writel(tspi, tspi->def_command_reg, SLINK_COMMAND);
+	if (!tspi->is_clkon_always && tspi->clk_state) {
+		tspi->clk_state = 0;
+		spin_unlock_irqrestore(&tspi->lock, flags);
+		pm_runtime_put_sync(&tspi->pdev->dev);
+	} else
+		spin_unlock_irqrestore(&tspi->lock, flags);
 	return 0;
 }
 
@@ -1003,11 +973,19 @@ static void spi_tegra_curr_transfer_complete(struct spi_tegra_data *tspi,
 								SLINK_COMMAND);
 			spi_tegra_writel(tspi, tspi->def_command2_reg,
 								SLINK_COMMAND2);
-			/* Provide delay to stablize the signal state */
-			spin_unlock_irqrestore(&tspi->lock, *irq_flags);
-			udelay(10);
-			pm_runtime_put_sync(&tspi->pdev->dev);
-			spin_lock_irqsave(&tspi->lock, *irq_flags);
+			if (!tspi->is_clkon_always) {
+				if (tspi->clk_state) {
+					/* Provide delay to stablize the signal
+					   state */
+					spin_unlock_irqrestore(&tspi->lock,
+							*irq_flags);
+					udelay(10);
+					pm_runtime_put_sync(&tspi->pdev->dev);
+					spin_lock_irqsave(&tspi->lock,
+							*irq_flags);
+					tspi->clk_state = 0;
+				}
+			}
 			tspi->is_transfer_in_progress = false;
 			/* Check if any new request has come between
 			 * clock disable */
@@ -1050,8 +1028,8 @@ static void handle_cpu_based_xfer(void *context_data)
 		goto exit;
 	}
 
-	dev_vdbg(&tspi->pdev->dev, "Current direction %x\n",
-					tspi->cur_direction);
+	dev_vdbg(&tspi->pdev->dev, " Current direction %x\n",
+						tspi->cur_direction);
 	if (tspi->cur_direction & DATA_DIR_RX)
 		spi_tegra_read_rx_fifo_to_client_rxbuf(tspi, t);
 
@@ -1062,9 +1040,8 @@ static void handle_cpu_based_xfer(void *context_data)
 	else
 		WARN_ON(1);
 
-	dev_vdbg(&tspi->pdev->dev,
-		"current position %d and length of the transfer %d\n",
-			tspi->cur_pos, t->len);
+	dev_vdbg(&tspi->pdev->dev, "current position %d and length of the "
+				"transfer %d\n", tspi->cur_pos, t->len);
 	if (tspi->cur_pos == t->len) {
 		spi_tegra_curr_transfer_complete(tspi,
 			tspi->tx_status || tspi->rx_status, t->len, &flags);
@@ -1095,15 +1072,16 @@ static irqreturn_t spi_tegra_isr_thread(int irq, void *context_data)
 	/* Abort dmas if any error */
 	if (tspi->cur_direction & DATA_DIR_TX) {
 		if (tspi->tx_status) {
-			cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
+			tegra_dma_dequeue_req(tspi->tx_dma, &tspi->tx_dma_req);
 			err += 1;
 		} else {
 			wait_status = wait_for_completion_interruptible_timeout(
 				&tspi->tx_dma_complete, SLINK_DMA_TIMEOUT);
 			if (wait_status <= 0) {
-				cancel_dma(tspi->tx_dma, &tspi->tx_dma_req);
-				dev_err(&tspi->pdev->dev,
-					"Error in Dma Tx transfer\n");
+				tegra_dma_dequeue_req(tspi->tx_dma,
+								&tspi->tx_dma_req);
+				dev_err(&tspi->pdev->dev, "Error in Dma Tx "
+							"transfer\n");
 				err += 1;
 			}
 		}
@@ -1111,15 +1089,16 @@ static irqreturn_t spi_tegra_isr_thread(int irq, void *context_data)
 
 	if (tspi->cur_direction & DATA_DIR_RX) {
 		if (tspi->rx_status) {
-			cancel_dma(tspi->rx_dma, &tspi->rx_dma_req);
+			tegra_dma_dequeue_req(tspi->rx_dma, &tspi->rx_dma_req);
 			err += 2;
 		} else {
 			wait_status = wait_for_completion_interruptible_timeout(
 				&tspi->rx_dma_complete, SLINK_DMA_TIMEOUT);
 			if (wait_status <= 0) {
-				cancel_dma(tspi->rx_dma, &tspi->rx_dma_req);
-				dev_err(&tspi->pdev->dev,
-					"Error in Dma Rx transfer\n");
+				tegra_dma_dequeue_req(tspi->rx_dma,
+							&tspi->rx_dma_req);
+				dev_err(&tspi->pdev->dev, "Error in Dma Rx "
+							"transfer\n");
 				err += 2;
 			}
 		}
@@ -1250,7 +1229,7 @@ static int __init spi_tegra_probe(struct platform_device *pdev)
 
 	sprintf(tspi->port_name, "tegra_spi_%d", pdev->id);
 	ret = request_threaded_irq(tspi->irq, spi_tegra_isr,
-			spi_tegra_isr_thread, IRQF_ONESHOT,
+			spi_tegra_isr_thread, IRQF_DISABLED,
 			tspi->port_name, tspi);
 	if (ret < 0) {
 		dev_err(&pdev->dev, "Failed to register ISR for IRQ %d\n",
@@ -1258,18 +1237,11 @@ static int __init spi_tegra_probe(struct platform_device *pdev)
 		goto fail_irq_req;
 	}
 
-	tspi->clk = clk_get(&pdev->dev, "spi");
+	tspi->clk = clk_get(&pdev->dev, NULL);
 	if (IS_ERR(tspi->clk)) {
 		dev_err(&pdev->dev, "can not get clock\n");
 		ret = PTR_ERR(tspi->clk);
 		goto fail_clk_get;
-	}
-
-	tspi->sclk = clk_get(&pdev->dev, "sclk");
-	if (IS_ERR(tspi->sclk)) {
-		dev_err(&pdev->dev, "can not get sclock\n");
-		ret = PTR_ERR(tspi->sclk);
-		goto fail_sclk_get;
 	}
 
 	INIT_LIST_HEAD(&tspi->queue);
@@ -1376,20 +1348,17 @@ static int __init spi_tegra_probe(struct platform_device *pdev)
 
 skip_dma_alloc:
 	pm_runtime_enable(&pdev->dev);
-	if (!pm_runtime_enabled(&pdev->dev)) {
-		ret = tegra_spi_runtime_resume(&pdev->dev);
-		if (ret) {
-			dev_err(&pdev->dev, "runtime resume failed %d", ret);
-			goto err_pm_disable;
+	pm_runtime_get_sync(&pdev->dev);
+	tspi->clk_state = 1;
+	master->dev.of_node = pdev->dev.of_node;
+	ret = spi_register_master(master);
+	if (!tspi->is_clkon_always) {
+		if (tspi->clk_state) {
+			pm_runtime_put_sync(&pdev->dev);
+			tspi->clk_state = 0;
 		}
 	}
 
-	/* Enable clock if it is require to be enable always */
-	if (tspi->is_clkon_always)
-		pm_runtime_get_sync(&pdev->dev);
-
-	master->dev.of_node = pdev->dev.of_node;
-	ret = spi_register_master(master);
 	if (ret < 0) {
 		dev_err(&pdev->dev, "can not register to master err %d\n", ret);
 		goto fail_master_register;
@@ -1412,15 +1381,6 @@ fail_workqueue:
 	spi_unregister_master(master);
 
 fail_master_register:
-	if (tspi->is_clkon_always)
-		pm_runtime_put_sync(&pdev->dev);
-
-	if (!pm_runtime_status_suspended(&pdev->dev))
-		tegra_spi_runtime_idle(&pdev->dev);
-
-err_pm_disable:
-	pm_runtime_disable(&pdev->dev);
-
 	if (tspi->tx_buf)
 		dma_free_coherent(&pdev->dev, tspi->dma_buf_size,
 				tspi->tx_buf, tspi->tx_buf_phys);
@@ -1435,9 +1395,7 @@ fail_rx_buf_alloc:
 	if (tspi->rx_dma)
 		tegra_dma_free_channel(tspi->rx_dma);
 fail_rx_dma_alloc:
-	clk_put(tspi->sclk);
-fail_sclk_get:
-	clk_put(tspi->clk);
+	pm_runtime_disable(&pdev->dev);
 fail_clk_get:
 	free_irq(tspi->irq, tspi);
 fail_irq_req:
@@ -1470,15 +1428,12 @@ static int __devexit spi_tegra_remove(struct platform_device *pdev)
 	if (tspi->rx_dma)
 		tegra_dma_free_channel(tspi->rx_dma);
 
-	/* Disable clock if it is always enabled */
-	if (tspi->is_clkon_always)
+	if (tspi->is_clkon_always) {
 		pm_runtime_put_sync(&pdev->dev);
+		tspi->clk_state = 0;
+	}
 
 	pm_runtime_disable(&pdev->dev);
-	if (!pm_runtime_status_suspended(&pdev->dev))
-		tegra_spi_runtime_idle(&pdev->dev);
-
-	clk_put(tspi->sclk);
 	clk_put(tspi->clk);
 	iounmap(tspi->base);
 
@@ -1491,18 +1446,20 @@ static int __devexit spi_tegra_remove(struct platform_device *pdev)
 }
 
 #ifdef CONFIG_PM
-static int spi_tegra_suspend(struct device *dev)
+static int spi_tegra_suspend(struct platform_device *pdev, pm_message_t state)
 {
-	struct spi_master *master = dev_get_drvdata(dev);
-	struct spi_tegra_data *tspi = spi_master_get_devdata(master);
-	unsigned limit = 50;
+	struct spi_master	*master;
+	struct spi_tegra_data	*tspi;
+	unsigned		limit = 50;
 	unsigned long flags;
 
+	master = dev_get_drvdata(&pdev->dev);
+	tspi = spi_master_get_devdata(master);
 	spin_lock_irqsave(&tspi->lock, flags);
 
 	/* Wait for all transfer completes */
 	if (!list_empty(&tspi->queue))
-		dev_warn(dev, "The transfer list is not empty "
+		dev_warn(&pdev->dev, "The transfer list is not empty "
 			"Waiting for time %d ms to complete transfer\n",
 			limit * 20);
 
@@ -1516,7 +1473,7 @@ static int spi_tegra_suspend(struct device *dev)
 	tspi->is_suspended = true;
 	if (!list_empty(&tspi->queue)) {
 		limit = 50;
-		dev_err(dev, "All transfer has not completed, "
+		dev_err(&pdev->dev, "All transfer has not completed, "
 			"Waiting for %d ms current transfer to complete\n",
 			limit * 20);
 		while (tspi->is_transfer_in_progress && limit--) {
@@ -1527,40 +1484,41 @@ static int spi_tegra_suspend(struct device *dev)
 	}
 
 	if (tspi->is_transfer_in_progress) {
-		dev_err(dev,
-			"Spi transfer is in progress Avoiding suspend\n");
+		dev_err(&pdev->dev, "Spi transfer is in progress "
+			"Avoiding suspend\n");
 		tspi->is_suspended = false;
 		spin_unlock_irqrestore(&tspi->lock, flags);
 		return -EBUSY;
 	}
 
 	spin_unlock_irqrestore(&tspi->lock, flags);
-
-	/* Disable clock if it is always enabled */
-	if (tspi->is_clkon_always)
-		pm_runtime_put_sync(dev);
-
+	if (tspi->is_clkon_always) {
+		pm_runtime_put_sync(&pdev->dev);
+		tspi->clk_state = 0;
+	}
 	return 0;
 }
 
-static int spi_tegra_resume(struct device *dev)
+static int spi_tegra_resume(struct platform_device *pdev)
 {
-	struct spi_master *master = dev_get_drvdata(dev);
-	struct spi_tegra_data *tspi = spi_master_get_devdata(master);
+	struct spi_master	*master;
+	struct spi_tegra_data	*tspi;
 	struct spi_message *m;
 	struct spi_device *spi;
 	struct spi_transfer *t = NULL;
 	int single_xfer = 0;
 	unsigned long flags;
 
-	/* Enable clock if it is always enabled */
-	if (tspi->is_clkon_always)
-		pm_runtime_get_sync(dev);
+	master = dev_get_drvdata(&pdev->dev);
+	tspi = spi_master_get_devdata(master);
 
-	pm_runtime_get_sync(dev);
+	pm_runtime_get_sync(&pdev->dev);
+	tspi->clk_state = 1;
 	spi_tegra_writel(tspi, tspi->command_reg, SLINK_COMMAND);
-	pm_runtime_put_sync(dev);
-
+	if (!tspi->is_clkon_always) {
+		pm_runtime_put_sync(&pdev->dev);
+		tspi->clk_state = 0;
+	}
 	spin_lock_irqsave(&tspi->lock, flags);
 
 	tspi->cur_speed = 0;
@@ -1582,41 +1540,36 @@ static int spi_tegra_resume(struct device *dev)
 }
 #endif
 
+#if defined(CONFIG_PM_RUNTIME)
+
 static int tegra_spi_runtime_idle(struct device *dev)
 {
-	struct spi_master *master = dev_get_drvdata(dev);
-	struct spi_tegra_data *tspi = spi_master_get_devdata(master);
+	struct spi_master       *master;
+	struct spi_tegra_data   *tspi;
+	master = dev_get_drvdata(dev);
+	tspi = spi_master_get_devdata(master);
 
-	/* Flush all write which are in PPSB queue by reading back */
-	spi_tegra_readl(tspi, SLINK_MAS_DATA);
-
-	tspi->clk_state = 0;
 	clk_disable(tspi->clk);
-	clk_disable(tspi->sclk);
 	return 0;
 }
 
 static int tegra_spi_runtime_resume(struct device *dev)
 {
-	struct spi_master *master = dev_get_drvdata(dev);
-	struct spi_tegra_data *tspi = spi_master_get_devdata(master);
+	struct spi_master       *master;
+	struct spi_tegra_data   *tspi;
+	master = dev_get_drvdata(dev);
+	tspi = spi_master_get_devdata(master);
 
-	clk_enable(tspi->sclk);
 	clk_enable(tspi->clk);
-	tspi->clk_state = 1;
 	return 0;
 }
 
 static const struct dev_pm_ops tegra_spi_dev_pm_ops = {
-#if defined(CONFIG_PM_RUNTIME)
 	.runtime_idle = tegra_spi_runtime_idle,
 	.runtime_resume = tegra_spi_runtime_resume,
-#endif
-#ifdef CONFIG_PM
-	.suspend = spi_tegra_suspend,
-	.resume = spi_tegra_resume,
-#endif
 };
+
+#endif
 
 MODULE_ALIAS("platform:spi_tegra");
 
@@ -1634,10 +1587,16 @@ static struct platform_driver spi_tegra_driver = {
 	.driver = {
 		.name =		"spi_tegra",
 		.owner =	THIS_MODULE,
+#if defined(CONFIG_PM_RUNTIME)
 		.pm =		&tegra_spi_dev_pm_ops,
+#endif
 		.of_match_table = spi_tegra_of_match_table,
 	},
 	.remove =	__devexit_p(spi_tegra_remove),
+#ifdef CONFIG_PM
+	.suspend =	spi_tegra_suspend,
+	.resume  =	spi_tegra_resume,
+#endif
 };
 
 static int __init spi_tegra_init(void)

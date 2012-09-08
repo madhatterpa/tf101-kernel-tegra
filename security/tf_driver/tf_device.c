@@ -87,7 +87,7 @@ static long tf_device_ioctl(
 /*
  * Implements the device shutdown callback.
  */
-static void tf_device_shutdown(void);
+static int tf_device_shutdown(void);
 
 
 /*
@@ -99,7 +99,7 @@ static int tf_device_suspend(void);
 /*
  * Implements the device resume callback.
  */
-static void tf_device_resume(void);
+static int tf_device_resume(void);
 
 
 /*---------------------------------------------------------------------------
@@ -393,7 +393,7 @@ static int __init tf_device_register(void)
 	}
 
 #ifdef CONFIG_TF_DRIVER_CRYPTO_FIPS
-	error = tf_self_test_post_init(&(g_tf_dev.kobj));
+	error = tf_self_test_post_init(&(dev_stats->kobj));
 	/* N.B. error > 0 indicates a POST failure, which will not
 	   prevent the module from loading. */
 	if (error < 0) {
@@ -762,10 +762,11 @@ exit:
 
 /*----------------------------------------------------------------------------*/
 
-static void tf_device_shutdown(void)
+static int tf_device_shutdown(void)
 {
-	if (0 > tf_power_management(&g_tf_dev.sm, TF_POWER_OPERATION_SHUTDOWN))
-		dprintk(KERN_ERR "tf_device_shutdown failing\n");
+
+	return tf_power_management(&g_tf_dev.sm,
+		TF_POWER_OPERATION_SHUTDOWN);
 }
 
 /*----------------------------------------------------------------------------*/
@@ -780,10 +781,10 @@ static int tf_device_suspend(void)
 
 /*----------------------------------------------------------------------------*/
 
-static void tf_device_resume(void)
+static int tf_device_resume(void)
 {
-	if (0 > tf_power_management(&g_tf_dev.sm, TF_POWER_OPERATION_RESUME))
-		dprintk(KERN_ERR "tf_device_resume failing\n");
+	return tf_power_management(&g_tf_dev.sm,
+		TF_POWER_OPERATION_RESUME);
 }
 
 

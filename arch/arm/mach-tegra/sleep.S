@@ -106,15 +106,27 @@ ENDPROC(tegra_pen_unlock)
 /*
  * tegra_cpu_wfi
  *
- * puts current CPU in wfi
- * CPU core clock-gates itself during wfi
+ * puts current CPU in clock-gated wfi using the flow controller
  *
  * corrupts r0-r3
  * must be called with MMU on
  */
 ENTRY(tegra_cpu_wfi)
+	cpu_id	r0
+	cpu_to_halt_reg r1, r0
+	cpu_to_csr_reg r2, r0
+	mov32	r0, TEGRA_FLOW_CTRL_VIRT
+	mov	r3, #FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
+	str	r3, [r0, r2]		@ clear event & interrupt status
+	mov	r3, #FLOW_CTRL_WAIT_FOR_INTERRUPT | FLOW_CTRL_JTAG_RESUME
+	str	r3, [r0, r1]		@ put flow controller in wait irq mode
 	dsb
 	wfi
+	mov	r3, #0
+	str	r3, [r0, r1]		@ clear flow controller halt status
+	mov	r3, #FLOW_CTRL_CSR_INTR_FLAG | FLOW_CTRL_CSR_EVENT_FLAG
+	str	r3, [r0, r2]		@ clear event & interrupt status
+	dsb
 	mov	pc, lr
 ENDPROC(tegra_cpu_wfi)
 
@@ -149,11 +161,19 @@ ENTRY(tegra_cpu_resume_phys)
 	ldr	r0, tegra_phys_sleep_sp		@ stack phys addr
 #endif
 	setmode	PSR_I_BIT | PSR_F_BIT | SVC_MODE, r1  @ set SVC, irqs off
+#ifdef MULTI_CPU
 	@ load v:p, stack, resume fn
   ARM(	ldmia	r0!, {r1, sp, pc}	)
 THUMB(	ldmia	r0!, {r1, r2, r3}	)
 THUMB(	mov	sp, r2			)
 THUMB(	bx	r3			)
+#else
+	@ load v:p, stack, return fn
+  ARM(	ldmia	r0!, {r1, sp, lr}	)
+THUMB(	ldmia	r0!, {r1, r2, lr}	)
+THUMB(	mov	sp, r2			)
+	b	cpu_do_resume
+#endif
 #else
 	/* Use the standard cpu_resume. */
 	b	cpu_resume
@@ -161,10 +181,13 @@ THUMB(	bx	r3			)
 ENDPROC(tegra_cpu_resume_phys)
 
 #if USE_TEGRA_CPU_SUSPEND
+	.align	L1_CACHE_SHIFT
+	.globl	tegra_phys_sleep_sp
 tegra_phys_sleep_sp:
 	.rept	4
 	.long	0		@ preserve stack phys ptr here
 	.endr
+	.align	L1_CACHE_SHIFT  @ nothing else must be in this cache line
 #endif
 
 /*
@@ -176,35 +199,34 @@ tegra_phys_sleep_sp:
  *
  * Input:
  *	r1 = v:p offset
- *	lr = return to the caller of this function
+ *	r3 = virtual return function
  * Output:
  *	sp is decremented to allocate space for CPU state on stack
- * r0-r3,r8,r9,ip,lr corrupted
+ * r0-r3,ip,lr corrupted
  */
 	.align	L1_CACHE_SHIFT
 ENTRY(tegra_cpu_suspend)
-	mov	r9, lr
-	adr	lr, tegra_cpu_resume
 #if USE_TEGRA_CPU_SUSPEND
-	stmfd	sp!, {r4 - r11, lr}
+	stmfd	sp!, {r3}
+	stmfd	sp!, {r4 - r11}
+	mov	r9, lr
 #ifdef MULTI_CPU
 	mov32	r10, processor
-	ldr	r5, [r10, #CPU_SLEEP_SIZE] @ size of CPU sleep state
+	mov	r2, sp			@ current virtual SP
+	ldr	r0, [r10, #CPU_SLEEP_SIZE] @ size of CPU sleep state
 	ldr	ip, [r10, #CPU_DO_RESUME] @ virtual resume function
-#else
-	mov32	r5, cpu_suspend_size
-	mov32	ip, cpu_do_resume
-#endif
-	mov	r6, sp			@ current virtual SP
-	sub	sp, sp, r5		@ allocate CPU state on stack
-	mov	r0, sp			@ save pointer to CPU save block
+	sub	sp, sp, r0		@ allocate CPU state on stack
+	mov	r0, sp			@ save pointer
 	add	ip, ip, r1		@ convert resume fn to phys
-	stmfd	sp!, {r1, r6, ip}	@ save v:p, virt SP, phys resume fn
-
-#ifdef MULTI_CPU
+	stmfd	sp!, {r1, r2, ip}	@ save v:p, virt SP, phys resume fn
 	mov	lr, pc
 	ldr	pc, [r10, #CPU_DO_SUSPEND] @ save CPU state
 #else
+	mov	r2, sp			@ current virtual SP
+	mov32	r0, cpu_suspend_size
+	sub	sp, sp, r0		@ allocate CPU state on stack
+	mov	r0, sp			@ save pointer
+	stmfd	sp!, {r1, r2, ip}	@ save v:p, virt SP, phys resume fn
 	bl	cpu_do_suspend
 #endif
 	dsb
@@ -287,16 +309,15 @@ no_l2_sync:
 	mcr	p15, 0, r1, c8, c7, 0	@ invalidate local TLBs
 	dsb
 	isb
+
+	mov	pc, r9
 #else
 	/* Use the standard cpu_suspend. */
-	adr	r3, BSYM(tegra_finish_suspend)
-	b	__cpu_suspend
-
-tegra_finish_suspend:
-	/* Turn off SMP coherency */
-	exit_smp r1, r6
+	mov	r8, lr
+	bl	cpu_suspend
+	exit_smp r0, r2
+	mov	pc, r8
 #endif
-	mov	pc, r9
 ENDPROC(tegra_cpu_suspend)
 
 /*
@@ -305,17 +326,20 @@ ENDPROC(tegra_cpu_suspend)
  * Input:
  *	r0 = v:p offset
  *	r12 = return to the caller of this function
+ *	lr = resume address
  * Output:
  *	r0 = v:p offset
  *	r7 = SP after saving the registers but before cpu_suspend, suitable
  *	     for restoring an aborted suspend
  *	sp = SP after tegra_cpu_suspend (the 'real' SP)
  * Saves r4-r11 on the stack
- * Corrupts r1, r3-r11
+ * Corrupts r1, r3-r10
  */
 
 ENTRY(tegra_cpu_save)
 	push_ctx_regs r1		@ save context registers
+
+	adr	r3, tegra_cpu_resume
 
 	mov	r7, sp			@ SP after reg save, before suspend
 
@@ -332,12 +356,12 @@ ENTRY(tegra_cpu_save)
 #endif
 
 	mov	r4, r12
-	mov	r8, r0
-	mov	r11, r2
+	mov	r5, r0
+	mov	r6, r2
 	mov	r1, r0
 	bl	tegra_cpu_suspend
-	mov	r0, r8
-	mov	r2, r11
+	mov	r0, r5
+	mov	r2, r6
 	mov	pc, r4
 ENDPROC(tegra_cpu_save)
 
