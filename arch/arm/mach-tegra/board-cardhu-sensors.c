@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-cardhu-sensors.c
  *
- * Copyright (c) 2010-2012, NVIDIA CORPORATION, All rights reserved.
+ * Copyright (c) 2010-2011, NVIDIA CORPORATION, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -40,7 +40,6 @@
 #include <mach/fb.h>
 #include <mach/gpio.h>
 #include <media/ov5650.h>
-#include <media/ov5640.h>
 #include <media/ov14810.h>
 #include <media/ov2710.h>
 #include <media/tps61050.h>
@@ -465,86 +464,6 @@ struct ov2710_platform_data cardhu_ov2710_data = {
 	.power_off = cardhu_ov2710_power_off,
 };
 
-static int cardhu_ov5640_power_on(void)
-{
-	/* CSI-B and front sensor are muxed on cardhu */
-	gpio_direction_output(CAMERA_CSI_MUX_SEL_GPIO, 1);
-
-	/* Boards E1198 and E1291 are of Cardhu personality
-	 * and donot have TCA6416 exp for camera */
-	if ((board_info.board_id == BOARD_E1198) ||
-		(board_info.board_id == BOARD_E1291)) {
-
-		gpio_direction_output(CAM1_POWER_DWN_GPIO, 0);
-		gpio_direction_output(CAM2_POWER_DWN_GPIO, 0);
-		gpio_direction_output(CAM3_POWER_DWN_GPIO, 0);
-		mdelay(10);
-
-		if (cardhu_vdd_cam3 == NULL) {
-			cardhu_vdd_cam3 = regulator_get(NULL, "vdd_cam3");
-			if (WARN_ON(IS_ERR(cardhu_vdd_cam3))) {
-				pr_err("%s: couldn't get regulator vdd_cam3: %ld\n",
-					__func__, PTR_ERR(cardhu_vdd_cam3));
-				goto reg_alloc_fail;
-			}
-		}
-		regulator_enable(cardhu_vdd_cam3);
-	}
-
-	/* Enable VDD_1V8_Cam3 */
-	if (cardhu_1v8_cam3 == NULL) {
-		cardhu_1v8_cam3 = regulator_get(NULL, "vdd_1v8_cam3");
-		if (WARN_ON(IS_ERR(cardhu_1v8_cam3))) {
-			pr_err("%s: couldn't get regulator vdd_1v8_cam3: %ld\n",
-				__func__, PTR_ERR(cardhu_1v8_cam3));
-			goto reg_alloc_fail;
-		}
-	}
-	regulator_enable(cardhu_1v8_cam3);
-	mdelay(5);
-
-	return 0;
-
-reg_alloc_fail:
-	if (cardhu_1v8_cam3) {
-		regulator_put(cardhu_1v8_cam3);
-		cardhu_1v8_cam3 = NULL;
-	}
-	if (cardhu_vdd_cam3) {
-		regulator_put(cardhu_vdd_cam3);
-		cardhu_vdd_cam3 = NULL;
-	}
-
-	return -ENODEV;
-}
-
-static int cardhu_ov5640_power_off(void)
-{
-	/* CSI-B and front sensor are muxed on cardhu */
-	gpio_direction_output(CAMERA_CSI_MUX_SEL_GPIO, 1);
-
-	/* Boards E1198 and E1291 are of Cardhu personality
-	 * and donot have TCA6416 exp for camera */
-	if ((board_info.board_id == BOARD_E1198) ||
-		(board_info.board_id == BOARD_E1291)) {
-		gpio_direction_output(CAM1_POWER_DWN_GPIO, 1);
-		gpio_direction_output(CAM2_POWER_DWN_GPIO, 1);
-		gpio_direction_output(CAM3_POWER_DWN_GPIO, 1);
-	}
-
-	if (cardhu_1v8_cam3)
-		regulator_disable(cardhu_1v8_cam3);
-	if (cardhu_vdd_cam3)
-		regulator_disable(cardhu_vdd_cam3);
-
-	return 0;
-}
-
-struct ov5640_platform_data cardhu_ov5640_data = {
-	.power_on = cardhu_ov5640_power_on,
-	.power_off = cardhu_ov5640_power_off,
-};
-
 static const struct i2c_board_info cardhu_i2c3_board_info[] = {
 	{
 		I2C_BOARD_INFO("pca9546", 0x70),
@@ -552,55 +471,19 @@ static const struct i2c_board_info cardhu_i2c3_board_info[] = {
 	},
 };
 
-
-static struct nvc_gpio_pdata sh532u_gpio_pdata[] = {
-	{ SH532U_GPIO_RESET, TEGRA_GPIO_PBB0, false, 0, },
-};
-
 static struct sh532u_platform_data sh532u_left_pdata = {
-	.cfg		= NVC_CFG_NODEV,
 	.num		= 1,
 	.sync		= 2,
 	.dev_name	= "focuser",
-	.gpio_count	= ARRAY_SIZE(sh532u_gpio_pdata),
-	.gpio		= sh532u_gpio_pdata,
+	.gpio_reset	= TEGRA_GPIO_PBB0,
 };
 
 static struct sh532u_platform_data sh532u_right_pdata = {
-	.cfg		= NVC_CFG_NODEV,
 	.num		= 2,
 	.sync		= 1,
 	.dev_name	= "focuser",
-	.gpio_count	= ARRAY_SIZE(sh532u_gpio_pdata),
-	.gpio		= sh532u_gpio_pdata,
+	.gpio_reset	= TEGRA_GPIO_PBB0,
 };
-
-static struct nvc_gpio_pdata pm269_sh532u_left_gpio_pdata[] = {
-	{ SH532U_GPIO_RESET, CAM1_RST_L_GPIO, false, 0, },
-};
-
-static struct sh532u_platform_data pm269_sh532u_left_pdata = {
-	.cfg		= 0,
-	.num		= 1,
-	.sync		= 2,
-	.dev_name	= "focuser",
-	.gpio_count	= ARRAY_SIZE(pm269_sh532u_left_gpio_pdata),
-	.gpio		= pm269_sh532u_left_gpio_pdata,
-};
-
-static struct nvc_gpio_pdata pm269_sh532u_right_gpio_pdata[] = {
-	{ SH532U_GPIO_RESET, CAM2_RST_L_GPIO, false, 0, },
-};
-
-static struct sh532u_platform_data pm269_sh532u_right_pdata = {
-	.cfg		= 0,
-	.num		= 2,
-	.sync		= 1,
-	.dev_name	= "focuser",
-	.gpio_count	= ARRAY_SIZE(pm269_sh532u_right_gpio_pdata),
-	.gpio		= pm269_sh532u_right_gpio_pdata,
-};
-
 
 static struct nvc_torch_pin_state cardhu_tps61050_pinstate = {
 	.mask		= 0x0008, /*VGP3*/
@@ -641,39 +524,14 @@ static struct i2c_board_info cardhu_i2c7_board_info[] = {
 	},
 };
 
-static struct i2c_board_info pm269_i2c6_board_info[] = {
-	{
-		I2C_BOARD_INFO("ov5650L", 0x36),
-		.platform_data = &cardhu_left_ov5650_data,
-	},
-	{
-		I2C_BOARD_INFO("sh532u", 0x72),
-		.platform_data = &pm269_sh532u_left_pdata,
-	},
-};
-
-static struct i2c_board_info pm269_i2c7_board_info[] = {
-	{
-		I2C_BOARD_INFO("ov5650R", 0x36),
-		.platform_data = &cardhu_right_ov5650_data,
-	},
-	{
-		I2C_BOARD_INFO("sh532u", 0x72),
-		.platform_data = &pm269_sh532u_right_pdata,
-	},
-};
-
 static struct i2c_board_info cardhu_i2c8_board_info[] = {
 	{
 		I2C_BOARD_INFO("ov2710", 0x36),
 		.platform_data = &cardhu_ov2710_data,
 	},
-	{
-		I2C_BOARD_INFO("ov5640", 0x3C),
-		.platform_data = &cardhu_ov5640_data,
-	},
 };
 
+#ifndef CONFIG_TEGRA_INTERNAL_TSENSOR_EDP_SUPPORT
 static int nct_get_temp(void *_data, long *temp)
 {
 	struct nct1008_data *data = _data;
@@ -732,13 +590,16 @@ static void nct1008_probe_callback(struct nct1008_data *data)
 
 	tegra_thermal_set_device(thermal_device);
 }
+#endif
 
 static struct nct1008_platform_data cardhu_nct1008_pdata = {
 	.supported_hwrev = true,
 	.ext_range = true,
 	.conv_rate = 0x08,
 	.offset = 8, /* 4 * 2C. Bug 844025 - 1C for device accuracies */
+#ifndef CONFIG_TEGRA_INTERNAL_TSENSOR_EDP_SUPPORT
 	.probe_callback = nct1008_probe_callback,
+#endif
 };
 
 static struct i2c_board_info cardhu_i2c4_bq27510_board_info[] = {
@@ -758,7 +619,7 @@ static struct i2c_board_info cardhu_i2c4_nct1008_board_info[] = {
 static int cardhu_nct1008_init(void)
 {
 	int nct1008_port = -1;
-	int ret = 0;
+	int ret;
 
 	if ((board_info.board_id == BOARD_E1198) ||
 		(board_info.board_id == BOARD_E1291) ||
@@ -852,28 +713,20 @@ static int __init cam_tca6416_init(void)
 }
 #endif
 
-/* MPU board file definition	*/
-#if (MPU_GYRO_TYPE == MPU_TYPE_MPU3050)
-#define MPU_GYRO_NAME		"mpu3050"
-#endif
-#if (MPU_GYRO_TYPE == MPU_TYPE_MPU6050)
-#define MPU_GYRO_NAME		"mpu6050"
-#endif
-static struct mpu_platform_data mpu_gyro_data = {
+#ifdef CONFIG_MPU_SENSORS_MPU3050
+static struct mpu_platform_data mpu3050_data = {
 	.int_config	= 0x10,
 	.level_shifter	= 0,
 	.orientation	= MPU_GYRO_ORIENTATION,	/* Located in board_[platformname].h	*/
 };
 
-#if (MPU_GYRO_TYPE == MPU_TYPE_MPU3050)
-static struct ext_slave_platform_data mpu_accel_data = {
+static struct ext_slave_platform_data mpu3050_accel_data = {
 	.address	= MPU_ACCEL_ADDR,
 	.irq		= 0,
 	.adapt_num	= MPU_ACCEL_BUS_NUM,
 	.bus		= EXT_SLAVE_BUS_SECONDARY,
 	.orientation	= MPU_ACCEL_ORIENTATION,	/* Located in board_[platformname].h	*/
 };
-#endif
 
 static struct ext_slave_platform_data mpu_compass_data = {
 	.address	= MPU_COMPASS_ADDR,
@@ -887,17 +740,15 @@ static struct i2c_board_info __initdata inv_mpu_i2c2_board_info[] = {
 	{
 		I2C_BOARD_INFO(MPU_GYRO_NAME, MPU_GYRO_ADDR),
 		.irq = TEGRA_GPIO_TO_IRQ(MPU_GYRO_IRQ_GPIO),
-		.platform_data = &mpu_gyro_data,
+		.platform_data = &mpu3050_data,
 	},
-#if (MPU_GYRO_TYPE == MPU_TYPE_MPU3050)
 	{
 		I2C_BOARD_INFO(MPU_ACCEL_NAME, MPU_ACCEL_ADDR),
 #if	MPU_ACCEL_IRQ_GPIO
 		.irq = TEGRA_GPIO_TO_IRQ(MPU_ACCEL_IRQ_GPIO),
 #endif
-		.platform_data = &mpu_accel_data,
+		.platform_data = &mpu3050_accel_data,
 	},
-#endif
 	{
 		I2C_BOARD_INFO(MPU_COMPASS_NAME, MPU_COMPASS_ADDR),
 #if	MPU_COMPASS_IRQ_GPIO
@@ -913,7 +764,6 @@ static void mpuirq_init(void)
 
 	pr_info("*** MPU START *** mpuirq_init...\n");
 
-#if (MPU_GYRO_TYPE == MPU_TYPE_MPU3050)
 #if	MPU_ACCEL_IRQ_GPIO
 	/* ACCEL-IRQ assignment */
 	tegra_gpio_enable(MPU_ACCEL_IRQ_GPIO);
@@ -929,7 +779,6 @@ static void mpuirq_init(void)
 		gpio_free(MPU_ACCEL_IRQ_GPIO);
 		return;
 	}
-#endif
 #endif
 
 	/* MPU-IRQ assignment */
@@ -951,16 +800,12 @@ static void mpuirq_init(void)
 	i2c_register_board_info(MPU_GYRO_BUS_NUM, inv_mpu_i2c2_board_info,
 		ARRAY_SIZE(inv_mpu_i2c2_board_info));
 }
+#endif
+
 
 static struct i2c_board_info cardhu_i2c2_isl_board_info[] = {
 	{
 		I2C_BOARD_INFO("isl29028", 0x44),
-	}
-};
-
-static struct i2c_board_info cardhu_i2c2_ltr_board_info[] = {
-	{
-		I2C_BOARD_INFO("LTR_558ALS", 0x23),
 	}
 };
 
@@ -990,23 +835,12 @@ int __init cardhu_sensors_init(void)
 #else
 	/* Left  camera is on PCA954x's I2C BUS0, Right camera is on BUS1 &
 	 * Front camera is on BUS2 */
-	if (board_info.board_id != BOARD_PM269) {
-		i2c_register_board_info(PCA954x_I2C_BUS0,
-					cardhu_i2c6_board_info,
-					ARRAY_SIZE(cardhu_i2c6_board_info));
+	i2c_register_board_info(PCA954x_I2C_BUS0, cardhu_i2c6_board_info,
+		ARRAY_SIZE(cardhu_i2c6_board_info));
 
-		i2c_register_board_info(PCA954x_I2C_BUS1,
-					cardhu_i2c7_board_info,
-					ARRAY_SIZE(cardhu_i2c7_board_info));
-	} else {
-		i2c_register_board_info(PCA954x_I2C_BUS0,
-					pm269_i2c6_board_info,
-					ARRAY_SIZE(pm269_i2c6_board_info));
+	i2c_register_board_info(PCA954x_I2C_BUS1, cardhu_i2c7_board_info,
+		ARRAY_SIZE(cardhu_i2c7_board_info));
 
-		i2c_register_board_info(PCA954x_I2C_BUS1,
-					pm269_i2c7_board_info,
-					ARRAY_SIZE(pm269_i2c7_board_info));
-	}
 	i2c_register_board_info(PCA954x_I2C_BUS2, cardhu_i2c8_board_info,
 		ARRAY_SIZE(cardhu_i2c8_board_info));
 
@@ -1017,12 +851,8 @@ int __init cardhu_sensors_init(void)
 		i2c_register_board_info(4, cardhu_i2c4_bq27510_board_info,
 			ARRAY_SIZE(cardhu_i2c4_bq27510_board_info));
 
-	if (board_info.sku == BOARD_SKU_B11)
-		i2c_register_board_info(2, cardhu_i2c2_ltr_board_info,
-			ARRAY_SIZE(cardhu_i2c2_ltr_board_info));
-	else
-		i2c_register_board_info(2, cardhu_i2c2_isl_board_info,
-			ARRAY_SIZE(cardhu_i2c2_isl_board_info));
+	i2c_register_board_info(2, cardhu_i2c2_isl_board_info,
+		ARRAY_SIZE(cardhu_i2c2_isl_board_info));
 
 	err = cardhu_nct1008_init();
 	if (err)
@@ -1031,7 +861,9 @@ int __init cardhu_sensors_init(void)
 	i2c_register_board_info(4, cardhu_i2c4_nct1008_board_info,
 		ARRAY_SIZE(cardhu_i2c4_nct1008_board_info));
 
+#ifdef CONFIG_MPU_SENSORS_MPU3050
 	mpuirq_init();
+#endif
 	return 0;
 }
 

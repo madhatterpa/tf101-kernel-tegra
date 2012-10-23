@@ -34,8 +34,6 @@
 #define BOARD_FAB_A00		0x0
 #define BOARD_FAB_A01		0x1
 #define BOARD_FAB_A02		0x2
-#define BOARD_FAB_A03		0x3
-#define BOARD_FAB_A04		0x4
 
 /* vdd_cpu voltage follower */
 #define BOARD_SKU_VF_BIT	0x0400
@@ -52,12 +50,11 @@ int enterprise_regulator_init(void);
 int enterprise_modem_init(void);
 int enterprise_suspend_init(void);
 int enterprise_edp_init(void);
+void __init enterprise_tsensor_init(void);
 void enterprise_bpc_mgmt_init(void);
 
 /* Invensense MPU Definitions */
-#define MPU_TYPE_MPU3050	1
-#define MPU_TYPE_MPU6050	2
-#define MPU_GYRO_TYPE		MPU_TYPE_MPU3050
+#define MPU_GYRO_NAME		"mpu3050"
 #define MPU_GYRO_IRQ_GPIO	TEGRA_GPIO_PH4
 #define MPU_GYRO_ADDR		0x68
 #define MPU_GYRO_BUS_NUM	0

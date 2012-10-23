@@ -36,6 +36,26 @@ enum tegra_usb_phy_interface {
 };
 
 /**
+ * configuration structure for setting up ulpi phy
+ */
+struct tegra_ulpi_config {
+	int enable_gpio;
+	int reset_gpio;
+	const char *clk;
+	const struct tegra_ulpi_trimmer *trimmer;
+	int (*pre_phy_on)(void);
+	int (*post_phy_on)(void);
+	int (*pre_phy_off)(void);
+	int (*post_phy_off)(void);
+	void (*phy_restore_start)(void);
+	void (*phy_restore_end)(void);
+	int phy_restore_gpio; /* null phy restore ack from device */
+	int ulpi_dir_gpio; /* ulpi dir */
+	int ulpi_d0_gpio; /* usb linestate[0] */
+	int ulpi_d1_gpio; /* usb linestate[1] */
+};
+
+/**
  * configuration structure for setting up utmi phy
  */
 struct tegra_utmi_config {
@@ -50,36 +70,6 @@ struct tegra_utmi_config {
 	u8 xcvr_use_fuses;
 };
 
-
-
-/**
- * configuration structure for setting up utmip phy
- */
-struct tegra_utmip_config {
-	u8 hssync_start_delay;
-	u8 elastic_limit;
-	u8 idle_wait_delay;
-	u8 term_range_adj;
-	u8 xcvr_setup;
-	signed char xcvr_setup_offset;
-	u8 xcvr_use_fuses;
-	u8 xcvr_lsfslew;
-	u8 xcvr_lsrslew;
-};
-
-/**
- * configuration structure for setting up ulpi phy
- */
-struct tegra_ulpi_config {
-        int reset_gpio; // l.150 error
-	u8 shadow_clk_delay;
-	u8 clock_out_delay;
-	u8 data_trimmer;
-	u8 stpdirnxt_trimmer;
-	u8 dir_trimmer;
-	const char *clk;
-};
-
 /**
  * configuration structure for setting up hsic phy
  */
@@ -89,23 +79,6 @@ struct tegra_hsic_config {
 	u8 term_range_adj;
 	u8 elastic_underrun_limit;
 	u8 elastic_overrun_limit;
-};
-
-/**
- * configuration structure for setting up uhsic phy
- */
-struct tegra_uhsic_config {
-	int enable_gpio;
-	int reset_gpio;
-	u8 sync_start_delay;
-	u8 idle_wait_delay;
-	u8 term_range_adj;
-	u8 elastic_underrun_limit;
-	u8 elastic_overrun_limit;
-	int (*postsuspend)(void);
-	int (*preresume)(void);
-	int (*usb_phy_ready)(void);
-	int (*post_phy_off)(void);
 };
 
 /**
@@ -209,16 +182,6 @@ struct tegra_ehci_platform_data {
 struct tegra_otg_platform_data {
 	struct platform_device *ehci_device;
 	struct tegra_ehci_platform_data *ehci_pdata;
-};
-
-/**
- * import plat_data for tegra_usb_phy again to make board-tf101.c happy
- */
-struct usb_phy_plat_data {
-	int instance;
-	int vbus_irq;
-	int vbus_gpio;
-	char * vbus_reg_supply;
 };
 
 #endif /* _TEGRA_USB_H_ */

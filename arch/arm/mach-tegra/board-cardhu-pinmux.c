@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-cardhu-pinmux.c
  *
- * Copyright (C) 2011-2012, NVIDIA Corporation
+ * Copyright (C) 2010-2011 NVIDIA Corporation
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -66,7 +66,6 @@ static __initdata struct tegra_drive_pingroup_config cardhu_drive_pinmux[] = {
 	/* DEFAULT_DRIVE(<pin_group>), */
 	/* SET_DRIVE(ATA, DISABLE, DISABLE, DIV_1, 31, 31, FAST, FAST) */
 	SET_DRIVE(DAP2, 	DISABLE, ENABLE, DIV_1, 31, 31, FASTEST, FASTEST),
-	SET_DRIVE(DAP1, 	DISABLE, ENABLE, DIV_1, 31, 31, FASTEST, FASTEST),
 
 	/* All I2C pins are driven to maximum drive strength */
 	/* GEN1 I2C */
@@ -190,7 +189,7 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_common[] = {
 	I2C_PINMUX(PWR_I2C_SDA,		I2CPWR,		NORMAL,	NORMAL,	INPUT,	DISABLE,	ENABLE),
 
 	DEFAULT_PINMUX(ULPI_DATA0,      UARTA,           NORMAL,    NORMAL,     OUTPUT),
-	DEFAULT_PINMUX(ULPI_DATA1,      UARTA,           NORMAL,    NORMAL,     INPUT),
+	DEFAULT_PINMUX(ULPI_DATA1,      UARTA,           PULL_DOWN,    TRISTATE,     INPUT),
 	DEFAULT_PINMUX(ULPI_DATA2,      UARTA,           NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(ULPI_DATA3,      UARTA,           NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(ULPI_DATA4,      UARTA,           NORMAL,    NORMAL,     INPUT),
@@ -205,7 +204,7 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_common[] = {
 	DEFAULT_PINMUX(DAP3_DIN,        I2S2,            NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(DAP3_DOUT,       I2S2,            NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(DAP3_SCLK,       I2S2,            NORMAL,    NORMAL,     INPUT),
-	DEFAULT_PINMUX(GPIO_PV2,        RSVD1,           NORMAL,    NORMAL,     OUTPUT),
+	DEFAULT_PINMUX(GPIO_PV2,        OWR,             NORMAL,    NORMAL,     OUTPUT),
 	DEFAULT_PINMUX(GPIO_PV3,        RSVD1,           NORMAL,    NORMAL,     OUTPUT),
 	DEFAULT_PINMUX(CLK2_OUT,        EXTPERIPH2,      NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(CLK2_REQ,        DAP,             NORMAL,    NORMAL,     INPUT),
@@ -269,7 +268,7 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_common[] = {
 	DEFAULT_PINMUX(GPIO_PU1,        RSVD1,           NORMAL,    NORMAL,     OUTPUT),
 	DEFAULT_PINMUX(GPIO_PU2,        RSVD1,           NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(GPIO_PU3,        RSVD1,           NORMAL,    NORMAL,     INPUT),
-	DEFAULT_PINMUX(GPIO_PU4,        RSVD1,           NORMAL,    NORMAL,     OUTPUT),
+	DEFAULT_PINMUX(GPIO_PU4,        PWM1,            NORMAL,    NORMAL,     OUTPUT),
 	DEFAULT_PINMUX(GPIO_PU5,        PWM2,            NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(GPIO_PU6,        RSVD1,           NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(DAP4_FS,         I2S3,            NORMAL,    NORMAL,     INPUT),
@@ -423,13 +422,6 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_e118x[] = {
 	DEFAULT_PINMUX(GMI_AD15,        NAND,            PULL_UP,   TRISTATE,   INPUT),
 };
 
-static __initdata struct tegra_pingroup_config cardhu_pinmux_pm311[] = {
-	/* Power rails GPIO */
-	DEFAULT_PINMUX(SPI2_SCK,        SPI2,            NORMAL,    NORMAL,     INPUT),
-	DEFAULT_PINMUX(PEX_L2_RST_N,    PCIE,            PULL_UP,   TRISTATE,   INPUT),
-	DEFAULT_PINMUX(PEX_L2_CLKREQ_N, PCIE,            PULL_UP,   TRISTATE,   INPUT),
-};
-
 static __initdata struct tegra_pingroup_config cardhu_pinmux_cardhu[] = {
 	DEFAULT_PINMUX(LCD_CS0_N,       DISPLAYA,        NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(LCD_SCK,         DISPLAYA,        NORMAL,    NORMAL,     INPUT),
@@ -442,15 +434,15 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_cardhu[] = {
 
 	/* Power rails GPIO */
 	DEFAULT_PINMUX(GMI_CS2_N,       NAND,            NORMAL,    NORMAL,     OUTPUT),
-	DEFAULT_PINMUX(GMI_RST_N,       RSVD3,           PULL_UP,   NORMAL,     INPUT),
-	DEFAULT_PINMUX(GMI_AD15,        NAND,            PULL_UP,   NORMAL,     INPUT),
+	DEFAULT_PINMUX(GMI_RST_N,       RSVD3,           PULL_UP,   TRISTATE,   INPUT),
+	DEFAULT_PINMUX(GMI_AD15,        NAND,            PULL_UP,   TRISTATE,   INPUT),
 
 	DEFAULT_PINMUX(GMI_CS0_N,       GMI,             PULL_UP,   NORMAL,     INPUT),
 	DEFAULT_PINMUX(GMI_CS1_N,       GMI,             PULL_UP,   TRISTATE,   INPUT),
 	/*TP_IRQ*/
 	DEFAULT_PINMUX(GMI_CS4_N,       GMI,             PULL_UP,   NORMAL,     INPUT),
 	/*PCIE dock detect*/
-	DEFAULT_PINMUX(GPIO_PU4,        RSVD1,           PULL_UP,   NORMAL,     INPUT),
+	DEFAULT_PINMUX(GPIO_PU4,        PWM1,            PULL_UP,   NORMAL,     INPUT),
 };
 
 static __initdata struct tegra_pingroup_config cardhu_pinmux_cardhu_a03[] = {
@@ -466,8 +458,8 @@ static __initdata struct tegra_pingroup_config cardhu_pinmux_cardhu_a03[] = {
 	/* Power rails GPIO */
 	DEFAULT_PINMUX(PEX_L0_PRSNT_N,  PCIE,            NORMAL,    NORMAL,     INPUT),
 	DEFAULT_PINMUX(PEX_L0_CLKREQ_N, PCIE,            NORMAL,    NORMAL,     INPUT),
-	DEFAULT_PINMUX(PEX_L1_CLKREQ_N, RSVD3,           PULL_UP,   NORMAL,     INPUT),
-	DEFAULT_PINMUX(PEX_L1_PRSNT_N,  RSVD3,           PULL_UP,   NORMAL,     INPUT),
+	DEFAULT_PINMUX(PEX_L1_CLKREQ_N, RSVD3,           PULL_UP,   TRISTATE,   INPUT),
+	DEFAULT_PINMUX(PEX_L1_PRSNT_N,  RSVD3,           PULL_UP,   TRISTATE,   INPUT),
 };
 
 static __initdata struct tegra_pingroup_config cardhu_pinmux_e1291_a04[] = {
@@ -511,6 +503,7 @@ static __initdata struct tegra_pingroup_config unused_pins_lowpower[] = {
 	DEFAULT_PINMUX(GMI_AD5,         NAND,           NORMAL,     TRISTATE,     OUTPUT),
 	DEFAULT_PINMUX(GMI_AD6,         NAND,           NORMAL,     TRISTATE,     OUTPUT),
 	DEFAULT_PINMUX(GMI_AD7,         NAND,           NORMAL,     TRISTATE,     OUTPUT),
+	DEFAULT_PINMUX(GMI_AD9,         PWM1,           NORMAL,     NORMAL,       OUTPUT),
 	DEFAULT_PINMUX(GMI_AD11,        NAND,           NORMAL,     NORMAL,       OUTPUT),
 	DEFAULT_PINMUX(GMI_AD13,        NAND,           PULL_UP,    NORMAL,       INPUT),
 	DEFAULT_PINMUX(GMI_WR_N,        NAND,           NORMAL,     TRISTATE,     OUTPUT),
@@ -528,6 +521,7 @@ static __initdata struct tegra_pingroup_config gmi_pins_269[] = {
 	DEFAULT_PINMUX(GMI_CS6_N,       SATA,           NORMAL,     TRISTATE,     OUTPUT),
 	DEFAULT_PINMUX(GMI_CS7_N,       NAND,           PULL_UP,    NORMAL,       INPUT),
 	DEFAULT_PINMUX(GMI_AD8,         PWM0,           NORMAL,     NORMAL,       OUTPUT),
+	DEFAULT_PINMUX(GMI_AD9,         PWM1,           NORMAL,     NORMAL,       OUTPUT),
 	DEFAULT_PINMUX(GMI_AD10,        NAND,           NORMAL,     NORMAL,       OUTPUT),
 	DEFAULT_PINMUX(GMI_AD11,        NAND,           NORMAL,     NORMAL,       OUTPUT),
 	DEFAULT_PINMUX(GMI_AD13,        NAND,           PULL_UP,    TRISTATE,     OUTPUT),
@@ -658,13 +652,8 @@ int __init cardhu_pinmux_init(void)
 	case BOARD_PM305:
 	case BOARD_PM311:
 	case BOARD_E1257:
-		if (board_info.board_id == BOARD_PM311 || board_info.board_id == BOARD_PM305) {
-			tegra_pinmux_config_table(cardhu_pinmux_pm311,
-					ARRAY_SIZE(cardhu_pinmux_pm311));
-		} else {
-			tegra_pinmux_config_table(cardhu_pinmux_e118x,
+		tegra_pinmux_config_table(cardhu_pinmux_e118x,
 					ARRAY_SIZE(cardhu_pinmux_e118x));
-		}
 		tegra_pinmux_config_table(unused_pins_lowpower,
 					ARRAY_SIZE(unused_pins_lowpower));
 		tegra_pinmux_config_table(gmi_pins_269,
@@ -701,6 +690,7 @@ struct gpio_init_pin_info pin_lpm_cardhu_common[] = {
 
 /* E1198 without PM313 display board */
 struct gpio_init_pin_info pin_lpm_cardhu_common_wo_pm313[] = {
+	PIN_GPIO_LPM("GMI_AD9",   TEGRA_GPIO_PH1, 0, 0),
 	PIN_GPIO_LPM("GMI_AD11",  TEGRA_GPIO_PH3, 0, 0),
 };
 
@@ -720,6 +710,7 @@ struct gpio_init_pin_info vddio_gmi_pins_pm269[] = {
 /* PM269 without PM313 display board */
 struct gpio_init_pin_info vddio_gmi_pins_pm269_wo_pm313[] = {
 	PIN_GPIO_LPM("GMI_CS2",   TEGRA_GPIO_PK3, 1, 0),
+	PIN_GPIO_LPM("GMI_AD9",   TEGRA_GPIO_PH1, 0, 0),
 };
 
 static void set_unused_pin_gpio(struct gpio_init_pin_info *lpm_pin_info,

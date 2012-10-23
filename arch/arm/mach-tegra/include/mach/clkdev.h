@@ -1,8 +1,10 @@
 /*
+ * arch/arm/mach-tegra/include/mach/clkdev.h
+ *
  * Copyright (C) 2010 Google, Inc.
  *
  * Author:
- *   Dima Zavin <dima@android.com>
+ *	Colin Cross <ccross@google.com>
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -15,16 +17,18 @@
  *
  */
 
-#ifndef __ARM_MACH_TEGRA_RPC_SEMA_H
-#define __ARM_MACH_TEGRA_RPC_SEMA_H
+#ifndef __MACH_CLKDEV_H
+#define __MACH_CLKDEV_H
 
-#include <linux/types.h>
-#include <linux/fs.h>
+struct clk;
 
-struct tegra_sema_info;
+static inline int __clk_get(struct clk *clk)
+{
+	return 1;
+}
 
-struct tegra_sema_info *trpc_sema_get_from_fd(int fd);
-void trpc_sema_put(struct tegra_sema_info *sema);
-int __init trpc_sema_init(void);
+static inline void __clk_put(struct clk *clk)
+{
+}
 
 #endif

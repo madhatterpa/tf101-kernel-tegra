@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-whistler-panel.c
  *
- * Copyright (c) 2010-2012, NVIDIA Corporation.
+ * Copyright (c) 2010-2011, NVIDIA Corporation.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -270,7 +270,6 @@ static struct nvhost_device whistler_disp2_device = {
 };
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 static struct nvmap_platform_carveout whistler_carveouts[] = {
 	[0] = NVMAP_HEAP_CARVEOUT_IRAM_INIT,
 	[1] = {
@@ -294,11 +293,11 @@ static struct platform_device whistler_nvmap_device = {
 		.platform_data = &whistler_nvmap_data,
 	},
 };
-#endif
 
 static struct platform_device *whistler_gfx_devices[] __initdata = {
-#if defined(CONFIG_TEGRA_NVMAP)
 	&whistler_nvmap_device,
+#ifdef CONFIG_TEGRA_GRHOST
+	&tegra_grhost_device,
 #endif
 	&whistler_disp1_backlight_device,
 };
@@ -311,29 +310,24 @@ struct early_suspend whistler_panel_early_suspender;
 
 static void whistler_panel_early_suspend(struct early_suspend *h)
 {
-	/* power down LCD, add use a blank screen for HDMI */
-	if (num_registered_fb > 0)
-		fb_blank(registered_fb[0], FB_BLANK_POWERDOWN);
-	if (num_registered_fb > 1)
-		fb_blank(registered_fb[1], FB_BLANK_NORMAL);
-
+	unsigned i;
+	for (i = 0; i < num_registered_fb; i++)
+		fb_blank(registered_fb[i], FB_BLANK_POWERDOWN);
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
-	cpufreq_store_default_gov();
-	if (cpufreq_change_gov(cpufreq_conservative_gov))
-		pr_err("Early_suspend: Error changing governor to %s\n",
-				cpufreq_conservative_gov);
+	cpufreq_save_default_governor();
+	cpufreq_set_conservative_governor();
+	cpufreq_set_conservative_governor_param(
+		SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD,
+		SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
 #endif
 }
 
 static void whistler_panel_late_resume(struct early_suspend *h)
 {
 	unsigned i;
-
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
-	if (cpufreq_restore_default_gov())
-		pr_err("Early_suspend: Unable to restore governor\n");
+	cpufreq_restore_default_governor();
 #endif
-
 	for (i = 0; i < num_registered_fb; i++)
 		fb_blank(registered_fb[i], FB_BLANK_UNBLANK);
 }
@@ -354,21 +348,8 @@ int __init whistler_panel_init(void)
 	whistler_panel_early_suspender.level = EARLY_SUSPEND_LEVEL_DISABLE_FB;
 	register_early_suspend(&whistler_panel_early_suspender);
 #endif
-
-#if defined(CONFIG_TEGRA_NVMAP)
 	whistler_carveouts[1].base = tegra_carveout_start;
 	whistler_carveouts[1].size = tegra_carveout_size;
-#endif
-
-/* #ifdef CONFIG_TEGRA_GRHOST
-	err = nvhost_device_register(&tegra_grhost_device);
-	if (err)
-		return err;
-#endif */
-
-#ifdef CONFIG_TEGRA_GRHOST
-	&tegra_grhost_device,
-#endif
 
 	err = platform_add_devices(whistler_gfx_devices,
 				   ARRAY_SIZE(whistler_gfx_devices));

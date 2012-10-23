@@ -17,4 +17,10 @@ obj-$(CONFIG_TORCH_SSL3250A)	+= ssl3250a.o
 obj-$(CONFIG_TORCH_TPS61050)	+= tps61050.o
 obj-$(CONFIG_VIDEO_SH532U)	+= sh532u.o
 obj-$(CONFIG_VIDEO_AD5820)	+= ad5820.o
+obj-$(CONFIG_VIDEO_AD5820)	+= ad5820.o
+
+#obj-$(CONFIG_VIDEO_YUV)	        += yuv_sensor.o
+obj-$(CONFIG_VIDEO_YUV_OV5640)	+= ov5640.o
+obj-$(CONFIG_VIDEO_YUV_MI1040)	+= mi1040.o
+obj-$(CONFIG_VIDEO_YUV_MI5140)	+= mi5140.o
 
