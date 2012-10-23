@@ -21,11 +21,14 @@
 #include <asm/mach/mmc.h>
 
 struct tegra_sdhci_platform_data {
+	int ddr_clk_limit;
 	int wow_gpio;
 	int cd_gpio;
 	int wp_gpio;
 	int power_gpio;
 	int is_8bit;
+	int pm_caps;
+	int pm_flags;
 	unsigned int max_clk_limit;
 	unsigned int tap_delay;
 	struct mmc_platform_data mmc_data;
