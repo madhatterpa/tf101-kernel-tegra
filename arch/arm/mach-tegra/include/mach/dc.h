@@ -38,6 +38,7 @@ enum {
 	HDMI_ACTIVE_NONE,
 };
 
+
 /* DSI pixel data format */
 enum {
 	TEGRA_DSI_PIXEL_FORMAT_16BIT_P,
@@ -197,6 +198,7 @@ struct tegra_stereo_out {
 
 struct tegra_dc_mode {
 	int	pclk;
+//	int	rated_pclk;
 	int	h_ref_to_sync;
 	int	v_ref_to_sync;
 	int	h_sync_width;
@@ -332,6 +334,7 @@ struct tegra_dc_out {
 	int				dcc_bus;
 	int				hotplug_gpio;
 	const char			*parent_clk;
+	const char			*parent_clk_backup;
 
 	unsigned			max_pixclock;
 	unsigned			order;
@@ -544,6 +547,7 @@ struct tegra_dc_pwm_params {
 void tegra_dc_config_pwm(struct tegra_dc *dc, struct tegra_dc_pwm_params *cfg);
 
 int tegra_dsi_send_panel_short_cmd(struct tegra_dc *dc, u8 *pdata, u8 data_len);
+void tegra_dc_host_trigger(struct tegra_dc *dc);
 
 int tegra_dc_update_csc(struct tegra_dc *dc, int win_index);
 
