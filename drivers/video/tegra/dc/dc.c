@@ -72,10 +72,7 @@
 /* EN_VDD_PNL, GPIO_PC6 */
 #define ventana_pnl_pwr_enb	22
 
-
-
 u32 lcd_pclk_khz = 74000;
-
 
 static int no_vsync;
 static struct timeval t_suspend;

@@ -208,8 +208,8 @@ static void ASUSGetProjectName(void);
  */
 static void ASUSGetPcbid(void);
 
-/* ASUS uses the following to store the lcd pixel clock freq. Then decide the vaule by project name.*/
-extern u32 lcd_pclk_khz;
+/* ASUS uses the following to store the lcd pixel clock freq. Then decide the value by project name.*/
+//extern u32 lcd_pclk_khz;
 
 #if defined(__cplusplus)
 }

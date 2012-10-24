@@ -303,13 +303,11 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
 	srate = params_rate(params);
 
 	if (i2s->reg_ctrl & TEGRA30_I2S_CTRL_MASTER_ENABLE) {
-		/* Final "* 2" required by Tegra hardware */
-		i2sclock = srate * params_channels(params) * sample_size * 2;
+		i2sclock = srate * params_channels(params) * sample_size;
 
-		/* Additional "* 2" is needed for FSYNC mode */
+		/* Additional "* 4" is needed for FSYNC mode */
 		if (i2s->reg_ctrl & TEGRA30_I2S_CTRL_FRAME_FORMAT_FSYNC)
-			i2sclock *= 2;
-
+			i2sclock *= 4;
 		ret = clk_set_parent(i2s->clk_i2s, i2s->clk_pll_a_out0);
 		if (ret) {
 			dev_err(dev, "Can't set parent of I2S clock\n");
@@ -339,6 +337,10 @@ static int tegra30_i2s_hw_params(struct snd_pcm_substream *substream,
 		tegra30_i2s_write(i2s, TEGRA30_I2S_TIMING, val);
 	} else {
 		i2sclock = srate * params_channels(params) * sample_size;
+
+		/* Additional "* 2" is needed for FSYNC mode */
+		if (i2s->reg_ctrl & TEGRA30_I2S_CTRL_FRAME_FORMAT_FSYNC)
+			i2sclock *= 2;
 
 		ret = clk_set_rate(i2s->clk_i2s_sync, i2sclock);
 		if (ret) {
@@ -432,15 +434,19 @@ static void tegra30_i2s_stop_playback(struct tegra30_i2s *i2s)
 static void tegra30_i2s_start_capture(struct tegra30_i2s *i2s)
 {
 	tegra30_ahub_enable_rx_fifo(i2s->rxcif);
-	i2s->reg_ctrl |= TEGRA30_I2S_CTRL_XFER_EN_RX;
-	tegra30_i2s_write(i2s, TEGRA30_I2S_CTRL, i2s->reg_ctrl);
+	if (!i2s->is_call_mode_rec) {
+		i2s->reg_ctrl |= TEGRA30_I2S_CTRL_XFER_EN_RX;
+		tegra30_i2s_write(i2s, TEGRA30_I2S_CTRL, i2s->reg_ctrl);
+	}
 }
 
 static void tegra30_i2s_stop_capture(struct tegra30_i2s *i2s)
 {
 	tegra30_ahub_disable_rx_fifo(i2s->rxcif);
-	i2s->reg_ctrl &= ~TEGRA30_I2S_CTRL_XFER_EN_RX;
-	tegra30_i2s_write(i2s, TEGRA30_I2S_CTRL, i2s->reg_ctrl);
+	if (!i2s->is_call_mode_rec) {
+		i2s->reg_ctrl &= ~TEGRA30_I2S_CTRL_XFER_EN_RX;
+		tegra30_i2s_write(i2s, TEGRA30_I2S_CTRL, i2s->reg_ctrl);
+	}
 }
 
 static int tegra30_i2s_trigger(struct snd_pcm_substream *substream, int cmd,
@@ -477,11 +483,14 @@ static int tegra30_i2s_trigger(struct snd_pcm_substream *substream, int cmd,
 static int tegra30_i2s_probe(struct snd_soc_dai *dai)
 {
 	struct tegra30_i2s *i2s = snd_soc_dai_get_drvdata(dai);
+#ifdef CONFIG_PM
 	int i;
+#endif
 
 	dai->capture_dma_data = &i2s->capture_dma_data;
 	dai->playback_dma_data = &i2s->playback_dma_data;
 
+#ifdef CONFIG_PM
 	tegra30_i2s_enable_clocks(i2s);
 
 	/*cache the POR values of i2s regs*/
@@ -489,6 +498,7 @@ static int tegra30_i2s_probe(struct snd_soc_dai *dai)
 		i2s->reg_cache[i] = tegra30_i2s_read(i2s, i<<2);
 
 	tegra30_i2s_disable_clocks(i2s);
+#endif
 
 	return 0;
 }
