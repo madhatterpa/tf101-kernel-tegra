@@ -29,7 +29,7 @@ struct tegra_utmip_config {
 	u8 idle_wait_delay;
 	u8 term_range_adj;
 	u8 xcvr_setup;
-	u8 xcvr_setup_offset;
+	signed char xcvr_setup_offset;
 	u8 xcvr_use_fuses;
 	u8 xcvr_lsfslew;
 	u8 xcvr_lsrslew;
@@ -40,6 +40,23 @@ struct tegra_ulpi_trimmer {
 	u8 clock_out_delay;	/* 0 ~ 31 */
 	u8 data_trimmer;	/* 0 ~ 7 */
 	u8 stpdirnxt_trimmer;	/* 0 ~ 7 */
+};
+
+struct tegra_ulpi_config {
+	int enable_gpio;
+	int reset_gpio;
+	const char *clk;
+	const struct tegra_ulpi_trimmer *trimmer;
+	int (*pre_phy_on)(void);
+	int (*post_phy_on)(void);
+	int (*pre_phy_off)(void);
+	int (*post_phy_off)(void);
+	void (*phy_restore_start)(void);
+	void (*phy_restore_end)(void);
+	int phy_restore_gpio; /* null phy restore ack from device */
+	int ulpi_dir_gpio; /* ulpi dir */
+	int ulpi_d0_gpio; /* usb linestate[0] */
+	int ulpi_d1_gpio; /* usb linestate[1] */
 };
 
 struct tegra_uhsic_config {
