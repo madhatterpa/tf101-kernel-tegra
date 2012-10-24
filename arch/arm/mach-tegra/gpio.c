@@ -110,12 +110,6 @@ static int tegra_gpio_compose(int bank, int port, int bit)
 	return (bank << 5) | ((port & 0x3) << 3) | (bit & 0x7);
 }
 
-void tegra_gpio_set_tristate(int gpio_nr, enum tegra_tristate ts)
-{
-	int pin_group  =  tegra_pinmux_get_pingroup(gpio_nr);
-	tegra_pinmux_set_tristate(pin_group, ts);
-}
-
 static void tegra_gpio_mask_write(u32 reg, int gpio, int value)
 {
 	u32 val;
@@ -124,54 +118,6 @@ static void tegra_gpio_mask_write(u32 reg, int gpio, int value)
 	if (value)
 		val |= 1 << GPIO_BIT(gpio);
 	__raw_writel(val, reg);
-}
-
-int tegra_gpio_get_bank_int_nr(int gpio)
-{
-	int bank;
-	int irq;
-	if (gpio >= TEGRA_NR_GPIOS) {
-		pr_warn("%s : Invalid gpio ID - %d\n", __func__, gpio);
-		return -EINVAL;
-	}
-	bank = gpio >> 5;
-	irq = tegra_gpio_banks[bank].irq;
-	return irq;
-}
-
-void tegra_gpio_enable(int gpio)
-{
-	if (gpio >= TEGRA_NR_GPIOS) {
-		pr_warn("%s : Invalid gpio ID - %d\n", __func__, gpio);
-		return;
-	}
-	tegra_gpio_mask_write(GPIO_MSK_CNF(gpio), gpio, 1);
-}
-EXPORT_SYMBOL_GPL(tegra_gpio_enable);
-
-void tegra_gpio_disable(int gpio)
-{
-	if (gpio >= TEGRA_NR_GPIOS) {
-		pr_warn("%s : Invalid gpio ID - %d\n", __func__, gpio);
-		return;
-	}
-	tegra_gpio_mask_write(GPIO_MSK_CNF(gpio), gpio, 0);
-}
-EXPORT_SYMBOL_GPL(tegra_gpio_disable);
-
-void tegra_gpio_init_configure(unsigned gpio, bool is_input, int value)
-{
-	if (gpio >= TEGRA_NR_GPIOS) {
-		pr_warn("%s : Invalid gpio ID - %d\n", __func__, gpio);
-		return;
-	}
-	if (is_input) {
-		tegra_gpio_mask_write(GPIO_MSK_OE(gpio), gpio, 0);
-	} else {
-		tegra_gpio_mask_write(GPIO_MSK_OUT(gpio), gpio, value);
-		tegra_gpio_mask_write(GPIO_MSK_OE(gpio), gpio, 1);
-	}
-	tegra_gpio_mask_write(GPIO_MSK_CNF(gpio), gpio, 1);
 }
 
 static void tegra_gpio_set(struct gpio_chip *chip, unsigned offset, int value)
@@ -404,13 +350,6 @@ static struct syscore_ops tegra_gpio_syscore_ops = {
 	.resume = tegra_gpio_resume,
 };
 
-int tegra_gpio_resume_init(void)
-{
-	register_syscore_ops(&tegra_gpio_syscore_ops);
-
-	return 0;
-}
-
 static struct irq_chip tegra_gpio_irq_chip = {
 	.name		= "GPIO",
 	.irq_ack	= tegra_gpio_irq_ack,
@@ -468,20 +407,6 @@ static int __init tegra_gpio_init(void)
 }
 
 postcore_initcall(tegra_gpio_init);
-
-void __init tegra_gpio_config(struct tegra_gpio_table *table, int num)
-{
-	int i;
-
-	for (i = 0; i < num; i++) {
-		int gpio = table[i].gpio;
-
-		if (table[i].enable)
-			tegra_gpio_enable(gpio);
-		else
-			tegra_gpio_disable(gpio);
-	}
-}
 
 #ifdef	CONFIG_DEBUG_FS
 

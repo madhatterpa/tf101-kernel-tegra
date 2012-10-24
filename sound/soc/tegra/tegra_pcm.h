@@ -52,4 +52,7 @@ struct tegra_runtime_data {
 	struct tegra_dma_channel *dma_chan;
 };
 
+int tegra_dma_get_transfer_count(struct tegra_dma_channel *ch,
+			struct tegra_dma_req *req, bool is_stop_dma);
+
 #endif
