@@ -85,8 +85,8 @@ static int ventana_disp1_check_fb(struct device *dev, struct fb_info *info);
 static struct platform_pwm_backlight_data ventana_backlight_data = {
 	.pwm_id		= 2,
 	.max_brightness	= 255,
-	.dft_brightness	= 224,
-	.pwm_period_ns	= 5000000,
+	.dft_brightness	= 157,
+	.pwm_period_ns	= 4000000, /* TODO: HSD: PWM= 225 ~ 275 Hz */
 	.init		= ventana_backlight_init,
 	.exit		= ventana_backlight_exit,
 	.notify		= ventana_backlight_notify,
@@ -103,6 +103,10 @@ static struct platform_device ventana_backlight_device = {
 };
 
 #ifdef CONFIG_TEGRA_DC
+/*
+ * Now, HSD Power ON/OFF Seq is implemented in dc.c & pwm_bl.c.
+ * So, both ventana_panel_enable() & ventana_panel_disable() won't be called.
+ */
 static int ventana_panel_enable(void)
 {
 	struct regulator *reg = regulator_get(NULL, "vdd_ldo4");
@@ -205,15 +209,17 @@ static struct resource ventana_disp2_resources[] = {
 
 static struct tegra_dc_mode ventana_panel_modes[] = {
 	{
-		.pclk = 72072000,
+		/* Warning.
+		 * The real LCD pclk & v_back_porch will be replaced in tegra_dc_probe(). */
+		.pclk = 83800000,
 		.h_ref_to_sync = 11,
 		.v_ref_to_sync = 1,
 		.h_sync_width = 58,
 		.v_sync_width = 4,
 		.h_back_porch = 58,
 		.v_back_porch = 4,
-		.h_active = 1366,
-		.v_active = 768,
+		.h_active = 1280,
+		.v_active = 800,
 		.h_front_porch = 58,
 		.v_front_porch = 4,
 	},
@@ -221,18 +227,20 @@ static struct tegra_dc_mode ventana_panel_modes[] = {
 
 static struct tegra_fb_data ventana_fb_data = {
 	.win		= 0,
-	.xres		= 1366,
-	.yres		= 768,
+	.xres		= 1280,
+	.yres		= 800,
 	.bits_per_pixel	= 32,
-	.flags		= TEGRA_FB_FLIP_ON_PROBE,
+	/* The flag, TEGRA_FB_FLIP_ON_PROBE, will make artifacts from bootloader FB
+	 * before boot animation starts.*/
+//	.flags		= TEGRA_FB_FLIP_ON_PROBE,
 };
 
 static struct tegra_fb_data ventana_hdmi_fb_data = {
 	.win		= 0,
-	.xres		= 1366,
-	.yres		= 768,
+	.xres		= 1280,
+	.yres		= 800,
 	.bits_per_pixel	= 32,
-	.flags		= TEGRA_FB_FLIP_ON_PROBE,
+//	.flags		= TEGRA_FB_FLIP_ON_PROBE,
 };
 
 static struct tegra_dc_out ventana_disp1_out = {
@@ -309,7 +317,6 @@ static int ventana_disp1_check_fb(struct device *dev, struct fb_info *info)
 }
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 static struct nvmap_platform_carveout ventana_carveouts[] = {
 	[0] = NVMAP_HEAP_CARVEOUT_IRAM_INIT,
 	[1] = {
@@ -331,12 +338,9 @@ static struct platform_device ventana_nvmap_device = {
 		.platform_data = &ventana_nvmap_data,
 	},
 };
-#endif
 
 static struct platform_device *ventana_gfx_devices[] __initdata = {
-#if defined(CONFIG_TEGRA_NVMAP)
 	&ventana_nvmap_device,
-#endif
 #ifdef CONFIG_TEGRA_GRHOST
 	&tegra_grhost_device,
 #endif
@@ -352,6 +356,7 @@ struct early_suspend ventana_panel_early_suspender;
 
 static void ventana_panel_early_suspend(struct early_suspend *h)
 {
+	printk("ventana_panel_early_suspend() in+\n");
 	/* power down LCD, add use a black screen for HDMI */
 	if (num_registered_fb > 0)
 		fb_blank(registered_fb[0], FB_BLANK_POWERDOWN);
@@ -360,25 +365,23 @@ static void ventana_panel_early_suspend(struct early_suspend *h)
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
 	cpufreq_save_default_governor();
 	cpufreq_set_conservative_governor();
-        cpufreq_set_conservative_governor_param("up_threshold",
-			SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("down_threshold",
-			SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("freq_step",
-		SET_CONSERVATIVE_GOVERNOR_FREQ_STEP);
+	cpufreq_set_conservative_governor_param(
+		SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD,
+		SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
 #endif
+	printk("ventana_panel_early_suspend() out-\n");
 }
 
 static void ventana_panel_late_resume(struct early_suspend *h)
 {
 	unsigned i;
+	printk("ventana_panel_late_resume() in+\n");
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
 	cpufreq_restore_default_governor();
 #endif
 	for (i = 0; i < num_registered_fb; i++)
 		fb_blank(registered_fb[i], FB_BLANK_UNBLANK);
+	printk("ventana_panel_late_resume() out-\n");
 }
 #endif
 
@@ -386,6 +389,8 @@ int __init ventana_panel_init(void)
 {
 	int err;
 	struct resource __maybe_unused *res;
+
+	printk("Disp: ventana_panel_init() in\n");
 
 	gpio_request(ventana_pnl_pwr_enb, "pnl_pwr_enb");
 	gpio_direction_output(ventana_pnl_pwr_enb, 1);
@@ -410,10 +415,8 @@ int __init ventana_panel_init(void)
 	register_early_suspend(&ventana_panel_early_suspender);
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 	ventana_carveouts[1].base = tegra_carveout_start;
 	ventana_carveouts[1].size = tegra_carveout_size;
-#endif
 
 	err = platform_add_devices(ventana_gfx_devices,
 				   ARRAY_SIZE(ventana_gfx_devices));
@@ -431,8 +434,8 @@ int __init ventana_panel_init(void)
 #endif
 
 	/* Copy the bootloader fb to the fb. */
-	tegra_move_framebuffer(tegra_fb_start, tegra_bootloader_fb_start,
-		min(tegra_fb_size, tegra_bootloader_fb_size));
+//	tegra_move_framebuffer(tegra_fb_start, tegra_bootloader_fb_start,
+//		min(tegra_fb_size, tegra_bootloader_fb_size));
 
 #if defined(CONFIG_TEGRA_GRHOST) && defined(CONFIG_TEGRA_DC)
 	if (!err)
@@ -441,6 +444,7 @@ int __init ventana_panel_init(void)
 	if (!err)
 		err = nvhost_device_register(&ventana_disp2_device);
 #endif
+	printk("Disp: ventana_panel_init() out\n");
 
 	return err;
 }

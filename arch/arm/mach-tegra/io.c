@@ -26,6 +26,7 @@
 #include <linux/mm.h>
 #include <linux/io.h>
 
+#include <mach/hardware.h>
 #include <mach/iomap.h>
 #include <asm/page.h>
 #include <asm/mach/map.h>

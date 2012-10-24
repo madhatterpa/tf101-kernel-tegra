@@ -31,7 +31,7 @@ config ARCH_TEGRA_3x_SOC
 	select ARCH_TEGRA_HAS_DUAL_CPU_CLUSTERS
 	select CPU_V7
 	select ARM_GIC
-	select GIC_SET_MULTIPLE_CPUS if SMP
+	select GIC_SET_MULTIPLE_CPUS
 	select ARCH_REQUIRE_GPIOLIB
 	select USB_ARCH_HAS_EHCI if USB_SUPPORT
 	select USB_EHCI_TEGRA if USB_SUPPORT
@@ -40,7 +40,6 @@ config ARCH_TEGRA_3x_SOC
 	select REPORT_PRESENT_CPUS if TEGRA_AUTO_HOTPLUG
 	select ARCH_SUPPORTS_MSI if TEGRA_PCI
 	select PCI_MSI if TEGRA_PCI
-	select ARM_ERRATA_754322
 	help
 	  Support for NVIDIA Tegra 3 family of SoCs, based upon the
 	  ARM CortexA9MP CPU and the ARM PL310 L2 cache controller
@@ -80,13 +79,6 @@ config MACH_VENTANA
        help
          Support for NVIDIA Ventana development platform
 
-config MACH_TF101
-       bool "ASUS Transformer TF101"
-       depends on ARCH_TEGRA_2x_SOC
-       select MACH_HAS_SND_SOC_TEGRA_WM8903 if SND_SOC
-       help
-         Support for ASUS EEE Pad Transformer TF101 tablet platform
-
 config MACH_KAEN
        bool "Kaen board"
        depends on ARCH_TEGRA_2x_SOC
@@ -109,12 +101,6 @@ config MACH_SEABOARD
          Support for nVidia Seaboard development platform. It will
 	 also be included for some of the derivative boards that
 	 have large similarities with the seaboard design.
-
-config MACH_TEGRA_DT
-	bool "Generic Tegra board (FDT support)"
-	select USE_OF
-	help
-	  Support for generic nVidia Tegra boards using Flattened Device Tree
 
 config MACH_TRIMSLICE
        bool "TrimSlice board"
@@ -152,27 +138,12 @@ config MACH_CARDHU
        help
          Support for NVIDIA Cardhu development platform
 
-config MACH_P1852
-       bool "P1852 board"
-       depends on ARCH_TEGRA_3x_SOC
-       help
-         Support for NVIDIA P1852 development platform
-
 config MACH_TEGRA_ENTERPRISE
        bool "Enterprise board"
        depends on ARCH_TEGRA_3x_SOC
        select MACH_HAS_SND_SOC_TEGRA_MAX98088 if SND_SOC
-       select TEGRA_SLOW_CSITE
        help
          Support for NVIDIA Enterprise development platform
-
-config MACH_KAI
-       bool "Kai board"
-       depends on ARCH_TEGRA_3x_SOC
-       select MACH_HAS_SND_SOC_TEGRA_RT5639 if SND_SOC
-       select MACH_HAS_SND_SOC_TEGRA_RT5640 if SND_SOC
-       help
-         Support for NVIDIA KAI development platform
 
 choice
        prompt "Tegra platform type"
@@ -336,6 +307,11 @@ config TEGRA_THERMAL_THROTTLE
 	help
 	  Also requires enabling a temperature sensor such as NCT1008.
 
+config DEBUG_ASUS
+       bool "For ASUS user-debug build"
+       help
+         Say Y here for user-debug build.
+
 config WIFI_CONTROL_FUNC
 	bool "Enable WiFi control function abstraction"
 	help
@@ -362,7 +338,7 @@ config TEGRA_AUTO_HOTPLUG
 
 config TEGRA_MC_PROFILE
 	tristate "Enable profiling memory controller utilization"
-	default y
+	default n
 	help
 	  When enabled, provides a mechanism to perform statistical
 	  sampling of the memory controller usage on a client-by-client
@@ -480,9 +456,3 @@ config TEGRA_WDT_RECOVERY
 	  suspend/resume hangs.
 endif
 
-config TEGRA_SLOW_CSITE
-	bool "lower csite clock to 1 Mhz to reduce its power consumption"
-	default n
-	help
-	  When enabled, csite will be running at 1 Mhz and the performance of
-	  jtag, lauterbach and other debugger will be extremely slow.

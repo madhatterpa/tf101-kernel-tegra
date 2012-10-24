@@ -270,7 +270,6 @@ static struct nvhost_device whistler_disp2_device = {
 };
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 static struct nvmap_platform_carveout whistler_carveouts[] = {
 	[0] = NVMAP_HEAP_CARVEOUT_IRAM_INIT,
 	[1] = {
@@ -294,12 +293,9 @@ static struct platform_device whistler_nvmap_device = {
 		.platform_data = &whistler_nvmap_data,
 	},
 };
-#endif
 
 static struct platform_device *whistler_gfx_devices[] __initdata = {
-#if defined(CONFIG_TEGRA_NVMAP)
 	&whistler_nvmap_device,
-#endif
 #ifdef CONFIG_TEGRA_GRHOST
 	&tegra_grhost_device,
 #endif
@@ -320,14 +316,9 @@ static void whistler_panel_early_suspend(struct early_suspend *h)
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
 	cpufreq_save_default_governor();
 	cpufreq_set_conservative_governor();
-        cpufreq_set_conservative_governor_param("up_threshold",
-			SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("down_threshold",
-			SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("freq_step",
-		SET_CONSERVATIVE_GOVERNOR_FREQ_STEP);
+	cpufreq_set_conservative_governor_param(
+		SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD,
+		SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
 #endif
 }
 
@@ -357,11 +348,8 @@ int __init whistler_panel_init(void)
 	whistler_panel_early_suspender.level = EARLY_SUSPEND_LEVEL_DISABLE_FB;
 	register_early_suspend(&whistler_panel_early_suspender);
 #endif
-
-#if defined(CONFIG_TEGRA_NVMAP)
 	whistler_carveouts[1].base = tegra_carveout_start;
 	whistler_carveouts[1].size = tegra_carveout_size;
-#endif
 
 	err = platform_add_devices(whistler_gfx_devices,
 				   ARRAY_SIZE(whistler_gfx_devices));

@@ -19,8 +19,6 @@
  */
 
 #include <linux/delay.h>
-#include <linux/ion.h>
-#include <linux/tegra_ion.h>
 #include <linux/gpio.h>
 #include <linux/regulator/consumer.h>
 #include <linux/resource.h>
@@ -35,7 +33,6 @@
 #include <mach/iomap.h>
 #include <mach/dc.h>
 #include <mach/fb.h>
-#include <mach/smmu.h>
 
 #include "board.h"
 #include "board-cardhu.h"
@@ -942,8 +939,6 @@ static struct tegra_dc_out cardhu_disp1_out = {
 	.parent_clk	= "pll_p",
 
 #ifndef CONFIG_TEGRA_CARDHU_DSI
-	.parent_clk_backup = "pll_d2_out0",
-
 	.type		= TEGRA_DC_OUT_RGB,
 	.depth		= 18,
 	.dither		= TEGRA_DC_ORDERED_DITHER,
@@ -1010,7 +1005,6 @@ static int cardhu_disp1_check_fb(struct device *dev, struct fb_info *info)
 }
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 static struct nvmap_platform_carveout cardhu_carveouts[] = {
 	[0] = NVMAP_HEAP_CARVEOUT_IRAM_INIT,
 	[1] = {
@@ -1034,69 +1028,10 @@ static struct platform_device cardhu_nvmap_device = {
 		.platform_data = &cardhu_nvmap_data,
 	},
 };
-#endif
 
-#if defined(CONFIG_ION_TEGRA)
-
-static struct platform_device tegra_iommu_device = {
-	.name = "tegra_iommu_device",
-	.id = -1,
-	.dev = {
-		.platform_data = (void *)((1 << HWGRP_COUNT) - 1),
-	},
-};
-
-static struct ion_platform_data tegra_ion_data = {
-	.nr = 4,
-	.heaps = {
-		{
-			.type = ION_HEAP_TYPE_CARVEOUT,
-			.id = TEGRA_ION_HEAP_CARVEOUT,
-			.name = "carveout",
-			.base = 0,
-			.size = 0,
-		},
-		{
-			.type = ION_HEAP_TYPE_CARVEOUT,
-			.id = TEGRA_ION_HEAP_IRAM,
-			.name = "iram",
-			.base = TEGRA_IRAM_BASE + TEGRA_RESET_HANDLER_SIZE,
-			.size = TEGRA_IRAM_SIZE - TEGRA_RESET_HANDLER_SIZE,
-		},
-		{
-			.type = ION_HEAP_TYPE_CARVEOUT,
-			.id = TEGRA_ION_HEAP_VPR,
-			.name = "vpr",
-			.base = 0,
-			.size = 0,
-		},
-		{
-			.type = ION_HEAP_TYPE_IOMMU,
-			.id = TEGRA_ION_HEAP_IOMMU,
-			.name = "iommu",
-			.base = TEGRA_SMMU_BASE,
-			.size = TEGRA_SMMU_SIZE,
-			.priv = &tegra_iommu_device.dev,
-		},
-	},
-};
-
-static struct platform_device tegra_ion_device = {
-	.name = "ion-tegra",
-	.id = -1,
-	.dev = {
-		.platform_data = &tegra_ion_data,
-	},
-};
-#endif
 
 static struct platform_device *cardhu_gfx_devices[] __initdata = {
-#if defined(CONFIG_TEGRA_NVMAP)
 	&cardhu_nvmap_device,
-#endif
-#if defined(CONFIG_ION_TEGRA)
-	&tegra_ion_device,
-#endif
 #ifdef CONFIG_TEGRA_GRHOST
 	&tegra_grhost_device,
 #endif
@@ -1113,8 +1048,6 @@ struct early_suspend cardhu_panel_early_suspender;
 
 static void cardhu_panel_early_suspend(struct early_suspend *h)
 {
-	unsigned i;
-
 	/* power down LCD, add use a black screen for HDMI */
 	if (num_registered_fb > 0)
 		fb_blank(registered_fb[0], FB_BLANK_POWERDOWN);
@@ -1138,15 +1071,8 @@ int __init cardhu_panel_init(void)
 	tegra_get_board_info(&board_info);
 	tegra_get_display_board_info(&display_board_info);
 
-#if defined(CONFIG_TEGRA_NVMAP)
 	cardhu_carveouts[1].base = tegra_carveout_start;
 	cardhu_carveouts[1].size = tegra_carveout_size;
-#endif
-
-#if defined(CONFIG_ION_TEGRA)
-	tegra_ion_data.heaps[0].base = tegra_carveout_start;
-	tegra_ion_data.heaps[0].size = tegra_carveout_size;
-#endif
 
 	if (board_info.board_id == BOARD_E1291 &&
 		((board_info.sku & SKU_TOUCHSCREEN_MECH_FIX) == 0)) {

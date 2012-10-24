@@ -1,7 +1,7 @@
 /*
  * arch/arm/mach-tegra/board-cardhu.c
  *
- * Copyright (c) 2011-2012, NVIDIA Corporation.
+ * Copyright (c) 2011, NVIDIA Corporation.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,7 +41,6 @@
 #include <linux/nfc/pn544.h>
 
 #include <sound/wm8903.h>
-#include <media/tegra_dtv.h>
 
 #include <mach/clk.h>
 #include <mach/iomap.h>
@@ -184,10 +183,10 @@ static __initdata struct tegra_clk_init_table cardhu_clk_init_table[] = {
 	{ "i2s1",	"pll_a_out0",	0,		false},
 	{ "i2s3",	"pll_a_out0",	0,		false},
 	{ "spdif_out",	"pll_a_out0",	0,		false},
-	{ "d_audio",	"clk_m",	12000000,	false},
-	{ "dam0",	"clk_m",	12000000,	false},
-	{ "dam1",	"clk_m",	12000000,	false},
-	{ "dam2",	"clk_m",	12000000,	false},
+	{ "d_audio",	"pll_a_out0",	0,		false},
+	{ "dam0",	"pll_a_out0",	0,		false},
+	{ "dam1",	"pll_a_out0",	0,		false},
+	{ "dam2",	"pll_a_out0",	0,		false},
 	{ "audio1",	"i2s1_sync",	0,		false},
 	{ "audio3",	"i2s3_sync",	0,		false},
 	{ "vi_sensor",	"pll_p",	150000000,	false},
@@ -322,7 +321,6 @@ static struct uart_clk_parent uart_parent_clk[] = {
 };
 
 static struct tegra_uart_platform_data cardhu_uart_pdata;
-static struct tegra_uart_platform_data cardhu_loopback_uart_pdata;
 
 static void __init uart_debug_init(void)
 {
@@ -346,8 +344,6 @@ static void __init uart_debug_init(void)
 			(board_info.board_id == BOARD_E1257))
 				debug_port_id = 1;
 	}
-
-	tegra_init_debug_uart_rate();
 	switch (debug_port_id) {
 	case 0:
 		/* UARTA is the debug port. */
@@ -422,16 +418,11 @@ static void __init cardhu_uart_init(void)
 	}
 	cardhu_uart_pdata.parent_clk_list = uart_parent_clk;
 	cardhu_uart_pdata.parent_clk_count = ARRAY_SIZE(uart_parent_clk);
-	cardhu_loopback_uart_pdata.parent_clk_list = uart_parent_clk;
-	cardhu_loopback_uart_pdata.parent_clk_count =
-						ARRAY_SIZE(uart_parent_clk);
-	cardhu_loopback_uart_pdata.is_loopback = true;
 	tegra_uarta_device.dev.platform_data = &cardhu_uart_pdata;
 	tegra_uartb_device.dev.platform_data = &cardhu_uart_pdata;
 	tegra_uartc_device.dev.platform_data = &cardhu_uart_pdata;
 	tegra_uartd_device.dev.platform_data = &cardhu_uart_pdata;
-	/* UARTE is used for loopback test purpose */
-	tegra_uarte_device.dev.platform_data = &cardhu_loopback_uart_pdata;
+	tegra_uarte_device.dev.platform_data = &cardhu_uart_pdata;
 
 	/* Register low speed only if it is selected */
 	if (!is_tegra_debug_uartport_hs()) {
@@ -516,16 +507,6 @@ static void __init cardhu_spi_init(void)
 	}
 }
 
-static void __init cardhu_dtv_init(void)
-{
-	struct board_info board_info;
-
-	tegra_get_board_info(&board_info);
-
-	if (board_info.board_id == BOARD_E1186)
-		platform_device_register(&tegra_dtv_device);
-}
-
 static struct resource tegra_rtc_resources[] = {
 	[0] = {
 		.start = TEGRA_RTC_BASE,
@@ -562,11 +543,24 @@ static struct platform_device cardhu_audio_device = {
 	},
 };
 
+static struct resource ram_console_resources[] = {
+	{
+		.flags = IORESOURCE_MEM,
+	},
+};
+
+static struct platform_device ram_console_device = {
+	.name 		= "ram_console",
+	.id 		= -1,
+	.num_resources	= ARRAY_SIZE(ram_console_resources),
+	.resource	= ram_console_resources,
+};
+
 static struct platform_device *cardhu_devices[] __initdata = {
 	&tegra_pmu_device,
 	&tegra_rtc_device,
 	&tegra_udc_device,
-#if defined(CONFIG_TEGRA_IOVMM_SMMU) ||  defined(CONFIG_TEGRA_IOMMU_SMMU)
+#if defined(CONFIG_TEGRA_IOVMM_SMMU)
 	&tegra_smmu_device,
 #endif
 	&tegra_wdt_device,
@@ -593,6 +587,7 @@ static struct platform_device *cardhu_devices[] __initdata = {
 #if defined(CONFIG_CRYPTO_DEV_TEGRA_AES)
 	&tegra_aes_device,
 #endif
+	&ram_console_device,
 };
 
 #define MXT_CONFIG_CRC  0xD62DE8
@@ -710,7 +705,6 @@ static struct tegra_ehci_platform_data tegra_ehci_uhsic_pdata = {
 	.phy_config = &uhsic_phy_config,
 	.operating_mode = TEGRA_USB_HOST,
 	.power_down_on_bus_suspend = 1,
-	.default_enable = true,
 };
 
 static struct tegra_ehci_platform_data tegra_ehci_pdata[] = {
@@ -718,20 +712,17 @@ static struct tegra_ehci_platform_data tegra_ehci_pdata[] = {
 			.phy_config = &utmi_phy_config[0],
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
-			.default_enable = true,
 	},
 	[1] = {
 			.phy_config = &utmi_phy_config[1],
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
-			.default_enable = true,
 	},
 	[2] = {
 			.phy_config = &utmi_phy_config[2],
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
 			.hotplug = 1,
-			.default_enable = true,
 	},
 };
 
@@ -825,7 +816,6 @@ static void cardhu_usb_init(void)
 
 	tegra_ehci3_device.dev.platform_data = &tegra_ehci_pdata[2];
 	platform_device_register(&tegra_ehci3_device);
-
 }
 #else
 static void cardhu_usb_init(void) { }
@@ -985,11 +975,11 @@ static void __init tegra_cardhu_init(void)
 	cardhu_uart_init();
 	cardhu_tsensor_init();
 	platform_add_devices(cardhu_devices, ARRAY_SIZE(cardhu_devices));
-	tegra_ram_console_debug_init();
 	cardhu_sdhci_init();
 	cardhu_regulator_init();
-	cardhu_dtv_init();
+	cardhu_gpio_switch_regulator_init();
 	cardhu_suspend_init();
+	cardhu_power_off_init();
 	cardhu_touch_init();
 	cardhu_gps_init();
 	cardhu_modem_init();
@@ -1012,6 +1002,26 @@ static void __init tegra_cardhu_init(void)
 #endif
 }
 
+static void __init cardhu_ramconsole_reserve(unsigned long size)
+{
+	struct resource *res;
+	long ret;
+
+	res = platform_get_resource(&ram_console_device, IORESOURCE_MEM, 0);
+	if (!res) {
+		pr_err("Failed to find memory resource for ram console\n");
+		return;
+	}
+	res->start = memblock_end_of_DRAM() - size;
+	res->end = res->start + size - 1;
+	ret = memblock_remove(res->start, size);
+	if (ret) {
+		ram_console_device.resource = NULL;
+		ram_console_device.num_resources = 0;
+		pr_err("Failed to reserve memory block for ram console\n");
+	}
+}
+
 static void __init tegra_cardhu_reserve(void)
 {
 #if defined(CONFIG_NVMAP_CONVERT_CARVEOUT_TO_IOVMM)
@@ -1020,7 +1030,7 @@ static void __init tegra_cardhu_reserve(void)
 #else
 	tegra_reserve(SZ_128M, SZ_8M, SZ_8M);
 #endif
-	tegra_ram_console_debug_reserve(SZ_1M);
+	cardhu_ramconsole_reserve(SZ_1M);
 }
 
 MACHINE_START(CARDHU, "cardhu")

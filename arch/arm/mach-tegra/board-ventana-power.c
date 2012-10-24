@@ -24,7 +24,6 @@
 #include <linux/gpio.h>
 #include <linux/io.h>
 #include <linux/power/gpio-charger.h>
-#include <linux/regulator/fixed.h>
 
 #include <mach/iomap.h>
 #include <mach/irqs.h>
@@ -90,6 +89,7 @@ static struct regulator_consumer_supply tps658621_ldo5_supply[] = {
 static struct regulator_consumer_supply tps658621_ldo6_supply[] = {
 	REGULATOR_SUPPLY("vdd_ldo6", NULL),
 	REGULATOR_SUPPLY("vcsi", "tegra_camera"),
+	REGULATOR_SUPPLY("vcsi", NULL),
 	REGULATOR_SUPPLY("vdd_dmic", "tegra-snd-wm8903"),
 	REGULATOR_SUPPLY("vdd_i2c", "3-0030"),
 	REGULATOR_SUPPLY("vdd_i2c", "6-0072"),
@@ -155,10 +155,10 @@ static struct regulator_init_data ldo2_data = REGULATOR_INIT(ldo2, 725, 1500, OF
 static struct regulator_init_data ldo3_data = REGULATOR_INIT(ldo3, 1250, 3300, OFF, NULL);
 static struct regulator_init_data ldo4_data = REGULATOR_INIT(ldo4, 1700, 2475, ON, NULL);
 static struct regulator_init_data ldo5_data = REGULATOR_INIT(ldo5, 1250, 3300, ON, NULL);
-static struct regulator_init_data ldo6_data = REGULATOR_INIT(ldo6, 1800, 1800, OFF, NULL);
+static struct regulator_init_data ldo6_data = REGULATOR_INIT(ldo6, 1250, 1800, OFF, NULL);
 static struct regulator_init_data ldo7_data = REGULATOR_INIT(ldo7, 1250, 3300, OFF, NULL);
 static struct regulator_init_data ldo8_data = REGULATOR_INIT(ldo8, 1250, 3300, OFF, NULL);
-static struct regulator_init_data ldo9_data = REGULATOR_INIT(ldo9, 1250, 3300, ON, NULL);
+static struct regulator_init_data ldo9_data = REGULATOR_INIT(ldo9, 1250, 3300, OFF, NULL);
 
 static struct tps6586x_rtc_platform_data rtc_data = {
 	.irq = TEGRA_NR_IRQS + TPS6586X_INT_RTC_ALM1,
@@ -203,7 +203,6 @@ static struct tps6586x_platform_data tps_platform = {
 	.num_subdevs = ARRAY_SIZE(tps_devs),
 	.subdevs = tps_devs,
 	.gpio_base = TPS6586X_GPIO_BASE,
-	.use_power_off = true,
 };
 
 static struct i2c_board_info __initdata ventana_regulators[] = {
@@ -317,62 +316,6 @@ fail:
 	pr_err("%s: gpio_request failed #%d\n", __func__, TPS6586X_GPIO_BASE);
 	gpio_free(TPS6586X_GPIO_BASE);
 	return ret;
-}
-
-#define ADD_FIXED_VOLTAGE_REG(_name)	(&_name##_fixed_voltage_device)
-
-/* Macro for defining fixed voltage regulator */
-#define FIXED_VOLTAGE_REG_INIT(_id, _name, _microvolts, _gpio,		\
-		_startup_delay, _enable_high, _enabled_at_boot,		\
-		_valid_ops_mask, _always_on)				\
-	static struct regulator_init_data _name##_initdata = {		\
-		.consumer_supplies = _name##_consumer_supply,		\
-		.num_consumer_supplies =				\
-				ARRAY_SIZE(_name##_consumer_supply),	\
-		.constraints = {					\
-			.valid_ops_mask = _valid_ops_mask ,		\
-			.always_on = _always_on,			\
-		},							\
-	};								\
-	static struct fixed_voltage_config _name##_config = {		\
-		.supply_name		= #_name,			\
-		.microvolts		= _microvolts,			\
-		.gpio			= _gpio,			\
-		.startup_delay		= _startup_delay,		\
-		.enable_high		= _enable_high,			\
-		.enabled_at_boot	= _enabled_at_boot,		\
-		.init_data		= &_name##_initdata,		\
-	};								\
-	static struct platform_device _name##_fixed_voltage_device = {	\
-		.name			= "reg-fixed-voltage",		\
-		.id			= _id,				\
-		.dev			= {				\
-			.platform_data	= &_name##_config,		\
-		},							\
-	}
-
-static struct regulator_consumer_supply cam1_2v8_consumer_supply[] = {
-	REGULATOR_SUPPLY("cam1_2v8", NULL),
-};
-
-static struct regulator_consumer_supply cam2_2v8_consumer_supply[] = {
-	REGULATOR_SUPPLY("cam2_2v8", NULL),
-};
-
-FIXED_VOLTAGE_REG_INIT(0, cam1_2v8, 2800000, CAM1_LDO_SHUTDN_L_GPIO,
-				0, 1, 0, REGULATOR_CHANGE_STATUS, 0);
-FIXED_VOLTAGE_REG_INIT(1, cam2_2v8, 2800000, CAM2_LDO_SHUTDN_L_GPIO,
-				0, 1, 0, REGULATOR_CHANGE_STATUS, 0);
-
-static struct platform_device *fixed_voltage_regulators[] __initdata = {
-	ADD_FIXED_VOLTAGE_REG(cam1_2v8),
-	ADD_FIXED_VOLTAGE_REG(cam2_2v8),
-};
-
-int __init ventana_gpio_fixed_voltage_regulator_init(void)
-{
-	return platform_add_devices(fixed_voltage_regulators,
-				ARRAY_SIZE(fixed_voltage_regulators));
 }
 
 late_initcall(ventana_pcie_init);

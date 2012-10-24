@@ -53,6 +53,8 @@ static u64 tegra_lp0_wake_level_any;
 static int tegra_prevent_lp0;
 
 static unsigned int tegra_wake_irq_count[PMC_MAX_WAKE_COUNT];
+unsigned long wake_status=0;
+unsigned long temp_wake_status=0;
 
 static bool debug_lp0;
 module_param(debug_lp0, bool, S_IRUGO | S_IWUSR);
@@ -114,6 +116,9 @@ static inline u64 read_pmc_wake_status(void)
 
 #ifdef CONFIG_ARCH_TEGRA_2x_SOC
 	reg = readl(pmc + PMC_WAKE_STATUS);
+	wake_status = readl(pmc + PMC_WAKE_STATUS);
+	temp_wake_status = wake_status;
+	printk("Pm-irq: [%s] Exit suspend: wake_source = %x \n",__FUNCTION__,wake_status );
 #else
 	reg = __raw_readl(pmc + PMC_WAKE_STATUS);
 	reg |= ((u64)readl(pmc + PMC_WAKE2_STATUS)) << 32;

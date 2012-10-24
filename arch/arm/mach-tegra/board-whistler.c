@@ -442,7 +442,6 @@ static struct platform_device *whistler_devices[] __initdata = {
 	&tegra_pmu_device,
 	&tegra_udc_device,
 	&tegra_gart_device,
-	&tegra_aes_device,
 	&tegra_wdt_device,
 	&tegra_avp_device,
 	&whistler_scroll_device,
@@ -511,19 +510,16 @@ static struct tegra_ehci_platform_data tegra_ehci_pdata[] = {
 			.phy_config = &utmi_phy_config[0],
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
-			.default_enable = false,
 		},
 	[1] = {
 			.phy_config = &ulpi_phy_config,
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
-			.default_enable = false,
 		},
 	[2] = {
 			.phy_config = &utmi_phy_config[1],
 			.operating_mode = TEGRA_USB_HOST,
 			.power_down_on_bus_suspend = 1,
-			.default_enable = false,
 	},
 };
 
@@ -538,6 +534,22 @@ static int __init whistler_gps_init(void)
 	return 0;
 }
 
+static void whistler_power_off(void)
+{
+	int ret;
+
+	ret = max8907c_power_off();
+	if (ret)
+		pr_err("whistler: failed to power off\n");
+
+	while (1);
+}
+
+static void __init whistler_power_off_init(void)
+{
+	pm_power_off = whistler_power_off;
+}
+
 static void whistler_usb_init(void)
 {
 	tegra_usb_phy_init(tegra_usb_phy_pdata, ARRAY_SIZE(tegra_usb_phy_pdata));
@@ -545,6 +557,8 @@ static void whistler_usb_init(void)
 	tegra_otg_device.dev.platform_data = &tegra_otg_pdata;
 	platform_device_register(&tegra_otg_device);
 
+	tegra_ehci3_device.dev.platform_data = &tegra_ehci_pdata[2];
+	platform_device_register(&tegra_ehci3_device);
 }
 
 static void __init tegra_whistler_init(void)
@@ -555,7 +569,7 @@ static void __init tegra_whistler_init(void)
 	whistler_i2c_init();
 	whistler_uart_init();
 	platform_add_devices(whistler_devices, ARRAY_SIZE(whistler_devices));
-	tegra_ram_console_debug_init();
+
 	whistler_sdhci_init();
 	whistler_regulator_init();
 	whistler_panel_init();
@@ -565,6 +579,7 @@ static void __init tegra_whistler_init(void)
 	whistler_gps_init();
 	whistler_usb_init();
 	whistler_scroll_init();
+	whistler_power_off_init();
 	whistler_emc_init();
 	if (modem_id == 0x1)
 		whistler_baseband_init();
@@ -584,7 +599,6 @@ void __init tegra_whistler_reserve(void)
 		pr_warn("Cannot reserve first 4K of memory for safety\n");
 
 	tegra_reserve(SZ_160M, SZ_8M, SZ_16M);
-	tegra_ram_console_debug_reserve(SZ_1M);
 }
 
 MACHINE_START(WHISTLER, "whistler")

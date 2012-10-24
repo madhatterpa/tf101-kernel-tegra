@@ -139,12 +139,15 @@ long tegra_emc_round_rate(unsigned long rate)
 	int best = -1;
 	unsigned long distance = ULONG_MAX;
 
-	if (!tegra_emc_table)
+	if (!tegra_emc_table){
+		printk("%s: no emc table\n", __func__);
 		return -EINVAL;
+	}
 
-	if (!emc_enable)
+	if (!emc_enable){
+		printk("%s: emc_enable is null\n", __func__);
 		return -EINVAL;
-
+	}
 	if (rate >= tegra_emc_max_bus_rate) {
 		best = tegra_emc_table_size - 1;
 		goto round_out;
@@ -169,8 +172,10 @@ long tegra_emc_round_rate(unsigned long rate)
 		}
 	}
 
-	if (best < 0)
+	if (best < 0){
+		printk("%s: best < 0\n", __func__);
 		return -EINVAL;
+	}
 round_out:
 	pr_debug("%s: using %lu\n", __func__, tegra_emc_table[best].rate);
 
@@ -190,21 +195,24 @@ int tegra_emc_set_rate(unsigned long rate)
 	int i;
 	int j;
 
-	if (!tegra_emc_table)
+	if (!tegra_emc_table){
+		printk("faile! 1 no tegra_emc_table+\n");
 		return -EINVAL;
-
+	}
 	/*
 	 * The EMC clock rate is twice the bus rate, and the bus rate is
 	 * measured in kHz
 	 */
 	rate = rate / 2 / 1000;
 
-	for (i = tegra_emc_table_size - 1; i >= 0; i--)
+	for (i = 0; i < tegra_emc_table_size; i++)
 		if (tegra_emc_table[i].rate == rate)
 			break;
 
-	if (i < 0)
+	if (i >= tegra_emc_table_size){
+		printk("faile! 2 tegra_emc_set_rateemc rate=%u +\n",rate);
 		return -EINVAL;
+	}
 
 	pr_debug("%s: setting to %lu\n", __func__, rate);
 
@@ -229,7 +237,7 @@ void tegra_init_emc(const struct tegra_emc_chip *chips, int chips_size)
 	rev_id1 = tegra_emc_read_mrr(6);
 	rev_id2 = tegra_emc_read_mrr(7);
 	pid = tegra_emc_read_mrr(8);
-
+      printk(" tegra_init_emc vid=%x rev_id1=%x rev_id2=%x pid =%x\n",vid,rev_id1 ,rev_id2 ,pid );
 	for (i = 0; i < chips_size; i++) {
 		if (chips[i].mem_manufacturer_id >= 0) {
 			if (chips[i].mem_manufacturer_id != vid)
@@ -253,8 +261,8 @@ void tegra_init_emc(const struct tegra_emc_chip *chips, int chips_size)
 	}
 
 	if (chip_matched >= 0) {
-		pr_info("%s: %s memory found\n", __func__,
-			chips[chip_matched].description);
+		printk("%s: %s memory found %x %x %x\n", __func__,
+			chips[chip_matched].description,chips[chip_matched].mem_manufacturer_id,chips[chip_matched].mem_revision_id1,chips[chip_matched].mem_revision_id2);
 		tegra_emc_table = chips[chip_matched].table;
 		tegra_emc_table_size = chips[chip_matched].table_size;
 
@@ -262,11 +270,11 @@ void tegra_init_emc(const struct tegra_emc_chip *chips, int chips_size)
 		tegra_emc_max_bus_rate = tegra_emc_table[tegra_emc_table_size - 1].rate * 2 * 1000;
 
 	} else {
-		pr_err("%s: Memory not recognized, memory scaling disabled\n",
+		printk("%s: Memory not recognized, memory scaling disabled\n",
 			__func__);
-		pr_info("%s: Memory vid     = 0x%04x", __func__, vid);
-		pr_info("%s: Memory rev_id1 = 0x%04x", __func__, rev_id1);
-		pr_info("%s: Memory rev_id2 = 0x%04x", __func__, rev_id2);
-		pr_info("%s: Memory pid     = 0x%04x", __func__, pid);
+		printk("%s: Memory vid     = 0x%04x", __func__, vid);
+		printk("%s: Memory rev_id1 = 0x%04x", __func__, rev_id1);
+		printk("%s: Memory rev_id2 = 0x%04x", __func__, rev_id2);
+		printk("%s: Memory pid     = 0x%04x", __func__, pid);
 	}
 }

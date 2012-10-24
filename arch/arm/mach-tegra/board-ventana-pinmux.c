@@ -17,6 +17,7 @@
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/gpio.h>
+#include <mach/board-ventana-misc.h>
 #include <mach/pinmux.h>
 
 #include "board-ventana.h"
@@ -45,6 +46,24 @@
 		.slew_rising = TEGRA_SLEW_##_pulldn_slew,   \
 		.slew_falling = TEGRA_SLEW_##_pullup_slew,	\
 	}
+#define RF_REQUEST_DRIVE(_name)					\
+	{							\
+		.pingroup = TEGRA_DRIVE_PINGROUP_##_name,	\
+		.hsm = TEGRA_HSM_DISABLE,			\
+		.schmitt = TEGRA_SCHMITT_DISABLE,		\
+		.drive = TEGRA_DRIVE_DIV_1,			\
+		.pull_down = TEGRA_PULL_31,			\
+		.pull_up = TEGRA_PULL_31,			\
+		.slew_rising = TEGRA_SLEW_SLOWEST,		\
+		.slew_falling = TEGRA_SLEW_SLOWEST,		\
+	}
+
+#define GPIO_INIT_PIN_MODE(_gpio, _is_input, _value)	\
+	{								\
+		.gpio_nr	= _gpio,		\
+		.is_input	= _is_input,	\
+		.value		= _value,		\
+	}
 
 static __initdata struct tegra_drive_pingroup_config ventana_drive_pinmux[] = {
 	DEFAULT_DRIVE(DDC),
@@ -55,6 +74,7 @@ static __initdata struct tegra_drive_pingroup_config ventana_drive_pinmux[] = {
 	SET_DRIVE(VI2,		DISABLE, ENABLE, DIV_1, 31, 31, FASTEST, FASTEST),
 	SET_DRIVE(AT1,		DISABLE, ENABLE, DIV_1, 31, 31, FASTEST, FASTEST),
 	SET_DRIVE(AO1,		DISABLE, ENABLE, DIV_1, 31, 31, FASTEST, FASTEST),
+	RF_REQUEST_DRIVE(CSUS),
 };
 
 static __initdata struct tegra_pingroup_config ventana_pinmux[] = {
@@ -79,7 +99,7 @@ static __initdata struct tegra_pingroup_config ventana_pinmux[] = {
 	{TEGRA_PINGROUP_DTE,   TEGRA_MUX_VI,            TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_DTF,   TEGRA_MUX_I2C3,          TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_GMA,   TEGRA_MUX_SDIO4,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
-	{TEGRA_PINGROUP_GMB,   TEGRA_MUX_GMI,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_TRISTATE},
+	{TEGRA_PINGROUP_GMB,   TEGRA_MUX_GMI,           TEGRA_PUPD_NORMAL,   TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_GMC,   TEGRA_MUX_UARTD,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_GMD,   TEGRA_MUX_SFLASH,        TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_GME,   TEGRA_MUX_SDIO4,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
@@ -91,7 +111,7 @@ static __initdata struct tegra_pingroup_config ventana_pinmux[] = {
 	{TEGRA_PINGROUP_IRRX,  TEGRA_MUX_UARTB,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_IRTX,  TEGRA_MUX_UARTB,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_KBCA,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
-	{TEGRA_PINGROUP_KBCB,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_DOWN, TEGRA_TRI_NORMAL},
+	{TEGRA_PINGROUP_KBCB,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_KBCC,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_KBCD,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_KBCE,  TEGRA_MUX_KBC,           TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
@@ -131,7 +151,7 @@ static __initdata struct tegra_pingroup_config ventana_pinmux[] = {
 	{TEGRA_PINGROUP_LSC1,  TEGRA_MUX_DISPLAYA,      TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_LSCK,  TEGRA_MUX_DISPLAYA,      TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_LSDA,  TEGRA_MUX_DISPLAYA,      TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
-	{TEGRA_PINGROUP_LSDI,  TEGRA_MUX_RSVD,          TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
+	{TEGRA_PINGROUP_LSDI,  TEGRA_MUX_RSVD,          TEGRA_PUPD_PULL_UP,    TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_LSPI,  TEGRA_MUX_DISPLAYA,      TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_LVP0,  TEGRA_MUX_RSVD,          TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_LVP1,  TEGRA_MUX_DISPLAYA,      TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
@@ -144,7 +164,7 @@ static __initdata struct tegra_pingroup_config ventana_pinmux[] = {
 	{TEGRA_PINGROUP_SDC,   TEGRA_MUX_SDIO3,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_SDD,   TEGRA_MUX_SDIO3,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_SDIO1, TEGRA_MUX_SDIO1,         TEGRA_PUPD_PULL_UP,   TEGRA_TRI_NORMAL},
-	{TEGRA_PINGROUP_SLXA,  TEGRA_MUX_PCIE,          TEGRA_PUPD_PULL_UP,   TEGRA_TRI_TRISTATE},
+	{TEGRA_PINGROUP_SLXA,  TEGRA_MUX_PCIE,          TEGRA_PUPD_NORMAL,    TEGRA_TRI_TRISTATE},
 	{TEGRA_PINGROUP_SLXC,  TEGRA_MUX_SDIO3,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_SLXD,  TEGRA_MUX_SPDIF,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
 	{TEGRA_PINGROUP_SLXK,  TEGRA_MUX_SDIO3,         TEGRA_PUPD_NORMAL,    TEGRA_TRI_NORMAL},
@@ -183,8 +203,38 @@ static struct tegra_gpio_table gpio_table[] = {
 	{ .gpio = TEGRA_GPIO_EXT_MIC_EN,	.enable = true	},
 };
 
+static struct gpio_init_pin_info init_gpio_mode_TF101G[] = {
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PR7, false, 0), //GPIO_3G_Power_PIN
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PD1, false, 0), //GPIO_Enable_RF_PIN
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PD0, false, 0), //GPIO_3G_Reset_PIN
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PG1, false, 0), //GPIO_SAR_DET_3G
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PC7, false, 0), //GPIO_SIM_PIN
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PQ6, false, 0), //GPIO_MODEM_WAKEUP
+	GPIO_INIT_PIN_MODE(TEGRA_GPIO_PV1, false, 0), //GPIO_ULPI_Reset_PIN
+};
+
+static void ventana_gpio_init_configure(void)
+{
+	int len;
+	int i;
+	struct gpio_init_pin_info *pins_info;
+
+	len = ARRAY_SIZE(init_gpio_mode_TF101G);
+	pins_info = init_gpio_mode_TF101G;
+
+	for (i = 0; i < len; ++i) {
+		tegra_gpio_init_configure(pins_info->gpio_nr,
+			pins_info->is_input, pins_info->value);
+		pins_info++;
+	}
+}
+
 int __init ventana_pinmux_init(void)
 {
+	if (ASUS3GAvailable()) {
+		pr_info("3G available - gpio_init_configure\n");
+		ventana_gpio_init_configure();
+	}
 	tegra_pinmux_config_table(ventana_pinmux, ARRAY_SIZE(ventana_pinmux));
 	tegra_drive_pinmux_config_table(ventana_drive_pinmux,
 					ARRAY_SIZE(ventana_drive_pinmux));

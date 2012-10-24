@@ -113,7 +113,6 @@ static bool kernel_1st_panel_init = true;
 static int enterprise_backlight_notify(struct device *unused, int brightness)
 {
 	int cur_sd_brightness = atomic_read(&sd_brightness);
-	int orig_brightness = brightness;
 
 	/* SD brightness is a percentage, 8-bit value. */
 	brightness = (brightness * cur_sd_brightness) / 255;
@@ -664,7 +663,6 @@ static struct nvhost_device enterprise_disp2_device = {
 };
 #endif
 
-#if defined(CONFIG_TEGRA_NVMAP)
 static struct nvmap_platform_carveout enterprise_carveouts[] = {
 	[0] = NVMAP_HEAP_CARVEOUT_IRAM_INIT,
 	[1] = {
@@ -688,12 +686,9 @@ static struct platform_device enterprise_nvmap_device = {
 		.platform_data = &enterprise_nvmap_data,
 	},
 };
-#endif
 
 static struct platform_device *enterprise_gfx_devices[] __initdata = {
-#if defined(CONFIG_TEGRA_NVMAP)
 	&enterprise_nvmap_device,
-#endif
 #ifdef CONFIG_TEGRA_GRHOST
 	&tegra_grhost_device,
 #endif
@@ -712,8 +707,6 @@ struct early_suspend enterprise_panel_early_suspender;
 
 static void enterprise_panel_early_suspend(struct early_suspend *h)
 {
-	unsigned i;
-
 	/* power down LCD, add use a black screen for HDMI */
 	if (num_registered_fb > 0)
 		fb_blank(registered_fb[0], FB_BLANK_POWERDOWN);
@@ -722,14 +715,9 @@ static void enterprise_panel_early_suspend(struct early_suspend *h)
 #ifdef CONFIG_TEGRA_CONVSERVATIVE_GOV_ON_EARLYSUPSEND
 	cpufreq_save_default_governor();
 	cpufreq_set_conservative_governor();
-	cpufreq_set_conservative_governor_param("up_threshold",
-			SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("down_threshold",
-			SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
-
-	cpufreq_set_conservative_governor_param("freq_step",
-			SET_CONSERVATIVE_GOVERNOR_FREQ_STEP);
+	cpufreq_set_conservative_governor_param(
+		SET_CONSERVATIVE_GOVERNOR_UP_THRESHOLD,
+		SET_CONSERVATIVE_GOVERNOR_DOWN_THRESHOLD);
 #endif
 }
 
@@ -757,10 +745,8 @@ int __init enterprise_panel_init(void)
 	enterprise_dsi.chip_id = tegra_get_chipid();
 	enterprise_dsi.chip_rev = tegra_get_revision();
 
-#if defined(CONFIG_TEGRA_NVMAP)
 	enterprise_carveouts[1].base = tegra_carveout_start;
 	enterprise_carveouts[1].size = tegra_carveout_size;
-#endif
 
 	tegra_gpio_enable(enterprise_hdmi_hpd);
 	gpio_request(enterprise_hdmi_hpd, "hdmi_hpd");

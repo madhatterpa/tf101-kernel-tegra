@@ -205,8 +205,10 @@ int cardhu_sensors_init(void);
 int cardhu_kbc_init(void);
 int cardhu_scroll_init(void);
 int cardhu_keys_init(void);
+int cardhu_gpio_switch_regulator_init(void);
 int cardhu_pins_state_init(void);
 int cardhu_emc_init(void);
+int cardhu_power_off_init(void);
 int cardhu_edp_init(void);
 int cardhu_pmon_init(void);
 int cardhu_pm298_gpio_switch_regulator_init(void);
@@ -215,9 +217,8 @@ int cardhu_pm299_gpio_switch_regulator_init(void);
 int cardhu_pm299_regulator_init(void);
 void __init cardhu_tsensor_init(void);
 
-#define MPU_TYPE_MPU3050	1
-#define MPU_TYPE_MPU6050	2
-#define MPU_GYRO_TYPE		MPU_TYPE_MPU3050
+/* Invensense MPU Definitions */
+#define MPU_GYRO_NAME		"mpu3050"
 #define MPU_GYRO_IRQ_GPIO	TEGRA_GPIO_PX1
 #define MPU_GYRO_ADDR		0x68
 #define MPU_GYRO_BUS_NUM	2

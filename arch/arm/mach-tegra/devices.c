@@ -5,7 +5,7 @@
  *	Colin Cross <ccross@android.com>
  *	Erik Gilling <ccross@android.com>
  *
- * Copyright (c) 2010-2012, NVIDIA CORPORATION.  All rights reserved.
+ * Copyright (C) 2010-2011 NVIDIA Corporation.
  *
  * This software is licensed under the terms of the GNU General Public
  * License version 2, as published by the Free Software Foundation, and
@@ -20,23 +20,17 @@
 
 
 #include <linux/resource.h>
+#include <linux/platform_device.h>
 #include <linux/dma-mapping.h>
 #include <linux/fsl_devices.h>
 #include <linux/serial_8250.h>
-#include <linux/i2c-tegra.h>
-#include <linux/platform_data/tegra_usb.h>
 #include <linux/tegra_avp.h>
 #include <linux/nvhost.h>
-#include <linux/clk.h>
 #include <asm/pmu.h>
 #include <mach/irqs.h>
 #include <mach/iomap.h>
 #include <mach/dma.h>
-#include <mach/usb_phy.h>
-#include <mach/tegra_smmu.h>
-
-#include "gpio-names.h"
-#include "devices.h"
+#include "tegra_smmu.h"
 
 #if !defined(CONFIG_ARCH_TEGRA_2x_SOC)
 #define UART_SOURCE_RATE 408000000
@@ -125,29 +119,13 @@ static struct resource i2c_resource5[] = {
 };
 #endif
 
-static struct tegra_i2c_platform_data tegra_i2c1_platform_data = {
-	.bus_clk_rate   = { 400000 },
-};
-
-static struct tegra_i2c_platform_data tegra_i2c2_platform_data = {
-	.bus_clk_rate   = { 400000 },
-};
-
-static struct tegra_i2c_platform_data tegra_i2c3_platform_data = {
-	.bus_clk_rate   = { 400000 },
-};
-
-static struct tegra_i2c_platform_data tegra_dvc_platform_data = {
-	.bus_clk_rate   = { 400000 },
-};
-
 struct platform_device tegra_i2c_device1 = {
 	.name		= "tegra-i2c",
 	.id		= 0,
 	.resource	= i2c_resource1,
 	.num_resources	= ARRAY_SIZE(i2c_resource1),
 	.dev = {
-		.platform_data = &tegra_i2c1_platform_data,
+		.platform_data = 0,
 	},
 };
 
@@ -157,7 +135,7 @@ struct platform_device tegra_i2c_device2 = {
 	.resource	= i2c_resource2,
 	.num_resources	= ARRAY_SIZE(i2c_resource2),
 	.dev = {
-		.platform_data = &tegra_i2c2_platform_data,
+		.platform_data = 0,
 	},
 };
 
@@ -167,7 +145,7 @@ struct platform_device tegra_i2c_device3 = {
 	.resource	= i2c_resource3,
 	.num_resources	= ARRAY_SIZE(i2c_resource3),
 	.dev = {
-		.platform_data = &tegra_i2c3_platform_data,
+		.platform_data = 0,
 	},
 };
 
@@ -177,7 +155,7 @@ struct platform_device tegra_i2c_device4 = {
 	.resource	= i2c_resource4,
 	.num_resources	= ARRAY_SIZE(i2c_resource4),
 	.dev = {
-		.platform_data = &tegra_dvc_platform_data,
+		.platform_data = 0,
 	},
 };
 
@@ -590,28 +568,6 @@ static struct resource tegra_usb3_resources[] = {
 	},
 };
 
-static struct tegra_ulpi_config tegra_ehci2_ulpi_phy_config = {
-	/* All existing boards use GPIO PV0 for phy reset */
-	.reset_gpio = TEGRA_GPIO_PV0,
-	.clk = "cdev2",
-};
-
-static struct tegra_ehci_platform_data tegra_ehci1_pdata = {
-	.operating_mode = TEGRA_USB_OTG,
-	.power_down_on_bus_suspend = 1,
-};
-
-static struct tegra_ehci_platform_data tegra_ehci2_pdata = {
-	.phy_config = &tegra_ehci2_ulpi_phy_config,
-	.operating_mode = TEGRA_USB_HOST,
-	.power_down_on_bus_suspend = 1,
-};
-
-static struct tegra_ehci_platform_data tegra_ehci3_pdata = {
-	.operating_mode = TEGRA_USB_HOST,
-	.power_down_on_bus_suspend = 1,
-};
-
 static u64 tegra_ehci_dmamask = DMA_BIT_MASK(32);
 
 struct platform_device tegra_ehci1_device = {
@@ -620,7 +576,6 @@ struct platform_device tegra_ehci1_device = {
 	.dev	= {
 		.dma_mask	= &tegra_ehci_dmamask,
 		.coherent_dma_mask = DMA_BIT_MASK(32),
-		.platform_data = &tegra_ehci1_pdata,
 	},
 	.resource = tegra_usb1_resources,
 	.num_resources = ARRAY_SIZE(tegra_usb1_resources),
@@ -632,7 +587,6 @@ struct platform_device tegra_ehci2_device = {
 	.dev	= {
 		.dma_mask	= &tegra_ehci_dmamask,
 		.coherent_dma_mask = DMA_BIT_MASK(32),
-		.platform_data = &tegra_ehci2_pdata,
 	},
 	.resource = tegra_usb2_resources,
 	.num_resources = ARRAY_SIZE(tegra_usb2_resources),
@@ -644,7 +598,6 @@ struct platform_device tegra_ehci3_device = {
 	.dev	= {
 		.dma_mask	= &tegra_ehci_dmamask,
 		.coherent_dma_mask = DMA_BIT_MASK(32),
-		.platform_data = &tegra_ehci3_pdata,
 	},
 	.resource = tegra_usb3_resources,
 	.num_resources = ARRAY_SIZE(tegra_usb3_resources),
@@ -1325,7 +1278,7 @@ struct platform_device tegra_das_device = {
 };
 #endif
 
-#if defined(CONFIG_TEGRA_IOVMM_GART) || defined(CONFIG_TEGRA_IOMMU_GART)
+#if defined(CONFIG_TEGRA_IOVMM_GART)
 static struct resource tegra_gart_resources[] = {
 	[0] = {
 		.name	= "mc",
@@ -1349,7 +1302,7 @@ struct platform_device tegra_gart_device = {
 };
 #endif
 
-#if defined(CONFIG_TEGRA_IOVMM_SMMU) || defined(CONFIG_TEGRA_IOMMU_SMMU)
+#if defined(CONFIG_TEGRA_IOVMM_SMMU)
 static struct resource tegra_smmu_resources[] = {
 	[0] = {
 		.name	= "mc",
@@ -1696,58 +1649,3 @@ struct platform_device tegra_se_device = {
 };
 #endif
 
-static struct resource tegra_disp1_resources[] = {
-	{
-		.name	= "irq",
-		.start	= INT_DISPLAY_GENERAL,
-		.end	= INT_DISPLAY_GENERAL,
-		.flags	= IORESOURCE_IRQ,
-	},
-	{
-		.name	= "regs",
-		.start	= TEGRA_DISPLAY_BASE,
-		.end	= TEGRA_DISPLAY_BASE + TEGRA_DISPLAY_SIZE-1,
-		.flags	= IORESOURCE_MEM,
-	},
-	{
-		.name	= "fbmem",
-		.start	= 0,
-		.end	= 0,
-		.flags	= IORESOURCE_MEM,
-	},
-	{
-		.name	= "dsi_regs",
-		.start	= TEGRA_DSI_BASE,
-		.end	= TEGRA_DSI_BASE + TEGRA_DSI_SIZE - 1,
-		.flags	= IORESOURCE_MEM,
-	},
-};
-
-struct nvhost_device tegra_disp1_device = {
-	.name		= "tegradc",
-	.id		= 0,
-	.resource	= tegra_disp1_resources,
-	.num_resources	= ARRAY_SIZE(tegra_disp1_resources),
-};
-
-struct platform_device tegra_nvmap_device = {
-	.name	= "tegra-nvmap",
-	.id	= -1,
-};
-
-void tegra_init_debug_uart_rate(void)
-{
-	unsigned int uartclk;
-	struct clk *debug_uart_parent = clk_get_sys(NULL, "pll_p");
-
-	BUG_ON(IS_ERR(debug_uart_parent));
-	uartclk = clk_get_rate(debug_uart_parent);
-
-	debug_uarta_platform_data[0].uartclk = uartclk;
-	debug_uartb_platform_data[0].uartclk = uartclk;
-	debug_uartc_platform_data[0].uartclk = uartclk;
-	debug_uartd_platform_data[0].uartclk = uartclk;
-#if !defined(CONFIG_ARCH_TEGRA_2x_SOC)
-	debug_uarte_platform_data[0].uartclk = uartclk;
-#endif
-}
