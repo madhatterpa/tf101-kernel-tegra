@@ -152,14 +152,6 @@ int max8907c_set_bits(struct i2c_client *i2c, u8 reg, u8 mask, u8 val)
 EXPORT_SYMBOL_GPL(max8907c_set_bits);
 
 static struct i2c_client *max8907c_client = NULL;
-static void max8907c_power_off(void)
-{
-	if (!max8907c_client)
-		return;
-
-	max8907c_set_bits(max8907c_client, MAX8907C_REG_RESET_CNFG,
-						MAX8907C_MASK_POWER_OFF, 0x40);
-}
 
 void max8907c_deep_sleep(int enter)
 {

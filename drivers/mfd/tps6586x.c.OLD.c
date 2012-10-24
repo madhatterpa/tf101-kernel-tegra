@@ -256,38 +256,19 @@ out:
 EXPORT_SYMBOL_GPL(tps6586x_update);
 
 static struct i2c_client *tps6586x_i2c_client = NULL;
-int tps6586x_power_off(void)
+static void tps6586x_power_off(void)
 {
 	struct device *dev = NULL;
-	int ret = -EINVAL;
-      unsigned char val=0;
+
 	if (!tps6586x_i2c_client)
-		return ret;
+		return;
 
 	dev = &tps6586x_i2c_client->dev;
-#if 1
-	/*ret = tps6586x_clr_bits(dev, TPS6586X_SUPPLYENE, EXITSLREQ_BIT);
-	if (ret)
-		return ret;*/
 
-	ret = tps6586x_set_bits(dev, TPS6586X_SUPPLYENE, SLEEP_MODE_BIT);
-	if (ret)
-		return ret;
-#else
-	ret = tps6586x_read(dev, TPS6586X_SUPPLYENE, &val);
-	if (ret){
-		printk("tps6586x_power_off read TPS6586X_SUPPLYENE failed!\n ");
-		return ret;
-	}
-       val &= ~EXITSLREQ_BIT;
-       val |= SLEEP_MODE_BIT;
-	ret = tps6586x_write(dev, TPS6586X_SUPPLYENE, val);
-	if (ret){
-		printk("tps6586x_power_off write TPS6586X_SUPPLYENE failed!\n ");
-		return ret;
-	}
-#endif
-	return 0;
+	if (tps6586x_clr_bits(dev, TPS6586X_SUPPLYENE, EXITSLREQ_BIT))
+		return;
+
+	tps6586x_set_bits(dev, TPS6586X_SUPPLYENE, SLEEP_MODE_BIT);
 }
 
 static int tps6586x_gpio_get(struct gpio_chip *gc, unsigned offset)
@@ -302,6 +283,7 @@ static int tps6586x_gpio_get(struct gpio_chip *gc, unsigned offset)
 
 	return !!(val & (1 << offset));
 }
+
 
 static void tps6586x_gpio_set(struct gpio_chip *chip, unsigned offset,
 			      int value)
